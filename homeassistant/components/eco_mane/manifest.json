@@ -1,0 +1,13 @@
+{
+  "domain": "eco_mane",
+  "name": "Eco Mane HEMS",
+  "codeowners": ["@dr-iot-dev"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/eco_mane",
+  "homekit": {},
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": []
+}

@@ -12,9 +12,10 @@ repos:
     hooks:
       - id: codespell
         args:
-          - --ignore-words-list=astroid,checkin,currenty,hass,iif,incomfort,lookin,nam,NotIn,pres,ser,ue
+          - --ignore-words-list=astroid,checkin,currenty,hass,iif,incomfort,lookin,nam,NotIn,pres,ser,ue,Mane
           - --skip="./.*,*.csv,*.json,*.ambr"
           - --quiet-level=2
+          - --ignore-words "ignore-words.txt"
         exclude_types: [csv, json, html]
         exclude: ^tests/fixtures/|homeassistant/generated/|tests/components/.*/snapshots/
   - repo: https://github.com/pre-commit/pre-commit-hooks
