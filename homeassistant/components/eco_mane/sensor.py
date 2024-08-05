@@ -159,7 +159,7 @@ class EcoTopMoniEntity(CoordinatorEntity, SensorEntity):
 
     @property
     def div_id(self):
-        """Division id."""
+        """HTML Division id."""
         return self._div_id
 
     @property
