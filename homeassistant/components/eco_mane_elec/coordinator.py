@@ -204,7 +204,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
 
                 element = div_element.find("div", class_="num")
                 if isinstance(element, Tag):
-                    self._elec_dict[prefix + "_num"] = element.get_text().split("W")[0]
+                    self._elec_dict[prefix] = element.get_text().split("W")[0]
 
                 self._count = self._count + 1
                 _LOGGER.debug("count:%s", self._count)
