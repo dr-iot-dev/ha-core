@@ -49,11 +49,11 @@ async def async_setup_platform(
     # if not coordinator.last_update_success:
     #     raise ConfigEntryNotReady
     elec_dict = coordinator.elec_dict
-    total_count = coordinator.count
+    total = coordinator.total
 
     # センサーのエンティティのリストを作成
     sensors = []
-    for _i in range(int(total_count)):
+    for _i in range(int(total)):
         prefix = f"elecCheck_{_i}"
         txt = elec_dict[prefix + "_txt"]
         txt2 = elec_dict[prefix + "_txt2"]

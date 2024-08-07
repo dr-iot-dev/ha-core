@@ -75,6 +75,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
         self._config = config
         self._elec_dict: dict[str, str] = {}
         self._session = None
+        self._total = 0
         self._count = 0
 
     # def set_config(self, config: ConfigType) -> None:
@@ -95,31 +96,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self):
         """Update ElecCheck."""
-        # loop = asyncio.new_event_loop()
-        # asyncio.set_event_loop(loop)
 
-        # # browser = await asyncio.to_thread(
-        # #     self.launch_browser
-        # # )  # launch_browserを別スレッドで実行
-        # # browser = await launch_browser_async()  # 直接awaitして結果を取得
-        # browser = loop.run_until_complete(
-        #     launch(
-        #         headless=True,
-        #         executablePath="/home/vscode/.local/share/pyppeteer/local-chromium/1181205/chrome-linux/chrome",
-        #     )
-        # )
-        # page = loop.run_until_complete(browser.newPage())
-        # page = await browser.newPage()
-        # # service = await get_chrome_driver()
-        # # Initialize WebDriver with service and options
-        # # driver = webdriver.Chrome(service=service, options=options)
-        # # Initialize WebDriver asynchronously
-        # driver = await init_webdriver()
-
-        # # Selenium WebDriverをセットアップ
-        # options = webdriver.ChromeOptions()
-        # options.add_argument("--headless")  # ヘッドレスモードを使用
-        # driver = webdriver.Chrome(options=options)
         response = None
         try:
             # デバイスからデータを取得
@@ -142,14 +119,10 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                 text = raw_content.decode("shift-jis")
                 # _LOGGER.debug("text: %s", text)
                 soup = BeautifulSoup(text, "html.parser")
-                # title_element = soup.select_one("title")
-                # _LOGGER.debug("title_element: %s", title_element)
-                # title_parts = title_element.text.split("/")
-                # _LOGGER.debug("title_parts[0]: %s", title_parts[0])
-                # total_page = title_element.text.split("/")[1]
                 maxp_value = soup.find("input", {"name": "maxp"})["value"]
                 total_page = int(maxp_value)
 
+                self._count = 0
                 for page_num in range(1, total_page + 1):
                     url = f"http://{self._ip}/elecCheck_6000.cgi?page={page_num}&disp=2"
                     response = await session.get(url)
@@ -162,15 +135,13 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                         return None
                     response.encoding = "shift-jis"
                     await self.parse_data(response)
+                self._total = self._count
+                _LOGGER.debug("Total number of entries = %s", self._total)
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise
         # finally:
-        #     # ブラウザを閉じる
-        #     # await browser.close()
-        #     loop.run_until_complete(browser.close())
-        # parse data
-        # elec_dict = self.parse_data(content)
+
         return self._elec_dict
 
     async def parse_data(self, response) -> None:
@@ -217,6 +188,6 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
         return self._elec_dict
 
     @property
-    def count(self) -> int:
-        """ElecCheck number of entries."""
-        return self._count
+    def total(self) -> int:
+        """ElecCheck total number of entries."""
+        return self._total
