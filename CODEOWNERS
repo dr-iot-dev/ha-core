@@ -360,6 +360,7 @@ build.json @home-assistant/supervisor
 /tests/components/easyenergy/ @klaasnicolaas
 /homeassistant/components/eco_mane/ @dr-iot-dev
 /tests/components/eco_mane/ @dr-iot-dev
+/homeassistant/components/eco_mane_elec/ @dr-iot-dev
 /homeassistant/components/ecoforest/ @pjanuario
 /tests/components/ecoforest/ @pjanuario
 /homeassistant/components/econet/ @w1ll1am23

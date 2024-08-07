@@ -1438,6 +1438,12 @@
       "config_flow": true,
       "iot_class": "cloud_polling"
     },
+    "eco_mane_elec": {
+      "name": "Eco Mane HEMS",
+      "integration_type": "hub",
+      "config_flow": true,
+      "iot_class": "cloud_polling"
+    },
     "ecoal_boiler": {
       "name": "eSterownik eCoal.pl Boiler",
       "integration_type": "hub",

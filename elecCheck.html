@@ -1,0 +1,815 @@
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <title>電気使用量確認(2/4)</title>
+    <style type="text/css">
+      <!--
+      body,
+      html {
+          margin: 0;
+          padding: 0;
+      }
+
+      img {
+          border: 0;
+      }
+
+      body,
+      div,
+      dl,
+      dt,
+      dd,
+      ul,
+      ol,
+      li,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      pre,
+      code,
+      form,
+      fieldset,
+      legend,
+      input,
+      textarea,
+      p,
+      blockquote,
+      th,
+      td {
+          margin: 0;
+          padding: 0;
+      }
+
+      div {
+          position: absolute;
+      }
+
+      #header {
+          width: 800px;
+          height: 64px;
+          margin: 0;
+          padding: 0;
+          left: 0;
+          top: 0;
+      }
+
+      #header #h_text {
+          width: 794px;
+          height: 20px;
+          left: 6px;
+          top: 2px;
+          font-size: 20px;
+          color: #466480;
+      }
+
+      #header #h_pict {
+          left: 0;
+          top: 31px;
+          width: 39px;
+          height: 29px;
+      }
+
+      #header #h_title {
+          width: 794px;
+          height: 24px;
+          left: 6px;
+          top: 32px;
+          font-size: 24px;
+          color: #001538;
+      }
+
+      #header #h_title_pict {
+          width: 754px;
+          height: 24px;
+          left: 46px;
+          top: 32px;
+          font-size: 24px;
+          color: #001538;
+      }
+
+      #header #clockLayer {
+          width: 789px;
+          height: 20px;
+          left: 0px;
+          top: 32px;
+          font-size: 24px;
+          color: #283f5a;
+          text-align: right;
+      }
+
+      #header #h_text_popup {
+          width: 794px;
+          height: 20px;
+          left: 6px;
+          top: 2px;
+          font-size: 20px;
+          color: #2a3c4d;
+      }
+
+      #header #h_title_popup {
+          width: 794px;
+          height: 24px;
+          left: 6px;
+          top: 32px;
+          font-size: 24px;
+          color: #000d22;
+      }
+
+      #header #h_title_pict_popup {
+          width: 754px;
+          height: 24px;
+          left: 46px;
+          top: 32px;
+          font-size: 24px;
+          color: #000d22;
+      }
+
+      #header #h_time_popup {
+          width: 789px;
+          height: 20px;
+          left: 0px;
+          top: 34px;
+          font-size: 20px;
+          color: #182636;
+          text-align: right;
+      }
+
+      #footer {
+          width: 800px;
+          height: 100px;
+          margin: 0;
+          padding: 0;
+          left: 0;
+          top: 350px;
+      }
+
+      #footer #f_bgimg {
+          width: 800px;
+          height: 70px;
+          left: 0;
+          top: 0;
+      }
+
+      #footer #f_copyright {
+          width: 258px;
+          height: 13px;
+          left: 542px;
+          top: 71px;
+      }
+
+      #footer #f_copyright_gy {
+          width: 258px;
+          height: 13px;
+          left: 542px;
+          top: 71px;
+      }
+
+      #content {
+          width: 800px;
+          height: 286px;
+          top: 64px;
+          left: 0;
+      }
+
+      .btn_158 {
+          width: 158px;
+          height: 56px;
+      }
+
+      .btn_121 {
+          width: 121px;
+          height: 41px;
+      }
+
+      .btn_76 {
+          width: 76px;
+          height: 41px;
+      }
+
+      .btn_52 {
+          width: 52px;
+          height: 41px;
+      }
+      -->
+    </style>
+    <style type="text/css">
+      <!--
+      body,
+      html {
+          background: #c7d9d2 url(ecoimages/zvp_wall_tab.png) no-repeat;
+      }
+
+      #line_v_b_01 {
+          width: 1px;
+          height: 284px;
+          background: #418098;
+          z-index: 3;
+          left: 396px;
+          top: 2px;
+      }
+
+      #line_v_w_01 {
+          width: 1px;
+          height: 284px;
+          background: #fff;
+          z-index: 1;
+          left: 397px;
+          top: 2px;
+      }
+
+      .line_h_b {
+          width: 682px;
+          height: 1px;
+          background: #418098;
+          z-index: 4;
+          left: 56px;
+      }
+
+      .line_h_w {
+          width: 682px;
+          height: 1px;
+          background: #fff;
+          z-index: 2;
+          left: 56px;
+      }
+
+      #line_h_b_01 {
+          top: 70px;
+      }
+
+      #line_h_w_01 {
+          top: 71px;
+      }
+
+      #line_h_b_02 {
+          top: 142px;
+      }
+
+      #line_h_w_02 {
+          top: 143px;
+      }
+
+      #line_h_b_03 {
+          top: 214px;
+      }
+
+      #line_h_w_03 {
+          top: 215px;
+      }
+      -->
+    </style>
+    <style type="text/css">
+      <!--
+      .ojt {
+          width: 290px;
+          height: 64px;
+      }
+
+      #ojt_01 {
+          left: 79px;
+          top: 2px;
+      }
+
+      #ojt_03 {
+          left: 79px;
+          top: 74px;
+      }
+
+      #ojt_05 {
+          left: 79px;
+          top: 146px;
+      }
+
+      #ojt_07 {
+          left: 79px;
+          top: 218px;
+      }
+
+      #ojt_02 {
+          left: 422px;
+          top: 2px;
+      }
+
+      #ojt_04 {
+          left: 422px;
+          top: 74px;
+      }
+
+      #ojt_06 {
+          left: 422px;
+          top: 146px;
+      }
+
+      #ojt_08 {
+          left: 422px;
+          top: 218px;
+      }
+      -->
+    </style>
+    <style type="text/css">
+      <!--
+      .pic {
+          left: 0;
+          top: 8px;
+          width: 50px;
+          height: 50px;
+
+      }
+
+      .txt {
+          left: 61px;
+          top: 0;
+          width: 170px;
+          height: 41px;
+          font-size: 20px;
+      }
+
+      .txt2 {
+          left: 61px;
+          top: 21px;
+          width: 170px;
+          height: 41px;
+          font-size: 20px;
+      }
+
+      .sar {
+          left: 61px;
+          top: 42px;
+          width: 23px;
+          height: 23px;
+      }
+
+      .num {
+          left: 86px;
+          top: 42px;
+          width: 135px;
+          height: 20px;
+          font-size: 20px;
+      }
+
+      .btn {
+          left: 245px;
+          top: 13px;
+          width: 58px;
+          height: 41px;
+      }
+
+      .btn2 {
+          left: 244px;
+          top: 13px;
+          width: 58px;
+          height: 41px;
+      }
+      -->
+    </style>
+    <style type="text/css">
+      <!--
+      #tab_01 {
+          left: 7px;
+          top: 21px;
+          width: 49px;
+          height: 120px;
+      }
+
+      #tab_02 {
+          left: 7px;
+          top: 146px;
+          width: 49px;
+          height: 120px;
+      }
+
+      #arr_bg {
+          left: 738px;
+          top: 0;
+          width: 62px;
+          height: 286px;
+      }
+
+      #arr_01 {
+          left: 738px;
+          top: 0;
+          width: 62px;
+          height: 70px;
+      }
+
+      #arr_02 {
+          left: 738px;
+          top: 216px;
+          width: 62px;
+          height: 70px;
+      }
+
+      #footer #f_btn_r {
+          left: 667px;
+          top: 8px;
+      }
+      -->
+    </style>
+    <style type="text/css">
+      <!--
+      #message {
+          top: 128px;
+          left: 49px;
+          width: 689px;
+          font-size: 24px;
+          text-align: center;
+      }
+      -->
+    </style>
+    <script language="JavaScript" type="text/javascript">
+      <!--
+      var timerID = null
+      var timerRunning = false
+      var Offset
+      var JSToffset = -9 * 3600 * 1000
+      var Epoch = new Date("Apr 1, 2004 0:00:00")
+      function startclock()
+      {
+      document.getElementById('all').style.display = "block";
+      document.getElementById("testCur").focus();
+      var LocalClock, Standard
+      LocalClock = new Date()
+      Standard = new Date( 2024, 7, 5, 14, 42, 59, 0)
+      Offset     = Standard.getTime() - LocalClock.getTime()
+      TZoffset   = LocalClock.getTimezoneOffset() * 60000
+      if (TZoffset > 12 * 3600 * 1000)
+      TZoffset = TZoffset - ( 24 * 3600 * 1000 )
+      showtime()
+      }
+      function showtime()
+      {
+      var now, temp
+      var h, m, s
+      var Clock
+      now = new Date()
+      temp = now.getTime()+ Offset
+      Clock = new Date( temp - TZoffset )
+      if ( isNaN(Clock) ){
+      document.getElementById("clockLayer").innerHTML = "0000/00/00 00:00";
+      }
+      else {
+      var year  = Clock.getYear();
+      var month = Clock.getMonth()+1;
+      var date  = Clock.getDate();
+      var hour  = Clock.getHours();
+      var min   = Clock.getMinutes();
+      var day   = Clock.getDay();
+      if ( year < 1900 ) { year = year + 1900; }
+      if ( month < 10 ) { month = "0" + month }
+      if ( date < 10 ) { date = "0" + date }
+      if ( hour < 10 ) { hour = "0" + hour }
+      if ( min < 10 ) { min = "0" + min }
+      if ( year > 2037 ) {
+      document.getElementById("clockLayer").innerHTML =
+      "0000/00/00 00:00";
+      } else {
+      document.getElementById("clockLayer").innerHTML =
+      year + "/" + month + "/" + date + " " + hour + ":" + min;
+      }
+      }
+      timerID = setTimeout("showtime()",1000)
+      timerRunning = true
+      }
+      function moveTab(no) {
+          document.elec.page.value=1;
+          document.elec.disp.value=no;
+          if(navigator.userAgent.indexOf("InettvBrowser") != -1){
+          document.elec.action=document.elec.action+'?page='+document.elec.page.value;
+          document.elec.action=document.elec.action+'&disp='+document.elec.disp.value;
+       }
+          document.elec.submit();
+      }
+      function movePage(no,pageNo) {
+          document.elec.disp.value=no;
+          document.elec.page.value = pageNo;
+          if(navigator.userAgent.indexOf("InettvBrowser") != -1){
+          document.elec.action=document.elec.action+'?page='+document.elec.page.value;
+          document.elec.action=document.elec.action+'&disp='+document.elec.disp.value;
+       }
+          document.elec.submit();
+      }
+      function moveCircuitChange(id) {
+          document.elec.page.value = 2;
+          document.elec.selNo.value = id;
+          document.elec.action="resultGraphDiv_4242.cgi";
+          if(navigator.userAgent.indexOf("InettvBrowser") != -1){
+          document.elec.action=document.elec.action+'?page='+document.elec.page.value;
+          document.elec.action=document.elec.action+'&maxp='+document.elec.maxp.value;
+          document.elec.action=document.elec.action+'&disp='+document.elec.disp.value;
+          document.elec.action=document.elec.action+'&selNo='+document.elec.selNo.value;
+          document.elec.action=document.elec.action+'&check='+document.elec.check.value;
+       }
+          document.elec.submit();
+      }
+       ->
+    </script>
+  </head>
+
+  <body onload="startclock();">
+    <div id="all" style="display: block">
+      <div id="header">
+        <div id="h_text">エネルギーモニター＞</div>
+        <div id="h_pict">
+          <img
+            src="ecoimages/zvp_p_head_eco.png"
+            alt=""
+            width="39"
+            height="29"
+          />
+        </div>
+        <div id="h_title_pict">電気使用量確認(2/4)</div>
+        <div id="clockLayer">2024/08/07 02:16</div>
+      </div>
+      <form name="elec" method="post" action="elecCheck_6000.cgi">
+        <input type="hidden" name="page" value="2" /><input
+          type="hidden"
+          name="maxp"
+          value="4"
+        /><input type="hidden" name="selNo" value="0" /><input
+          type="hidden"
+          name="disp"
+          value="0"
+        /><input type="hidden" name="check" value="2" />
+        <div id="content">
+          <div id="tab_01">
+            <a href="javascript:moveTab(1)"
+              ><img
+                src="ecoimages/zvp_t_kini_dn.png"
+                alt=""
+                width="49"
+                height="120"
+            /></a>
+          </div>
+          <div id="tab_02">
+            <img
+              src="ecoimages/zvp_t_zen_up.png"
+              alt=""
+              width="49"
+              height="120"
+            />
+          </div>
+          <div id="ojt_01" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">洗面</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">0W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('7')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_02" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">玄関・１階廊下</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">0W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('8')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_03" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">寝室（東）</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">94W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('9')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_04" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">寝室・クロゼット</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">0W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('10')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_05" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">書斎</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">309W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('11')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_06" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">シャワー洗面納戸</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">178W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('12')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_07" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_syokon.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">階段・２階共用</div>
+            <div class="txt2">照明＆コンセント</div>
+            <div class="num">25W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('13')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="ojt_08" class="ojt">
+            <div class="pic">
+              <img
+                src="ecoimages/zvp_p_ki_konsento.png"
+                alt=""
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="txt">キッチン（上）</div>
+            <div class="txt2">コンセント</div>
+            <div class="num">0W</div>
+            <div class="btn btn_58">
+              <a href="javascript:moveCircuitChange('14')"
+                ><img
+                  src="ecoimages/zvp_b_graph_up.png"
+                  alt=""
+                  width="58"
+                  height="41"
+              /></a>
+            </div>
+          </div>
+          <div id="line_v_b_01">
+            <img src="ecoimages/z_spacer.png" alt="" width="1" height="284" />
+          </div>
+          <div id="line_v_w_01">
+            <img src="ecoimages/z_spacer.png" alt="" width="1" height="284" />
+          </div>
+          <div id="line_h_b_01" class="line_h_b">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="line_h_w_01" class="line_h_w">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="line_h_b_02" class="line_h_b">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="line_h_w_02" class="line_h_w">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="line_h_b_03" class="line_h_b">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="line_h_w_03" class="line_h_w">
+            <img src="ecoimages/z_spacer.png" alt="" width="682" height="1" />
+          </div>
+          <div id="arr_bg">
+            <img
+              src="ecoimages/zvp_wall_scroll_t.png"
+              alt=""
+              width="62"
+              height="286"
+            />
+          </div>
+          <div id="arr_01">
+            <a href="javascript:movePage(2,1);"
+              ><img
+                src="ecoimages/zvp_b_pre8_t_up.png"
+                alt=""
+                width="62"
+                height="70"
+            /></a>
+          </div>
+          <div id="arr_02">
+            <a href="javascript:movePage(2,3);" id="testCur"
+              ><img
+                src="ecoimages/zvp_b_nex8_t_up.png"
+                alt=""
+                width="62"
+                height="70"
+            /></a>
+          </div>
+        </div>
+        <div id="footer">
+          <div id="f_bgimg">
+            <img
+              src="ecoimages/zvp_foot_base_lr.png"
+              alt=""
+              width="800"
+              height="100"
+            />
+          </div>
+          <div id="f_btn_r" class="btn_121">
+            <a href="ecoTopEnergy.cgi"
+              ><img
+                src="ecoimages/zvp_b_modoru_up.png"
+                alt=""
+                width="121"
+                height="41"
+            /></a>
+          </div>
+          <div id="f_copyright">
+            <img
+              src="ecoimages/z_v_copyright.gif"
+              alt=""
+              width="258"
+              height="12"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
