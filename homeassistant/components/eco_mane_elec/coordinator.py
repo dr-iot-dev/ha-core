@@ -4,11 +4,14 @@ from datetime import timedelta
 import logging
 
 # import re
-# import aiohttp
+import aiohttp
+
 # from pyppeteer import launch
 # import time
-# from bs4 import BeautifulSoup
 # import requests
+from bs4 import BeautifulSoup, NavigableString
+from bs4.element import Tag
+
 # from selenium import webdriver
 # from selenium.webdriver.chrome.options import Options
 # from selenium.webdriver.chrome.service import Service
@@ -18,8 +21,7 @@ import logging
 # from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.support.ui import WebDriverWait
 # from webdriver_manager.chrome import ChromeDriverManager
-from requests_html import AsyncHTMLSession
-
+# from requests_html import AsyncHTMLSession
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
@@ -86,6 +88,10 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
     #         executablePath="/home/vscode/.local/share/pyppeteer/local-chromium/1181205/chrome-linux/chrome",
     #     )
     #     # )
+    async def fetch(self, session, url):
+        """Fetch data."""
+        async with session.get(url) as response:
+            return await response.text()
 
     async def _async_update_data(self):
         """Update ElecCheck."""
@@ -114,30 +120,48 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
         # options = webdriver.ChromeOptions()
         # options.add_argument("--headless")  # ヘッドレスモードを使用
         # driver = webdriver.Chrome(options=options)
-
-        self._session = AsyncHTMLSession()
+        response = None
         try:
             # デバイスからデータを取得
-            url = f"http://{self._ip}/elecCheck_6000.cgi&disp=2"
+            url = f"http://{self._ip}/elecCheck_6000.cgi?disp=2"
             # driver.get(url)
             # await page.goto(url)
             # loop.run_until_complete(page.goto(url))
-            response = await self._session.get(url)
+            async with aiohttp.ClientSession() as session:
+                response = await session.get(url)
+                if response.status != 200:
+                    _LOGGER.error(
+                        "Error fetching data from %s. Status code: %s",
+                        url,
+                        response.status,
+                    )
+                    return None
+                response.encoding = "shift-jis"
+                raw_content = await response.read()
+                # _LOGGER.debug("raw_content: %s", raw_content)
+                text = raw_content.decode("shift-jis")
+                # _LOGGER.debug("text: %s", text)
+                soup = BeautifulSoup(text, "html.parser")
+                # title_element = soup.select_one("title")
+                # _LOGGER.debug("title_element: %s", title_element)
+                # title_parts = title_element.text.split("/")
+                # _LOGGER.debug("title_parts[0]: %s", title_parts[0])
+                # total_page = title_element.text.split("/")[1]
+                maxp_value = soup.find("input", {"name": "maxp"})["value"]
+                total_page = int(maxp_value)
 
-            # 新しいページが読み込まれるまで待つ
-            # content = await page.content()
-            # content = loop.run_until_complete(page.content())
-            await response.html.arender()
-            # await run_in_executor(response.html.arender)
-
-            # self.parse_data(content)
-            title_element = response.html.title.text
-            total_page = title_element.text.split("/")[1]
-
-            for page_num in range(1, total_page + 1):
-                url = f"http://{self._ip}/elecCheck_6000.cgi?page={page_num}&disp=2"
-                response = await self._session.get(url)
-                self.parse_data(response)
+                for page_num in range(1, total_page + 1):
+                    url = f"http://{self._ip}/elecCheck_6000.cgi?page={page_num}&disp=2"
+                    response = await session.get(url)
+                    if response.status != 200:
+                        _LOGGER.error(
+                            "Error fetching data from %s. Status code: %s",
+                            url,
+                            response.status,
+                        )
+                        return None
+                    response.encoding = "shift-jis"
+                    await self.parse_data(response)
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise
@@ -147,6 +171,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
         #     loop.run_until_complete(browser.close())
         # parse data
         # elec_dict = self.parse_data(content)
+        return self._elec_dict
 
     async def parse_data(self, response) -> None:
         """Parse data from the content."""
@@ -156,35 +181,42 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
             prefix = f"elecCheck_{self._count}"
 
             _LOGGER.debug("id:%s prefix:%s", div_id, prefix)
+
+            response.encoding = "shift-jis"
+            raw_content = await response.read()
+            # _LOGGER.debug("raw_content: %s", raw_content)
+            text = raw_content.decode("shift-jis")
+            # _LOGGER.debug("text: %s", text)
+            soup = BeautifulSoup(text, "html.parser")
             # div_element = content.querySelector("#" + div_id)
-            div_element = response.html.find("#" + div_id, first=True)
-            if div_element:
+            div_element: Tag | NavigableString | None = soup.find("div", id=div_id)
+            if isinstance(div_element, Tag):
                 # 要素を取得
-                # txt_element = div_element.querySelector("#txt")
-                # txt2_element = div_element.querySelector("#txt2")
-                # num_element = div_element.querySelector("#num").split("W")[0]
-                # div要素のテキストを取得
-                # elec_dict[prefix + "_txt"] = await content.evaluate(
-                #     "(element) => element.textContent", txt_element
-                # )
-                # elec_dict[prefix + "_txt2"] = await content.evaluate(
-                #     "(element) => element.textContent", txt2_element
-                # )
-                # elec_dict[prefix] = await content.evaluate(
-                #     "(element) => element.textContent", num_element
-                # ).split("W")[0]
-                self._elec_dict[prefix + "_txt"] = div_element.find(
-                    "#txt", first=True
-                ).text
-                self._elec_dict[prefix + "_txt2"] = div_element.find(
-                    "#txt2", first=True
-                ).text
-                self._elec_dict[prefix] = div_element.find(
-                    "#num", first=True
-                ).text.split("W")[0]
+                element: Tag | NavigableString | int | None = div_element.find(
+                    "div", class_="txt"
+                )
+                if isinstance(element, Tag):
+                    self._elec_dict[prefix + "_txt"] = element.get_text()
+
+                element = div_element.find("div", class_="txt2")
+                if isinstance(element, Tag):
+                    self._elec_dict[prefix + "_txt2"] = element.get_text()
+
+                element = div_element.find("div", class_="num")
+                if isinstance(element, Tag):
+                    self._elec_dict[prefix + "_num"] = element.get_text().split("W")[0]
+
                 self._count = self._count + 1
+                _LOGGER.debug("count:%s", self._count)
+            else:
+                _LOGGER.debug("div_element not found div_id:%s", div_id)
 
     @property
     def elec_dict(self) -> dict[str, str]:
         """ElecCheck Dictionary."""
         return self._elec_dict
+
+    @property
+    def count(self) -> int:
+        """ElecCheck number of entries."""
+        return self._count
