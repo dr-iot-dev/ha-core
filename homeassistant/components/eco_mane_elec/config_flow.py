@@ -6,7 +6,6 @@ import voluptuous as vol
 
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers.translation import async_get_translations
 
 from .const import DOMAIN  # Import your domain constant
 
@@ -55,23 +54,6 @@ class EcoManeElecConfigFlow(ConfigFlow, domain=DOMAIN):
                     title=user_input["name"], data=user_input
                 )
 
-        # strings.json から description_placeholders を取得
-        translations = await async_get_translations(
-            self.hass,
-            "en",
-            "config",
-            [DOMAIN],
-        )
-        _name_description = translations.get(
-            f"component.{DOMAIN}.config.step.user.description_placeholders.name_description",
-            "Name of the Eco Mane Elec HEMS System",
-        )
-        _LOGGER.debug("_name_description=%s", _name_description)
-
-        _ip_description = translations.get(
-            f"component.{DOMAIN}.config.step.user.description_placeholders.ip_description",
-            "IP address of the Eco Mane Elec HEMS System",
-        )
         return self.async_show_form(
             step_id="user",
             data_schema=data_schema,
