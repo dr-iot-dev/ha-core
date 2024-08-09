@@ -10,13 +10,14 @@ from homeassistant.components.sensor import (
     PLATFORM_SCHEMA as SENSOR_PLATFORM_SCHEMA,
     SensorEntity,
 )
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import UnitOfPower
 from homeassistant.core import HomeAssistant
 
 # from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.exceptions import ConfigEntryNotReady
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import CONF_IP, CONF_NAME
@@ -28,26 +29,25 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORM_SCHEMA = SENSOR_PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_IP): cv.string,
-        vol.Optional(CONF_NAME, default="Eco Mane HEMS System Elec"): cv.string,
+        vol.Optional(CONF_NAME, default="Eco Mane Elec HEMS System"): cv.string,
     }
 )
 
 
-async def async_setup_platform(
+async def async_setup_entry(
     hass: HomeAssistant,
-    config: ConfigType,
+    config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
-    discovery_info: DiscoveryInfoType | None = None,
-) -> None:  # noqa: D103
-    """Set up the sensor platform."""
+) -> None:
+    """Set up the entry."""
 
-    ip = config[CONF_IP]
+    ip = config_entry.data[CONF_IP]
 
-    coordinator = ElecCheckDataCoordinator(hass, ip, config)
+    coordinator = ElecCheckDataCoordinator(hass, ip)
     await coordinator.async_config_entry_first_refresh()
+    if not coordinator.last_update_success:
+        raise ConfigEntryNotReady
 
-    # if not coordinator.last_update_success:
-    #     raise ConfigEntryNotReady
     elec_dict = coordinator.elec_dict
     total = coordinator.total
 
@@ -61,7 +61,37 @@ async def async_setup_platform(
         sensors.append(ElecCheckEntity(prefix, txt, txt2, num, coordinator))
 
     async_add_entities(sensors)
-    # config[CONF_SENSORS] = sensors
+
+
+# async def async_setup_platform(
+#     hass: HomeAssistant,
+#     config: ConfigType,
+#     async_add_entities: AddEntitiesCallback,
+#     discovery_info: DiscoveryInfoType | None = None,
+# ) -> None:  # noqa: D103
+#     """Set up the sensor platform."""
+
+#     ip = config[CONF_IP]
+
+#     coordinator = ElecCheckDataCoordinator(hass, ip, config)
+#     await coordinator.async_config_entry_first_refresh()
+
+#     # if not coordinator.last_update_success:
+#     #     raise ConfigEntryNotReady
+#     elec_dict = coordinator.elec_dict
+#     total = coordinator.total
+
+#     # センサーのエンティティのリストを作成
+#     sensors = []
+#     for _i in range(int(total)):
+#         prefix = f"elecCheck_{_i}"
+#         txt = elec_dict[prefix + "_txt"]
+#         txt2 = elec_dict[prefix + "_txt2"]
+#         num = elec_dict[prefix]
+#         sensors.append(ElecCheckEntity(prefix, txt, txt2, num, coordinator))
+
+#     async_add_entities(sensors)
+#     # config[CONF_SENSORS] = sensors
 
 
 class ElecCheckEntity(CoordinatorEntity, SensorEntity):

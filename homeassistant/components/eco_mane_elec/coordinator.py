@@ -23,8 +23,7 @@ from bs4.element import Tag
 # from webdriver_manager.chrome import ChromeDriverManager
 # from requests_html import AsyncHTMLSession
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -63,7 +62,7 @@ _LOGGER = logging.getLogger(__name__)
 class ElecCheckDataCoordinator(DataUpdateCoordinator):
     """ElecCheck_6000 coordinator."""
 
-    def __init__(self, hass: HomeAssistant, ip: str, config: ConfigType) -> None:
+    def __init__(self, hass: HomeAssistant, ip: str) -> None:
         """Initialize my coordinator."""
         super().__init__(
             hass,
@@ -72,27 +71,11 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
             update_interval=timedelta(minutes=5),
         )
         self._ip = ip
-        self._config = config
+        # self._config = config
         self._elec_dict: dict[str, str] = {}
         self._session = None
         self._total = 0
         self._count = 0
-
-    # def set_config(self, config: ConfigType) -> None:
-    #     """Set Config."""
-    #     self._config = config
-    # def launch_browser(self):
-    #     """Launch browser."""
-    #     # return asyncio.run(
-    #     return launch(
-    #         headless=True,
-    #         executablePath="/home/vscode/.local/share/pyppeteer/local-chromium/1181205/chrome-linux/chrome",
-    #     )
-    #     # )
-    async def fetch(self, session, url):
-        """Fetch data."""
-        async with session.get(url) as response:
-            return await response.text()
 
     async def _async_update_data(self):
         """Update ElecCheck."""
@@ -112,7 +95,9 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                         url,
                         response.status,
                     )
-                    return None
+                    raise UpdateFailed(
+                        f"Error fetching data from {url}. Status code: {response.status}"
+                    )
                 response.encoding = "shift-jis"
                 raw_content = await response.read()
                 # _LOGGER.debug("raw_content: %s", raw_content)
@@ -132,26 +117,28 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                             url,
                             response.status,
                         )
-                        return None
+                        raise UpdateFailed(
+                            f"Error fetching data from {url}. Page:{page_num} Total Page:{total_page} Status code: {response.status}"
+                        )
                     response.encoding = "shift-jis"
-                    await self.parse_data(response)
+                    await self.parse_data(response, page_num)
                 self._total = self._count
                 _LOGGER.debug("Total number of entries = %s", self._total)
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
-            raise
+            raise UpdateFailed("_async_update_data failed") from err
         # finally:
 
         return self._elec_dict
 
-    async def parse_data(self, response) -> None:
+    async def parse_data(self, response, page_num) -> None:
         """Parse data from the content."""
 
         for button_num in range(1, 9):
             div_id = f"ojt_{button_num:02d}"
             prefix = f"elecCheck_{self._count}"
 
-            _LOGGER.debug("id:%s prefix:%s", div_id, prefix)
+            _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
 
             response.encoding = "shift-jis"
             raw_content = await response.read()
@@ -178,7 +165,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                     self._elec_dict[prefix] = element.get_text().split("W")[0]
 
                 self._count = self._count + 1
-                _LOGGER.debug("count:%s", self._count)
+                # _LOGGER.debug("count:%s", self._count)
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
 

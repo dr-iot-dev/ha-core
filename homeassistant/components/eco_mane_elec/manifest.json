@@ -1,6 +1,6 @@
 {
   "domain": "eco_mane_elec",
-  "name": "Eco Mane HEMS",
+  "name": "Eco Mane Elec HEMS",
   "codeowners": ["@dr-iot-dev"],
   "config_flow": true,
   "dependencies": [],
