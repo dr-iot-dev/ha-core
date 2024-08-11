@@ -1,62 +1,20 @@
 """Coordinator for Eco Mane ElecCheck component."""
 
+import asyncio
 from datetime import timedelta
 import logging
 
-# import re
 import aiohttp
-
-# from pyppeteer import launch
-# import time
-# import requests
 from bs4 import BeautifulSoup, NavigableString
 from bs4.element import Tag
 
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.chrome.service import Service
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support.ui import WebDriverWait
-# from webdriver_manager.chrome import ChromeDriverManager
-# from requests_html import AsyncHTMLSession
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 _LOGGER = logging.getLogger(__name__)
 
-# # ChromeDriverのインストールと設定
-# service = Service(ChromeDriverManager().install())
-# # async def get_chrome_driver() -> Service:
-# #     """Get Chrome Driver."""
-# #     loop = asyncio.get_running_loop()
-# #     driver_path = await loop.run_in_executor(None, ChromeDriverManager().install)
-# #     return Service(driver_path)
-
-# # Create options object
-# options = webdriver.ChromeOptions()
-
-
-# # Async method to initialize WebDriver
-# async def init_webdriver():
-#     """Initialize webdriver."""
-#     # Add any required options here
-
-
-#     # Run the WebDriver initialization in a separate thread
-#     loop = asyncio.get_running_loop()
-#     driver = await loop.run_in_executor(
-#         None, lambda: webdriver.Chrome(service=service, options=options)
-#     )
-#     return driver
-# async def launch_browser_async():
-#     """Launch browser."""
-#     return await launch(
-#         headless=True,
-#         executablePath="/home/vscode/.local/share/pyppeteer/local-chromium/1181205/chrome-linux/chrome",
-#     )
+retry_interval = 120
+polling_interval = 300
 
 
 class ElecCheckDataCoordinator(DataUpdateCoordinator):
@@ -68,7 +26,9 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
             hass,
             _LOGGER,
             name="ElecCheck",
-            update_interval=timedelta(minutes=5),
+            update_interval=timedelta(
+                seconds=polling_interval
+            ),  # data polling interval
         )
         self._ip = ip
         # self._config = config
@@ -76,17 +36,15 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
         self._session = None
         self._total = 0
         self._count = 0
+        # self._sensors : list[ElecCheckEntity] = []
 
     async def _async_update_data(self):
         """Update ElecCheck."""
-
+        _LOGGER.debug("Updating ElecCheck data")  # debug
         response = None
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip}/elecCheck_6000.cgi?disp=2"
-            # driver.get(url)
-            # await page.goto(url)
-            # loop.run_until_complete(page.goto(url))
             async with aiohttp.ClientSession() as session:
                 response = await session.get(url)
                 if response.status != 200:
@@ -155,19 +113,36 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                 )
                 if isinstance(element, Tag):
                     self._elec_dict[prefix + "_txt"] = element.get_text()
+                    _LOGGER.debug("txt:%s", element.get_text())
 
                 element = div_element.find("div", class_="txt2")
                 if isinstance(element, Tag):
                     self._elec_dict[prefix + "_txt2"] = element.get_text()
+                    _LOGGER.debug("txt2:%s", element.get_text())
 
                 element = div_element.find("div", class_="num")
                 if isinstance(element, Tag):
                     self._elec_dict[prefix] = element.get_text().split("W")[0]
+                    _LOGGER.debug("num:%s", element.get_text().split("W")[0])
 
                 self._count = self._count + 1
                 # _LOGGER.debug("count:%s", self._count)
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
+
+    async def async_config_entry_first_refresh(self):
+        """Perform the first refresh with retry logic."""
+        while True:
+            try:
+                await self._async_update_data()
+                break
+            except UpdateFailed as err:
+                _LOGGER.warning(
+                    "Initial data fetch failed, retrying in %d seconds: %s",
+                    retry_interval,
+                    err,
+                )
+                await asyncio.sleep(retry_interval)  # Retry interval
 
     @property
     def elec_dict(self) -> dict[str, str]:

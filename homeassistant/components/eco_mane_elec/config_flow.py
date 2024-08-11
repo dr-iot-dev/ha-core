@@ -15,6 +15,7 @@ _LOGGER = logging.getLogger(__name__)
 @callback
 def configured_instances(hass: HomeAssistant):
     """Return a set of configured instances."""
+    _LOGGER.debug("configured_instances")
     return {entry.data["name"] for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
@@ -26,6 +27,7 @@ class EcoManeElecConfigFlow(ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(self, user_input=None) -> ConfigFlowResult:
         """Handle the initial step."""
+        _LOGGER.debug("async_step_user")
         errors = {}
         if user_input is not None:
             # Validate user input here
@@ -58,8 +60,4 @@ class EcoManeElecConfigFlow(ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=data_schema,
             errors=errors,
-            # description_placeholders={
-            #     "name_description": _name_description,
-            #     "ip": _ip_description,
-            # },
         )

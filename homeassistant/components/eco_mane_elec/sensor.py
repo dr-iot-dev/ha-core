@@ -2,36 +2,40 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import logging
 
-import voluptuous as vol
-
 from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA as SENSOR_PLATFORM_SCHEMA,
+    SensorDeviceClass,
     SensorEntity,
+    SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import UnitOfPower
 from homeassistant.core import HomeAssistant
-
-# from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.exceptions import ConfigEntryNotReady
-import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import CONF_IP, CONF_NAME
+from .const import DOMAIN
 from .coordinator import ElecCheckDataCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
-""" SENSOR_PLATFORM_SCHEMAがどこで参照されるのかよくわからない。"""
-PLATFORM_SCHEMA = SENSOR_PLATFORM_SCHEMA.extend(
-    {
-        vol.Required(CONF_IP): cv.string,
-        vol.Optional(CONF_NAME, default="Eco Mane Elec HEMS System"): cv.string,
-    }
-)
+# """ PLATFORM_SCHEMAがどこで参照されるのかよくわからない。"""
+# PLATFORM_SCHEMA = SENSOR_PLATFORM_SCHEMA.extend(
+#     {
+#         vol.Required(CONF_IP): cv.string,
+#         vol.Optional(CONF_NAME, default="Eco Mane Elec HEMS System"): cv.string,
+#     }
+# )
+
+
+@dataclass(frozen=True, kw_only=True)
+class ElecCheckSensorEntityDescription(SensorEntityDescription):
+    """Describes ElecCheck sensor entity."""
+
+    service_type: str
 
 
 async def async_setup_entry(
@@ -39,17 +43,21 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the entry."""
+    """Set up sensor entities from a config entry."""
+    # Access data stored in hass.data if needed
+    coordinator: ElecCheckDataCoordinator = hass.data[DOMAIN][config_entry.entry_id]
+    _LOGGER.debug("sensor.py config_entry.entry_id: %s", config_entry.entry_id)
 
-    ip = config_entry.data[CONF_IP]
+    # ip = config_entry.data[CONF_IP]
 
-    coordinator = ElecCheckDataCoordinator(hass, ip)
-    await coordinator.async_config_entry_first_refresh()
-    if not coordinator.last_update_success:
-        raise ConfigEntryNotReady
+    # coordinator = ElecCheckDataCoordinator(hass, ip)
+    # await coordinator.async_config_entry_first_refresh()
+    # if not coordinator.last_update_success:
+    #     raise ConfigEntryNotReady("async_config_entry_first_refresh() failed")
 
     elec_dict = coordinator.elec_dict
     total = coordinator.total
+    _LOGGER.debug("total: %s", total)
 
     # センサーのエンティティのリストを作成
     sensors = []
@@ -58,65 +66,73 @@ async def async_setup_entry(
         txt = elec_dict[prefix + "_txt"]
         txt2 = elec_dict[prefix + "_txt2"]
         num = elec_dict[prefix]
-        sensors.append(ElecCheckEntity(prefix, txt, txt2, num, coordinator))
+        sensors.append(ElecCheckEntity(coordinator, prefix, txt, txt2, num))
 
+    if not sensors:
+        raise ConfigEntryNotReady("No sensors found")
+
+    # エンティティを追加
     async_add_entities(sensors)
-
-
-# async def async_setup_platform(
-#     hass: HomeAssistant,
-#     config: ConfigType,
-#     async_add_entities: AddEntitiesCallback,
-#     discovery_info: DiscoveryInfoType | None = None,
-# ) -> None:  # noqa: D103
-#     """Set up the sensor platform."""
-
-#     ip = config[CONF_IP]
-
-#     coordinator = ElecCheckDataCoordinator(hass, ip, config)
-#     await coordinator.async_config_entry_first_refresh()
-
-#     # if not coordinator.last_update_success:
-#     #     raise ConfigEntryNotReady
-#     elec_dict = coordinator.elec_dict
-#     total = coordinator.total
-
-#     # センサーのエンティティのリストを作成
-#     sensors = []
-#     for _i in range(int(total)):
-#         prefix = f"elecCheck_{_i}"
-#         txt = elec_dict[prefix + "_txt"]
-#         txt2 = elec_dict[prefix + "_txt2"]
-#         num = elec_dict[prefix]
-#         sensors.append(ElecCheckEntity(prefix, txt, txt2, num, coordinator))
-
-#     async_add_entities(sensors)
-#     # config[CONF_SENSORS] = sensors
+    _LOGGER.debug("sensor.py async_setup_entry has finished async_add_entities")
 
 
 class ElecCheckEntity(CoordinatorEntity, SensorEntity):
     """EcoTopMoni."""
 
+    _attr_has_entity_name = True
+    _attr_attribution = "Data provided by Panasonic ECO Mane HEMS"
+    _attr_device_class = SensorDeviceClass.POWER
+    entity_description: ElecCheckSensorEntityDescription
+
     def __init__(
         self,
-        id: str,
+        coordinator: ElecCheckDataCoordinator,
+        sensor_id: str,
         txt: str,
         txt2: str,
         num: str,
-        coordinator: ElecCheckDataCoordinator,
     ) -> None:
         """Pass coordinator to CoordinatorEntity."""
-        super().__init__(coordinator)
-        self._id = id
+        super().__init__(coordinator=coordinator)
+
+        self._id = sensor_id
         self._name = txt + " " + txt2
         self._num = num
         self._state = None
+        self._attr_name = f"Sensor {sensor_id}"
+        _LOGGER.debug("_id: %s, _name: %s, _num: %s", self._id, self._name, self._num)
 
-    # @callback
-    # def _handle_coordinator_update(self) -> None:
-    #     """Handle updated data from the coordinator."""
-    #     self._attr_is_on = self.coordinator.data[self.idx]["state"]
-    #     self.async_write_ha_state()
+        self.entity_description = description = ElecCheckSensorEntityDescription(
+            service_type="electricity", key=sensor_id
+        )
+
+        # self.entity_id = (
+        #     f"{SENSOR_DOMAIN}.{DOMAIN}_{description.service_type}_{description.key}"
+        # )
+
+        if (
+            coordinator is not None
+            and coordinator.config_entry is not None
+            and description is not None
+        ):
+            self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
+
+        # self._attr_device_info = DeviceInfo(
+        #     entry_type=DeviceEntryType.SERVICE,
+        #     identifiers={
+        #         (
+        #             DOMAIN,
+        #             f"{coordinator.config_entry.entry_id}_{description.service_type}",
+        #         )
+        #     },
+        #     # configuration_url="https://www2.panasonic.biz/jp/densetsu/ems/eco_m/",
+        #     # manufacturer="Panasonic",
+        #     # model="ECO Mane HEMS",
+        #     # default_name=SERVICE_TYPE_DEVICE_NAMES[
+        #     #     self.entity_description.service_type
+        #     # ],
+        #     # name=self._name,  # name は、EntityのFriendly Nameの一部として利用される
+        # )
 
     @property
     def name(self) -> str:
@@ -124,55 +140,22 @@ class ElecCheckEntity(CoordinatorEntity, SensorEntity):
         return self._name
 
     @property
-    def native_value(self) -> str:
-        """Instead of state."""
-        value = self.coordinator.data.get(self._id)
-        if value is None:
-            return ""
-        return str(value)
+    def native_value(self) -> str | None:
+        """State."""
+        elec_dict = self.coordinator.data
+        if elec_dict is None:
+            _LOGGER.debug("elec_dict is None")
+            return None
+        # _LOGGER.debug("native_value of %s, id=%s: %s", self._attr_name, self._id, value)
+        return elec_dict.get(self._id)
 
     @property
     def native_unit_of_measurement(self) -> str:
         """Unit of measurement."""
         return UnitOfPower.WATT
 
-
-# class EcoManeSensor(SensorEntity):
-#     """EcoManeSensor."""
-
-#     _attr_has_entity_name = True
-#     _attr_name = "Example Energy Measurement"
-#     _attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
-#     _attr_device_class = SensorDeviceClass.ENERGY
-#     _attr_state_class = SensorStateClass.TOTAL_INCREASING
-
-#     def __init__(self, ip, selector, name) -> None:
-#         """Init EcoManeSensor."""
-#         self._ip = ip
-#         self._selector = selector
-#         self._name = name
-#         self._state = None
-
-#     @property
-#     def name(self) -> str:
-#         """Get name."""
-#         return self._name
-
-#     @property
-#     def state(self) -> str:
-#         """Get state."""
-#         return self._state
-
-#     def update(self) -> None:
-#         """Update info."""
-#         url = "http://" + self._ip + "/ecoTopMoni.cgi"
-#         _LOGGER.debug(f"{url=}")
-#         response = requests.get(url, timeout=60)
-#         # text = response.text
-#         # _LOGGER.debug(f"response.{text=}")
-#         soup = BeautifulSoup(response.text, "html.parser")
-#         # element = soup.select_one(self._selector)
-#         element = soup.find("div", id="num_L1")
-#         # text = element.text.strip() if element else "N/A"
-#         # _LOGGER.debug(f"element.{text=}")
-#         self._state = element.text.strip() if element else "N/A"
+    # async def async_will_remove_from_hass(self) -> None:
+    #     """Handle entity removal."""
+    #     # 必要に応じてリソースのクリーンアップを行う
+    #     _LOGGER.debug("Cleaning up resources for %s", self._attr_name)
+    #     await super().async_will_remove_from_hass()
