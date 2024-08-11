@@ -31,12 +31,10 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
             ),  # data polling interval
         )
         self._ip = ip
-        # self._config = config
         self._elec_dict: dict[str, str] = {}
         self._session = None
         self._total = 0
         self._count = 0
-        # self._sensors : list[ElecCheckEntity] = []
 
     async def _async_update_data(self):
         """Update ElecCheck."""
@@ -58,9 +56,7 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                     )
                 response.encoding = "shift-jis"
                 raw_content = await response.read()
-                # _LOGGER.debug("raw_content: %s", raw_content)
                 text = raw_content.decode("shift-jis")
-                # _LOGGER.debug("text: %s", text)
                 soup = BeautifulSoup(text, "html.parser")
                 maxp_value = soup.find("input", {"name": "maxp"})["value"]
                 total_page = int(maxp_value)
@@ -100,11 +96,8 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
 
             response.encoding = "shift-jis"
             raw_content = await response.read()
-            # _LOGGER.debug("raw_content: %s", raw_content)
             text = raw_content.decode("shift-jis")
-            # _LOGGER.debug("text: %s", text)
             soup = BeautifulSoup(text, "html.parser")
-            # div_element = content.querySelector("#" + div_id)
             div_element: Tag | NavigableString | None = soup.find("div", id=div_id)
             if isinstance(div_element, Tag):
                 # 要素を取得
@@ -126,7 +119,6 @@ class ElecCheckDataCoordinator(DataUpdateCoordinator):
                     _LOGGER.debug("num:%s", element.get_text().split("W")[0])
 
                 self._count = self._count + 1
-                # _LOGGER.debug("count:%s", self._count)
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
 

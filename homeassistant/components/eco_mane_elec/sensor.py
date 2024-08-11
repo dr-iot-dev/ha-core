@@ -22,14 +22,6 @@ from .coordinator import ElecCheckDataCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
-# """ PLATFORM_SCHEMAがどこで参照されるのかよくわからない。"""
-# PLATFORM_SCHEMA = SENSOR_PLATFORM_SCHEMA.extend(
-#     {
-#         vol.Required(CONF_IP): cv.string,
-#         vol.Optional(CONF_NAME, default="Eco Mane Elec HEMS System"): cv.string,
-#     }
-# )
-
 
 @dataclass(frozen=True, kw_only=True)
 class ElecCheckSensorEntityDescription(SensorEntityDescription):
@@ -47,13 +39,6 @@ async def async_setup_entry(
     # Access data stored in hass.data if needed
     coordinator: ElecCheckDataCoordinator = hass.data[DOMAIN][config_entry.entry_id]
     _LOGGER.debug("sensor.py config_entry.entry_id: %s", config_entry.entry_id)
-
-    # ip = config_entry.data[CONF_IP]
-
-    # coordinator = ElecCheckDataCoordinator(hass, ip)
-    # await coordinator.async_config_entry_first_refresh()
-    # if not coordinator.last_update_success:
-    #     raise ConfigEntryNotReady("async_config_entry_first_refresh() failed")
 
     elec_dict = coordinator.elec_dict
     total = coordinator.total
@@ -117,23 +102,6 @@ class ElecCheckEntity(CoordinatorEntity, SensorEntity):
         ):
             self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
 
-        # self._attr_device_info = DeviceInfo(
-        #     entry_type=DeviceEntryType.SERVICE,
-        #     identifiers={
-        #         (
-        #             DOMAIN,
-        #             f"{coordinator.config_entry.entry_id}_{description.service_type}",
-        #         )
-        #     },
-        #     # configuration_url="https://www2.panasonic.biz/jp/densetsu/ems/eco_m/",
-        #     # manufacturer="Panasonic",
-        #     # model="ECO Mane HEMS",
-        #     # default_name=SERVICE_TYPE_DEVICE_NAMES[
-        #     #     self.entity_description.service_type
-        #     # ],
-        #     # name=self._name,  # name は、EntityのFriendly Nameの一部として利用される
-        # )
-
     @property
     def name(self) -> str:
         """Name."""
@@ -153,9 +121,3 @@ class ElecCheckEntity(CoordinatorEntity, SensorEntity):
     def native_unit_of_measurement(self) -> str:
         """Unit of measurement."""
         return UnitOfPower.WATT
-
-    # async def async_will_remove_from_hass(self) -> None:
-    #     """Handle entity removal."""
-    #     # 必要に応じてリソースのクリーンアップを行う
-    #     _LOGGER.debug("Cleaning up resources for %s", self._attr_name)
-    #     await super().async_will_remove_from_hass()
