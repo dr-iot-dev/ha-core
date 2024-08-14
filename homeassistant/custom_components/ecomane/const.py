@@ -30,6 +30,7 @@ SENSOR_POWER_PREFIX = "em_power"
 SENSOR_POWER_ATTR_PREFIX = "power"
 
 SENSOR_POWER_CGI = "elecCheck_6000.cgi?disp=2"
+SENSOR_ENERGY_CGI = "ecoTopMoni.cgi"
 
 SELECTOR_IP = "ip"
 SELECTOR_NAME = "name"

@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import DOMAIN, PLATFORMS, SELECTOR_IP
-from .coordinator import ElecCheckDataCoordinator
+from .coordinator import EcoManeDataCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     ip = config_entry.data[SELECTOR_IP]
 
     # DataCoordinatorを作成
-    coordinator = ElecCheckDataCoordinator(hass, ip)
+    coordinator = EcoManeDataCoordinator(hass, ip)
     # 初期データ取得
     await coordinator.async_config_entry_first_refresh()
     if not coordinator.last_update_success:
@@ -68,7 +68,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
     # クリーンアップ処理
     if unload_ok:
-        # ElecCheckDataCoordinatorを削除
+        # EcoManeDataCoordinatorを削除
         hass.data[DOMAIN].pop(config_entry.entry_id, None)
 
     return unload_ok

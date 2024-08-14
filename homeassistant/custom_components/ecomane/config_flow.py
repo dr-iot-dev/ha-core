@@ -1,6 +1,7 @@
 """The Eco Mane Config Flow."""
 
 import logging
+from typing import Any
 
 import voluptuous as vol
 
@@ -13,8 +14,9 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @callback
-def configured_instances(hass: HomeAssistant):
+def configured_instances(hass: HomeAssistant) -> set[str]:
     """Return a set of configured instances."""
+
     _LOGGER.debug("configured_instances")
     return {entry.data["name"] for entry in hass.config_entries.async_entries(DOMAIN)}
 
@@ -25,8 +27,11 @@ class EcoManeElecConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 0
     MINOR_VERSION = 1
 
-    async def async_step_user(self, user_input=None) -> ConfigFlowResult:
+    async def async_step_user(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
         """Handle the initial step."""
+
         _LOGGER.debug("async_step_user")
         errors = {}
         if user_input is not None:

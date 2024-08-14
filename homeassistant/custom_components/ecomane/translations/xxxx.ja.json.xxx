@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "デバイスはすでに設定済み"
+        },
+        "error": {
+            "cannot_connect": "接続に失敗",
+            "invalid_auth": "無効な認証",
+            "unknown": "予期していないエラー"
+        },
+        "step": {
+            "user":{
+                "title": "ECOマネ電気量取得の設定",
+                "description": "統合の設定に必要な以下の情報を設定してください.",
+                "data": {
+                    "name": "名称",
+                    "ip": "IPアドレス"
+                },
+                "data_description": {
+                    "name": "名称を指定してください.",
+                    "ip": "測定値を取得するIPアドレスを指定していください."
+                }
+            },
+            "confirm": {
+                "description": "{name}を設定しますか?"
+            }
+        }
+    },
+    "title": "ECOマネHEMS統合"
+}
