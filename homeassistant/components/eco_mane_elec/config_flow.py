@@ -19,7 +19,7 @@ def configured_instances(hass: HomeAssistant):
     return {entry.data["name"] for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
-class EcoManeElecConfigFlow(ConfigFlow, domain=DOMAIN):
+class EcoManeConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Eco Mane Elec."""
 
     VERSION = 0
