@@ -1461,6 +1461,11 @@
       "config_flow": true,
       "iot_class": "local_polling"
     },
+    "ecomane": {
+      "integration_type": "hub",
+      "config_flow": true,
+      "iot_class": "cloud_polling"
+    },
     "econet": {
       "name": "Rheem EcoNet Products",
       "integration_type": "hub",
@@ -7323,6 +7328,7 @@
     "demo",
     "derivative",
     "eco_mane_elec",
+    "ecomane",
     "emulated_roku",
     "energenie_power_sockets",
     "filesize",

@@ -143,6 +143,7 @@ FLOWS = {
         "eco_mane_elec",
         "ecobee",
         "ecoforest",
+        "ecomane",
         "econet",
         "ecovacs",
         "ecowitt",

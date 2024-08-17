@@ -1,0 +1,937 @@
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <title>\x8fÈ\x83G\x83l\x83\x82\x83j\x83^\x81[</title>
+  </head>
+  <script language="JavaScript" type="text/javascript">
+    < !-
+        penginSpeed1=500;
+    penginSpeed2 = 200;
+    var pImageLG = new Array;
+    pImageLG[0] = "ecoimages/zvp_sm_p_pen_kino_g1.png";
+    pImageLG[1] = "ecoimages/zvp_sm_p_pen_kino_g2.png";
+    pImageLG[2] = "ecoimages/zvp_sm_p_pen_kino_g3.png";
+    pImageLG[3] = "ecoimages/zvp_sm_p_pen_kino_g4.png";
+    pImageLG[4] = pImageLG[2];
+    pImageLG[5] = pImageLG[1];
+    var pImageRG = new Array;
+    pImageRG[0] = "ecoimages/zvp_sm_p_pen_allgood1.png";
+    pImageRG[1] = "ecoimages/zvp_sm_p_pen_allgood2.png"; pImageRG[2] = "ecoimages/zvp_sm_p_pen_allgood3.png";
+    pImageRG[3] = "ecoimages/zvp_sm_p_pen_allgood4.png";
+    pImageRG[4] = pImageRG[2];
+    pImageRG[5] = pImageRG[1];
+    var pImageLB = new Array;
+    pImageLB[0] = "ecoimages/zvp_sm_p_pen_kino_b1.png";
+    pImageLB[1] = "ecoimages/zvp_sm_p_pen_kino_b2.png";
+    pImageLB[2] = "ecoimages/zvp_sm_p_pen_kino_b3.png";
+    pImageLB[3] = "ecoimages/zvp_sm_p_pen_kino_b4.png";
+    pImageLB[4] = pImageLB[2];
+    pImageLB[5] = pImageLB[1];
+    var pimgcnt = 0;
+    function penginAnime(mode) {
+        if (pimgcnt == 6) {
+            pimgcnt = 0;
+        }
+        if (pimgcnt == 0 || pimgcnt == 3) {
+            penginSpeed = penginSpeed1;
+        } else {
+            penginSpeed = penginSpeed2;
+        }
+        if (mode == "allgood") {
+            if (pimgcnt == 0) {
+                document.getElementById('leftpen1').style.visibility = 'visible';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+                document.getElementById('allgood1').style.visibility = 'visible';
+                document.getElementById('allgood2').style.visibility = 'hidden';
+                document.getElementById('allgood3').style.visibility = 'hidden';
+                document.getElementById('allgood4').style.visibility = 'hidden';
+            } else if (pimgcnt == 1) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'visible';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+                document.getElementById('allgood1').style.visibility = 'hidden';
+                document.getElementById('allgood2').style.visibility = 'visible';
+                document.getElementById('allgood3').style.visibility = 'hidden';
+                document.getElementById('allgood4').style.visibility = 'hidden';
+            } else if (pimgcnt == 2) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'visible';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+                document.getElementById('allgood1').style.visibility = 'hidden';
+                document.getElementById('allgood2').style.visibility = 'hidden';
+                document.getElementById('allgood3').style.visibility = 'visible';
+                document.getElementById('allgood4').style.visibility = 'hidden';
+            } else if (pimgcnt == 3) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'visible';
+                document.getElementById('allgood1').style.visibility = 'hidden';
+                document.getElementById('allgood2').style.visibility = 'hidden';
+                document.getElementById('allgood3').style.visibility = 'hidden';
+                document.getElementById('allgood4').style.visibility = 'visible';
+            } else if (pimgcnt == 4) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'visible';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+                document.getElementById('allgood1').style.visibility = 'hidden';
+                document.getElementById('allgood2').style.visibility = 'hidden';
+                document.getElementById('allgood3').style.visibility = 'visible';
+                document.getElementById('allgood4').style.visibility = 'hidden';
+            } else if (pimgcnt == 5) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'visible';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+                document.getElementById('allgood1').style.visibility = 'hidden';
+                document.getElementById('allgood2').style.visibility = 'visible';
+                document.getElementById('allgood3').style.visibility = 'hidden';
+                document.getElementById('allgood4').style.visibility = 'hidden';
+            }
+        } else if ((mode == "good") || (mode == "bad")) {
+            if (pimgcnt == 0) {
+                document.getElementById('leftpen1').style.visibility = 'visible';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+            } else if (pimgcnt == 1) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'visible';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+            } else if (pimgcnt == 2) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'visible';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+            } else if (pimgcnt == 3) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'visible';
+            } else if (pimgcnt == 4) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'hidden';
+                document.getElementById('leftpen3').style.visibility = 'visible';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+            } else if (pimgcnt == 5) {
+                document.getElementById('leftpen1').style.visibility = 'hidden';
+                document.getElementById('leftpen2').style.visibility = 'visible';
+                document.getElementById('leftpen3').style.visibility = 'hidden';
+                document.getElementById('leftpen4').style.visibility = 'hidden';
+            }
+        }
+        setTimeout("penginAnime('" + mode + "');pimgcnt++;", penginSpeed);
+    }
+    function MM_preloadImages() { //v3.0
+        var d = document; if (d.images) {
+            if (!d.MM_p) d.MM_p = new Array();
+            var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+        }
+    }
+    function preloadImages0vp(file) {
+        if (file == "10001") {
+            MM_preloadImages(
+                'ecoimages/zvp_sm_p_pen_allgood1.png',
+                'ecoimages/zvp_sm_p_pen_allgood2.png',
+                'ecoimages/zvp_sm_p_pen_allgood3.png',
+                'ecoimages/zvp_sm_p_pen_allgood4.png',
+                'ecoimages/zvp_sm_p_pen_kino_g1.png',
+                'ecoimages/zvp_sm_p_pen_kino_g2.png',
+                'ecoimages/zvp_sm_p_pen_kino_g3.png',
+                'ecoimages/zvp_sm_p_pen_kino_g4.png');
+        }
+        if (file == "10002") {
+            MM_preloadImages(
+                'ecoimages/zvp_sm_p_pen_kino_b1.png',
+                'ecoimages/zvp_sm_p_pen_kino_b2.png',
+                'ecoimages/zvp_sm_p_pen_kino_b3.png',
+                'ecoimages/zvp_sm_p_pen_kino_b4.png');
+        }
+    }
+    ->
+  </script>
+  <script language="JavaScript" type="text/javascript">
+    < !-
+    var msg = "\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x81@\x83p\x83\\\x83R\x83\x93\x82ð\x8eg\x82í\x82È\x82¢\x8e\x9e\x82Í\x93d\x8c¹\x82ð\x90Ø\x82è\x82Ü\x82µ\x82å\x82¤\x81B\x83X\x83N\x83\x8a\x81[\x83\x93\x83Z\x81[\x83o\x81[\x82Å\x82Í\x8fÁ\x94ï\x93d\x97Í\x82Í\x89º\x82ª\x82ç\x82È\x82¢\x82Ì\x82Å\x92\x8d\x88Ó\x81B";
+    var speed = 300;
+    var move = 1;
+    function disp(ver) {
+        if (ver == "pen") {
+            display_msg = msg.substr(0, 17);
+        }
+        if (ver == "sim") {
+            display_msg = msg.substr(0, 13);
+        }
+        document.getElementById("telop").innerHTML = display_msg;
+        msg = msg.substring(move, msg.length) + msg.substring(0, move);
+        setTimeout("disp('" + ver + "')", speed);
+    }
+    ->
+  </script>
+  <script language="JavaScript" type="text/javascript">
+    <!-
+    function moveFocus2(vfid,hfid01) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+    }
+    function moveFocus3(vfid,hfid01,hfid02) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+        document.getElementById("focus_"+hfid02).style.visibility="hidden"
+    }
+    function moveFocus4(vfid,hfid01,hfid02,hfid03) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+        document.getElementById("focus_"+hfid02).style.visibility="hidden"
+        document.getElementById("focus_"+hfid03).style.visibility="hidden"
+    }
+    function moveFocus5(vfid,hfid01,hfid02,hfid03,hfid04) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+        document.getElementById("focus_"+hfid02).style.visibility="hidden"
+        document.getElementById("focus_"+hfid03).style.visibility="hidden"
+        document.getElementById("focus_"+hfid04).style.visibility="hidden"
+    }
+    function moveFocus6(vfid,hfid01,hfid02,hfid03,hfid04,hfid05) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+        document.getElementById("focus_"+hfid02).style.visibility="hidden"
+        document.getElementById("focus_"+hfid03).style.visibility="hidden"
+        document.getElementById("focus_"+hfid04).style.visibility="hidden"
+        document.getElementById("focus_"+hfid05).style.visibility="hidden"
+    }
+    function moveFocus12(vfid,hfid01,hfid02,hfid03,hfid04,hfid05,hfid06,hfid07,hfid08,hfid09,hfid10,hfid11) {
+        document.getElementById("focus_"+vfid).style.visibility="visible"
+        document.getElementById("focus_"+hfid01).style.visibility="hidden"
+        document.getElementById("focus_"+hfid02).style.visibility="hidden"
+        document.getElementById("focus_"+hfid03).style.visibility="hidden"
+        document.getElementById("focus_"+hfid04).style.visibility="hidden"
+        document.getElementById("focus_"+hfid05).style.visibility="hidden"
+        document.getElementById("focus_"+hfid06).style.visibility="hidden"
+        document.getElementById("focus_"+hfid07).style.visibility="hidden"
+        document.getElementById("focus_"+hfid08).style.visibility="hidden"
+        document.getElementById("focus_"+hfid09).style.visibility="hidden"
+        document.getElementById("focus_"+hfid10).style.visibility="hidden"
+        document.getElementById("focus_"+hfid11).style.visibility="hidden"
+    }
+    function setFocus(lid){
+        document.getElementById(lid).focus();
+    }
+     ->
+  </script>
+  <script defer="defer" language="JavaScript" type="text/javascript">
+    <!--
+    function penginInitFunc(mode) {
+        if(navigator.userAgent.indexOf("MSIE") != -1 && navigator.appVersion.indexOf("6.0") != -1 && navigator.userAgent.indexOf("Trident/4.0") == -1 && typeof document.body.style.maxHeight == "undefined"){
+            var elements = getElementsByClassName();
+            for(var i = 0; i < elements.length; i++){
+                var element = elements[i];
+                var newimg = document.createElement("b");
+                for(var key in element.currentStyle){
+                    newimg.style[key]=element.currentStyle[key];
+                }
+                newimg.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "+element.src+", sizingMethod = 'scale')";
+                newimg.style.width   = element.width;
+                newimg.style.height  = element.height;
+                element.parentNode.insertBefore(newimg,element);
+                element.style.display="none";
+            }
+            function getElementsByClassName(){
+                var eltClass, objAll = document.getElementsByTagName("IMG"), objCN = new Array();
+                for(var i = 0; i < objAll.length; i++){
+                    eltClass = objAll[i].className.split(/s+/);
+                    for(var j = 0; j < eltClass.length; j++){
+                        if(eltClass[j] == "png24"){
+                            objCN.push(objAll[i]);
+                            break;
+                        }
+                    }
+                }
+                return objCN;
+            }
+        }
+    }
+     ->
+  </script>
+  <style type="text/css">
+    <!--
+        body,
+    html {
+                margin: 0;
+                padding: 0;
+
+    }
+
+        img {
+        border: 0;
+    }
+
+        body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    code,
+    form,
+    fieldset,
+    legend,
+    input,
+    textarea,
+    p,
+    blockquote,
+    th,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+
+        div {
+        position: absolute;
+    }
+
+        #header {
+                width: 800px;
+                height: 64px;
+                margin: 0;
+                padding: 0;
+                left: 0;
+                top: 0;
+
+    }
+
+        #header #h_text {
+                width: 794px;
+                height: 20px;
+                left: 6px;
+                top: 2px;
+                font-size: 20px;
+                color: #466480;
+
+    }
+
+        #header #h_pict {
+                left: 0;
+                top: 31px;
+                width: 39px;
+                height: 29px;
+
+    }
+
+        #header #h_title {
+                width: 794px;
+                height: 24px;
+                left: 6px;
+                top: 32px;
+                font-size: 24px;
+                color: #001538;
+
+    }
+
+        #header #h_title_pict {
+                width: 754px;
+                height: 24px;
+                left: 46px;
+                top: 32px;
+                font-size: 24px;
+                color: #001538;
+
+    }
+
+        #header #clockLayer {
+                width: 789px;
+                height: 20px;
+                left: 0px;
+                top: 32px;
+                font-size: 24px;
+                color: #283f5a;
+                text-align: right;
+
+    }
+
+        #header #h_text_popup {
+                width: 794px;
+                height: 20px;
+                left: 6px;
+                top: 2px;
+                font-size: 20px;
+                color: #2a3c4d;
+
+    }
+
+        #header #h_title_popup {
+                width: 794px;
+                height: 24px;
+                left: 6px;
+                top: 32px;
+                font-size: 24px;
+                color: #000d22;
+
+    }
+
+        #header #h_title_pict_popup {
+                width: 754px;
+                height: 24px;
+                left: 46px;
+                top: 32px;
+                font-size: 24px;
+                color: #000d22;
+
+    }
+
+        #header #h_time_popup {
+                width: 789px;
+                height: 20px;
+                left: 0px;
+                top: 34px;
+                font-size: 20px;
+                color: #182636;
+                text-align: right;
+
+    }
+
+        #footer {
+                width: 800px;
+                height: 100px;
+                margin: 0;
+                padding: 0;
+                left: 0;
+                top: 350px;
+
+    }
+
+        #footer #f_bgimg {
+                width: 800px;
+                height: 70px;
+                left: 0;
+                top: 0;
+
+    }
+
+        #footer #f_copyright {
+                width: 258px;
+                height: 13px;
+                left: 542px;
+                top: 71px;
+
+    }
+
+        #footer #f_copyright_gy {
+                width: 258px;
+                height: 13px;
+                left: 542px;
+                top: 71px;
+
+    }
+
+        #content {
+                width: 800px;
+                height: 286px;
+                top: 64px;
+                left: 0;
+
+    }
+
+        .btn_158 {
+                width: 158px;
+                height: 56px;
+
+    }
+
+        .btn_121 {
+                width: 121px;
+                height: 41px;
+
+    }
+
+        .btn_76 {
+                width: 76px;
+                height: 41px;
+
+    }
+
+        .btn_52 {
+                width: 52px;
+                height: 41px;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    body,
+    html {
+        background: #c5d5e4 url(ecoimages/zvp_sm_p_wall_pen4_n.png) no-repeat;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    #ojt_01 {
+        width: 62px;
+        height: 32px;
+        left: 327px;
+        top: 126px;
+        z-index: 2;
+
+    }
+
+    #ojt_02 {
+        width: 37px;
+        height: 37px;
+        left: 626px;
+        top: 246px;
+        z-index: 2;
+
+    }
+
+    #ojt_03 {
+        width: 68px;
+        height: 77px;
+        left: 220px;
+        top: 208px;
+        z-index: 2;
+
+    }
+
+    #ojt_04 {
+        width: 90px;
+        height: 110px;
+        left: 334px;
+        top: 10px;
+        z-index: 2;
+
+    }
+
+    #pen_01 {
+        width: 154px;
+        height: 157px;
+        left: 188px;
+        top: 4px;
+        z-index: 1;
+
+    }
+
+    #pen_02 {
+        width: 122px;
+        height: 131px;
+        left: 519px;
+        top: 7px;
+        z-index: 1;
+
+    }
+
+    #telop {
+        height: 20px;
+        left: 317px;
+        top: 257px;
+        color: #000;
+        font-size: 18px;
+        font-family: '\x82l\x82r \x83S\x83V\x83b\x83N';
+        z-index: 2;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    #nbs_L1 {
+        width: 141px;
+        height: 98px;
+        left: 21px;
+        top: 67px;
+        z-index: 1;
+
+    }
+
+    #nbs_L2 {
+        width: 141px;
+        height: 58px;
+        left: 21px;
+        top: 178px;
+        z-index: 1;
+
+    }
+
+    #nbs_R1 {
+        width: 110px;
+        height: 120px;
+        left: 667px;
+        top: 46px;
+        z-index: 1;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    #footer #f_btn_l {
+        left: 12px;
+        top: 8px;
+
+    }
+
+    #footer #f_btn_01 {
+        left: 207px;
+        top: 8px;
+
+    }
+
+    #footer #f_btn_02 {
+        left: 340px;
+        top: 8px;
+
+    }
+
+    #footer #f_btn_03 {
+        left: 473px;
+        top: 8px;
+
+    }
+
+    #footer #f_btn_r {
+        left: 667px;
+        top: 8px;
+
+    }
+    -->
+  </style>
+  <script language="JavaScript" type="text/javascript">
+    <!--
+    var timerID = null;
+    var timerRunning = false;
+    var Offset;
+    var JSToffset = -9 * 3600 * 1000;
+    var Epoch = new Date("Apr 1, 2004 0:00:00");
+    function startclock() {
+      document.getElementById("all").style.display = "block";
+      document.getElementById("testCur").focus();
+      var LocalClock, Standard;
+      LocalClock = new Date();
+      Standard = new Date(2024, 7, 4, 12, 2, 22, 0);
+      Offset = Standard.getTime() - LocalClock.getTime();
+      TZoffset = LocalClock.getTimezoneOffset() * 60000;
+      if (TZoffset > 12 * 3600 * 1000) TZoffset = TZoffset - 24 * 3600 * 1000;
+      showtime();
+    }
+    function showtime() {
+      var now, temp;
+      var h, m, s;
+      var Clock;
+      now = new Date();
+      temp = now.getTime() + Offset;
+      Clock = new Date(temp - TZoffset);
+      if (isNaN(Clock)) {
+        document.getElementById("clockLayer").innerHTML = "0000/00/00 00:00";
+      } else {
+        var year = Clock.getYear();
+        var month = Clock.getMonth() + 1;
+        var date = Clock.getDate();
+        var hour = Clock.getHours();
+        var min = Clock.getMinutes();
+        var day = Clock.getDay();
+        if (year < 1900) {
+          year = year + 1900;
+        }
+        if (month < 10) {
+          month = "0" + month;
+        }
+        if (date < 10) {
+          date = "0" + date;
+        }
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+        if (min < 10) {
+          min = "0" + min;
+        }
+        if (year > 2037) {
+          document.getElementById("clockLayer").innerHTML = "0000/00/00 00:00";
+        } else {
+          document.getElementById("clockLayer").innerHTML =
+            year + "/" + month + "/" + date + " " + hour + ":" + min;
+        }
+      }
+      timerID = setTimeout("showtime()", 1000);
+      timerRunning = true;
+    }
+    //-->
+  </script>
+  <style type="text/css">
+    <!--
+    #num_L1 {
+        height: 18px;
+        left: 58px;
+        top: 82px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+
+    #num_L2 {
+        height: 18px;
+        left: 58px;
+        top: 116px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    #num_L4 {
+        height: 18px;
+        left: 72px;
+        top: 176px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+
+    #num_L5 {
+        height: 18px;
+        left: 72px;
+        top: 207px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+    -->
+  </style>
+  <style type="text/css">
+    <!--
+    #num_R1 {
+        height: 18px;
+        left: 711px;
+        top: 38px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+
+    #num_R2 {
+        height: 18px;
+        left: 711px;
+        top: 80px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+
+    #num_R3 {
+        height: 18px;
+        left: 711px;
+        top: 122px;
+        width: 64px;
+        text-align: right;
+        font-size: 24px;
+        z-index: 2;
+
+    }
+    -->
+  </style>
+
+  <body
+    onload="preloadImages0vp(10002);penginAnime('bad');disp('pen');startclock();penginInitFunc();"
+  >
+    <div id="all" style="display: none">
+      <div id="header">
+        <div id="h_text"></div>
+        <div id="h_pict">
+          <img
+            src="ecoimages/zvp_sm_p_p_head_eco.png"
+            alt=""
+            width="39"
+            height="29"
+          />
+        </div>
+        <div id="h_title_pict">\x8fÈ\x83G\x83l\x83\x82\x83j\x83^\x81[</div>
+        <div id="clockLayer">\x81@</div>
+      </div>
+      <div id="content">
+        <div id="ojt_01">
+          <a href="goalDetail_2000.cgi"
+            ><img
+              src="ecoimages/zvp_sm_p_b_syosai_up.png"
+              alt=""
+              class="png24"
+              width="62"
+              height="32"
+          /></a>
+        </div>
+        <div id="ojt_02">
+          <a href="ecoAdvice_3000.cgi"
+            ><img
+              src="ecoimages/zvp_sm_p_b_advice_up.png"
+              alt=""
+              width="67"
+              height="37"
+          /></a>
+        </div>
+        <div id="ojt_03">
+          <img
+            src="ecoimages/zvp_sm_p_meter_180.png"
+            alt=""
+            class="png24"
+            width="68"
+            height="77"
+          />
+        </div>
+        <div id="pen_01">
+          <img
+            src="ecoimages/zvp_sm_p_pen_kino_b1.png"
+            id="leftpen1"
+            style="position: absolute; top: 0px; left: 0px; visibility: visible"
+            alt=""
+            width="154"
+            height="157"
+          />
+          <img
+            src="ecoimages/zvp_sm_p_pen_kino_b2.png"
+            id="leftpen2"
+            style="position: absolute; top: 0px; left: 0px; visibility: visible"
+            alt=""
+            width="154"
+            height="157"
+          />
+          <img
+            src="ecoimages/zvp_sm_p_pen_kino_b3.png"
+            id="leftpen3"
+            style="position: absolute; top: 0px; left: 0px; visibility: visible"
+            alt=""
+            width="154"
+            height="157"
+          />
+          <img
+            src="ecoimages/zvp_sm_p_pen_kino_b4.png"
+            id="leftpen4"
+            style="position: absolute; top: 0px; left: 0px; visibility: visible"
+            alt=""
+            width="154"
+            height="157"
+          />
+        </div>
+        <div id="telop"></div>
+        <div id="nbs_L1">
+          <img
+            src="ecoimages/zvp_sm_p_li_denki_sun.png"
+            alt=""
+            width="141"
+            height="98"
+          />
+        </div>
+        <div id="nbs_L2">
+          <img
+            src="ecoimages/zvp_sm_p_li_gm_g_m.png"
+            alt=""
+            width="141"
+            height="58"
+          />
+        </div>
+        <div id="nbs_R1">
+          <img
+            src="ecoimages/zvp_sm_p_li_de_all.png"
+            alt=""
+            width="110"
+            height="120"
+          />
+        </div>
+        <div id="num_L1">34.5</div>
+        <div id="num_L2">20.7</div>
+        <div id="num_L4">0.90</div>
+        <div id="num_L5">1.04</div>
+        <div id="num_R1">25.9</div>
+        <div id="num_R2">8.9</div>
+        <div id="num_R3">0.0</div>
+      </div>
+      <div id="footer">
+        <div id="f_bgimg">
+          <img
+            src="ecoimages/zvp_foot_base_lr.png"
+            alt=""
+            width="800"
+            height="100"
+          />
+        </div>
+        <div id="f_btn_l" class="btn_121">
+          <a href="/index.html"
+            ><img
+              src="ecoimages/zvp_top_b_menu_up.png"
+              alt=""
+              width="121"
+              height="41"
+          /></a>
+        </div>
+        <div id="f_btn_01" class="btn_121">
+          <a href="resultMenu_4000.cgi"
+            ><img
+              src="ecoimages/zvp_sm_b_jiseki_up.png"
+              alt=""
+              width="121"
+              height="41"
+          /></a>
+        </div>
+        <div id="f_btn_02" class="btn_121">
+          <a href="settingMenuNoUserMenu_5000.cgi?h_type=0"
+            ><img
+              src="ecoimages/zvp_sm_b_ecoset_up.png"
+              alt=""
+              width="121"
+              height="41"
+          /></a>
+        </div>
+        <div id="f_btn_03" class="btn_121">
+          <a href="ecoTopEnergy.cgi" id="testCur"
+            ><img
+              src="ecoimages/zvp_sm_b_enemoni_up.png"
+              alt=""
+              width="121"
+              height="41"
+          /></a>
+        </div>
+        <div id="f_copyright">
+          <img
+            src="ecoimages/z_v_copyright.gif"
+            alt=""
+            width="258"
+            height="12"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
