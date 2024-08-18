@@ -166,6 +166,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("Updating EcoMane data")  # debug
         await self.update_energy_data()
         await self.update_power_data()
+        # _LOGGER.debug("EcoMane data updated %s"), self._dict  # debug
         return self._dict
 
     async def update_energy_data(self) -> None:

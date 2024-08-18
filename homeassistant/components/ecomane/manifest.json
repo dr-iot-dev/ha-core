@@ -8,7 +8,7 @@
   "homekit": {},
   "iot_class": "cloud_polling",
   "loggers": ["custom_components.ecomane"],
-  "requirements": [],
+  "requirements": ["beautifulsoup4==4.9.3"],
   "ssdp": [],
   "zeroconf": []
 }

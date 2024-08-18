@@ -552,6 +552,9 @@ batinfo==0.4.2
 # homeassistant.components.scrape
 beautifulsoup4==4.12.3
 
+# homeassistant.components.ecomane
+beautifulsoup4==4.9.3
+
 # homeassistant.components.beewi_smartclim
 # beewi-smartclim==0.0.10
 

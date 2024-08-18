@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import logging
 
-from config.custom_components.ecomane.name_to_id import ja_to_entity
 from homeassistant.components.sensor import (
     DOMAIN as SENSOR_DOMAIN,
     SensorDeviceClass,
@@ -30,6 +29,7 @@ from .coordinator import (
     EcoManeEnergySensorEntityDescription,
     EcoManePowerSensorEntityDescription,
 )
+from .name_to_id import ja_to_entity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -177,13 +177,13 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     #     """Name."""
     #     return self._name
 
-    @property
-    def native_value(self) -> str:
-        """State."""
-        value = self.coordinator.data.get(self._attr_div_id)
-        if value is None:
-            return ""
-        return str(value)
+    # @property
+    # def native_value(self) -> str:
+    #     """State."""
+    #     value = self.coordinator.data.get(self._attr_div_id)
+    #     if value is None:
+    #         return ""
+    #     return str(value)
 
     # @property
     # def native_unit_of_measurement(self) -> str | None:
