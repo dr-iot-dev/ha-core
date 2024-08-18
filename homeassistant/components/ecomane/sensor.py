@@ -178,13 +178,13 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     #     """Name."""
     #     return self._name
 
-    # @property
-    # def native_value(self) -> str:
-    #     """State."""
-    #     value = self.coordinator.data.get(self._attr_div_id)
-    #     if value is None:
-    #         return ""
-    #     return str(value)
+    @property
+    def native_value(self) -> str:
+        """State."""
+        value = self.coordinator.data[self._attr_div_id]
+        if value is None:
+            return ""
+        return str(value)
 
     # @property
     # def native_unit_of_measurement(self) -> str | None:

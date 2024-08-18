@@ -5,6 +5,7 @@ from collections.abc import Generator
 from dataclasses import dataclass
 from datetime import timedelta
 import logging
+from typing import Any
 
 import aiohttp
 from bs4 import BeautifulSoup, NavigableString
@@ -148,7 +149,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             ),  # data polling interval
         )
         self._ip = ip
-        self._dict: dict[str, str] = {}
+        self._dict: dict[str, Any] = {}
         self._session = None
         self._sensor_total = 0
         self._sensor_count = 0
@@ -340,7 +341,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 await asyncio.sleep(RETRY_INTERVAL)  # Retry interval
 
     @property
-    def dict(self) -> dict[str, str]:
+    def dict(self) -> dict[str, Any]:
         """ElecCheck Dictionary."""
         return self._dict
 
