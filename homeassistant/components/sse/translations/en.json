@@ -1,0 +1,31 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "username": "Username"
+                },
+                "description": "Please fill out the following information to set up the integration.",
+                "title": "Configure Simple Sensor Example"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "co2_emissions": {
+                "name": "CCO2 Emissions"
+            },
+            "electricity_purchased": {
+                "name": "Eletricity Purchased"
+            }
+        }
+    }
+}

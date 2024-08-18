@@ -540,6 +540,7 @@ FLOWS = {
         "sql",
         "squeezebox",
         "srp_energy",
+        "sse",
         "starline",
         "starlink",
         "steam_online",

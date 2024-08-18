@@ -93,10 +93,11 @@ async def async_setup_entry(
 class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     """EcoManeEnergySensor."""
 
-    _attr_has_entity_name = True
+    # _attr_has_entity_name = True
+    has_entity_name = True  # これがないとstrings.jsonの変換が行われない _attr_has_entity_name ではない！
     # _attr_id = None
     _attr_div_id: str = ""
-    _attr_name = None
+    # _attr_name = None
     _attr_description: str | None = None
     _attr_native_unit_of_measurement: str | None = None
     _attr_device_class: SensorDeviceClass | None = None
@@ -204,8 +205,9 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
 class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     """EcoManeEnergySensor."""
 
-    _attr_has_entity_name = True
-    _attr_name = None
+    # _attr_has_entity_name = True
+    has_entity_name = True  # これがないとstrings.jsonの変換が行われない _attr_has_entity_name ではない！
+    # _attr_name = None
     _attr_translation_key: str | None = None
     _attr_unique_id: str | None = None
     _attr_attribution = "Data provided by Panasonic ECO Mane HEMS"
@@ -259,12 +261,11 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
             self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
 
         _LOGGER.debug(
-            "sensor_id: %s, name: %s, self._attr_translation_key: %s, _attr_unique_id: %s, _attr_name: %s, entity_id: %s, _power: %s",
+            "sensor_id: %s, name: %s, self._attr_translation_key: %s, _attr_unique_id: %s, entity_id: %s, _power: %s",
             sensor_id,
             name,
             self._attr_translation_key,
             self._attr_unique_id,
-            self._attr_name,
             self.entity_id,
             self._power,
         )

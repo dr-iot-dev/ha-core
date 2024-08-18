@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Simple Sensor Example",
+        "description": "Please fill out the following information to set up the integration.",
+        "data": {
+          "username": "[%key:common::config_flow::data::username%]"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+
+  "entity": {
+    "sensor": {
+      "electricity_purchased": {
+        "name": "Eletricity Purchased"
+      },
+      "co2_emissions": {
+        "name": "CCO2 Emissions"
+      }
+    }
+  }
+}

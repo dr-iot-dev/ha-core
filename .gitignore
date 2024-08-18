@@ -11,6 +11,8 @@ data/
 
 # Translations
 homeassistant/components/*/translations
+!homeassistant/components/ecomane/translations
+!homeassistant/components/sse/translations
 
 # Hide sublime text stuff
 *.sublime-project

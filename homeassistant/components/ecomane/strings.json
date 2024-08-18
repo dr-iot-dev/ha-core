@@ -50,8 +50,8 @@
       "electricity_sales": {
         "name": "Electricity Sales"
       },
-      "solar_power": {
-        "name": "Solar Power"
+      "solar_panel": {
+        "name": "Solar Panel"
       },
       "1f_toilet_outlets": {
         "name": "1F Toilet Outlets"
