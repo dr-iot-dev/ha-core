@@ -18,10 +18,6 @@ ENCODING = "shift-jis"
 PLATFORMS = [Platform.SENSOR]
 PLATFORM = Platform.SENSOR
 
-# CONF_ENCODING = "encoding"
-# CONF_SELECT = "select"
-# CONF_INDEX = "index"
-
 ENTITY_NAME = "EcoManeHEMS"
 SENSOR_POWER_SERVICE_TYPE = "electricity"
 
@@ -41,10 +37,6 @@ SELECTOR_POWER = "num"
 
 RETRY_INTERVAL = 120
 POLLING_INTERVAL = 300
-
-
-# CONF_IDS = "div_ids"
-# CONF_SELECTOR = "selector"
 
 SERVICE_TYPE_DEVICE_NAMES = {
     "electricity": "Electric power",

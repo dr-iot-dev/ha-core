@@ -45,34 +45,21 @@ async def async_setup_entry(
     _LOGGER.debug("sensor_total: %s", sensor_total)
 
     ecomane_energy_sensors_descs = coordinator.sensor_descs
-    # _LOGGER.debug("ecomane_energy_sensors_descs: %s", ecomane_energy_sensors_descs)
 
     sensors: list[SensorEntity] = []
     _LOGGER.debug("sensor.py sensors: %s", sensors)
-    # センサーのエンティティのリストを作成
-    for sensor_desc in ecomane_energy_sensors_descs:
-        # _LOGGER.debug("sensor_desc: %s", sensor_desc)
-        sensor = EcoManeEnergySensorEntity(coordinator, sensor_desc)
-        # _LOGGER.debug("sensor.py energy sensor: %s", sensor)
-        sensors.append(sensor)
 
-    # _LOGGER.debug("sensor.py energy sensors: %s", sensors)
+    # Energy sensors
+    for sensor_desc in ecomane_energy_sensors_descs:
+        sensor = EcoManeEnergySensorEntity(coordinator, sensor_desc)
+        sensors.append(sensor)
 
     # Power sensors
     for sensor_num in range(sensor_total):
         prefix = get_sensor_power_prefix(sensor_num)
         place = sensor_dict[f"{prefix}_{SELECTOR_PLACE}"]
         circuit = sensor_dict[f"{prefix}_{SELECTOR_CIRCUIT}"]
-        _LOGGER.debug(
-            "sensor.py sensor_num: %s, prefix: %s, place: %s, circuit: %s",
-            sensor_num,
-            prefix,
-            place,
-            circuit,
-        )
         sensors.append(EcoManePowerSensorEntity(coordinator, prefix, place, circuit))
-
-    # _LOGGER.debug("sensor.py power sensors: %s", sensors)
 
     if not sensors:
         raise ConfigEntryNotReady("No sensors found")
@@ -85,12 +72,9 @@ async def async_setup_entry(
 class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     """EcoManeEnergySensor."""
 
-    # has_entity_name = True  # これがないとstrings.jsonの変換が行われない _attr_has_entity_name ではない！
     _attr_has_entity_name = True
     _attr_unique_id: str | None = None
-    # _attr_id = None
     _attr_div_id: str = ""
-    # _attr_name = None
     _attr_description: str | None = None
     _attr_native_unit_of_measurement: str | None = None
     _attr_device_class: SensorDeviceClass | None = None
@@ -108,18 +92,11 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
 
         self._attr_translation_key = sensor_desc.translation_key
         self._attr_div_id = sensor_desc.div_id
-        # self._attr_name = sensor_desc.name
         self._attr_description = sensor_desc.description
         self._attr_native_unit_of_measurement = sensor_desc.native_unit_of_measurement
         self._attr_device_class = sensor_desc.device_class
         self._attr_state_class = sensor_desc.state_class
         self.entity_description = sensor_desc
-
-        # self._attr_translation_key = sensor_desc.translation_key
-        # self.translation_key = sensor_desc.translation_key
-
-        # self._attr_name = self._attr_translation_key
-        # self.entity_id = f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_desc.translation_key}"
 
         if (
             coordinator is not None
@@ -141,35 +118,6 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
             self.unique_id,
         )
 
-        # self._name = sensor_desc.name
-        # self._id = sensor_desc.key
-        # self._div_id = sensor_desc.key
-        # self._description = sensor_desc.description
-        # self._device_class = sensor_desc.device_class
-        # self._unit_of_measurement = sensor_desc.native_unit_of_measurement
-        # self._state_class = sensor_desc.state_class
-        # self._state = None
-        # self.entity_description = sensor_desc
-
-        # self._attr_name = sensor_desc.name
-        # _LOGGER.debug("_id: %s, name: %s", self._id, self.name)
-
-    # @callback
-    # def _handle_coordinator_update(self) -> None:
-    #     """Handle updated data from the coordinator."""
-    #     self._attr_is_on = self.coordinator.data[self.idx]["state"]
-    #     self.async_write_ha_state()
-
-    # @property
-    # def selector(self):
-    #     """HTML Division id."""
-    #     return self._selector
-
-    # @property
-    # def name(self) -> str | UndefinedType | None:
-    #     """Name."""
-    #     return self._name
-
     @property
     def native_value(self) -> str:
         """State."""
@@ -177,16 +125,6 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
         if value is None:
             return ""
         return str(value)
-
-    # @property
-    # def native_unit_of_measurement(self) -> str | None:
-    #     """Unit of measurement."""
-    #     return self._unit_of_measurement
-
-    # @property
-    # def entity_id(self):
-    #     """Entity ID."""
-    #     return self._attr_unique_id
 
     @property
     def div_id(self):
@@ -202,8 +140,6 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
 class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     """EcoManeEnergySensor."""
 
-    # has_entity_name = True  # これがないとstrings.jsonの変換が行われない _attr_has_entity_name ではない！
-    # _attr_name = None
     _attr_has_entity_name = True
     _attr_unique_id: str | None = None
     _attr_translation_key: str | None = None
@@ -224,20 +160,6 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         """Pass coordinator to CoordinatorEntity."""
         super().__init__(coordinator=coordinator)
 
-        # self._attr_unique_id = sensor_id
-        # self._name = f"{place} {circuit}"
-        # self._power = power
-        # self._state = None
-        # self._attr_name = f"{SENSOR_POWER_ATTR_PREFIX}_{sensor_id}"
-
-        # self._attr_name = f"{place} {circuit}"
-
-        # self._attr_name = name
-        # self._attr_translation_key = ja_to_entity(name)
-        # self._attr_unique_id = ja_to_entity(name)
-        # self._attr_unique_id = self._attr_translation_key
-        # self._attr_name = self._attr_translation_key
-
         self._attr_key_prefix = key_prefix
         name = f"{place} {circuit}"  # eg. "リビング エアコン"
         self._attr_translation_key = ja_to_entity(name)  # eg. "living_air_conditioner"
@@ -252,29 +174,9 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         else:
             raise ConfigEntryNotReady("No coordinator or translation key")
 
-        # self.entity_id = f"{SENSOR_DOMAIN}.{DOMAIN}_{prefix}_{entity_name}"
-
-        # self._power = power
-
         self.entity_description = EcoManePowerSensorEntityDescription(
             service_type=SENSOR_POWER_SERVICE_TYPE, key=key_prefix
         )
-
-        # # self.entity_id = (
-        # #     f"{SENSOR_DOMAIN}.{DOMAIN}_{description.service_type}_{description.key}"
-        # # )
-
-        # self.entity_id = (
-        #     f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_id}_{self._attr_translation_key}"
-        # )
-
-        # if (
-        #     coordinator is not None
-        #     and coordinator.config_entry is not None
-        #     and description is not None
-        # ):
-        #     # self.unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
-        #     self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
 
         _LOGGER.debug(
             "__init__ _key_prefix: %s, name: %s, translation_key: %s, unique_id: %s, entity_id: %s",
@@ -285,43 +187,10 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
             self.entity_id,
         )
 
-    # @property
-    # def name(self) -> str:
-    #     """Name."""
-    #     return self._name
-
     @property
     def native_value(self) -> str | None:
         """State."""
-        # power_dict = self.coordinator.data
-        # if power_dict is None:
-        #     _LOGGER.debug("power_dict is None: native_value of %s, id=%s", self._attr_name, self._id)
-        #     return None
-        # # _LOGGER.debug("native_value of %s, id=%s: %s", self._attr_name, self._id, value)
-        # return power_dict.get(self._id)
-        # return self._power
         return self.coordinator.data.get(self.key_prefix)
-
-    # @property
-    # def state(self) -> str:
-    #     """State."""
-    #     # power_dict = self.coordinator.data
-    #     # if power_dict is None:
-    #     #     _LOGGER.debug("power_dict is None: native_value of %s, id=%s", self._attr_name, self._id)
-    #     #     return None
-    #     # # _LOGGER.debug("native_value of %s, id=%s: %s", self._attr_name, self._id, value)
-    #     # return power_dict.get(self._id)
-    #     return self.coordinator.data.get(self.unique_id)
-
-    # @property
-    # def native_unit_of_measurement(self) -> str:
-    #     """Unit of measurement."""
-    #     return UnitOfPower.WATT
-
-    # @property
-    # def entity_id(self):
-    #     """Entity ID."""
-    #     return self._attr_unique_id
 
     @property
     def translation_key(self):

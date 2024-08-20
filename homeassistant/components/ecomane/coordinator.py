@@ -1,11 +1,9 @@
 """Coordinator for Eco Mane ElecCheck component."""
 
-import asyncio
 from collections.abc import Generator
 from dataclasses import dataclass
 from datetime import timedelta
 import logging
-import subprocess
 from typing import Any
 
 import aiohttp
@@ -24,7 +22,6 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from .const import (
     ENTITY_NAME,
     POLLING_INTERVAL,
-    RETRY_INTERVAL,
     SELECTOR_CIRCUIT,
     SELECTOR_PLACE,
     SELECTOR_POWER,
@@ -40,14 +37,14 @@ _LOGGER = logging.getLogger(__name__)
 # polling_interval = 300
 
 
-def get_mac_address(ip_address: str) -> str:
-    """Get the MAC address for the given IP address."""
-    try:
-        output = subprocess.check_output(["arp", "-n", ip_address]).decode("utf-8")
-        mac_address = output.split()[3]
-    except Exception as err:  # noqa: BLE001
-        mac_address = str(err)
-    return mac_address
+# def get_mac_address(ip_address: str) -> str:
+#     """Get the MAC address for the given IP address."""
+#     try:
+#         output = subprocess.check_output(["arp", "-n", ip_address]).decode("utf-8")
+#         mac_address = output.split()[3]
+#     except Exception as err:  # noqa: BLE001
+#         mac_address = str(err)
+#     return mac_address
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -161,8 +158,8 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
             update_method=self._async_update_data,
         )
         self._ip = ip
-        self._mac_address = get_mac_address(ip)
-        _LOGGER.debug("MAC address: %s", self._mac_address)
+        # self._mac_address = get_mac_address(ip)
+        # _LOGGER.debug("MAC address: %s", self._mac_address)
         self._dict: dict[str, Any] = {}
         self._session = None
         self._sensor_total = 0
@@ -178,17 +175,15 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> dict:
         """Update ElecCheck."""
-        _LOGGER.debug("Updating EcoMane data")  # debug
+        # _LOGGER.debug("Updating EcoMane data")  # debug
         await self.update_energy_data()
         await self.update_power_data()
-        _LOGGER.debug("EcoMane data updated %s", self._dict)  # debug
         return self._dict
 
     async def update_energy_data(self) -> None:
         """Update energy data."""
 
-        _LOGGER.debug("update_energy_data")
-        # response = None
+        # _LOGGER.debug("update_energy_data")
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip}/{SENSOR_ENERGY_CGI}"
@@ -203,7 +198,6 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
                     raise UpdateFailed(
                         f"Error fetching data from {url}. Status code: {response.status}"
                     )
-                # response.encoding = ENCODING  # shift-jis
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
                 await self.parse_energy_data(text_data)
@@ -214,13 +208,8 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
     async def parse_energy_data(self, text: str) -> dict:
         """Parse data from the content."""
 
-        # _LOGGER.debug("parse_energy_data(%s)", text)
-        # html_response = response.text
-
         # BeautifulSoupを使用してHTMLを解析
         soup = BeautifulSoup(text, "html.parser")
-        # soup = BeautifulSoup(html_response, "html.parser")
-
         for sensor_desc in ecomane_energy_sensors_descs:
             div_id = sensor_desc.div_id
             # value = self.get_value_from_div(soup, key)
@@ -231,16 +220,12 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug("div_id=%s, value=%s", div_id, value)  # debug
             self._dict[div_id] = value
 
-        # # 指定したIDを持つdivタグの値を取得して辞書に格納
-        # # _LOGGER.debug(f"self._config={self._config}")
-
         return self._dict
 
     async def update_power_data(self) -> dict:
         """Update power data."""
 
-        _LOGGER.debug("update_power_data")
-        # response = None
+        # _LOGGER.debug("update_power_data")
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip}/{SENSOR_POWER_CGI}"
@@ -259,7 +244,6 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
                         raise UpdateFailed(
                             f"Error fetching data from {url}. Page:{page_num} Status code: {response.status}"
                         )
-                    # response.encoding = ENCODING  # shift-jis
                     # テキストデータを取得する際にエンコーディングを指定
                     text_data = await response.text(encoding="shift-jis")
                     total_page = await self.parse_power_data(text_data, page_num)
@@ -277,14 +261,7 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
     async def parse_power_data(self, text: str, page_num: int) -> int:
         """Parse data from the content."""
 
-        # _LOGGER.debug("parse_power_data(%s, %d)", text, page_num)
-        # response.encoding = ENCODING  # shift-jis
-        # raw_content = await response.read()
-        # text = raw_content.decode(ENCODING)
         soup = BeautifulSoup(text, "html.parser")
-        # maxp = soup.find("input", {"name": "maxp"})
-        # total_page = maxp.value if maxp else 0
-        # total_page = int(maxp["value"]) if maxp else 0
         maxp = soup.find("input", {"name": "maxp"})
         total_page = 0
         if isinstance(maxp, Tag):
@@ -338,21 +315,21 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
 
         return total_page
 
-    async def async_config_entry_first_refresh(self) -> None:
-        """Perform the first refresh with retry logic."""
+    # async def async_config_entry_first_refresh(self) -> None:
+    #     """Perform the first refresh with retry logic."""
 
-        _LOGGER.debug("async_config_entry_first_refresh")
-        while True:
-            try:
-                self.data = await self._async_update_data()
-                break
-            except UpdateFailed as err:
-                _LOGGER.warning(
-                    "Initial data fetch failed, retrying in %d seconds: %s",
-                    RETRY_INTERVAL,
-                    err,
-                )
-                await asyncio.sleep(RETRY_INTERVAL)  # Retry interval
+    #     _LOGGER.debug("async_config_entry_first_refresh")
+    #     while True:
+    #         try:
+    #             self.data = await self._async_update_data()
+    #             break
+    #         except UpdateFailed as err:
+    #             _LOGGER.warning(
+    #                 "Initial data fetch failed, retrying in %d seconds: %s",
+    #                 RETRY_INTERVAL,
+    #                 err,
+    #             )
+    #             await asyncio.sleep(RETRY_INTERVAL)  # Retry interval
 
     @property
     def dict(self) -> dict[str, Any]:
@@ -369,7 +346,7 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
         """Sensor descriptions."""
         return self._sensor_descs
 
-    @property
-    def mac_address(self) -> str:
-        """Return the MAC address."""
-        return self._mac_address
+    # @property
+    # def mac_address(self) -> str:
+    #     """Return the MAC address."""
+    #     return self._mac_address
