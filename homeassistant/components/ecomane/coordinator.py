@@ -5,6 +5,7 @@ from collections.abc import Generator
 from dataclasses import dataclass
 from datetime import timedelta
 import logging
+import subprocess
 from typing import Any
 
 import aiohttp
@@ -39,6 +40,16 @@ _LOGGER = logging.getLogger(__name__)
 # polling_interval = 300
 
 
+def get_mac_address(ip_address: str) -> str:
+    """Get the MAC address for the given IP address."""
+    try:
+        output = subprocess.check_output(["arp", "-n", ip_address]).decode("utf-8")
+        mac_address = output.split()[3]
+    except Exception as err:  # noqa: BLE001
+        mac_address = str(err)
+    return mac_address
+
+
 @dataclass(frozen=True, kw_only=True)
 class EcoManePowerSensorEntityDescription(SensorEntityDescription):
     """Describes EcoManePower sensor entity."""
@@ -51,83 +62,78 @@ class EcoManeEnergySensorEntityDescription(SensorEntityDescription):
     """Describes EcoManePower sensor entity."""
 
     description: str
+    div_id: str
 
 
 # センサーのエンティティのディスクリプションのリストを作成
 ecomane_energy_sensors_descs = [
     EcoManeEnergySensorEntityDescription(
-        # name="購入電気量",
-        name="electricity_purchased",
+        name="購入電気量",
+        key="Electricity_purchased",
         translation_key="electricity_purchased",
-        # description="Electricity purchased",
         description="Electricity purchased 購入電気量",
-        key="num_L1",
+        div_id="num_L1",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="太陽光発電量",
-        name="solar_power_energy",
+        name="太陽光発電量",
+        key="Solar_power_energy",
         translation_key="solar_power_energy",
-        # description="Solar Power Energy",
         description="Solar Power Energy 太陽光発電量",
-        key="num_L2",
+        div_id="num_L2",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="ガス消費量",
-        name="gas_consumption",
+        name="ガス消費量",
+        key="Gas_consumption",
         translation_key="gas_consumption",
-        # description="Gas Consumption",
         description="Gas Consumption ガス消費量",
-        key="num_L4",
+        div_id="num_L4",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="水消費量",
-        name="water_consumption",
+        name="水消費量",
+        key="Water_consumption",
         translation_key="water_consumption",
-        # description="Water Consumption",
         description="Water Consumption 水消費量",
-        key="num_L5",
+        div_id="num_L5",
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="CO2排出量",
-        name="co2_emissions",
+        name="CO2排出量",
+        key="Co2_emissions",
         translation_key="co2_emissions",
-        # description="CO2 Emissions",
         description="CO2 Emissions CO2排出量",
-        key="num_R1",
+        div_id="num_R1",
         device_class=SensorDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="CO2削減量",
-        name="co2_reduction",
+        name="CO2削減量",
+        key="Co2_reduction",
         translation_key="co2_reduction",
-        # description="CO2 Reduction",
         description="CO2 Reduction CO2削減量",
-        key="num_R2",
+        div_id="num_R2",
         device_class=SensorDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeEnergySensorEntityDescription(
-        # name="売電量",
-        name="electricity_sales",
+        name="売電量",
+        key="electricity_sales",
         translation_key="electricity_sales",
         # description="Electricity sales",
         description="Electricity sales 売電量",
-        key="num_R3",
+        div_id="num_R3",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -135,7 +141,12 @@ ecomane_energy_sensors_descs = [
 ]
 
 
-class EcoManeDataCoordinator(DataUpdateCoordinator):
+def get_sensor_power_prefix(sensor_num: int) -> str:
+    """Get power sensor prefix."""
+    return f"{SENSOR_POWER_PREFIX}_{sensor_num:02d}"
+
+
+class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
     """ElecCheck_6000 coordinator."""
 
     def __init__(self, hass: HomeAssistant, ip: str) -> None:
@@ -147,8 +158,11 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             update_interval=timedelta(
                 seconds=POLLING_INTERVAL
             ),  # data polling interval
+            update_method=self._async_update_data,
         )
         self._ip = ip
+        self._mac_address = get_mac_address(ip)
+        _LOGGER.debug("MAC address: %s", self._mac_address)
         self._dict: dict[str, Any] = {}
         self._session = None
         self._sensor_total = 0
@@ -167,7 +181,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("Updating EcoMane data")  # debug
         await self.update_energy_data()
         await self.update_power_data()
-        # _LOGGER.debug("EcoMane data updated %s"), self._dict  # debug
+        _LOGGER.debug("EcoMane data updated %s", self._dict)  # debug
         return self._dict
 
     async def update_energy_data(self) -> None:
@@ -208,14 +222,14 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         # soup = BeautifulSoup(html_response, "html.parser")
 
         for sensor_desc in ecomane_energy_sensors_descs:
-            key = sensor_desc.key
+            div_id = sensor_desc.div_id
             # value = self.get_value_from_div(soup, key)
-            div = soup.find("div", id=key)
+            div = soup.find("div", id=div_id)
             if div:
                 value = div.text.strip()
-                self._dict[key] = value
-            _LOGGER.debug("key=%s, value=%s", key, value)  # debug
-            self._dict[key] = value
+                self._dict[div_id] = value
+            _LOGGER.debug("div_id=%s, value=%s", div_id, value)  # debug
+            self._dict[div_id] = value
 
         # # 指定したIDを持つdivタグの値を取得して辞書に格納
         # # _LOGGER.debug(f"self._config={self._config}")
@@ -281,7 +295,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
         for button_num in range(1, 9):
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
-            prefix = f"{SENSOR_POWER_PREFIX}_{self._sensor_count:02d}"
+            prefix = get_sensor_power_prefix(self._sensor_count)
 
             _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
 
@@ -330,7 +344,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("async_config_entry_first_refresh")
         while True:
             try:
-                await self._async_update_data()
+                self.data = await self._async_update_data()
                 break
             except UpdateFailed as err:
                 _LOGGER.warning(
@@ -342,7 +356,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
     @property
     def dict(self) -> dict[str, Any]:
-        """ElecCheck Dictionary."""
+        """EcoManeDataUpdateCoordinator Dictionary."""
         return self._dict
 
     @property
@@ -354,3 +368,8 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     def sensor_descs(self) -> list[EcoManeEnergySensorEntityDescription]:
         """Sensor descriptions."""
         return self._sensor_descs
+
+    @property
+    def mac_address(self) -> str:
+        """Return the MAC address."""
+        return self._mac_address
