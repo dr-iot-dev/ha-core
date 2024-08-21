@@ -32,7 +32,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     # データを hass.data に保存
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][config_entry.entry_id] = coordinator
-    _LOGGER.debug("__init__.py config_entry.entry_id: %s", config_entry.entry_id)
+    # _LOGGER.debug("__init__.py config_entry.entry_id: %s", config_entry.entry_id)
 
     # エンティティの追加
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)

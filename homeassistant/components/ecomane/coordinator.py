@@ -217,7 +217,7 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
             if div:
                 value = div.text.strip()
                 self._dict[div_id] = value
-            _LOGGER.debug("div_id=%s, value=%s", div_id, value)  # debug
+            # _LOGGER.debug("div_id=%s, value=%s", div_id, value)  # debug
             self._dict[div_id] = value
 
         return self._dict
@@ -250,7 +250,7 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
                     if page_num >= total_page:
                         break
                 self._sensor_total = self._sensor_count
-                _LOGGER.debug("Total number of sensors = %s", self._sensor_total)
+                # _LOGGER.debug("Total number of sensors = %s", self._sensor_total)
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise UpdateFailed("_async_update_data failed") from err
@@ -274,7 +274,7 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
             prefix = get_sensor_power_prefix(self._sensor_count)
 
-            _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
+            # _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
 
             div_element: Tag | NavigableString | None = soup.find("div", id=div_id)
             if isinstance(div_element, Tag):
@@ -298,15 +298,15 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
                 if isinstance(element, Tag):
                     self._dict[prefix] = element.get_text().split("W")[0]
 
-                _LOGGER.debug(
-                    "%s:%s, %s:%s, %s:%s",
-                    SELECTOR_PLACE,
-                    self._dict[f"{prefix}_{SELECTOR_PLACE}"],
-                    SELECTOR_CIRCUIT,
-                    self._dict[f"{prefix}_{SELECTOR_CIRCUIT}"],
-                    SELECTOR_POWER,
-                    self._dict[prefix],
-                )
+                # _LOGGER.debug(
+                #     "%s:%s, %s:%s, %s:%s",
+                #     SELECTOR_PLACE,
+                #     self._dict[f"{prefix}_{SELECTOR_PLACE}"],
+                #     SELECTOR_CIRCUIT,
+                #     self._dict[f"{prefix}_{SELECTOR_CIRCUIT}"],
+                #     SELECTOR_POWER,
+                #     self._dict[prefix],
+                # )
 
                 self._sensor_count += 1
             else:

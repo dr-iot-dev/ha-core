@@ -39,15 +39,15 @@ async def async_setup_entry(
     _LOGGER.debug("sensor.py config_entry.entry_id: %s", config_entry.entry_id)
 
     sensor_dict = coordinator.data
-    _LOGGER.debug("async_setup_entry coordinator.data: %s", coordinator.data)
-    _LOGGER.debug("async_setup_entry coordinator.dict: %s", coordinator.dict)
+    # _LOGGER.debug("async_setup_entry coordinator.data: %s", coordinator.data)
+    # _LOGGER.debug("async_setup_entry coordinator.dict: %s", coordinator.dict)
     sensor_total = coordinator.sensor_total
     _LOGGER.debug("sensor_total: %s", sensor_total)
 
     ecomane_energy_sensors_descs = coordinator.sensor_descs
 
     sensors: list[SensorEntity] = []
-    _LOGGER.debug("sensor.py sensors: %s", sensors)
+    # _LOGGER.debug("sensor.py sensors: %s", sensors)
 
     # Energy sensors
     for sensor_desc in ecomane_energy_sensors_descs:
@@ -109,14 +109,14 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
         else:
             raise ConfigEntryNotReady("No coordinator or translation key")
 
-        _LOGGER.debug(
-            "sensor_desc.name: %s, translation_key: %s, div_id: %s, entity_id: %s, unique_id: %s",
-            sensor_desc.name,
-            self.translation_key,
-            self.div_id,
-            self.entity_id,
-            self.unique_id,
-        )
+        # _LOGGER.debug(
+        #     "sensor_desc.name: %s, translation_key: %s, div_id: %s, entity_id: %s, unique_id: %s",
+        #     sensor_desc.name,
+        #     self.translation_key,
+        #     self.div_id,
+        #     self.entity_id,
+        #     self.unique_id,
+        # )
 
     @property
     def native_value(self) -> str:
@@ -178,14 +178,14 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
             service_type=SENSOR_POWER_SERVICE_TYPE, key=key_prefix
         )
 
-        _LOGGER.debug(
-            "__init__ _key_prefix: %s, name: %s, translation_key: %s, unique_id: %s, entity_id: %s",
-            self.key_prefix,
-            name,
-            self.translation_key,
-            self.unique_id,
-            self.entity_id,
-        )
+        # _LOGGER.debug(
+        #     "__init__ _key_prefix: %s, name: %s, translation_key: %s, unique_id: %s, entity_id: %s",
+        #     self.key_prefix,
+        #     name,
+        #     self.translation_key,
+        #     self.unique_id,
+        #     self.entity_id,
+        # )
 
     @property
     def native_value(self) -> str | None:
