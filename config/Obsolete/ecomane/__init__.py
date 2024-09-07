@@ -16,25 +16,25 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Set up ecomane from a config entry."""
 
-    # _LOGGER.info(
-    #     "Setting up %s component from config entry: %s", DOMAIN, config_entry.data
-    # )
+    _LOGGER.info(
+        "Setting up %s component from config entry: %s", DOMAIN, config_entry.data
+    )
 
     ip = config_entry.data[SELECTOR_IP]
 
-    # DataUpdateCoordinatorを作成
+    # Create DataUpdateCoordinator
     coordinator = EcoManeDataUpdateCoordinator(hass, ip)
-    # 初期データ取得
+    # Initial data retrieval
     await coordinator.async_config_entry_first_refresh()
     if not coordinator.last_update_success:
         raise ConfigEntryNotReady("async_config_entry_first_refresh() failed")
 
-    # データを hass.data に保存
+    # Save data to hass.data
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][config_entry.entry_id] = coordinator
     # _LOGGER.debug("__init__.py config_entry.entry_id: %s", config_entry.entry_id)
 
-    # エンティティの追加
+    # Add entities
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
     return True
@@ -43,7 +43,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Unload a config entry."""
 
-    # エンティティのアンロード
+    # Unload entities
     # unload_ok = await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
     _LOGGER.debug("Unloading platforms: %s", Platform.SENSOR)
     unload_ok = await hass.config_entries.async_forward_entry_unload(
