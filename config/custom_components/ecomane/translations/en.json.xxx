@@ -1,0 +1,30 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "confirm": {
+        "description": "Do you want to set up {name}?"
+      },
+      "user": {
+        "data": {
+          "ip": "IP",
+          "name": "Name"
+        },
+        "data_description": {
+          "ip": "Provide the IP address to fetch data from.",
+          "name": "Enter a unique name for this integration instance."
+        },
+        "description": "Please fill out the following information to set up the integration.",
+        "title": "Configure Eco Mane Elec"
+      }
+    }
+  },
+  "title": "ECO Mane Elect HEMS Integration"
+}
