@@ -1432,17 +1432,6 @@
       "config_flow": false,
       "iot_class": "local_polling"
     },
-    "eco_mane": {
-      "name": "Eco Mane HEMS",
-      "integration_type": "hub",
-      "config_flow": true,
-      "iot_class": "cloud_polling"
-    },
-    "eco_mane_elec": {
-      "integration_type": "hub",
-      "config_flow": true,
-      "iot_class": "cloud_polling"
-    },
     "ecoal_boiler": {
       "name": "eSterownik eCoal.pl Boiler",
       "integration_type": "hub",
@@ -1460,11 +1449,6 @@
       "integration_type": "hub",
       "config_flow": true,
       "iot_class": "local_polling"
-    },
-    "ecomane": {
-      "integration_type": "hub",
-      "config_flow": true,
-      "iot_class": "cloud_polling"
     },
     "econet": {
       "name": "Rheem EcoNet Products",
@@ -7327,8 +7311,6 @@
     "cpuspeed",
     "demo",
     "derivative",
-    "eco_mane_elec",
-    "ecomane",
     "emulated_roku",
     "energenie_power_sockets",
     "filesize",
