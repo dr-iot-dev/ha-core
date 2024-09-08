@@ -9,11 +9,6 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-logger:
-  default: info
-  logs:
-    custom_components.ecomane: debug
-    components.ecomane: debug
 # sensor:
 #   - platform: "eco_mane"
 #     name: "EcoMane 1"
@@ -28,3 +23,9 @@ logger:
 #   - platform: "ecomane"
 # name: "EcoMane HEMS"
 # ip: 192.168.168.220
+
+logger:
+  default: info
+  logs:
+    custom_components.ecomane: info
+    components.ecomane: info
