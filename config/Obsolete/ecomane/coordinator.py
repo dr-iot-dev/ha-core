@@ -166,7 +166,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("Updating EcoMane data")  # debug
         await self.update_energy_data()
         await self.update_power_data()
-        _LOGGER.info("EcoMane data updated")  # info
         return self._dict
 
     async def update_energy_data(self) -> None:
@@ -192,7 +191,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
                 await self.parse_energy_data(text_data)
-                _LOGGER.info("EcoMane energy_data updated successfully")  # info
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise
@@ -253,7 +251,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                         break
                 self._sensor_total = self._sensor_count
                 _LOGGER.debug("Total number of sensors = %s", self._sensor_total)
-                _LOGGER.info("EcoMane power_data updated successfully")  # info
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise UpdateFailed("_async_update_data failed") from err

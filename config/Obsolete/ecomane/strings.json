@@ -1,0 +1,154 @@
+{
+  "title": "ECO Mane Elect HEMS Integration",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Eco Mane Elec",
+        "description": "Please fill out the following information to set up the integration.",
+        "data": {
+          "name": "Name",
+          "ip": "IP"
+        },
+        "data_description": {
+          "name": "Enter a unique name for this integration instance.",
+          "ip": "Provide the IP address to fetch data from."
+        }
+      },
+      "confirm": {
+        "description": "Do you want to set up {name}?"
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "electricity_purchased": {
+        "name": "Eletricity Purchased"
+      },
+      "solar_power_energy": {
+        "name": "Solar Power Energy"
+      },
+      "gas_consumption": {
+        "name": "Gas Consumption"
+      },
+      "water_consumpotion": {
+        "name": "Water Consumption"
+      },
+      "co2_emissions": {
+        "name": "CO2 Emissions"
+      },
+      "co2_reduction": {
+        "name": "CO2 Reduction"
+      },
+      "electricity_sales": {
+        "name": "Electricity Sales"
+      },
+      "solar_power": {
+        "name": "Solar Power"
+      },
+      "1f_toilet_outlets": {
+        "name": "1F Toilet Outlets"
+      },
+      "kitchen_lighting_and_outlets": {
+        "name": "Kitchen Lighting & Outlets"
+      },
+      "kitchen_dishwasher": {
+        "name": "Kitchen Dishwasher"
+      },
+      "kitchen_lower_outlets": {
+        "name": "Kitchen (Lower) Outlets"
+      },
+      "kitchen_upper_outlets": {
+        "name": "Kitchen (Upper) Outlets"
+      },
+      "shower_lighting_and_outlets": {
+        "name": "Shower Lighting & Outlets"
+      },
+      "dining_air_conditioner": {
+        "name": "Dining Air Conditioner"
+      },
+      "dining_lighting_and_outlets": {
+        "name": "Dining Lighting & Outlets"
+      },
+      "dining_south_lighting_and_outlets": {
+        "name": "Dining South Lighting & Outlets"
+      },
+      "dining_north_outlets": {
+        "name": "Dining North Outlets"
+      },
+      "living_air_conditioner": {
+        "name": "Living Air Conditioner"
+      },
+      "living_alarm_system": {
+        "name": "Living Alarm System"
+      },
+      "living_south_lighting_and_outlets": {
+        "name": "Lining South Lighting & Outlets"
+      },
+      "living_north_lighting_and_outlets": {
+        "name": "Living North Lighting & Outlets"
+      },
+      "stairs_2_common_lighting_and_outlets": {
+        "name": "Stairs & 2nd Floor Common Lighting & Outlets"
+      },
+      "foyer_lighting_and_outlets": {
+        "name": "Foyle Lighting & Outlets"
+      },
+      "den_air_conditioner": {
+        "name": "Den Air Conditioner"
+      },
+      "den_lighting_and_outlets": {
+        "name": "Den Lighting & Outlets"
+      },
+      "bedroom_air_conditioner": {
+        "name": "Bedroom Air Conditioner"
+      },
+      "bedroom_closet_lighting_and_outlets": {
+        "name": "Bedroom Closet Lighting & Outlets"
+      },
+      "bedroom_east_lighting_and_outlets": {
+        "name": "Bedroom East Lighting & Outlets"
+      },
+      "water_consumption": {
+        "name": "Water Consumption"
+      },
+      "washroom_lighting_and_outlets": {
+        "name": "Washroom Lighting & Outlets"
+      },
+      "washroom_washing_machine": {
+        "name": "Washtoom Washing Machine"
+      },
+      "washroom_heater": {
+        "name": "Washroom Heater"
+      },
+      "room1_air_conditioner": {
+        "name": "Room1 Air Conditioner"
+      },
+      "room1_lighting_and_outlets": {
+        "name": "Room1 Lighting & Outlets"
+      },
+      "room2_air_conditioner": {
+        "name": "Room2 Air Conditioner"
+      },
+      "room2_lighting_and_outlets": {
+        "name": "Room2 Lighting & Outlets"
+      },
+      "room3_air_conditioner": {
+        "name": "Room3 Air Conditioner"
+      },
+      "room3_lighting_and_outlets": {
+        "name": "Room3 Lighting & Outlets"
+      },
+      "bathroom_dryer": {
+        "name": "Bathroom Dryer"
+      }
+    }
+  }
+}

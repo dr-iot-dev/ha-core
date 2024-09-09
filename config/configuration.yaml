@@ -26,6 +26,6 @@ scene: !include scenes.yaml
 
 logger:
   default: info
-  logs:
-    custom_components.ecomane: info
-    components.ecomane: info
+  # logs:
+  #   custom_components.ecomane: debug
+  #   components.ecomane: info

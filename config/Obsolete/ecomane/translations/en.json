@@ -1,0 +1,154 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "confirm": {
+        "description": "Do you want to set up {name}?"
+      },
+      "user": {
+        "data": {
+          "ip": "IP",
+          "name": "Name"
+        },
+        "data_description": {
+          "ip": "Provide the IP address to fetch data from.",
+          "name": "Enter a unique name for this integration instance."
+        },
+        "description": "Please fill out the following information to set up the integration.",
+        "title": "Configure Eco Mane Elec"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "1f_toilet_outlets": {
+        "name": "1F Toilet Outlets"
+      },
+      "bathroom_dryer": {
+        "name": "Bathroom Dryer"
+      },
+      "bedroom_air_conditioner": {
+        "name": "Bedroom Air Conditioner"
+      },
+      "bedroom_closet_lighting_and_outlets": {
+        "name": "Bedroom Closet Lighting & Outlets"
+      },
+      "bedroom_east_lighting_and_outlets": {
+        "name": "Bedroom East Lighting & Outlets"
+      },
+      "co2_emissions": {
+        "name": "CCO2 Emissions"
+      },
+      "co2_reduction": {
+        "name": "CO2 Reduction"
+      },
+      "den_air_conditioner": {
+        "name": "Den Air Conditioner"
+      },
+      "den_lighting_and_outlets": {
+        "name": "Den Lighting & Outlets"
+      },
+      "dining_air_conditioner": {
+        "name": "Dining Air Conditioner"
+      },
+      "dining_lighting_and_outlets": {
+        "name": "Dining Lighting & Outlets"
+      },
+      "dining_north_outlets": {
+        "name": "Dining North Outlets"
+      },
+      "dining_south_lighting_and_outlets": {
+        "name": "Dining South Lighting & Outlets"
+      },
+      "electricity_purchased": {
+        "name": "Eletricity Purchased"
+      },
+      "electricity_sales": {
+        "name": "Electricity Sales"
+      },
+      "foyer_lighting_and_outlets": {
+        "name": "Foyle Lighting & Outlets"
+      },
+      "gas_consumption": {
+        "name": "Gas Consumption"
+      },
+      "kitchen_dishwasher": {
+        "name": "Kitchen Dishwasher"
+      },
+      "kitchen_lighting_and_outlets": {
+        "name": "Kitchen Lighting & Outlets"
+      },
+      "kitchen_lower_outlets": {
+        "name": "Kitchen (Lower) Outlets"
+      },
+      "kitchen_upper_outlets": {
+        "name": "Kitchen (Upper) Outlets"
+      },
+      "living_air_conditioner": {
+        "name": "Living Air Conditioner"
+      },
+      "living_alarm_system": {
+        "name": "Living Alarm System"
+      },
+      "living_north_lighting_and_outlets": {
+        "name": "Living North Lighting & Outlets"
+      },
+      "living_south_lighting_and_outlets": {
+        "name": "Lining South Lighting & Outlets"
+      },
+      "room1_air_conditioner": {
+        "name": "Room1 Air Conditioner"
+      },
+      "room1_lighting_and_outlets": {
+        "name": "Room1 Lighting & Outlets"
+      },
+      "room2_air_conditioner": {
+        "name": "Room2 Air Conditioner"
+      },
+      "room2_lighting_and_outlets": {
+        "name": "Room2 Lighting & Outlets"
+      },
+      "room3_air_conditioner": {
+        "name": "Room3 Air Conditioner"
+      },
+      "room3_lighting_and_outlets": {
+        "name": "Room3 Lighting & Outlets"
+      },
+      "shower_lighting_and_outlets": {
+        "name": "Shower Lighting & Outlets"
+      },
+      "solar_panel": {
+        "name": "Solar Panel"
+      },
+      "solar_power_energy": {
+        "name": "Solar Power Energy"
+      },
+      "stairs_2_common_lighting_and_outlets": {
+        "name": "Stairs & 2nd Floor Common Lighting & Outlets"
+      },
+      "washroom_heater": {
+        "name": "Washroom Heater"
+      },
+      "washroom_lighting_and_outlets": {
+        "name": "Washroom Lighting & Outlets"
+      },
+      "washroom_washing_machine": {
+        "name": "Washtoom Washing Machine"
+      },
+      "water_consumpotion": {
+        "name": "Water Consumption"
+      },
+      "water_consumption": {
+        "name": "Water Consumption"
+      }
+    }
+  },
+  "title": "ECO Mane Elect HEMS Integration"
+}
