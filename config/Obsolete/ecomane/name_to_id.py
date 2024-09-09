@@ -50,7 +50,6 @@ def ja_to_entity(name: str) -> str:
 
 # # Printing the translation dictionary
 # print(ja_to_entity_translation_dict)
-
 # print(ja_to_entity_translation_dict["太陽光"])
 # print(ja_to_entity_translation_dict["１階トイレ コンセント"])
 # print(ja_to_entity_translation_dict["CO2削減量"])

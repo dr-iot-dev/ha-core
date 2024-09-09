@@ -1,0 +1,13 @@
+{
+  "domain": "sse",
+  "name": "Simple Sensor Example",
+  "codeowners": ["@dr-iot-dev"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/sse",
+  "homekit": {},
+  "iot_class": "calculated",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": []
+}

@@ -1,0 +1,71 @@
+{
+    "title": "単純なセンサー例",
+    "config": {
+        "abort": {
+            "already_configured": "設定済み"
+        },
+        "error": {
+            "cannot_connect": "接続失敗",
+            "invalid_auth": "無効な認証",
+            "unknown": "予期していないエラー"
+        },
+        "step": {
+            "confirm": {
+                "description": "{username}の設定をしますか?"
+            },
+            "user": {
+                "description": "統合の設定のために以下の情報を記入してください.",
+                "title": "Simple Sensor Exampleの初期設定",
+                "data": {
+                    "username": "ユーザ名"
+                },
+                "data_description": {
+                    "username": "ユーザ名を指定してください."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "solar_power": { "name": "太陽光" },
+            "1f_toilet_outlets": { "name": "１階トイレ コンセント" },
+            "co2_reduction": { "name": "CO2削減量" },
+            "co2_emissions": { "name": "CO2排出量" },
+            "gas_consumption": { "name": "ガス消費量" },
+            "kitchen_lighting_and_outlets": { "name": "キッチン 照明＆コンセント" },
+            "kitchen_dishwasher": { "name": "キッチン 食器洗い乾燥機" },
+            "kitchen_lower_outlets": { "name": "キッチン（下） コンセント" },
+            "kitchen_upper_outlets": { "name": "キッチン（上） コンセント" },
+            "shower_lighting_and_outlets": { "name": "シャワー洗面納戸 照明＆コンセント" },
+            "dining_air_conditioner": { "name": "ダイニング エアコン" },
+            "dining_lighting_and_outlets": { "name": "ダイニング 照明＆コンセント" },
+            "dining_south_lighting_and_outlets": { "name": "ダイニング（南） 照明＆コンセント" },
+            "dining_north_outlets": { "name": "ダイニング（北） コンセント" },
+            "living_air_conditioner": { "name": "リビング エアコン" },
+            "living_alarm_system": { "name": "リビング 非常警報設備" },
+            "living_south_lighting_and_outlets": { "name": "リビング（南） 照明＆コンセント" },
+            "living_north_lighting_and_outlets": { "name": "リビング（北） 照明＆コンセント" },
+            "stairs_2_common_lighting_and_outlets": { "name": "階段・２階共用 照明＆コンセント" },
+            "foyer_lighting_and_outlets": { "name": "玄関・１階廊下 照明＆コンセント" },
+            "electricity_purchased": { "name": "購入電気量" },
+            "den_air_conditioner": { "name": "書斎 エアコン" },
+            "den_lighting_and_outlets": { "name": "書斎 照明＆コンセント" },
+            "bedroom_air_conditioner": { "name": "寝室 エアコン" },
+            "bedroom_closet_lighting_and_outlets": { "name": "寝室・クロゼット 照明＆コンセント" },
+            "bedroom_east_lighting_and_outlets": { "name": "寝室（東） 照明＆コンセント" },
+            "water_consumption": { "name": "水消費量" },
+            "washroom_lighting_and_outlets": { "name": "洗面 照明＆コンセント" },
+            "washroom_washing_machine": { "name": "洗面 洗濯機" },
+            "washroom_heater": { "name": "洗面 暖房器" },
+            "solar_power_energy": { "name": "太陽光発電量" },
+            "electricity_sales": { "name": "売電量" },
+            "room1_air_conditioner": { "name": "洋室１父母部屋 エアコン" },
+            "room1_lighting_and_outlets": { "name": "洋室１父母部屋 照明＆コンセント" },
+            "room2_air_conditioner": { "name": "洋室２ エアコン" },
+            "room2_lighting_and_outlets": { "name": "洋室２ 照明＆コンセント" },
+            "room3_air_conditioner": { "name": "洋室３子供部屋 エアコン" },
+            "room3_lighting_and_outlets": { "name": "洋室３子供部屋 照明＆コンセント" },
+            "bathroom_dryer": { "name": "浴室 浴室乾燥機" }
+        }
+    }
+}

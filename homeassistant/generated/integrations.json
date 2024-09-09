@@ -5776,6 +5776,12 @@
       "config_flow": true,
       "iot_class": "cloud_polling"
     },
+    "sse": {
+      "name": "Simple Sensor Example",
+      "integration_type": "hub",
+      "config_flow": true,
+      "iot_class": "calculated"
+    },
     "starline": {
       "name": "StarLine",
       "integration_type": "hub",
