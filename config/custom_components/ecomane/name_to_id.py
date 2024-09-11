@@ -1,5 +1,6 @@
 """Creating a translation dictionary."""
 
+# 日本語からエンティティ名への変換辞書
 ja_to_entity_translation_dict = {
     "購入電気量": "electricity_purchased",
     "CO2削減量": "co2_reduction",
@@ -43,15 +44,7 @@ ja_to_entity_translation_dict = {
 }
 
 
+# 日本語名をエンティティ名に変換
 def ja_to_entity(name: str) -> str:
     """Translate Japanese name to entity name."""
     return ja_to_entity_translation_dict.get(name, name)
-
-
-# # Printing the translation dictionary
-# print(ja_to_entity_translation_dict)
-
-# print(ja_to_entity_translation_dict["太陽光"])
-# print(ja_to_entity_translation_dict["１階トイレ コンセント"])
-# print(ja_to_entity_translation_dict["CO2削減量"])
-# print(ja_to_entity_translation_dict["CO2排出量"])

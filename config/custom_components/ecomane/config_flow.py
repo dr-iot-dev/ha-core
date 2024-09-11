@@ -17,7 +17,6 @@ _LOGGER = logging.getLogger(__name__)
 def configured_instances(hass: HomeAssistant) -> set[str]:
     """Return a set of configured instances."""
 
-    _LOGGER.debug("configured_instances")
     return {entry.data["name"] for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
@@ -35,15 +34,17 @@ class EcoManeConfigFlow(ConfigFlow, domain=DOMAIN):
         _LOGGER.debug("async_step_user")
         errors = {}
         if user_input is not None:
-            # Validate user input here
+            # ユーザ入力の検証
             if user_input[SELECTOR_NAME] in configured_instances(self.hass):
+                # 既に同じ名前のエントリが存在する場合はエラー
                 errors["base"] = "name_exists"
             else:
-                # Additional custom validation can be added here
+                # エントリを作成
                 return self.async_create_entry(
                     title=user_input[SELECTOR_NAME], data=user_input
                 )
 
+        # ユーザ入力フォームのスキーマ
         data_schema = vol.Schema(
             {
                 vol.Required(
@@ -54,6 +55,7 @@ class EcoManeConfigFlow(ConfigFlow, domain=DOMAIN):
             }
         )
 
+        # ユーザ入力フォームを表示
         return self.async_show_form(
             step_id="user",
             data_schema=data_schema,

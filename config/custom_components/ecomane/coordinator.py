@@ -1,4 +1,4 @@
-"""Coordinator for Eco Mane ElecCheck component."""
+"""Coordinator for Eco Mane HEMS component."""
 
 import asyncio
 from collections.abc import Generator
@@ -26,18 +26,16 @@ from .const import (
     SELECTOR_CIRCUIT,
     SELECTOR_PLACE,
     SELECTOR_POWER,
-    SENSOR_ENERGY_CGI,
     SENSOR_POWER_CGI,
     SENSOR_POWER_PREFIX,
     SENSOR_POWER_SELECTOR_PREFIX,
+    SENSOR_TODAY_CGI,
 )
 
 _LOGGER = logging.getLogger(__name__)
 
-# retry_interval = 120
-# polling_interval = 300
 
-
+# 電力センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManePowerSensorEntityDescription(SensorEntityDescription):
     """Describes EcoManePower sensor entity."""
@@ -45,6 +43,7 @@ class EcoManePowerSensorEntityDescription(SensorEntityDescription):
     service_type: str
 
 
+# 使用量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
     """Describes EcoManeEnergy sensor entity."""
@@ -52,8 +51,8 @@ class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
     description: str
 
 
-# センサーのエンティティのディスクリプションのリストを作成
-ecomane_energy_sensors_descs = [
+# 使用量センサーのエンティティのディスクリプションのリストを作成
+ecomane_usage_sensors_descs = [
     EcoManeUsageSensorEntityDescription(
         # name="購入電気量",
         name="electricity_purchased",
@@ -66,66 +65,54 @@ ecomane_energy_sensors_descs = [
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="太陽光発電量",
         name="solar_power_energy",
         translation_key="solar_power_energy",
-        # description="Solar Power Energy",
-        description="Solar Power Energy 太陽光発電量",
+        description="Solar Power Energy / 太陽光発電量",
         key="num_L2",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="ガス消費量",
         name="gas_consumption",
         translation_key="gas_consumption",
-        # description="Gas Consumption",
-        description="Gas Consumption ガス消費量",
+        description="Gas Consumption / ガス消費量",
         key="num_L4",
         device_class=SensorDeviceClass.GAS,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="水消費量",
         name="water_consumption",
         translation_key="water_consumption",
-        # description="Water Consumption",
-        description="Water Consumption 水消費量",
+        description="Water Consumption / 水消費量",
         key="num_L5",
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="CO2排出量",
         name="co2_emissions",
         translation_key="co2_emissions",
-        # description="CO2 Emissions",
-        description="CO2 Emissions CO2排出量",
+        description="CO2 Emissions / CO2排出量",
         key="num_R1",
         device_class=SensorDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="CO2削減量",
         name="co2_reduction",
         translation_key="co2_reduction",
-        # description="CO2 Reduction",
-        description="CO2 Reduction CO2削減量",
+        description="CO2 Reduction / CO2削減量",
         key="num_R2",
         device_class=SensorDeviceClass.WEIGHT,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     EcoManeUsageSensorEntityDescription(
-        # name="売電量",
         name="electricity_sales",
         translation_key="electricity_sales",
-        # description="Electricity sales",
-        description="Electricity sales 売電量",
+        description="Electricity sales / 売電量",
         key="num_R3",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -135,7 +122,7 @@ ecomane_energy_sensors_descs = [
 
 
 class EcoManeDataCoordinator(DataUpdateCoordinator):
-    """ElecCheck_6000 coordinator."""
+    """EcoMane Data coordinator."""
 
     def __init__(self, hass: HomeAssistant, ip: str) -> None:
         """Initialize my coordinator."""
@@ -150,9 +137,9 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         self._ip = ip
         self._dict: dict[str, str] = {}
         self._session = None
-        self._sensor_total = 0
-        self._sensor_count = 0
-        self._sensor_descs = ecomane_energy_sensors_descs
+        self._power_sensor_total = 0
+        self._power_sensor_count = 0
+        self._usage_sensor_descs = ecomane_usage_sensors_descs
 
     def natural_number_generator(self) -> Generator:
         """Natural number generator."""
@@ -176,7 +163,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         # response = None
         try:
             # デバイスからデータを取得
-            url = f"http://{self._ip}/{SENSOR_ENERGY_CGI}"
+            url = f"http://{self._ip}/{SENSOR_TODAY_CGI}"
             async with aiohttp.ClientSession() as session:
                 response: aiohttp.ClientResponse = await session.get(url)
                 if response.status != 200:
@@ -192,7 +179,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
                 await self.parse_usage_data(text_data)
-                _LOGGER.info("EcoMane Usage data updated successfully")  # info
+                _LOGGER.debug("EcoMane usage data updated successfully")
         except Exception as err:
             _LOGGER.error("Error updating usage data: %s", err)
             raise UpdateFailed("update_usage_data failed") from err
@@ -201,26 +188,16 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     async def parse_usage_data(self, text: str) -> dict:
         """Parse data from the content."""
 
-        # _LOGGER.debug("parse_usage_data(%s)", text)
-        # html_response = response.text
-
         # BeautifulSoupを使用してHTMLを解析
         soup = BeautifulSoup(text, "html.parser")
-        # soup = BeautifulSoup(html_response, "html.parser")
-
-        for sensor_desc in ecomane_energy_sensors_descs:
-            key = sensor_desc.key
-            # value = self.get_value_from_div(soup, key)
+        # 指定したIDを持つdivタグの値を取得して辞書に格納
+        for usage_sensor_desc in ecomane_usage_sensors_descs:
+            key = usage_sensor_desc.key
             div = soup.find("div", id=key)
             if div:
                 value = div.text.strip()
                 self._dict[key] = value
-            _LOGGER.debug("key=%s, value=%s", key, value)  # debug
-            self._dict[key] = value
-
-        # # 指定したIDを持つdivタグの値を取得して辞書に格納
-        # # _LOGGER.debug(f"self._config={self._config}")
-
+            # self._dict[key] = value
         return self._dict
 
     async def update_power_data(self) -> dict:
@@ -232,7 +209,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             # デバイスからデータを取得
             url = f"http://{self._ip}/{SENSOR_POWER_CGI}"
             async with aiohttp.ClientSession() as session:
-                self._sensor_count = 0
+                self._power_sensor_count = 0
                 # for page_num in range(1, total_page + 1):
                 for page_num in self.natural_number_generator():
                     url = f"http://{self._ip}/{SENSOR_POWER_CGI}&page={page_num}"
@@ -246,15 +223,16 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                         raise UpdateFailed(
                             f"Error fetching data from {url}. Page:{page_num} Status code: {response.status}"
                         )
-                    # response.encoding = ENCODING  # shift-jis
-                    # テキストデータを取得する際にエンコーディングを指定
+                    # テキストデータを取得する際に shift-jis エンコーディングを指定
                     text_data = await response.text(encoding="shift-jis")
                     total_page = await self.parse_power_data(text_data, page_num)
                     if page_num >= total_page:
                         break
-                self._sensor_total = self._sensor_count
-                _LOGGER.debug("Total number of sensors = %s", self._sensor_total)
-                _LOGGER.info("EcoMane power_data updated successfully")  # info
+                self._power_sensor_total = self._power_sensor_count
+                _LOGGER.debug(
+                    "Total number of power sensors = %s", self._power_sensor_total
+                )
+                _LOGGER.debug("EcoMane power data updated successfully")
         except Exception as err:
             _LOGGER.error("Error updating power data: %s", err)
             raise UpdateFailed("update_power_data failed") from err
@@ -265,14 +243,9 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     async def parse_power_data(self, text: str, page_num: int) -> int:
         """Parse data from the content."""
 
-        # _LOGGER.debug("parse_power_data(%s, %d)", text, page_num)
-        # response.encoding = ENCODING  # shift-jis
-        # raw_content = await response.read()
-        # text = raw_content.decode(ENCODING)
+        # BeautifulSoupを使用してHTMLを解析
         soup = BeautifulSoup(text, "html.parser")
-        # maxp = soup.find("input", {"name": "maxp"})
-        # total_page = maxp.value if maxp else 0
-        # total_page = int(maxp["value"]) if maxp else 0
+        # 最大ページ数を取得
         maxp = soup.find("input", {"name": "maxp"})
         total_page = 0
         if isinstance(maxp, Tag):
@@ -281,9 +254,10 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             if isinstance(value, str):
                 total_page = int(value)
 
+        # ページ内の各センサーのデータを取得
         for button_num in range(1, 9):
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
-            prefix = f"{SENSOR_POWER_PREFIX}_{self._sensor_count:02d}"
+            prefix = f"{SENSOR_POWER_PREFIX}_{self._power_sensor_count:02d}"
 
             _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
 
@@ -294,32 +268,24 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     "div",
                     class_=SELECTOR_PLACE,  # txt
                 )
+
+                # 場所
                 if isinstance(element, Tag):
                     self._dict[f"{prefix}_{SELECTOR_PLACE}"] = element.get_text()  # txt
-                    # _LOGGER.debug("%s:%s", SELECTOR_PLACE, element.get_text())
 
+                # 回路
                 element = div_element.find("div", class_=SELECTOR_CIRCUIT)  # txt2
                 if isinstance(element, Tag):
                     self._dict[f"{prefix}_{SELECTOR_CIRCUIT}"] = (
                         element.get_text()
                     )  # txt2
-                    # _LOGGER.debug("%s:%s", SELECTOR_CIRCUIT, element.get_text())
 
+                # 電力
                 element = div_element.find("div", class_=SELECTOR_POWER)  # num
                 if isinstance(element, Tag):
                     self._dict[prefix] = element.get_text().split("W")[0]
 
-                _LOGGER.debug(
-                    "%s:%s, %s:%s, %s:%s",
-                    SELECTOR_PLACE,
-                    self._dict[f"{prefix}_{SELECTOR_PLACE}"],
-                    SELECTOR_CIRCUIT,
-                    self._dict[f"{prefix}_{SELECTOR_CIRCUIT}"],
-                    SELECTOR_POWER,
-                    self._dict[prefix],
-                )
-
-                self._sensor_count += 1
+                self._power_sensor_count += 1
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
                 break
@@ -329,7 +295,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     async def async_config_entry_first_refresh(self) -> None:
         """Perform the first refresh with retry logic."""
 
-        _LOGGER.debug("async_config_entry_first_refresh")
         while True:
             try:
                 await self._async_update_data()
@@ -348,14 +313,14 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         return self._dict
 
     @property
-    def sensor_total(self) -> int:
-        """Total number of sensors."""
-        return self._sensor_total
+    def power_sensor_total(self) -> int:
+        """Total number of power sensors."""
+        return self._power_sensor_total
 
     @property
-    def sensor_descs(self) -> list[EcoManeUsageSensorEntityDescription]:
-        """Sensor descriptions."""
-        return self._sensor_descs
+    def usage_sensor_descs(self) -> list[EcoManeUsageSensorEntityDescription]:
+        """Usage sensor descriptions."""
+        return self._usage_sensor_descs
 
     @property
     def ip_address(self) -> str:
