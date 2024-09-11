@@ -29,3 +29,5 @@ logger:
   # logs:
   #   custom_components.ecomane: debug
   #   components.ecomane: info
+
+demo:

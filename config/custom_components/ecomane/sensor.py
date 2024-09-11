@@ -14,6 +14,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import UnitOfPower
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 # from homeassistant.helpers.typing import UndefinedType
@@ -28,8 +29,8 @@ from .const import (
 )
 from .coordinator import (
     EcoManeDataCoordinator,
-    EcoManeEnergySensorEntityDescription,
     EcoManePowerSensorEntityDescription,
+    EcoManeUsageSensorEntityDescription,
 )
 from .name_to_id import ja_to_entity
 
@@ -58,7 +59,7 @@ async def async_setup_entry(
     # センサーのエンティティのリストを作成
     for sensor_desc in ecomane_energy_sensors_descs:
         # _LOGGER.debug("sensor_desc: %s", sensor_desc)
-        sensor = EcoManeEnergySensorEntity(coordinator, sensor_desc)
+        sensor = EcoManeUsageSensorEntity(coordinator, sensor_desc)
         # _LOGGER.debug("sensor.py energy sensor: %s", sensor)
         sensors.append(sensor)
 
@@ -88,12 +89,12 @@ async def async_setup_entry(
         raise ConfigEntryNotReady("No sensors found")
 
     # エンティティを追加
-    async_add_entities(sensors)
+    async_add_entities(sensors, update_before_add=False)
     _LOGGER.debug("sensor.py async_setup_entry has finished async_add_entities")
 
 
-class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
-    """EcoManeEnergySensor."""
+class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
+    """EcoManeUsageSensor."""
 
     _attr_has_entity_name = True
     # _attr_id = None
@@ -103,14 +104,15 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     _attr_native_unit_of_measurement: str | None = None
     _attr_device_class: SensorDeviceClass | None = None
     _attr_state_class: str | None = None
-    _attr_entity_description: EcoManeEnergySensorEntityDescription | None = None
+    _attr_entity_description: EcoManeUsageSensorEntityDescription | None = None
     _attr_state = None
     _attr_unique_id: str | None = None
+    _ip_address: str | None = None
 
     def __init__(
         self,
         coordinator: EcoManeDataCoordinator,
-        sensor_desc: EcoManeEnergySensorEntityDescription,
+        sensor_desc: EcoManeUsageSensorEntityDescription,
     ) -> None:
         """Pass coordinator to CoordinatorEntity."""
 
@@ -131,6 +133,7 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
         # self._attr_unique_id = self._attr_translation_key
         # self._attr_name = self._attr_translation_key
         self.entity_id = f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_desc.translation_key}"
+        self._ip_address = coordinator.ip_address
 
         if (
             coordinator is not None
@@ -204,9 +207,19 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
     #     """Translation key."""
     #     return self._attr_translation_key
 
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return the device info."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self._ip_address + "_saving")},
+            name="Daily Usage",
+            manufacturer="Panasonic",
+            translation_key="daily_usage",
+        )
+
 
 class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
-    """EcoManeEnergySensor."""
+    """EcoManeUsageSensor."""
 
     _attr_has_entity_name = True
     # _attr_name = None
@@ -217,6 +230,7 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     _attr_device_class = SensorDeviceClass.POWER
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_state_class = SensorStateClass.MEASUREMENT
+    _ip_address: str | None = None
 
     def __init__(
         self,
@@ -241,6 +255,7 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         self._attr_translation_key = ja_to_entity(name)
         # self._attr_unique_id = self._attr_translation_key
         # self._attr_name = self._attr_translation_key
+        self._ip_address = coordinator.ip_address
 
         self._power = power
 
@@ -303,7 +318,22 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     #     """Entity ID."""
     #     return self._attr_unique_id
 
+    # @property
+    # def translation_key(self) -> str:
+    #     """Translation key."""
+    #     return str(self._attr_translation_key)
+
     @property
-    def translation_key(self) -> str:
-        """Translation key."""
-        return str(self._attr_translation_key)
+    def device_info(self) -> DeviceInfo:
+        """Return the device info."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self._ip_address + "_monitoring")},
+            name="Power Consumption",
+            manufacturer="Panasonic",
+            translation_key="power_consumption",
+        )
+
+    # @property
+    # def entity_picture(self) -> str | None:
+    #     """Return the entity picture to use in the frontend, if any."""
+    #     return "mdi:home-analytics"

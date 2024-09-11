@@ -27,6 +27,14 @@
       "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
   },
+  "device": {
+    "daily_usage": {
+      "name": "Today's Usage"
+    },
+    "power_consumption": {
+      "name": "Power Consumption"
+    }
+  },
   "entity": {
     "sensor": {
       "electricity_purchased": {

@@ -12,7 +12,5 @@
   "ssdp": [],
   "zeroconf": [],
   "loggers": ["custom_components.ecomane"],
-  "icons": {
-    "icon": "mdi:home-analytics"
-  }
+  "icon": "mdi:home-analytics"
 }

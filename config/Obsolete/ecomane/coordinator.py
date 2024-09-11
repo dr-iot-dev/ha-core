@@ -175,15 +175,15 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> dict:
         """Update ElecCheck."""
-        # _LOGGER.debug("Updating EcoMane data")  # debug
-        await self.update_energy_data()
+        # _LOGGER.debug("Updating EcoMane Usage data")  # debug
+        await self.update_usage_data()
         await self.update_power_data()
         return self._dict
 
-    async def update_energy_data(self) -> None:
+    async def update_usage_data(self) -> None:
         """Update energy data."""
 
-        # _LOGGER.debug("update_energy_data")
+        # _LOGGER.debug("update_usage_data")
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip}/{SENSOR_ENERGY_CGI}"
@@ -200,12 +200,12 @@ class EcoManeDataUpdateCoordinator(DataUpdateCoordinator):
                     )
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
-                await self.parse_energy_data(text_data)
+                await self.parse_usage_data(text_data)
         except Exception as err:
             _LOGGER.error("Error updating sensor data: %s", err)
             raise
 
-    async def parse_energy_data(self, text: str) -> dict:
+    async def parse_usage_data(self, text: str) -> dict:
         """Parse data from the content."""
 
         # BeautifulSoupを使用してHTMLを解析

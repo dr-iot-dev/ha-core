@@ -46,7 +46,7 @@ class EcoManePowerSensorEntityDescription(SensorEntityDescription):
 
 
 @dataclass(frozen=True, kw_only=True)
-class EcoManeEnergySensorEntityDescription(SensorEntityDescription):
+class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
     """Describes EcoManeEnergy sensor entity."""
 
     description: str
@@ -54,7 +54,7 @@ class EcoManeEnergySensorEntityDescription(SensorEntityDescription):
 
 # センサーのエンティティのディスクリプションのリストを作成
 ecomane_energy_sensors_descs = [
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="購入電気量",
         name="electricity_purchased",
         translation_key="electricity_purchased",
@@ -65,7 +65,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="太陽光発電量",
         name="solar_power_energy",
         translation_key="solar_power_energy",
@@ -76,7 +76,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="ガス消費量",
         name="gas_consumption",
         translation_key="gas_consumption",
@@ -87,7 +87,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="水消費量",
         name="water_consumption",
         translation_key="water_consumption",
@@ -98,7 +98,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="CO2排出量",
         name="co2_emissions",
         translation_key="co2_emissions",
@@ -109,7 +109,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="CO2削減量",
         name="co2_reduction",
         translation_key="co2_reduction",
@@ -120,7 +120,7 @@ ecomane_energy_sensors_descs = [
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    EcoManeEnergySensorEntityDescription(
+    EcoManeUsageSensorEntityDescription(
         # name="売電量",
         name="electricity_sales",
         translation_key="electricity_sales",
@@ -164,15 +164,15 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     async def _async_update_data(self) -> dict:
         """Update ElecCheck."""
         _LOGGER.debug("Updating EcoMane data")  # debug
-        await self.update_energy_data()
+        await self.update_usage_data()
         await self.update_power_data()
         _LOGGER.info("EcoMane data updated")  # info
         return self._dict
 
-    async def update_energy_data(self) -> None:
+    async def update_usage_data(self) -> None:
         """Update energy data."""
 
-        _LOGGER.debug("update_energy_data")
+        _LOGGER.debug("update_usage_data")
         # response = None
         try:
             # デバイスからデータを取得
@@ -191,16 +191,17 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 # response.encoding = ENCODING  # shift-jis
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
-                await self.parse_energy_data(text_data)
-                _LOGGER.info("EcoMane energy_data updated successfully")  # info
+                await self.parse_usage_data(text_data)
+                _LOGGER.info("EcoMane Usage data updated successfully")  # info
         except Exception as err:
-            _LOGGER.error("Error updating sensor data: %s", err)
+            _LOGGER.error("Error updating usage data: %s", err)
+            raise UpdateFailed("update_usage_data failed") from err
             raise
 
-    async def parse_energy_data(self, text: str) -> dict:
+    async def parse_usage_data(self, text: str) -> dict:
         """Parse data from the content."""
 
-        # _LOGGER.debug("parse_energy_data(%s)", text)
+        # _LOGGER.debug("parse_usage_data(%s)", text)
         # html_response = response.text
 
         # BeautifulSoupを使用してHTMLを解析
@@ -255,8 +256,8 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 _LOGGER.debug("Total number of sensors = %s", self._sensor_total)
                 _LOGGER.info("EcoMane power_data updated successfully")  # info
         except Exception as err:
-            _LOGGER.error("Error updating sensor data: %s", err)
-            raise UpdateFailed("_async_update_data failed") from err
+            _LOGGER.error("Error updating power data: %s", err)
+            raise UpdateFailed("update_power_data failed") from err
         # finally:
 
         return self._dict
@@ -352,6 +353,11 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         return self._sensor_total
 
     @property
-    def sensor_descs(self) -> list[EcoManeEnergySensorEntityDescription]:
+    def sensor_descs(self) -> list[EcoManeUsageSensorEntityDescription]:
         """Sensor descriptions."""
         return self._sensor_descs
+
+    @property
+    def ip_address(self) -> str:
+        """IP address."""
+        return self._ip

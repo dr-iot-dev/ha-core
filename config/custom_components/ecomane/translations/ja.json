@@ -27,6 +27,14 @@
       }
     }
   },
+  "device": {
+    "daily_usage": {
+      "name": "今日の使用量"
+    },
+    "power_consumption": {
+      "name": "消費電力"
+    }
+  },
   "entity": {
     "sensor": {
       "electricity_purchased": {
