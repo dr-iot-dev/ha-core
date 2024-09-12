@@ -80,7 +80,7 @@ async def async_setup_entry(
     if not sensors:
         raise ConfigEntryNotReady("No sensors found")
 
-    # エンティティを追加
+    # エンティティを追加 (update_before_add=False でオーバービューに自動で登録されないようにする)
     async_add_entities(sensors, update_before_add=False)
     _LOGGER.debug("sensor.py async_setup_entry has finished async_add_entities")
 

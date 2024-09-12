@@ -26,6 +26,14 @@
       }
     }
   },
+  "device": {
+    "daily_usage": {
+      "name": "Today's Usage"
+    },
+    "power_consumption": {
+      "name": "Power Consumption"
+    }
+  },
   "entity": {
     "sensor": {
       "1f_toilet_outlets": {

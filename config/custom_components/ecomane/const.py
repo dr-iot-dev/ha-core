@@ -40,13 +40,3 @@ SELECTOR_POWER = "num"
 
 RETRY_INTERVAL = 120  # 再試行間隔: 120秒
 POLLING_INTERVAL = 60  # ECOマネへのpolling間隔: 60秒
-
-# センサーエンティティの種類
-# SERVICE_TYPE_DEVICE_NAMES = {
-#     "electricity": "Electric power",
-#     "solar": "Solar power",
-#     "electric energy": "Electric energy",
-#     "solar energy": "Solar energy",
-#     "gas": "Gas",
-#     "water": "Water",
-# }

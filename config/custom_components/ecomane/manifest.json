@@ -11,6 +11,5 @@
   "requirements": [],
   "ssdp": [],
   "zeroconf": [],
-  "loggers": ["custom_components.ecomane"],
-  "icon": "mdi:home-analytics"
+  "loggers": ["custom_components.ecomane"]
 }

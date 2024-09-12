@@ -149,7 +149,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             count += 1
 
     async def _async_update_data(self) -> dict:
-        """Update ElecCheck."""
+        """Update Eco Mane Data."""
         _LOGGER.debug("Updating EcoMane data")  # debug
         await self.update_usage_data()
         await self.update_power_data()
@@ -157,7 +157,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         return self._dict
 
     async def update_usage_data(self) -> None:
-        """Update energy data."""
+        """Update usage data."""
 
         _LOGGER.debug("update_usage_data")
         # response = None
@@ -210,8 +210,9 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             url = f"http://{self._ip}/{SENSOR_POWER_CGI}"
             async with aiohttp.ClientSession() as session:
                 self._power_sensor_count = 0
-                # for page_num in range(1, total_page + 1):
-                for page_num in self.natural_number_generator():
+                for (
+                    page_num
+                ) in self.natural_number_generator():  # 1ページ目から順に取得
                     url = f"http://{self._ip}/{SENSOR_POWER_CGI}&page={page_num}"
                     response: aiohttp.ClientResponse = await session.get(url)
                     if response.status != 200:
