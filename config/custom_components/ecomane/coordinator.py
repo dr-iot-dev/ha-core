@@ -222,7 +222,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                             response.status,
                         )
                         raise UpdateFailed(
-                            f"Error fetching data from {url}. Page:{page_num} Status code: {response.status}"
+                            f"Error fetching data from {url}. Page: {page_num} Status code: {response.status}"
                         )
                     # テキストデータを取得する際に shift-jis エンコーディングを指定
                     text_data = await response.text(encoding="shift-jis")
@@ -255,12 +255,10 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             if isinstance(value, str):
                 total_page = int(value)
 
-        # ページ内の各センサーのデータを取得
+        # ページ内の各センサーエンティティのデータを取得
         for button_num in range(1, 9):
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
             prefix = f"{SENSOR_POWER_PREFIX}_{self._power_sensor_count:02d}"
-
-            _LOGGER.debug("page:%s id:%s prefix:%s", page_num, div_id, prefix)
 
             div_element: Tag | NavigableString | None = soup.find("div", id=div_id)
             if isinstance(div_element, Tag):
@@ -286,7 +284,17 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 if isinstance(element, Tag):
                     self._dict[prefix] = element.get_text().split("W")[0]
 
+                # 電力センサーエンティティ数をカウント
                 self._power_sensor_count += 1
+
+                # デバッグログ
+                _LOGGER.debug(
+                    "page:%s id:%s prefix:%s power:%s",
+                    page_num,
+                    div_id,
+                    prefix,
+                    self._dict[prefix],
+                )
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
                 break
