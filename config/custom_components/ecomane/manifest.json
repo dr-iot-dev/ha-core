@@ -1,7 +1,7 @@
 {
   "domain": "ecomane",
   "name": "Panasonic Eco Mane HEMS",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "codeowners": ["@dr-iot-dev"],
   "config_flow": true,
   "dependencies": [],
