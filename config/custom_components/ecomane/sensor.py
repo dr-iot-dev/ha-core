@@ -50,7 +50,7 @@ async def async_setup_entry(
     ecomane_energy_sensors_descs = coordinator.usage_sensor_descs
 
     sensors: list[SensorEntity] = []
-    _LOGGER.debug("sensor.py sensors: %s", sensors)
+    _LOGGER.debug("sensor.py async_setup_entry sensors: %s", sensors)
     # 使用量センサーのエンティティのリストを作成
     for usage_sensor_desc in ecomane_energy_sensors_descs:
         sensor = EcoManeUsageSensorEntity(coordinator, usage_sensor_desc)
@@ -63,7 +63,7 @@ async def async_setup_entry(
         circuit = sensor_dict[f"{prefix}_{SELECTOR_CIRCUIT}"]
         # power = sensor_dict[prefix]
         _LOGGER.debug(
-            "sensor.py sensor_num: %s, prefix: %s, place: %s, circuit: %s",
+            "sensor.py async_setup_entry sensor_num: %s, prefix: %s, place: %s, circuit: %s",
             sensor_num,
             prefix,
             place,

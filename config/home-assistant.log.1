@@ -1,144 +1,128 @@
-2024-09-13 23:11:24.470 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2024-09-13 23:11:24.470 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration ecomane which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2024-09-13 23:11:24.651 INFO (MainThread) [homeassistant.setup] Setup of domain logger took 0.03 seconds
-2024-09-13 23:11:24.653 INFO (MainThread) [homeassistant.setup] Setup of domain system_log took 0.03 seconds
-2024-09-13 23:11:24.654 INFO (MainThread) [homeassistant.bootstrap] Setting up frontend: {'frontend'}
-2024-09-13 23:11:24.660 INFO (MainThread) [homeassistant.setup] Setting up http
-2024-09-13 23:11:24.667 INFO (MainThread) [homeassistant.setup] Setting up device_automation
-2024-09-13 23:11:24.668 INFO (MainThread) [homeassistant.setup] Setup of domain device_automation took 0.00 seconds
-2024-09-13 23:11:24.676 WARNING (MainThread) [aiohttp_fast_zlib] zlib_ng and isal are not available, falling back to zlib, performance will be degraded.
-2024-09-13 23:11:24.678 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.02 seconds
-2024-09-13 23:11:24.680 INFO (MainThread) [homeassistant.setup] Setting up auth
-2024-09-13 23:11:24.681 INFO (MainThread) [homeassistant.setup] Setup of domain auth took 0.00 seconds
-2024-09-13 23:11:24.682 INFO (MainThread) [homeassistant.setup] Setting up config
-2024-09-13 23:11:24.684 INFO (MainThread) [homeassistant.setup] Setup of domain config took 0.00 seconds
-2024-09-13 23:11:24.684 INFO (MainThread) [homeassistant.setup] Setting up diagnostics
-2024-09-13 23:11:24.686 INFO (MainThread) [homeassistant.setup] Setup of domain diagnostics took 0.00 seconds
-2024-09-13 23:11:24.686 INFO (MainThread) [homeassistant.setup] Setting up file_upload
-2024-09-13 23:11:24.687 INFO (MainThread) [homeassistant.setup] Setup of domain file_upload took 0.00 seconds
-2024-09-13 23:11:24.687 INFO (MainThread) [homeassistant.setup] Setting up image_upload
-2024-09-13 23:11:24.689 INFO (MainThread) [homeassistant.setup] Setup of domain image_upload took 0.00 seconds
-2024-09-13 23:11:24.690 INFO (MainThread) [homeassistant.setup] Setting up repairs
-2024-09-13 23:11:24.690 INFO (MainThread) [homeassistant.setup] Setup of domain repairs took 0.00 seconds
-2024-09-13 23:11:24.691 INFO (MainThread) [homeassistant.setup] Setting up websocket_api
-2024-09-13 23:11:24.692 INFO (MainThread) [homeassistant.setup] Setup of domain websocket_api took 0.00 seconds
-2024-09-13 23:11:24.692 INFO (MainThread) [homeassistant.setup] Setting up api
-2024-09-13 23:11:24.694 INFO (MainThread) [homeassistant.setup] Setup of domain api took 0.00 seconds
-2024-09-13 23:11:24.695 INFO (MainThread) [homeassistant.setup] Setting up person
-2024-09-13 23:11:24.697 INFO (MainThread) [homeassistant.setup] Setting up search
-2024-09-13 23:11:24.697 INFO (MainThread) [homeassistant.setup] Setup of domain search took 0.00 seconds
-2024-09-13 23:11:24.699 INFO (MainThread) [homeassistant.setup] Setup of domain person took 0.00 seconds
-2024-09-13 23:11:24.700 INFO (MainThread) [homeassistant.setup] Setting up onboarding
-2024-09-13 23:11:24.700 INFO (MainThread) [homeassistant.setup] Setup of domain onboarding took 0.00 seconds
-2024-09-13 23:11:24.701 INFO (MainThread) [homeassistant.setup] Setting up lovelace
-2024-09-13 23:11:24.704 INFO (MainThread) [homeassistant.setup] Setup of domain lovelace took 0.00 seconds
-2024-09-13 23:11:24.705 INFO (MainThread) [homeassistant.setup] Setting up frontend
-2024-09-13 23:11:24.710 INFO (MainThread) [homeassistant.setup] Setup of domain frontend took 0.00 seconds
-2024-09-13 23:11:24.713 INFO (MainThread) [homeassistant.bootstrap] Setting up recorder: {'recorder'}
-2024-09-13 23:11:24.714 INFO (MainThread) [homeassistant.setup] Setting up recorder
-2024-09-13 23:11:24.716 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=11, family=10, type=1, proto=6, laddr=('::', 8123, 0, 0)>, <asyncio.TransportSocket fd=12, family=2, type=1, proto=6, laddr=('0.0.0.0', 8123)>)> is serving
-2024-09-13 23:11:24.717 INFO (MainThread) [homeassistant.components.http] Now listening on port 8123
-2024-09-13 23:11:24.718 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.01 seconds
-2024-09-13 23:11:24.747 INFO (MainThread) [homeassistant.components.websocket_api.http.connection] [140586790488528] Received unknown command: logbook/event_stream
-2024-09-13 23:11:24.778 INFO (MainThread) [homeassistant.setup] Setup of domain recorder took 0.06 seconds
-2024-09-13 23:11:24.780 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 1: {'cloud', 'dhcp', 'http', 'network', 'bluetooth', 'zeroconf', 'usb', 'repairs', 'websocket_api', 'webhook', 'ssdp', 'auth', 'api'}
-2024-09-13 23:11:24.781 INFO (MainThread) [homeassistant.setup] Setting up webhook
-2024-09-13 23:11:24.782 INFO (MainThread) [homeassistant.setup] Setup of domain webhook took 0.00 seconds
-2024-09-13 23:11:24.786 INFO (MainThread) [homeassistant.setup] Setting up network
-2024-09-13 23:11:24.788 INFO (MainThread) [homeassistant.setup] Setup of domain network took 0.00 seconds
-2024-09-13 23:11:24.935 INFO (MainThread) [homeassistant.setup] Setting up cloud
-2024-09-13 23:11:24.944 INFO (MainThread) [homeassistant.setup] Setting up ffmpeg
-2024-09-13 23:11:25.007 INFO (MainThread) [homeassistant.setup] Setup of domain cloud took 0.07 seconds
-2024-09-13 23:11:25.012 INFO (MainThread) [asyncio] execute program 'ffmpeg': <_UnixSubprocessTransport pid=669661 running stdin=<_UnixWritePipeTransport fd=16 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=17 polling>>
-2024-09-13 23:11:25.020 INFO (MainThread) [homeassistant.setup] Setting up dhcp
-2024-09-13 23:11:25.021 INFO (MainThread) [homeassistant.setup] Setup of domain dhcp took 0.00 seconds
-2024-09-13 23:11:25.029 INFO (MainThread) [homeassistant.setup] Setting up usb
-2024-09-13 23:11:25.030 INFO (MainThread) [homeassistant.setup] Setup of domain usb took 0.00 seconds
-2024-09-13 23:11:25.058 INFO (MainThread) [homeassistant.setup] Setting up zeroconf
-2024-09-13 23:11:25.065 INFO (MainThread) [homeassistant.components.zeroconf] Starting Zeroconf broadcast
-2024-09-13 23:11:25.069 INFO (MainThread) [homeassistant.setup] Setup of domain zeroconf took 0.01 seconds
-2024-09-13 23:11:25.101 INFO (MainThread) [homeassistant.setup] Setting up ssdp
-2024-09-13 23:11:25.109 INFO (MainThread) [homeassistant.setup] Setup of domain ssdp took 0.01 seconds
-2024-09-13 23:11:25.166 INFO (MainThread) [homeassistant.setup] Setting up bluetooth
-2024-09-13 23:11:25.189 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth took 0.02 seconds
-2024-09-13 23:11:25.192 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 2: {'blueprint', 'history', 'application_credentials', 'diagnostics', 'automation', 'input_number', 'system_health', 'group', 'person', 'config', 'hardware', 'schedule', 'assist_pipeline', 'google_translate', 'backup', 'onboarding', 'input_text', 'intent', 'stream', 'lovelace', 'tts', 'analytics', 'hacs', 'input_button', 'energy', 'my', 'device_automation', 'radio_browser', 'map', 'mobile_app', 'conversation', 'shopping_list', 'stt', 'search', 'media_source', 'scene', 'input_boolean', 'tag', 'timer', 'logbook', 'demo', 'image_upload', 'persistent_notification', 'counter', 'ffmpeg', 'sun', 'file_upload', 'default_config', 'input_datetime', 'input_select', 'homeassistant_alerts', 'zone', 'ecomane', 'trace', 'wake_word', 'script'}
-2024-09-13 23:11:25.193 INFO (MainThread) [homeassistant.setup] Setting up stt
-2024-09-13 23:11:25.194 INFO (MainThread) [homeassistant.setup] Setup of domain stt took 0.00 seconds
-2024-09-13 23:11:25.195 INFO (MainThread) [homeassistant.setup] Setting up scene
-2024-09-13 23:11:25.199 INFO (MainThread) [homeassistant.setup] Setup of domain scene took 0.00 seconds
-2024-09-13 23:11:25.202 INFO (MainThread) [homeassistant.setup] Setting up wake_word
-2024-09-13 23:11:25.203 INFO (MainThread) [homeassistant.setup] Setup of domain wake_word took 0.00 seconds
-2024-09-13 23:11:25.205 INFO (MainThread) [homeassistant.setup] Setting up blueprint
-2024-09-13 23:11:25.209 INFO (MainThread) [homeassistant.setup] Setup of domain blueprint took 0.00 seconds
-2024-09-13 23:11:25.210 INFO (MainThread) [homeassistant.setup] Setting up history
-2024-09-13 23:11:25.213 INFO (MainThread) [homeassistant.setup] Setup of domain history took 0.00 seconds
-2024-09-13 23:11:25.214 INFO (MainThread) [homeassistant.setup] Setting up media_source
-2024-09-13 23:11:25.216 INFO (MainThread) [homeassistant.setup] Setup of domain media_source took 0.00 seconds
-2024-09-13 23:11:25.219 INFO (MainThread) [homeassistant.setup] Setting up trace
-2024-09-13 23:11:25.221 INFO (MainThread) [homeassistant.setup] Setup of domain trace took 0.00 seconds
-2024-09-13 23:11:25.222 INFO (MainThread) [homeassistant.setup] Setting up automation
-2024-09-13 23:11:25.225 INFO (MainThread) [homeassistant.setup] Setup of domain automation took 0.00 seconds
-2024-09-13 23:11:25.225 INFO (MainThread) [homeassistant.setup] Setting up input_boolean
-2024-09-13 23:11:25.228 INFO (MainThread) [homeassistant.setup] Setup of domain input_boolean took 0.00 seconds
-2024-09-13 23:11:25.230 INFO (MainThread) [homeassistant.setup] Setting up input_number
-2024-09-13 23:11:25.233 INFO (MainThread) [homeassistant.setup] Setup of domain input_number took 0.00 seconds
-2024-09-13 23:11:25.235 INFO (MainThread) [homeassistant.setup] Setting up system_health
-2024-09-13 23:11:25.236 INFO (MainThread) [homeassistant.setup] Setup of domain system_health took 0.00 seconds
-2024-09-13 23:11:25.238 INFO (MainThread) [homeassistant.setup] Setting up timer
-2024-09-13 23:11:25.241 INFO (MainThread) [homeassistant.setup] Setup of domain timer took 0.00 seconds
-2024-09-13 23:11:25.242 INFO (MainThread) [homeassistant.setup] Setting up group
-2024-09-13 23:11:25.245 INFO (MainThread) [homeassistant.setup] Setup of domain group took 0.00 seconds
-2024-09-13 23:11:25.245 INFO (MainThread) [homeassistant.setup] Setting up logbook
-2024-09-13 23:11:25.248 INFO (MainThread) [homeassistant.setup] Setup of domain logbook took 0.00 seconds
-2024-09-13 23:11:25.250 INFO (MainThread) [homeassistant.setup] Setting up zone
-2024-09-13 23:11:25.252 INFO (MainThread) [homeassistant.setup] Setup of domain zone took 0.00 seconds
-2024-09-13 23:11:25.270 INFO (MainThread) [homeassistant.setup] Setting up stream
-2024-09-13 23:11:25.299 INFO (MainThread) [homeassistant.setup] Setting up input_button
-2024-09-13 23:11:25.304 INFO (MainThread) [homeassistant.setup] Setup of domain input_button took 0.00 seconds
-2024-09-13 23:11:25.338 INFO (MainThread) [homeassistant.setup] Setting up input_select
-2024-09-13 23:11:25.345 INFO (MainThread) [homeassistant.setup] Setup of domain input_select took 0.01 seconds
-2024-09-13 23:11:25.353 INFO (MainThread) [homeassistant.setup] Setting up script
-2024-09-13 23:11:25.369 INFO (MainThread) [homeassistant.setup] Setup of domain script took 0.02 seconds
-2024-09-13 23:11:25.389 WARNING (MainThread) [asyncio] Executing <Task pending name='Task-1' coro=<setup_and_run_hass() running at /workspaces/ha-core/homeassistant/runner.py:158> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.12/asyncio/tasks.py:712> cb=[_run_until_complete_cb() at /usr/local/lib/python3.12/asyncio/base_events.py:182] created at /usr/local/lib/python3.12/asyncio/tasks.py:695> took 0.199 seconds
-2024-09-13 23:11:25.400 INFO (MainThread) [homeassistant.components.scene] Setting up homeassistant.scene
-2024-09-13 23:11:25.410 INFO (MainThread) [homeassistant.setup] Setting up intent
-2024-09-13 23:11:25.412 INFO (MainThread) [homeassistant.setup] Setup of domain intent took 0.00 seconds
-2024-09-13 23:11:25.413 INFO (MainThread) [homeassistant.setup] Setting up shopping_list
-2024-09-13 23:11:25.414 INFO (MainThread) [homeassistant.setup] Setup of domain shopping_list took 0.00 seconds
-2024-09-13 23:11:25.416 INFO (MainThread) [homeassistant.setup] Setting up application_credentials
-2024-09-13 23:11:25.420 INFO (MainThread) [homeassistant.setup] Setup of domain application_credentials took 0.00 seconds
-2024-09-13 23:11:25.421 INFO (MainThread) [homeassistant.setup] Setting up tag
-2024-09-13 23:11:25.424 INFO (MainThread) [homeassistant.setup] Setup of domain tag took 0.00 seconds
-2024-09-13 23:11:25.426 INFO (MainThread) [homeassistant.setup] Setting up hardware
-2024-09-13 23:11:25.429 INFO (MainThread) [homeassistant.setup] Setting up schedule
-2024-09-13 23:11:25.436 INFO (MainThread) [homeassistant.setup] Setup of domain schedule took 0.01 seconds
-2024-09-13 23:11:25.440 INFO (MainThread) [homeassistant.setup] Setting up counter
-2024-09-13 23:11:25.444 INFO (MainThread) [homeassistant.setup] Setup of domain counter took 0.00 seconds
-2024-09-13 23:11:25.445 INFO (MainThread) [homeassistant.setup] Setting up sun
-2024-09-13 23:11:25.446 INFO (MainThread) [homeassistant.setup] Setup of domain sun took 0.00 seconds
-2024-09-13 23:11:25.456 INFO (MainThread) [homeassistant.setup] Setting up sensor
-2024-09-13 23:11:25.457 INFO (MainThread) [homeassistant.setup] Setup of domain sensor took 0.00 seconds
-2024-09-13 23:11:25.463 INFO (MainThread) [homeassistant.setup] Setting up google_translate
-2024-09-13 23:11:25.463 INFO (MainThread) [homeassistant.setup] Setup of domain google_translate took 0.00 seconds
-2024-09-13 23:11:25.465 INFO (MainThread) [homeassistant.setup] Setting up backup
-2024-09-13 23:11:25.466 INFO (MainThread) [homeassistant.setup] Setup of domain backup took 0.00 seconds
-2024-09-13 23:11:25.467 INFO (MainThread) [homeassistant.setup] Setting up input_text
-2024-09-13 23:11:25.470 INFO (MainThread) [homeassistant.setup] Setup of domain input_text took 0.00 seconds
-2024-09-13 23:11:25.471 INFO (MainThread) [asyncio] <_UnixSubprocessTransport pid=669661 running stdin=<_UnixWritePipeTransport closed fd=16 closed> stdout=<_UnixReadPipeTransport fd=17 polling>> exited with return code 0
-2024-09-13 23:11:25.472 INFO (MainThread) [asyncio] <_UnixReadPipeTransport fd=17 polling> was closed by peer
-2024-09-13 23:11:25.481 INFO (MainThread) [homeassistant.setup] Setup of domain stream took 0.21 seconds
-2024-09-13 23:11:25.483 INFO (MainThread) [homeassistant.setup] Setting up conversation
-2024-09-13 23:11:25.485 INFO (MainThread) [homeassistant.setup] Setup of domain conversation took 0.00 seconds
-2024-09-13 23:11:25.488 INFO (MainThread) [homeassistant.setup] Setup of domain hardware took 0.06 seconds
-2024-09-13 23:11:25.496 INFO (MainThread) [homeassistant.components.sensor] Setting up sun.sensor
-2024-09-13 23:11:25.503 INFO (MainThread) [homeassistant.setup] Setup of domain ffmpeg took 0.56 seconds
-2024-09-13 23:11:25.517 INFO (MainThread) [homeassistant.setup] Setting up tts
-2024-09-13 23:11:25.536 INFO (MainThread) [homeassistant.setup] Setup of domain tts took 0.02 seconds
-2024-09-13 23:11:25.542 INFO (MainThread) [homeassistant.setup] Setting up assist_pipeline
-2024-09-13 23:11:25.546 INFO (MainThread) [homeassistant.setup] Setup of domain assist_pipeline took 0.00 seconds
-2024-09-13 23:11:25.583 INFO (MainThread) [homeassistant.setup] Setting up hacs
-2024-09-13 23:11:25.584 INFO (MainThread) [homeassistant.setup] Setup of domain hacs took 0.00 seconds
-2024-09-13 23:11:25.585 INFO (MainThread) [custom_components.hacs] 
+2024-09-13 23:12:15.510 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2024-09-13 23:12:15.511 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration ecomane which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2024-09-13 23:12:15.667 INFO (MainThread) [homeassistant.setup] Setup of domain logger took 0.04 seconds
+2024-09-13 23:12:15.668 INFO (MainThread) [homeassistant.setup] Setup of domain system_log took 0.04 seconds
+2024-09-13 23:12:15.668 INFO (MainThread) [homeassistant.bootstrap] Setting up frontend: {'frontend'}
+2024-09-13 23:12:15.670 INFO (MainThread) [homeassistant.setup] Setting up http
+2024-09-13 23:12:15.674 INFO (MainThread) [homeassistant.setup] Setting up device_automation
+2024-09-13 23:12:15.674 INFO (MainThread) [homeassistant.setup] Setup of domain device_automation took 0.00 seconds
+2024-09-13 23:12:15.678 WARNING (MainThread) [aiohttp_fast_zlib] zlib_ng and isal are not available, falling back to zlib, performance will be degraded.
+2024-09-13 23:12:15.680 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.01 seconds
+2024-09-13 23:12:15.682 INFO (MainThread) [homeassistant.setup] Setting up auth
+2024-09-13 23:12:15.684 INFO (MainThread) [homeassistant.setup] Setup of domain auth took 0.00 seconds
+2024-09-13 23:12:15.684 INFO (MainThread) [homeassistant.setup] Setting up config
+2024-09-13 23:12:15.686 INFO (MainThread) [homeassistant.setup] Setup of domain config took 0.00 seconds
+2024-09-13 23:12:15.687 INFO (MainThread) [homeassistant.setup] Setting up diagnostics
+2024-09-13 23:12:15.689 INFO (MainThread) [homeassistant.setup] Setup of domain diagnostics took 0.00 seconds
+2024-09-13 23:12:15.689 INFO (MainThread) [homeassistant.setup] Setting up file_upload
+2024-09-13 23:12:15.689 INFO (MainThread) [homeassistant.setup] Setup of domain file_upload took 0.00 seconds
+2024-09-13 23:12:15.690 INFO (MainThread) [homeassistant.setup] Setting up image_upload
+2024-09-13 23:12:15.692 INFO (MainThread) [homeassistant.setup] Setup of domain image_upload took 0.00 seconds
+2024-09-13 23:12:15.692 INFO (MainThread) [homeassistant.setup] Setting up repairs
+2024-09-13 23:12:15.693 INFO (MainThread) [homeassistant.setup] Setup of domain repairs took 0.00 seconds
+2024-09-13 23:12:15.694 INFO (MainThread) [homeassistant.setup] Setting up websocket_api
+2024-09-13 23:12:15.695 INFO (MainThread) [homeassistant.setup] Setup of domain websocket_api took 0.00 seconds
+2024-09-13 23:12:15.695 INFO (MainThread) [homeassistant.setup] Setting up api
+2024-09-13 23:12:15.697 INFO (MainThread) [homeassistant.setup] Setup of domain api took 0.00 seconds
+2024-09-13 23:12:15.698 INFO (MainThread) [homeassistant.setup] Setting up person
+2024-09-13 23:12:15.702 INFO (MainThread) [homeassistant.setup] Setting up search
+2024-09-13 23:12:15.702 INFO (MainThread) [homeassistant.setup] Setup of domain search took 0.00 seconds
+2024-09-13 23:12:15.704 INFO (MainThread) [homeassistant.setup] Setup of domain person took 0.01 seconds
+2024-09-13 23:12:15.705 INFO (MainThread) [homeassistant.setup] Setting up onboarding
+2024-09-13 23:12:15.706 INFO (MainThread) [homeassistant.setup] Setup of domain onboarding took 0.00 seconds
+2024-09-13 23:12:15.707 INFO (MainThread) [homeassistant.setup] Setting up lovelace
+2024-09-13 23:12:15.709 INFO (MainThread) [homeassistant.setup] Setup of domain lovelace took 0.00 seconds
+2024-09-13 23:12:15.711 INFO (MainThread) [homeassistant.setup] Setting up frontend
+2024-09-13 23:12:15.715 INFO (MainThread) [homeassistant.setup] Setup of domain frontend took 0.00 seconds
+2024-09-13 23:12:15.717 INFO (MainThread) [homeassistant.bootstrap] Setting up recorder: {'recorder'}
+2024-09-13 23:12:15.718 INFO (MainThread) [homeassistant.setup] Setting up recorder
+2024-09-13 23:12:15.722 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=11, family=10, type=1, proto=6, laddr=('::', 8123, 0, 0)>, <asyncio.TransportSocket fd=12, family=2, type=1, proto=6, laddr=('0.0.0.0', 8123)>)> is serving
+2024-09-13 23:12:15.722 INFO (MainThread) [homeassistant.components.http] Now listening on port 8123
+2024-09-13 23:12:15.723 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.01 seconds
+2024-09-13 23:12:15.740 INFO (MainThread) [homeassistant.setup] Setup of domain recorder took 0.02 seconds
+2024-09-13 23:12:15.742 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 1: {'zeroconf', 'network', 'repairs', 'webhook', 'bluetooth', 'ssdp', 'usb', 'auth', 'dhcp', 'http', 'api', 'websocket_api', 'cloud'}
+2024-09-13 23:12:15.743 INFO (MainThread) [homeassistant.setup] Setting up network
+2024-09-13 23:12:15.744 INFO (MainThread) [homeassistant.setup] Setup of domain network took 0.00 seconds
+2024-09-13 23:12:15.745 INFO (MainThread) [homeassistant.setup] Setting up webhook
+2024-09-13 23:12:15.746 INFO (MainThread) [homeassistant.setup] Setup of domain webhook took 0.00 seconds
+2024-09-13 23:12:15.853 INFO (MainThread) [homeassistant.setup] Setting up cloud
+2024-09-13 23:12:15.861 INFO (MainThread) [homeassistant.setup] Setting up ffmpeg
+2024-09-13 23:12:15.866 INFO (MainThread) [homeassistant.setup] Setup of domain cloud took 0.01 seconds
+2024-09-13 23:12:15.871 INFO (MainThread) [homeassistant.setup] Setting up usb
+2024-09-13 23:12:15.872 INFO (MainThread) [homeassistant.setup] Setup of domain usb took 0.00 seconds
+2024-09-13 23:12:15.874 INFO (MainThread) [asyncio] execute program 'ffmpeg': <_UnixSubprocessTransport pid=670551 running stdin=<_UnixWritePipeTransport fd=15 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=16 polling>>
+2024-09-13 23:12:15.955 INFO (MainThread) [asyncio] <_UnixReadPipeTransport fd=16 polling> was closed by peer
+2024-09-13 23:12:15.960 INFO (MainThread) [asyncio] <_UnixSubprocessTransport pid=670551 running stdin=<_UnixWritePipeTransport closed fd=15 closed> stdout=<_UnixReadPipeTransport closed fd=16 closed>> exited with return code 0
+2024-09-13 23:12:15.964 INFO (MainThread) [homeassistant.setup] Setup of domain ffmpeg took 0.10 seconds
+2024-09-13 23:12:15.965 INFO (MainThread) [homeassistant.setup] Setting up tts
+2024-09-13 23:12:15.972 INFO (MainThread) [homeassistant.setup] Setting up ssdp
+2024-09-13 23:12:15.981 INFO (MainThread) [homeassistant.setup] Setup of domain tts took 0.02 seconds
+2024-09-13 23:12:15.991 INFO (MainThread) [homeassistant.setup] Setup of domain ssdp took 0.02 seconds
+2024-09-13 23:12:15.996 INFO (MainThread) [homeassistant.setup] Setting up dhcp
+2024-09-13 23:12:15.997 INFO (MainThread) [homeassistant.setup] Setup of domain dhcp took 0.00 seconds
+2024-09-13 23:12:16.017 INFO (MainThread) [homeassistant.setup] Setting up zeroconf
+2024-09-13 23:12:16.024 INFO (MainThread) [homeassistant.components.zeroconf] Starting Zeroconf broadcast
+2024-09-13 23:12:16.026 INFO (MainThread) [homeassistant.setup] Setup of domain zeroconf took 0.01 seconds
+2024-09-13 23:12:16.070 INFO (MainThread) [homeassistant.setup] Setting up bluetooth
+2024-09-13 23:12:16.096 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth took 0.03 seconds
+2024-09-13 23:12:16.101 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 2: {'config', 'media_source', 'person', 'file_upload', 'script', 'persistent_notification', 'tag', 'radio_browser', 'logbook', 'map', 'lovelace', 'shopping_list', 'demo', 'input_select', 'energy', 'homeassistant_alerts', 'application_credentials', 'conversation', 'automation', 'ecomane', 'analytics', 'stream', 'tts', 'onboarding', 'device_automation', 'input_button', 'trace', 'scene', 'input_text', 'stt', 'history', 'mobile_app', 'input_number', 'google_translate', 'hardware', 'timer', 'hacs', 'my', 'image_upload', 'counter', 'schedule', 'blueprint', 'ffmpeg', 'zone', 'system_health', 'diagnostics', 'assist_pipeline', 'wake_word', 'default_config', 'input_boolean', 'intent', 'backup', 'group', 'input_datetime', 'search', 'sun'}
+2024-09-13 23:12:16.102 INFO (MainThread) [homeassistant.setup] Setting up scene
+2024-09-13 23:12:16.107 INFO (MainThread) [homeassistant.setup] Setup of domain scene took 0.00 seconds
+2024-09-13 23:12:16.108 INFO (MainThread) [homeassistant.setup] Setting up stt
+2024-09-13 23:12:16.109 INFO (MainThread) [homeassistant.setup] Setup of domain stt took 0.00 seconds
+2024-09-13 23:12:16.109 INFO (MainThread) [homeassistant.setup] Setting up wake_word
+2024-09-13 23:12:16.110 INFO (MainThread) [homeassistant.setup] Setup of domain wake_word took 0.00 seconds
+2024-09-13 23:12:16.113 INFO (MainThread) [homeassistant.setup] Setting up input_button
+2024-09-13 23:12:16.115 INFO (MainThread) [homeassistant.setup] Setup of domain input_button took 0.00 seconds
+2024-09-13 23:12:16.119 INFO (MainThread) [homeassistant.setup] Setting up trace
+2024-09-13 23:12:16.120 INFO (MainThread) [homeassistant.setup] Setup of domain trace took 0.00 seconds
+2024-09-13 23:12:16.121 INFO (MainThread) [homeassistant.setup] Setting up media_source
+2024-09-13 23:12:16.123 INFO (MainThread) [homeassistant.setup] Setup of domain media_source took 0.00 seconds
+2024-09-13 23:12:16.126 INFO (MainThread) [homeassistant.setup] Setting up history
+2024-09-13 23:12:16.127 INFO (MainThread) [homeassistant.setup] Setup of domain history took 0.00 seconds
+2024-09-13 23:12:16.128 INFO (MainThread) [homeassistant.setup] Setting up blueprint
+2024-09-13 23:12:16.128 INFO (MainThread) [homeassistant.setup] Setup of domain blueprint took 0.00 seconds
+2024-09-13 23:12:16.129 INFO (MainThread) [homeassistant.setup] Setting up script
+2024-09-13 23:12:16.131 INFO (MainThread) [homeassistant.setup] Setup of domain script took 0.00 seconds
+2024-09-13 23:12:16.135 INFO (MainThread) [homeassistant.setup] Setting up input_number
+2024-09-13 23:12:16.137 INFO (MainThread) [homeassistant.setup] Setup of domain input_number took 0.00 seconds
+2024-09-13 23:12:16.141 INFO (MainThread) [homeassistant.setup] Setting up timer
+2024-09-13 23:12:16.143 INFO (MainThread) [homeassistant.setup] Setup of domain timer took 0.00 seconds
+2024-09-13 23:12:16.155 INFO (MainThread) [homeassistant.setup] Setting up logbook
+2024-09-13 23:12:16.158 INFO (MainThread) [homeassistant.setup] Setup of domain logbook took 0.00 seconds
+2024-09-13 23:12:16.166 INFO (MainThread) [homeassistant.setup] Setting up group
+2024-09-13 23:12:16.169 INFO (MainThread) [homeassistant.setup] Setup of domain group took 0.00 seconds
+2024-09-13 23:12:16.170 INFO (MainThread) [homeassistant.setup] Setting up zone
+2024-09-13 23:12:16.174 INFO (MainThread) [homeassistant.setup] Setup of domain zone took 0.00 seconds
+2024-09-13 23:12:16.181 INFO (MainThread) [homeassistant.setup] Setting up input_select
+2024-09-13 23:12:16.185 INFO (MainThread) [homeassistant.setup] Setup of domain input_select took 0.00 seconds
+2024-09-13 23:12:16.188 INFO (MainThread) [homeassistant.setup] Setting up system_health
+2024-09-13 23:12:16.191 INFO (MainThread) [homeassistant.setup] Setup of domain system_health took 0.00 seconds
+2024-09-13 23:12:16.199 INFO (MainThread) [homeassistant.setup] Setting up stream
+2024-09-13 23:12:16.205 INFO (MainThread) [homeassistant.setup] Setting up automation
+2024-09-13 23:12:16.217 INFO (MainThread) [homeassistant.setup] Setup of domain automation took 0.01 seconds
+2024-09-13 23:12:16.218 INFO (MainThread) [homeassistant.setup] Setting up input_boolean
+2024-09-13 23:12:16.221 INFO (MainThread) [homeassistant.setup] Setup of domain input_boolean took 0.00 seconds
+2024-09-13 23:12:16.233 WARNING (MainThread) [asyncio] Executing <Task pending name='Task-1' coro=<setup_and_run_hass() running at /workspaces/ha-core/homeassistant/runner.py:158> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.12/asyncio/tasks.py:712> cb=[_run_until_complete_cb() at /usr/local/lib/python3.12/asyncio/base_events.py:182] created at /usr/local/lib/python3.12/asyncio/tasks.py:695> took 0.137 seconds
+2024-09-13 23:12:16.239 INFO (MainThread) [homeassistant.setup] Setting up intent
+2024-09-13 23:12:16.241 INFO (MainThread) [homeassistant.setup] Setup of domain intent took 0.00 seconds
+2024-09-13 23:12:16.250 INFO (MainThread) [homeassistant.setup] Setting up input_text
+2024-09-13 23:12:16.252 INFO (MainThread) [homeassistant.setup] Setup of domain input_text took 0.00 seconds
+2024-09-13 23:12:16.253 INFO (MainThread) [homeassistant.setup] Setting up tag
+2024-09-13 23:12:16.257 INFO (MainThread) [homeassistant.setup] Setup of domain tag took 0.00 seconds
+2024-09-13 23:12:16.257 INFO (MainThread) [homeassistant.setup] Setting up google_translate
+2024-09-13 23:12:16.257 INFO (MainThread) [homeassistant.setup] Setup of domain google_translate took 0.00 seconds
+2024-09-13 23:12:16.261 INFO (MainThread) [homeassistant.setup] Setting up hardware
+2024-09-13 23:12:16.270 INFO (MainThread) [homeassistant.components.scene] Setting up homeassistant.scene
+2024-09-13 23:12:16.271 INFO (MainThread) [homeassistant.setup] Setting up conversation
+2024-09-13 23:12:16.272 INFO (MainThread) [homeassistant.setup] Setup of domain conversation took 0.00 seconds
+2024-09-13 23:12:16.280 INFO (MainThread) [homeassistant.setup] Setting up assist_pipeline
+2024-09-13 23:12:16.284 INFO (MainThread) [homeassistant.setup] Setup of domain assist_pipeline took 0.00 seconds
+2024-09-13 23:12:16.325 INFO (MainThread) [homeassistant.setup] Setup of domain hardware took 0.06 seconds
+2024-09-13 23:12:16.338 INFO (MainThread) [homeassistant.setup] Setup of domain stream took 0.14 seconds
+2024-09-13 23:12:16.373 INFO (MainThread) [homeassistant.setup] Setting up hacs
+2024-09-13 23:12:16.373 INFO (MainThread) [homeassistant.setup] Setup of domain hacs took 0.00 seconds
+2024-09-13 23:12:16.375 INFO (MainThread) [custom_components.hacs] 
 -------------------------------------------------------------------
 HACS (Home Assistant Community Store)
 
@@ -148,224 +132,279 @@ If you have any issues with this you need to open an issue here:
 https://github.com/hacs/integration/issues
 -------------------------------------------------------------------
 
-2024-09-13 23:11:25.595 INFO (MainThread) [homeassistant.setup] Setting up energy
-2024-09-13 23:11:25.597 INFO (MainThread) [homeassistant.setup] Setup of domain energy took 0.00 seconds
-2024-09-13 23:11:25.597 INFO (MainThread) [homeassistant.setup] Setting up my
-2024-09-13 23:11:25.598 INFO (MainThread) [homeassistant.setup] Setup of domain my took 0.00 seconds
-2024-09-13 23:11:25.607 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_alerts
-2024-09-13 23:11:25.608 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_alerts took 0.00 seconds
-2024-09-13 23:11:25.611 INFO (MainThread) [homeassistant.setup] Setting up map
-2024-09-13 23:11:25.612 INFO (MainThread) [homeassistant.setup] Setup of domain map took 0.00 seconds
-2024-09-13 23:11:25.613 INFO (MainThread) [homeassistant.setup] Setting up input_datetime
-2024-09-13 23:11:25.615 INFO (MainThread) [homeassistant.setup] Setup of domain input_datetime took 0.00 seconds
-2024-09-13 23:11:25.626 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore started
-2024-09-13 23:11:25.742 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore done
-2024-09-13 23:11:25.742 INFO (MainThread) [custom_components.hacs] Enable category: integration
-2024-09-13 23:11:25.743 INFO (MainThread) [custom_components.hacs] Enable category: plugin
-2024-09-13 23:11:25.743 INFO (MainThread) [custom_components.hacs] Enable category: template
-2024-09-13 23:11:25.743 INFO (MainThread) [custom_components.hacs] Enable category: theme
-2024-09-13 23:11:25.798 INFO (MainThread) [homeassistant.setup] Setting up radio_browser
-2024-09-13 23:11:25.799 INFO (MainThread) [homeassistant.setup] Setup of domain radio_browser took 0.00 seconds
-2024-09-13 23:11:25.873 INFO (MainThread) [homeassistant.setup] Setting up ecomane
-2024-09-13 23:11:25.875 INFO (MainThread) [homeassistant.setup] Setup of domain ecomane took 0.00 seconds
-2024-09-13 23:11:25.876 DEBUG (MainThread) [custom_components.ecomane.coordinator] Updating EcoMane data
-2024-09-13 23:11:25.876 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_usage_data
-2024-09-13 23:11:25.894 INFO (MainThread) [homeassistant.components.tts] Setting up google_translate.tts
-2024-09-13 23:11:25.903 INFO (MainThread) [homeassistant.setup] Setting up todo
-2024-09-13 23:11:25.906 INFO (MainThread) [homeassistant.setup] Setup of domain todo took 0.00 seconds
-2024-09-13 23:11:25.918 INFO (MainThread) [homeassistant.setup] Setting up demo
-2024-09-13 23:11:25.925 INFO (MainThread) [homeassistant.setup] Setting up camera
-2024-09-13 23:11:25.929 INFO (MainThread) [homeassistant.setup] Setup of domain camera took 0.00 seconds
-2024-09-13 23:11:25.931 INFO (MainThread) [homeassistant.setup] Setting up image_processing
-2024-09-13 23:11:25.932 INFO (MainThread) [homeassistant.setup] Setup of domain image_processing took 0.00 seconds
-2024-09-13 23:11:25.935 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
-2024-09-13 23:11:25.938 INFO (MainThread) [homeassistant.setup] Setup of domain device_tracker took 0.00 seconds
-2024-09-13 23:11:25.954 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane usage data updated successfully
-2024-09-13 23:11:25.955 INFO (MainThread) [homeassistant.components.todo] Setting up shopping_list.todo
-2024-09-13 23:11:25.962 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_power_data
-2024-09-13 23:11:25.965 INFO (MainThread) [homeassistant.setup] Setup of domain demo took 0.05 seconds
-2024-09-13 23:11:25.979 INFO (MainThread) [homeassistant.setup] Setting up mobile_app
-2024-09-13 23:11:25.982 INFO (MainThread) [homeassistant.setup] Setting up notify
-2024-09-13 23:11:25.984 INFO (MainThread) [homeassistant.setup] Setup of domain notify took 0.00 seconds
-2024-09-13 23:11:25.986 INFO (MainThread) [homeassistant.setup] Setup of domain mobile_app took 0.01 seconds
-2024-09-13 23:11:25.989 INFO (MainThread) [homeassistant.setup] Setting up analytics
-2024-09-13 23:11:25.992 INFO (MainThread) [homeassistant.setup] Setup of domain analytics took 0.00 seconds
-2024-09-13 23:11:25.994 INFO (MainThread) [homeassistant.setup] Setting up switch
-2024-09-13 23:11:25.995 INFO (MainThread) [homeassistant.setup] Setup of domain switch took 0.00 seconds
-2024-09-13 23:11:25.997 INFO (MainThread) [homeassistant.setup] Setting up update
-2024-09-13 23:11:25.998 INFO (MainThread) [homeassistant.setup] Setup of domain update took 0.00 seconds
-2024-09-13 23:11:26.002 INFO (MainThread) [homeassistant.components.notify] Setting up notify.mobile_app
-2024-09-13 23:11:26.009 INFO (MainThread) [homeassistant.setup] Setting up mailbox
-2024-09-13 23:11:26.012 INFO (MainThread) [homeassistant.setup] Setup of domain mailbox took 0.00 seconds
-2024-09-13 23:11:26.020 INFO (MainThread) [homeassistant.components.sensor] Setting up energy.sensor
-2024-09-13 23:11:26.023 INFO (MainThread) [homeassistant.components.device_tracker] Setting up demo.device_tracker
-2024-09-13 23:11:26.032 INFO (MainThread) [homeassistant.setup] Setting up default_config
-2024-09-13 23:11:26.033 INFO (MainThread) [homeassistant.setup] Setup of domain default_config took 0.00 seconds
-2024-09-13 23:11:26.050 INFO (MainThread) [homeassistant.components.switch] Setting up hacs.switch
-2024-09-13 23:11:26.054 INFO (MainThread) [homeassistant.components.update] Setting up hacs.update
-2024-09-13 23:11:26.062 INFO (MainThread) [custom_components.hacs] Stage changed: setup
-2024-09-13 23:11:26.063 INFO (MainThread) [custom_components.hacs] Stage changed: waiting
-2024-09-13 23:11:26.063 INFO (MainThread) [custom_components.hacs] Setup complete, waiting for Home Assistant before startup tasks starts
-2024-09-13 23:11:26.064 INFO (MainThread) [homeassistant.components.image_processing] Setting up demo.image_processing
-2024-09-13 23:11:26.079 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_01 prefix:em_power_00 power:0
-2024-09-13 23:11:26.079 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_02 prefix:em_power_01 power:173
-2024-09-13 23:11:26.080 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_03 prefix:em_power_02 power:56
-2024-09-13 23:11:26.080 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_04 prefix:em_power_03 power:0
-2024-09-13 23:11:26.080 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_05 prefix:em_power_04 power:49
-2024-09-13 23:11:26.081 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_06 prefix:em_power_05 power:233
-2024-09-13 23:11:26.081 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_07 prefix:em_power_06 power:0
-2024-09-13 23:11:26.081 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_08 prefix:em_power_07 power:202
-2024-09-13 23:11:26.092 INFO (MainThread) [homeassistant.setup] Setting up air_quality
-2024-09-13 23:11:26.092 INFO (MainThread) [homeassistant.setup] Setup of domain air_quality took 0.00 seconds
-2024-09-13 23:11:26.093 INFO (MainThread) [homeassistant.components.air_quality] Setting up demo.air_quality
-2024-09-13 23:11:26.095 INFO (MainThread) [homeassistant.setup] Setting up alarm_control_panel
-2024-09-13 23:11:26.096 INFO (MainThread) [homeassistant.setup] Setup of domain alarm_control_panel took 0.00 seconds
-2024-09-13 23:11:26.098 INFO (MainThread) [homeassistant.setup] Setting up binary_sensor
-2024-09-13 23:11:26.098 INFO (MainThread) [homeassistant.setup] Setup of domain binary_sensor took 0.00 seconds
-2024-09-13 23:11:26.100 INFO (MainThread) [homeassistant.setup] Setting up button
-2024-09-13 23:11:26.100 INFO (MainThread) [homeassistant.setup] Setup of domain button took 0.00 seconds
-2024-09-13 23:11:26.102 INFO (MainThread) [homeassistant.setup] Setting up calendar
-2024-09-13 23:11:26.103 INFO (MainThread) [homeassistant.setup] Setup of domain calendar took 0.00 seconds
-2024-09-13 23:11:26.105 INFO (MainThread) [homeassistant.setup] Setting up climate
-2024-09-13 23:11:26.107 INFO (MainThread) [homeassistant.setup] Setup of domain climate took 0.00 seconds
-2024-09-13 23:11:26.110 INFO (MainThread) [homeassistant.setup] Setting up cover
-2024-09-13 23:11:26.111 INFO (MainThread) [homeassistant.setup] Setup of domain cover took 0.00 seconds
-2024-09-13 23:11:26.114 INFO (MainThread) [homeassistant.setup] Setting up date
-2024-09-13 23:11:26.114 INFO (MainThread) [homeassistant.setup] Setup of domain date took 0.00 seconds
-2024-09-13 23:11:26.116 INFO (MainThread) [homeassistant.setup] Setting up datetime
-2024-09-13 23:11:26.116 INFO (MainThread) [homeassistant.setup] Setup of domain datetime took 0.00 seconds
-2024-09-13 23:11:26.118 INFO (MainThread) [homeassistant.setup] Setting up event
-2024-09-13 23:11:26.118 INFO (MainThread) [homeassistant.setup] Setup of domain event took 0.00 seconds
-2024-09-13 23:11:26.119 INFO (MainThread) [homeassistant.setup] Setting up fan
-2024-09-13 23:11:26.122 INFO (MainThread) [homeassistant.setup] Setup of domain fan took 0.00 seconds
-2024-09-13 23:11:26.123 INFO (MainThread) [homeassistant.setup] Setting up humidifier
-2024-09-13 23:11:26.125 INFO (MainThread) [homeassistant.setup] Setup of domain humidifier took 0.00 seconds
-2024-09-13 23:11:26.128 INFO (MainThread) [homeassistant.setup] Setting up light
-2024-09-13 23:11:26.130 INFO (MainThread) [homeassistant.setup] Setup of domain light took 0.00 seconds
-2024-09-13 23:11:26.133 INFO (MainThread) [homeassistant.setup] Setting up lock
-2024-09-13 23:11:26.134 INFO (MainThread) [homeassistant.setup] Setup of domain lock took 0.00 seconds
-2024-09-13 23:11:26.135 INFO (MainThread) [homeassistant.setup] Setting up media_player
-2024-09-13 23:11:26.138 INFO (MainThread) [homeassistant.setup] Setup of domain media_player took 0.00 seconds
-2024-09-13 23:11:26.143 INFO (MainThread) [homeassistant.setup] Setting up number
-2024-09-13 23:11:26.144 INFO (MainThread) [homeassistant.setup] Setup of domain number took 0.00 seconds
-2024-09-13 23:11:26.145 INFO (MainThread) [homeassistant.setup] Setting up select
-2024-09-13 23:11:26.146 INFO (MainThread) [homeassistant.setup] Setup of domain select took 0.00 seconds
-2024-09-13 23:11:26.148 INFO (MainThread) [homeassistant.components.sensor] Setting up demo.sensor
-2024-09-13 23:11:26.151 INFO (MainThread) [homeassistant.setup] Setting up siren
-2024-09-13 23:11:26.152 INFO (MainThread) [homeassistant.setup] Setup of domain siren took 0.00 seconds
-2024-09-13 23:11:26.154 INFO (MainThread) [homeassistant.components.switch] Setting up demo.switch
-2024-09-13 23:11:26.156 INFO (MainThread) [homeassistant.setup] Setting up text
-2024-09-13 23:11:26.157 INFO (MainThread) [homeassistant.setup] Setup of domain text took 0.00 seconds
-2024-09-13 23:11:26.159 INFO (MainThread) [homeassistant.setup] Setting up time
-2024-09-13 23:11:26.159 INFO (MainThread) [homeassistant.setup] Setup of domain time took 0.00 seconds
-2024-09-13 23:11:26.160 INFO (MainThread) [homeassistant.components.update] Setting up demo.update
-2024-09-13 23:11:26.163 INFO (MainThread) [homeassistant.setup] Setting up vacuum
-2024-09-13 23:11:26.164 INFO (MainThread) [homeassistant.setup] Setup of domain vacuum took 0.00 seconds
-2024-09-13 23:11:26.167 INFO (MainThread) [homeassistant.setup] Setting up water_heater
-2024-09-13 23:11:26.168 INFO (MainThread) [homeassistant.setup] Setup of domain water_heater took 0.00 seconds
-2024-09-13 23:11:26.169 INFO (MainThread) [homeassistant.setup] Setting up weather
-2024-09-13 23:11:26.170 INFO (MainThread) [homeassistant.setup] Setup of domain weather took 0.00 seconds
-2024-09-13 23:11:26.173 INFO (MainThread) [homeassistant.components.mailbox] Setting up mailbox.demo
-2024-09-13 23:11:26.176 INFO (MainThread) [homeassistant.components.alarm_control_panel] Setting up demo.alarm_control_panel
-2024-09-13 23:11:26.184 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_01 prefix:em_power_08 power:21
-2024-09-13 23:11:26.184 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_02 prefix:em_power_09 power:0
-2024-09-13 23:11:26.184 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_03 prefix:em_power_10 power:105
-2024-09-13 23:11:26.185 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_04 prefix:em_power_11 power:0
-2024-09-13 23:11:26.185 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_05 prefix:em_power_12 power:305
-2024-09-13 23:11:26.185 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_06 prefix:em_power_13 power:190
-2024-09-13 23:11:26.186 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_07 prefix:em_power_14 power:47
-2024-09-13 23:11:26.186 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_08 prefix:em_power_15 power:0
-2024-09-13 23:11:26.192 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up demo.binary_sensor
-2024-09-13 23:11:26.196 INFO (MainThread) [homeassistant.components.button] Setting up demo.button
-2024-09-13 23:11:26.199 INFO (MainThread) [homeassistant.components.camera] Setting up demo.camera
-2024-09-13 23:11:26.203 INFO (MainThread) [homeassistant.components.calendar] Setting up demo.calendar
-2024-09-13 23:11:26.207 INFO (MainThread) [homeassistant.components.climate] Setting up demo.climate
-2024-09-13 23:11:26.211 INFO (MainThread) [homeassistant.components.cover] Setting up demo.cover
-2024-09-13 23:11:26.214 INFO (MainThread) [homeassistant.components.date] Setting up demo.date
-2024-09-13 23:11:26.217 INFO (MainThread) [homeassistant.components.datetime] Setting up demo.datetime
-2024-09-13 23:11:26.220 INFO (MainThread) [homeassistant.components.event] Setting up demo.event
-2024-09-13 23:11:26.223 INFO (MainThread) [homeassistant.components.fan] Setting up demo.fan
-2024-09-13 23:11:26.227 INFO (MainThread) [homeassistant.components.humidifier] Setting up demo.humidifier
-2024-09-13 23:11:26.231 INFO (MainThread) [homeassistant.components.light] Setting up demo.light
-2024-09-13 23:11:26.236 INFO (MainThread) [homeassistant.components.lock] Setting up demo.lock
-2024-09-13 23:11:26.244 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_01 prefix:em_power_16 power:812
-2024-09-13 23:11:26.245 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_02 prefix:em_power_17 power:0
-2024-09-13 23:11:26.245 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_03 prefix:em_power_18 power:0
-2024-09-13 23:11:26.245 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_04 prefix:em_power_19 power:29
-2024-09-13 23:11:26.246 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_05 prefix:em_power_20 power:0
-2024-09-13 23:11:26.246 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_06 prefix:em_power_21 power:0
-2024-09-13 23:11:26.246 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_07 prefix:em_power_22 power:591
-2024-09-13 23:11:26.247 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_08 prefix:em_power_23 power:0
-2024-09-13 23:11:26.249 INFO (MainThread) [homeassistant.components.media_player] Setting up demo.media_player
-2024-09-13 23:11:26.253 INFO (MainThread) [homeassistant.components.notify] Setting up demo.notify
-2024-09-13 23:11:26.256 INFO (MainThread) [homeassistant.components.number] Setting up demo.number
-2024-09-13 23:11:26.259 INFO (MainThread) [homeassistant.components.select] Setting up demo.select
-2024-09-13 23:11:26.262 INFO (MainThread) [homeassistant.components.siren] Setting up demo.siren
-2024-09-13 23:11:26.264 INFO (MainThread) [homeassistant.components.stt] Setting up demo.stt
-2024-09-13 23:11:26.267 INFO (MainThread) [homeassistant.components.text] Setting up demo.text
-2024-09-13 23:11:26.271 INFO (MainThread) [homeassistant.components.time] Setting up demo.time
-2024-09-13 23:11:26.274 INFO (MainThread) [homeassistant.components.vacuum] Setting up demo.vacuum
-2024-09-13 23:11:26.278 INFO (MainThread) [homeassistant.components.water_heater] Setting up demo.water_heater
-2024-09-13 23:11:26.281 INFO (MainThread) [homeassistant.components.weather] Setting up demo.weather
-2024-09-13 23:11:26.295 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_01 prefix:em_power_24 power:291
-2024-09-13 23:11:26.295 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_02 prefix:em_power_25 power:0
-2024-09-13 23:11:26.296 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_03 prefix:em_power_26 power:474
-2024-09-13 23:11:26.296 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_04 prefix:em_power_27 power:0
-2024-09-13 23:11:26.296 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_05 prefix:em_power_28 power:0
-2024-09-13 23:11:26.297 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_06 prefix:em_power_29 power:307
-2024-09-13 23:11:26.297 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_07 prefix:em_power_30 power:0
-2024-09-13 23:11:26.298 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_08 prefix:em_power_31 power:0
-2024-09-13 23:11:26.298 DEBUG (MainThread) [custom_components.ecomane.coordinator] Total number of power sensors = 32
-2024-09-13 23:11:26.299 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane power data updated successfully
-2024-09-13 23:11:26.299 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane updated data = {'ip_address': '192.168.168.220', 'num_L1': '10.7', 'num_L2': '2.3', 'num_L4': '0.06', 'num_L5': '0.13', 'num_R1': '5.8', 'num_R2': '1.0', 'num_R3': '0.0', 'em_power_00_txt': '', 'em_power_00_txt2': '太陽光', 'em_power_00': '0', 'em_power_01_txt': 'キッチン', 'em_power_01_txt2': '照明＆コンセント', 'em_power_01': '173', 'em_power_02_txt': 'ダイニング（北）', 'em_power_02_txt2': 'コンセント', 'em_power_02': '56', 'em_power_03_txt': 'ダイニング', 'em_power_03_txt2': '照明＆コンセント', 'em_power_03': '0', 'em_power_04_txt': 'ダイニング（南）', 'em_power_04_txt2': '照明＆コンセント', 'em_power_04': '49', 'em_power_05_txt': 'リビング（南）', 'em_power_05_txt2': '照明＆コンセント', 'em_power_05': '233', 'em_power_06_txt': 'リビング（北）', 'em_power_06_txt2': '照明＆コンセント', 'em_power_06': '0', 'em_power_07_txt': '洋室１父母部屋', 'em_power_07_txt2': '照明＆コンセント', 'em_power_07': '202', 'em_power_08_txt': '洗面', 'em_power_08_txt2': '照明＆コンセント', 'em_power_08': '21', 'em_power_09_txt': '玄関・１階廊下', 'em_power_09_txt2': '照明＆コンセント', 'em_power_09': '0', 'em_power_10_txt': '寝室（東）', 'em_power_10_txt2': '照明＆コンセント', 'em_power_10': '105', 'em_power_11_txt': '寝室・クロゼット', 'em_power_11_txt2': '照明＆コンセント', 'em_power_11': '0', 'em_power_12_txt': '書斎', 'em_power_12_txt2': '照明＆コンセント', 'em_power_12': '305', 'em_power_13_txt': 'シャワー洗面納戸', 'em_power_13_txt2': '照明＆コンセント', 'em_power_13': '190', 'em_power_14_txt': '階段・２階共用', 'em_power_14_txt2': '照明＆コンセント', 'em_power_14': '47', 'em_power_15_txt': 'キッチン（上）', 'em_power_15_txt2': 'コンセント', 'em_power_15': '0', 'em_power_16_txt': 'キッチン', 'em_power_16_txt2': '食器洗い乾燥機', 'em_power_16': '812', 'em_power_17_txt': 'キッチン（下）', 'em_power_17_txt2': 'コンセント', 'em_power_17': '0', 'em_power_18_txt': '洗面', 'em_power_18_txt2': '洗濯機', 'em_power_18': '0', 'em_power_19_txt': '浴室', 'em_power_19_txt2': '浴室乾燥機', 'em_power_19': '29', 'em_power_20_txt': '洗面', 'em_power_20_txt2': '暖房器', 'em_power_20': '0', 'em_power_21_txt': '１階トイレ', 'em_power_21_txt2': 'コンセント', 'em_power_21': '0', 'em_power_22_txt': '洋室３子供部屋', 'em_power_22_txt2': 'エアコン', 'em_power_22': '591', 'em_power_23_txt': '洋室２', 'em_power_23_txt2': 'エアコン', 'em_power_23': '0', 'em_power_24_txt': '寝室', 'em_power_24_txt2': 'エアコン', 'em_power_24': '291', 'em_power_25_txt': '書斎', 'em_power_25_txt2': 'エアコン', 'em_power_25': '0', 'em_power_26_txt': 'ダイニング', 'em_power_26_txt2': 'エアコン', 'em_power_26': '474', 'em_power_27_txt': '洋室３子供部屋', 'em_power_27_txt2': '照明＆コンセント', 'em_power_27': '0', 'em_power_28_txt': 'リビング', 'em_power_28_txt2': '非常警報設備', 'em_power_28': '0', 'em_power_29_txt': '洋室１父母部屋', 'em_power_29_txt2': 'エアコン', 'em_power_29': '307', 'em_power_30_txt': '洋室２', 'em_power_30_txt2': '照明＆コンセント', 'em_power_30': '0', 'em_power_31_txt': 'リビング', 'em_power_31_txt2': 'エアコン', 'em_power_31': '0'}
-2024-09-13 23:11:26.299 DEBUG (MainThread) [custom_components.ecomane] __init__.py config_entry.entry_id: 01J7GWEZ1MRAABYM2X2SAT4X6W
-2024-09-13 23:11:26.305 INFO (MainThread) [homeassistant.components.sensor] Setting up ecomane.sensor
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensors: []
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: electricity_purchased, _attr_translation_key: electricity_purchased, _attr_div_id: num_L1, entity_id: sensor.ecomane_electricity_purchased, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_electricity_purchased
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: solar_power_energy, _attr_translation_key: solar_power_energy, _attr_div_id: num_L2, entity_id: sensor.ecomane_solar_power_energy, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_solar_power_energy
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: gas_consumption, _attr_translation_key: gas_consumption, _attr_div_id: num_L4, entity_id: sensor.ecomane_gas_consumption, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_gas_consumption
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: water_consumption, _attr_translation_key: water_consumption, _attr_div_id: num_L5, entity_id: sensor.ecomane_water_consumption, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_water_consumption
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: co2_emissions, _attr_translation_key: co2_emissions, _attr_div_id: num_R1, entity_id: sensor.ecomane_co2_emissions, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_co2_emissions
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: co2_reduction, _attr_translation_key: co2_reduction, _attr_div_id: num_R2, entity_id: sensor.ecomane_co2_reduction, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_co2_reduction
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: electricity_sales, _attr_translation_key: electricity_sales, _attr_div_id: num_R3, entity_id: sensor.ecomane_electricity_sales, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_electricity_sales
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 0, prefix: em_power_00, place: , circuit: 太陽光
-2024-09-13 23:11:26.305 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 1, prefix: em_power_01, place: キッチン, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 2, prefix: em_power_02, place: ダイニング（北）, circuit: コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 3, prefix: em_power_03, place: ダイニング, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 4, prefix: em_power_04, place: ダイニング（南）, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 5, prefix: em_power_05, place: リビング（南）, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 6, prefix: em_power_06, place: リビング（北）, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 7, prefix: em_power_07, place: 洋室１父母部屋, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 8, prefix: em_power_08, place: 洗面, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 9, prefix: em_power_09, place: 玄関・１階廊下, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 10, prefix: em_power_10, place: 寝室（東）, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 11, prefix: em_power_11, place: 寝室・クロゼット, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 12, prefix: em_power_12, place: 書斎, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 13, prefix: em_power_13, place: シャワー洗面納戸, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 14, prefix: em_power_14, place: 階段・２階共用, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 15, prefix: em_power_15, place: キッチン（上）, circuit: コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 16, prefix: em_power_16, place: キッチン, circuit: 食器洗い乾燥機
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 17, prefix: em_power_17, place: キッチン（下）, circuit: コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 18, prefix: em_power_18, place: 洗面, circuit: 洗濯機
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 19, prefix: em_power_19, place: 浴室, circuit: 浴室乾燥機
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 20, prefix: em_power_20, place: 洗面, circuit: 暖房器
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 21, prefix: em_power_21, place: １階トイレ, circuit: コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 22, prefix: em_power_22, place: 洋室３子供部屋, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 23, prefix: em_power_23, place: 洋室２, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 24, prefix: em_power_24, place: 寝室, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 25, prefix: em_power_25, place: 書斎, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 26, prefix: em_power_26, place: ダイニング, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 27, prefix: em_power_27, place: 洋室３子供部屋, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 28, prefix: em_power_28, place: リビング, circuit: 非常警報設備
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 29, prefix: em_power_29, place: 洋室１父母部屋, circuit: エアコン
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 30, prefix: em_power_30, place: 洋室２, circuit: 照明＆コンセント
-2024-09-13 23:11:26.306 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 31, prefix: em_power_31, place: リビング, circuit: エアコン
-2024-09-13 23:11:26.317 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py async_setup_entry has finished async_add_entities
-2024-09-13 23:11:26.705 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 2.24s
-2024-09-13 23:11:26.705 INFO (MainThread) [homeassistant.core] Starting Home Assistant
-2024-09-13 23:11:26.707 INFO (MainThread) [custom_components.hacs] Stage changed: startup
-2024-09-13 23:11:26.713 INFO (MainThread) [custom_components.hacs] Loading removed repositories
-2024-09-13 23:11:26.764 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-09-13 23:11:26.936 INFO (MainThread) [custom_components.hacs] Stage changed: running
-2024-09-13 23:11:26.986 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=33, family=2, type=1, proto=6, laddr=('172.17.0.3', 40000)>,)> is serving
-2024-09-13 23:12:15.532 INFO (Recorder) [homeassistant.components.recorder.pool.RecorderPool] Pool recreating
+2024-09-13 23:12:16.379 INFO (MainThread) [homeassistant.setup] Setting up my
+2024-09-13 23:12:16.380 INFO (MainThread) [homeassistant.setup] Setup of domain my took 0.00 seconds
+2024-09-13 23:12:16.395 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore started
+2024-09-13 23:12:16.450 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore done
+2024-09-13 23:12:16.450 INFO (MainThread) [custom_components.hacs] Enable category: integration
+2024-09-13 23:12:16.452 INFO (MainThread) [custom_components.hacs] Enable category: plugin
+2024-09-13 23:12:16.452 INFO (MainThread) [custom_components.hacs] Enable category: template
+2024-09-13 23:12:16.452 INFO (MainThread) [custom_components.hacs] Enable category: theme
+2024-09-13 23:12:16.499 INFO (MainThread) [homeassistant.setup] Setting up radio_browser
+2024-09-13 23:12:16.500 INFO (MainThread) [homeassistant.setup] Setup of domain radio_browser took 0.00 seconds
+2024-09-13 23:12:16.508 INFO (MainThread) [homeassistant.setup] Setting up map
+2024-09-13 23:12:16.513 INFO (MainThread) [homeassistant.setup] Setup of domain map took 0.00 seconds
+2024-09-13 23:12:16.514 INFO (MainThread) [homeassistant.setup] Setting up shopping_list
+2024-09-13 23:12:16.515 INFO (MainThread) [homeassistant.setup] Setup of domain shopping_list took 0.00 seconds
+2024-09-13 23:12:16.517 INFO (MainThread) [homeassistant.setup] Setting up counter
+2024-09-13 23:12:16.521 INFO (MainThread) [homeassistant.setup] Setup of domain counter took 0.00 seconds
+2024-09-13 23:12:16.601 INFO (MainThread) [homeassistant.setup] Setting up schedule
+2024-09-13 23:12:16.604 INFO (MainThread) [homeassistant.setup] Setup of domain schedule took 0.00 seconds
+2024-09-13 23:12:16.607 INFO (MainThread) [homeassistant.setup] Setting up energy
+2024-09-13 23:12:16.609 INFO (MainThread) [homeassistant.setup] Setting up sensor
+2024-09-13 23:12:16.610 INFO (MainThread) [homeassistant.setup] Setup of domain sensor took 0.00 seconds
+2024-09-13 23:12:16.612 INFO (MainThread) [homeassistant.setup] Setup of domain energy took 0.01 seconds
+2024-09-13 23:12:16.613 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_alerts
+2024-09-13 23:12:16.614 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_alerts took 0.00 seconds
+2024-09-13 23:12:16.615 INFO (MainThread) [homeassistant.setup] Setting up application_credentials
+2024-09-13 23:12:16.616 INFO (MainThread) [homeassistant.setup] Setup of domain application_credentials took 0.00 seconds
+2024-09-13 23:12:16.618 INFO (MainThread) [homeassistant.setup] Setting up sun
+2024-09-13 23:12:16.619 INFO (MainThread) [homeassistant.setup] Setup of domain sun took 0.00 seconds
+2024-09-13 23:12:16.682 INFO (MainThread) [homeassistant.components.sensor] Setting up sun.sensor
+2024-09-13 23:12:16.782 INFO (MainThread) [homeassistant.setup] Setting up ecomane
+2024-09-13 23:12:16.782 INFO (MainThread) [homeassistant.setup] Setup of domain ecomane took 0.00 seconds
+2024-09-13 23:12:16.783 DEBUG (MainThread) [custom_components.ecomane.coordinator] Updating EcoMane data
+2024-09-13 23:12:16.783 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_usage_data
+2024-09-13 23:12:16.793 INFO (MainThread) [homeassistant.setup] Setting up backup
+2024-09-13 23:12:16.794 INFO (MainThread) [homeassistant.setup] Setup of domain backup took 0.00 seconds
+2024-09-13 23:12:16.794 INFO (MainThread) [homeassistant.setup] Setting up input_datetime
+2024-09-13 23:12:16.797 INFO (MainThread) [homeassistant.setup] Setup of domain input_datetime took 0.00 seconds
+2024-09-13 23:12:16.810 INFO (MainThread) [homeassistant.setup] Setting up demo
+2024-09-13 23:12:16.817 INFO (MainThread) [homeassistant.setup] Setting up camera
+2024-09-13 23:12:16.822 INFO (MainThread) [homeassistant.setup] Setup of domain camera took 0.01 seconds
+2024-09-13 23:12:16.828 INFO (MainThread) [homeassistant.setup] Setting up image_processing
+2024-09-13 23:12:16.830 INFO (MainThread) [homeassistant.setup] Setup of domain image_processing took 0.00 seconds
+2024-09-13 23:12:16.833 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
+2024-09-13 23:12:16.837 INFO (MainThread) [homeassistant.setup] Setup of domain device_tracker took 0.00 seconds
+2024-09-13 23:12:16.857 INFO (MainThread) [homeassistant.setup] Setup of domain demo took 0.05 seconds
+2024-09-13 23:12:16.883 INFO (MainThread) [homeassistant.components.tts] Setting up google_translate.tts
+2024-09-13 23:12:16.893 INFO (MainThread) [homeassistant.setup] Setting up mobile_app
+2024-09-13 23:12:16.895 INFO (MainThread) [homeassistant.setup] Setting up notify
+2024-09-13 23:12:16.896 INFO (MainThread) [homeassistant.setup] Setup of domain notify took 0.00 seconds
+2024-09-13 23:12:16.897 INFO (MainThread) [homeassistant.setup] Setup of domain mobile_app took 0.00 seconds
+2024-09-13 23:12:16.901 INFO (MainThread) [homeassistant.setup] Setting up switch
+2024-09-13 23:12:16.902 INFO (MainThread) [homeassistant.setup] Setup of domain switch took 0.00 seconds
+2024-09-13 23:12:16.907 INFO (MainThread) [homeassistant.setup] Setting up update
+2024-09-13 23:12:16.908 INFO (MainThread) [homeassistant.setup] Setup of domain update took 0.00 seconds
+2024-09-13 23:12:16.922 INFO (MainThread) [homeassistant.setup] Setting up todo
+2024-09-13 23:12:16.923 INFO (MainThread) [homeassistant.setup] Setup of domain todo took 0.00 seconds
+2024-09-13 23:12:16.931 INFO (MainThread) [homeassistant.components.notify] Setting up notify.mobile_app
+2024-09-13 23:12:16.941 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane usage data updated successfully
+2024-09-13 23:12:16.945 INFO (MainThread) [homeassistant.setup] Setting up analytics
+2024-09-13 23:12:16.948 INFO (MainThread) [homeassistant.setup] Setup of domain analytics took 0.00 seconds
+2024-09-13 23:12:16.950 INFO (MainThread) [homeassistant.setup] Setting up mailbox
+2024-09-13 23:12:16.952 INFO (MainThread) [homeassistant.setup] Setup of domain mailbox took 0.00 seconds
+2024-09-13 23:12:16.957 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_power_data
+2024-09-13 23:12:16.961 INFO (MainThread) [homeassistant.components.device_tracker] Setting up demo.device_tracker
+2024-09-13 23:12:16.969 INFO (MainThread) [homeassistant.setup] Setting up default_config
+2024-09-13 23:12:16.969 INFO (MainThread) [homeassistant.setup] Setup of domain default_config took 0.00 seconds
+2024-09-13 23:12:16.996 INFO (MainThread) [homeassistant.setup] Setting up air_quality
+2024-09-13 23:12:16.996 INFO (MainThread) [homeassistant.setup] Setup of domain air_quality took 0.00 seconds
+2024-09-13 23:12:16.997 INFO (MainThread) [homeassistant.setup] Setting up alarm_control_panel
+2024-09-13 23:12:16.998 INFO (MainThread) [homeassistant.setup] Setup of domain alarm_control_panel took 0.00 seconds
+2024-09-13 23:12:17.000 INFO (MainThread) [homeassistant.setup] Setting up binary_sensor
+2024-09-13 23:12:17.000 INFO (MainThread) [homeassistant.setup] Setup of domain binary_sensor took 0.00 seconds
+2024-09-13 23:12:17.002 INFO (MainThread) [homeassistant.setup] Setting up button
+2024-09-13 23:12:17.002 INFO (MainThread) [homeassistant.setup] Setup of domain button took 0.00 seconds
+2024-09-13 23:12:17.004 INFO (MainThread) [homeassistant.setup] Setting up calendar
+2024-09-13 23:12:17.005 INFO (MainThread) [homeassistant.setup] Setup of domain calendar took 0.00 seconds
+2024-09-13 23:12:17.006 INFO (MainThread) [homeassistant.setup] Setting up climate
+2024-09-13 23:12:17.009 INFO (MainThread) [homeassistant.setup] Setup of domain climate took 0.00 seconds
+2024-09-13 23:12:17.012 INFO (MainThread) [homeassistant.setup] Setting up cover
+2024-09-13 23:12:17.014 INFO (MainThread) [homeassistant.setup] Setup of domain cover took 0.00 seconds
+2024-09-13 23:12:17.017 INFO (MainThread) [homeassistant.setup] Setting up date
+2024-09-13 23:12:17.018 INFO (MainThread) [homeassistant.setup] Setup of domain date took 0.00 seconds
+2024-09-13 23:12:17.020 INFO (MainThread) [homeassistant.setup] Setting up datetime
+2024-09-13 23:12:17.020 INFO (MainThread) [homeassistant.setup] Setup of domain datetime took 0.00 seconds
+2024-09-13 23:12:17.022 INFO (MainThread) [homeassistant.setup] Setting up event
+2024-09-13 23:12:17.022 INFO (MainThread) [homeassistant.setup] Setup of domain event took 0.00 seconds
+2024-09-13 23:12:17.024 INFO (MainThread) [homeassistant.setup] Setting up fan
+2024-09-13 23:12:17.026 INFO (MainThread) [homeassistant.setup] Setup of domain fan took 0.00 seconds
+2024-09-13 23:12:17.027 INFO (MainThread) [homeassistant.setup] Setting up humidifier
+2024-09-13 23:12:17.028 INFO (MainThread) [homeassistant.setup] Setup of domain humidifier took 0.00 seconds
+2024-09-13 23:12:17.031 INFO (MainThread) [homeassistant.setup] Setting up light
+2024-09-13 23:12:17.034 INFO (MainThread) [homeassistant.setup] Setup of domain light took 0.00 seconds
+2024-09-13 23:12:17.036 INFO (MainThread) [homeassistant.setup] Setting up lock
+2024-09-13 23:12:17.037 INFO (MainThread) [homeassistant.setup] Setup of domain lock took 0.00 seconds
+2024-09-13 23:12:17.039 INFO (MainThread) [homeassistant.setup] Setting up media_player
+2024-09-13 23:12:17.042 INFO (MainThread) [homeassistant.setup] Setup of domain media_player took 0.00 seconds
+2024-09-13 23:12:17.048 INFO (MainThread) [homeassistant.setup] Setting up number
+2024-09-13 23:12:17.048 INFO (MainThread) [homeassistant.setup] Setup of domain number took 0.00 seconds
+2024-09-13 23:12:17.050 INFO (MainThread) [homeassistant.setup] Setting up select
+2024-09-13 23:12:17.051 INFO (MainThread) [homeassistant.setup] Setup of domain select took 0.00 seconds
+2024-09-13 23:12:17.053 INFO (MainThread) [homeassistant.setup] Setting up siren
+2024-09-13 23:12:17.054 INFO (MainThread) [homeassistant.setup] Setup of domain siren took 0.00 seconds
+2024-09-13 23:12:17.056 INFO (MainThread) [homeassistant.setup] Setting up text
+2024-09-13 23:12:17.056 INFO (MainThread) [homeassistant.setup] Setup of domain text took 0.00 seconds
+2024-09-13 23:12:17.058 INFO (MainThread) [homeassistant.setup] Setting up time
+2024-09-13 23:12:17.058 INFO (MainThread) [homeassistant.setup] Setup of domain time took 0.00 seconds
+2024-09-13 23:12:17.060 INFO (MainThread) [homeassistant.setup] Setting up vacuum
+2024-09-13 23:12:17.061 INFO (MainThread) [homeassistant.setup] Setup of domain vacuum took 0.00 seconds
+2024-09-13 23:12:17.063 INFO (MainThread) [homeassistant.setup] Setting up water_heater
+2024-09-13 23:12:17.064 INFO (MainThread) [homeassistant.setup] Setup of domain water_heater took 0.00 seconds
+2024-09-13 23:12:17.065 INFO (MainThread) [homeassistant.setup] Setting up weather
+2024-09-13 23:12:17.065 INFO (MainThread) [homeassistant.setup] Setup of domain weather took 0.00 seconds
+2024-09-13 23:12:17.068 INFO (MainThread) [homeassistant.components.todo] Setting up shopping_list.todo
+2024-09-13 23:12:17.071 INFO (MainThread) [homeassistant.components.mailbox] Setting up mailbox.demo
+2024-09-13 23:12:17.081 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_01 prefix:em_power_00 power:0
+2024-09-13 23:12:17.082 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_02 prefix:em_power_01 power:176
+2024-09-13 23:12:17.082 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_03 prefix:em_power_02 power:52
+2024-09-13 23:12:17.082 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_04 prefix:em_power_03 power:0
+2024-09-13 23:12:17.082 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_05 prefix:em_power_04 power:52
+2024-09-13 23:12:17.083 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_06 prefix:em_power_05 power:234
+2024-09-13 23:12:17.083 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_07 prefix:em_power_06 power:0
+2024-09-13 23:12:17.084 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_08 prefix:em_power_07 power:203
+2024-09-13 23:12:17.087 INFO (MainThread) [homeassistant.components.sensor] Setting up energy.sensor
+2024-09-13 23:12:17.092 INFO (MainThread) [homeassistant.components.switch] Setting up hacs.switch
+2024-09-13 23:12:17.097 INFO (MainThread) [homeassistant.components.update] Setting up hacs.update
+2024-09-13 23:12:17.102 INFO (MainThread) [custom_components.hacs] Stage changed: setup
+2024-09-13 23:12:17.103 INFO (MainThread) [custom_components.hacs] Stage changed: waiting
+2024-09-13 23:12:17.103 INFO (MainThread) [custom_components.hacs] Setup complete, waiting for Home Assistant before startup tasks starts
+2024-09-13 23:12:17.126 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_01 prefix:em_power_08 power:23
+2024-09-13 23:12:17.126 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_02 prefix:em_power_09 power:0
+2024-09-13 23:12:17.127 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_03 prefix:em_power_10 power:108
+2024-09-13 23:12:17.127 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_04 prefix:em_power_11 power:0
+2024-09-13 23:12:17.127 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_05 prefix:em_power_12 power:338
+2024-09-13 23:12:17.127 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_06 prefix:em_power_13 power:201
+2024-09-13 23:12:17.128 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_07 prefix:em_power_14 power:50
+2024-09-13 23:12:17.128 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_08 prefix:em_power_15 power:0
+2024-09-13 23:12:17.144 INFO (MainThread) [homeassistant.components.sensor] Setting up demo.sensor
+2024-09-13 23:12:17.149 INFO (MainThread) [homeassistant.components.siren] Setting up demo.siren
+2024-09-13 23:12:17.151 INFO (MainThread) [homeassistant.components.stt] Setting up demo.stt
+2024-09-13 23:12:17.153 INFO (MainThread) [homeassistant.components.switch] Setting up demo.switch
+2024-09-13 23:12:17.156 INFO (MainThread) [homeassistant.components.text] Setting up demo.text
+2024-09-13 23:12:17.161 INFO (MainThread) [homeassistant.components.time] Setting up demo.time
+2024-09-13 23:12:17.163 INFO (MainThread) [homeassistant.components.update] Setting up demo.update
+2024-09-13 23:12:17.175 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_01 prefix:em_power_16 power:816
+2024-09-13 23:12:17.175 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_02 prefix:em_power_17 power:0
+2024-09-13 23:12:17.175 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_03 prefix:em_power_18 power:0
+2024-09-13 23:12:17.176 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_04 prefix:em_power_19 power:29
+2024-09-13 23:12:17.176 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_05 prefix:em_power_20 power:0
+2024-09-13 23:12:17.176 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_06 prefix:em_power_21 power:0
+2024-09-13 23:12:17.177 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_07 prefix:em_power_22 power:643
+2024-09-13 23:12:17.177 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_08 prefix:em_power_23 power:0
+2024-09-13 23:12:17.180 INFO (MainThread) [homeassistant.components.vacuum] Setting up demo.vacuum
+2024-09-13 23:12:17.185 INFO (MainThread) [homeassistant.components.water_heater] Setting up demo.water_heater
+2024-09-13 23:12:17.189 INFO (MainThread) [homeassistant.components.weather] Setting up demo.weather
+2024-09-13 23:12:17.191 INFO (MainThread) [homeassistant.components.image_processing] Setting up demo.image_processing
+2024-09-13 23:12:17.192 INFO (MainThread) [homeassistant.components.air_quality] Setting up demo.air_quality
+2024-09-13 23:12:17.194 INFO (MainThread) [homeassistant.components.alarm_control_panel] Setting up demo.alarm_control_panel
+2024-09-13 23:12:17.196 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up demo.binary_sensor
+2024-09-13 23:12:17.198 INFO (MainThread) [homeassistant.components.button] Setting up demo.button
+2024-09-13 23:12:17.200 INFO (MainThread) [homeassistant.components.camera] Setting up demo.camera
+2024-09-13 23:12:17.201 INFO (MainThread) [homeassistant.components.calendar] Setting up demo.calendar
+2024-09-13 23:12:17.204 INFO (MainThread) [homeassistant.components.climate] Setting up demo.climate
+2024-09-13 23:12:17.207 INFO (MainThread) [homeassistant.components.cover] Setting up demo.cover
+2024-09-13 23:12:17.209 INFO (MainThread) [homeassistant.components.date] Setting up demo.date
+2024-09-13 23:12:17.211 INFO (MainThread) [homeassistant.components.datetime] Setting up demo.datetime
+2024-09-13 23:12:17.213 INFO (MainThread) [homeassistant.components.event] Setting up demo.event
+2024-09-13 23:12:17.214 INFO (MainThread) [homeassistant.components.fan] Setting up demo.fan
+2024-09-13 23:12:17.217 INFO (MainThread) [homeassistant.components.humidifier] Setting up demo.humidifier
+2024-09-13 23:12:17.219 INFO (MainThread) [homeassistant.components.light] Setting up demo.light
+2024-09-13 23:12:17.222 INFO (MainThread) [homeassistant.components.lock] Setting up demo.lock
+2024-09-13 23:12:17.224 INFO (MainThread) [homeassistant.components.media_player] Setting up demo.media_player
+2024-09-13 23:12:17.227 INFO (MainThread) [homeassistant.components.notify] Setting up demo.notify
+2024-09-13 23:12:17.229 INFO (MainThread) [homeassistant.components.number] Setting up demo.number
+2024-09-13 23:12:17.238 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_01 prefix:em_power_24 power:230
+2024-09-13 23:12:17.238 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_02 prefix:em_power_25 power:0
+2024-09-13 23:12:17.238 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_03 prefix:em_power_26 power:477
+2024-09-13 23:12:17.239 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_04 prefix:em_power_27 power:0
+2024-09-13 23:12:17.239 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_05 prefix:em_power_28 power:0
+2024-09-13 23:12:17.239 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_06 prefix:em_power_29 power:309
+2024-09-13 23:12:17.240 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_07 prefix:em_power_30 power:0
+2024-09-13 23:12:17.240 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_08 prefix:em_power_31 power:0
+2024-09-13 23:12:17.240 DEBUG (MainThread) [custom_components.ecomane.coordinator] Total number of power sensors = 32
+2024-09-13 23:12:17.241 INFO (MainThread) [homeassistant.components.select] Setting up demo.select
+2024-09-13 23:12:17.244 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane power data updated successfully
+2024-09-13 23:12:17.244 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane updated data = {'ip_address': '192.168.168.220', 'num_L1': '10.8', 'num_L2': '2.3', 'num_L4': '0.06', 'num_L5': '0.13', 'num_R1': '5.8', 'num_R2': '1.0', 'num_R3': '0.0', 'em_power_00_txt': '', 'em_power_00_txt2': '太陽光', 'em_power_00': '0', 'em_power_01_txt': 'キッチン', 'em_power_01_txt2': '照明＆コンセント', 'em_power_01': '176', 'em_power_02_txt': 'ダイニング（北）', 'em_power_02_txt2': 'コンセント', 'em_power_02': '52', 'em_power_03_txt': 'ダイニング', 'em_power_03_txt2': '照明＆コンセント', 'em_power_03': '0', 'em_power_04_txt': 'ダイニング（南）', 'em_power_04_txt2': '照明＆コンセント', 'em_power_04': '52', 'em_power_05_txt': 'リビング（南）', 'em_power_05_txt2': '照明＆コンセント', 'em_power_05': '234', 'em_power_06_txt': 'リビング（北）', 'em_power_06_txt2': '照明＆コンセント', 'em_power_06': '0', 'em_power_07_txt': '洋室１父母部屋', 'em_power_07_txt2': '照明＆コンセント', 'em_power_07': '203', 'em_power_08_txt': '洗面', 'em_power_08_txt2': '照明＆コンセント', 'em_power_08': '23', 'em_power_09_txt': '玄関・１階廊下', 'em_power_09_txt2': '照明＆コンセント', 'em_power_09': '0', 'em_power_10_txt': '寝室（東）', 'em_power_10_txt2': '照明＆コンセント', 'em_power_10': '108', 'em_power_11_txt': '寝室・クロゼット', 'em_power_11_txt2': '照明＆コンセント', 'em_power_11': '0', 'em_power_12_txt': '書斎', 'em_power_12_txt2': '照明＆コンセント', 'em_power_12': '338', 'em_power_13_txt': 'シャワー洗面納戸', 'em_power_13_txt2': '照明＆コンセント', 'em_power_13': '201', 'em_power_14_txt': '階段・２階共用', 'em_power_14_txt2': '照明＆コンセント', 'em_power_14': '50', 'em_power_15_txt': 'キッチン（上）', 'em_power_15_txt2': 'コンセント', 'em_power_15': '0', 'em_power_16_txt': 'キッチン', 'em_power_16_txt2': '食器洗い乾燥機', 'em_power_16': '816', 'em_power_17_txt': 'キッチン（下）', 'em_power_17_txt2': 'コンセント', 'em_power_17': '0', 'em_power_18_txt': '洗面', 'em_power_18_txt2': '洗濯機', 'em_power_18': '0', 'em_power_19_txt': '浴室', 'em_power_19_txt2': '浴室乾燥機', 'em_power_19': '29', 'em_power_20_txt': '洗面', 'em_power_20_txt2': '暖房器', 'em_power_20': '0', 'em_power_21_txt': '１階トイレ', 'em_power_21_txt2': 'コンセント', 'em_power_21': '0', 'em_power_22_txt': '洋室３子供部屋', 'em_power_22_txt2': 'エアコン', 'em_power_22': '643', 'em_power_23_txt': '洋室２', 'em_power_23_txt2': 'エアコン', 'em_power_23': '0', 'em_power_24_txt': '寝室', 'em_power_24_txt2': 'エアコン', 'em_power_24': '230', 'em_power_25_txt': '書斎', 'em_power_25_txt2': 'エアコン', 'em_power_25': '0', 'em_power_26_txt': 'ダイニング', 'em_power_26_txt2': 'エアコン', 'em_power_26': '477', 'em_power_27_txt': '洋室３子供部屋', 'em_power_27_txt2': '照明＆コンセント', 'em_power_27': '0', 'em_power_28_txt': 'リビング', 'em_power_28_txt2': '非常警報設備', 'em_power_28': '0', 'em_power_29_txt': '洋室１父母部屋', 'em_power_29_txt2': 'エアコン', 'em_power_29': '309', 'em_power_30_txt': '洋室２', 'em_power_30_txt2': '照明＆コンセント', 'em_power_30': '0', 'em_power_31_txt': 'リビング', 'em_power_31_txt2': 'エアコン', 'em_power_31': '0'}
+2024-09-13 23:12:17.244 DEBUG (MainThread) [custom_components.ecomane] __init__.py config_entry.entry_id: 01J7GWEZ1MRAABYM2X2SAT4X6W
+2024-09-13 23:12:17.254 INFO (MainThread) [homeassistant.components.sensor] Setting up ecomane.sensor
+2024-09-13 23:12:17.254 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensors: []
+2024-09-13 23:12:17.254 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: electricity_purchased, _attr_translation_key: electricity_purchased, _attr_div_id: num_L1, entity_id: sensor.ecomane_electricity_purchased, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_electricity_purchased
+2024-09-13 23:12:17.254 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: solar_power_energy, _attr_translation_key: solar_power_energy, _attr_div_id: num_L2, entity_id: sensor.ecomane_solar_power_energy, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_solar_power_energy
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: gas_consumption, _attr_translation_key: gas_consumption, _attr_div_id: num_L4, entity_id: sensor.ecomane_gas_consumption, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_gas_consumption
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: water_consumption, _attr_translation_key: water_consumption, _attr_div_id: num_L5, entity_id: sensor.ecomane_water_consumption, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_water_consumption
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: co2_emissions, _attr_translation_key: co2_emissions, _attr_div_id: num_R1, entity_id: sensor.ecomane_co2_emissions, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_co2_emissions
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: co2_reduction, _attr_translation_key: co2_reduction, _attr_div_id: num_R2, entity_id: sensor.ecomane_co2_reduction, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_co2_reduction
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] usage_sensor_desc.name: electricity_sales, _attr_translation_key: electricity_sales, _attr_div_id: num_R3, entity_id: sensor.ecomane_electricity_sales, _attr_unique_id: 01J7GWEZ1MRAABYM2X2SAT4X6W_electricity_sales
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 0, prefix: em_power_00, place: , circuit: 太陽光
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 1, prefix: em_power_01, place: キッチン, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 2, prefix: em_power_02, place: ダイニング（北）, circuit: コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 3, prefix: em_power_03, place: ダイニング, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 4, prefix: em_power_04, place: ダイニング（南）, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 5, prefix: em_power_05, place: リビング（南）, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 6, prefix: em_power_06, place: リビング（北）, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 7, prefix: em_power_07, place: 洋室１父母部屋, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 8, prefix: em_power_08, place: 洗面, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 9, prefix: em_power_09, place: 玄関・１階廊下, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 10, prefix: em_power_10, place: 寝室（東）, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 11, prefix: em_power_11, place: 寝室・クロゼット, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 12, prefix: em_power_12, place: 書斎, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 13, prefix: em_power_13, place: シャワー洗面納戸, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 14, prefix: em_power_14, place: 階段・２階共用, circuit: 照明＆コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 15, prefix: em_power_15, place: キッチン（上）, circuit: コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 16, prefix: em_power_16, place: キッチン, circuit: 食器洗い乾燥機
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 17, prefix: em_power_17, place: キッチン（下）, circuit: コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 18, prefix: em_power_18, place: 洗面, circuit: 洗濯機
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 19, prefix: em_power_19, place: 浴室, circuit: 浴室乾燥機
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 20, prefix: em_power_20, place: 洗面, circuit: 暖房器
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 21, prefix: em_power_21, place: １階トイレ, circuit: コンセント
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 22, prefix: em_power_22, place: 洋室３子供部屋, circuit: エアコン
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 23, prefix: em_power_23, place: 洋室２, circuit: エアコン
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 24, prefix: em_power_24, place: 寝室, circuit: エアコン
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 25, prefix: em_power_25, place: 書斎, circuit: エアコン
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 26, prefix: em_power_26, place: ダイニング, circuit: エアコン
+2024-09-13 23:12:17.255 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 27, prefix: em_power_27, place: 洋室３子供部屋, circuit: 照明＆コンセント
+2024-09-13 23:12:17.256 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 28, prefix: em_power_28, place: リビング, circuit: 非常警報設備
+2024-09-13 23:12:17.256 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 29, prefix: em_power_29, place: 洋室１父母部屋, circuit: エアコン
+2024-09-13 23:12:17.256 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 30, prefix: em_power_30, place: 洋室２, circuit: 照明＆コンセント
+2024-09-13 23:12:17.256 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py sensor_num: 31, prefix: em_power_31, place: リビング, circuit: エアコン
+2024-09-13 23:12:17.264 DEBUG (MainThread) [custom_components.ecomane.sensor] sensor.py async_setup_entry has finished async_add_entities
+2024-09-13 23:12:17.520 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 2.01s
+2024-09-13 23:12:17.521 INFO (MainThread) [homeassistant.core] Starting Home Assistant
+2024-09-13 23:12:17.524 INFO (MainThread) [custom_components.hacs] Stage changed: startup
+2024-09-13 23:12:17.528 INFO (MainThread) [custom_components.hacs] Loading removed repositories
+2024-09-13 23:12:17.573 INFO (MainThread) [custom_components.hacs] Loading known repositories
+2024-09-13 23:12:17.674 INFO (MainThread) [custom_components.hacs] Stage changed: running
+2024-09-13 23:12:17.726 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=31, family=2, type=1, proto=6, laddr=('172.17.0.3', 40000)>,)> is serving
+2024-09-13 23:13:17.406 DEBUG (MainThread) [custom_components.ecomane.coordinator] Updating EcoMane data
+2024-09-13 23:13:17.406 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_usage_data
+2024-09-13 23:13:17.458 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane usage data updated successfully
+2024-09-13 23:13:17.458 DEBUG (MainThread) [custom_components.ecomane.coordinator] update_power_data
+2024-09-13 23:13:17.512 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_01 prefix:em_power_00 power:0
+2024-09-13 23:13:17.512 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_02 prefix:em_power_01 power:175
+2024-09-13 23:13:17.512 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_03 prefix:em_power_02 power:52
+2024-09-13 23:13:17.513 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_04 prefix:em_power_03 power:0
+2024-09-13 23:13:17.513 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_05 prefix:em_power_04 power:50
+2024-09-13 23:13:17.513 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_06 prefix:em_power_05 power:269
+2024-09-13 23:13:17.514 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_07 prefix:em_power_06 power:0
+2024-09-13 23:13:17.514 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:1 id:ojt_08 prefix:em_power_07 power:194
+2024-09-13 23:13:17.559 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_01 prefix:em_power_08 power:23
+2024-09-13 23:13:17.560 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_02 prefix:em_power_09 power:0
+2024-09-13 23:13:17.560 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_03 prefix:em_power_10 power:106
+2024-09-13 23:13:17.560 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_04 prefix:em_power_11 power:0
+2024-09-13 23:13:17.560 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_05 prefix:em_power_12 power:202
+2024-09-13 23:13:17.561 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_06 prefix:em_power_13 power:196
+2024-09-13 23:13:17.561 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_07 prefix:em_power_14 power:50
+2024-09-13 23:13:17.562 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:2 id:ojt_08 prefix:em_power_15 power:0
+2024-09-13 23:13:17.597 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_01 prefix:em_power_16 power:820
+2024-09-13 23:13:17.598 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_02 prefix:em_power_17 power:0
+2024-09-13 23:13:17.598 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_03 prefix:em_power_18 power:0
+2024-09-13 23:13:17.598 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_04 prefix:em_power_19 power:29
+2024-09-13 23:13:17.599 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_05 prefix:em_power_20 power:0
+2024-09-13 23:13:17.599 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_06 prefix:em_power_21 power:0
+2024-09-13 23:13:17.599 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_07 prefix:em_power_22 power:613
+2024-09-13 23:13:17.600 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:3 id:ojt_08 prefix:em_power_23 power:0
+2024-09-13 23:13:17.652 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_01 prefix:em_power_24 power:294
+2024-09-13 23:13:17.652 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_02 prefix:em_power_25 power:0
+2024-09-13 23:13:17.652 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_03 prefix:em_power_26 power:479
+2024-09-13 23:13:17.653 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_04 prefix:em_power_27 power:0
+2024-09-13 23:13:17.653 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_05 prefix:em_power_28 power:0
+2024-09-13 23:13:17.653 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_06 prefix:em_power_29 power:302
+2024-09-13 23:13:17.654 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_07 prefix:em_power_30 power:0
+2024-09-13 23:13:17.654 DEBUG (MainThread) [custom_components.ecomane.coordinator] page:4 id:ojt_08 prefix:em_power_31 power:0
+2024-09-13 23:13:17.654 DEBUG (MainThread) [custom_components.ecomane.coordinator] Total number of power sensors = 32
+2024-09-13 23:13:17.655 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane power data updated successfully
+2024-09-13 23:13:17.655 DEBUG (MainThread) [custom_components.ecomane.coordinator] EcoMane updated data = {'ip_address': '192.168.168.220', 'num_L1': '10.8', 'num_L2': '2.4', 'num_L4': '0.06', 'num_L5': '0.13', 'num_R1': '5.8', 'num_R2': '1.0', 'num_R3': '0.0', 'em_power_00_txt': '', 'em_power_00_txt2': '太陽光', 'em_power_00': '0', 'em_power_01_txt': 'キッチン', 'em_power_01_txt2': '照明＆コンセント', 'em_power_01': '175', 'em_power_02_txt': 'ダイニング（北）', 'em_power_02_txt2': 'コンセント', 'em_power_02': '52', 'em_power_03_txt': 'ダイニング', 'em_power_03_txt2': '照明＆コンセント', 'em_power_03': '0', 'em_power_04_txt': 'ダイニング（南）', 'em_power_04_txt2': '照明＆コンセント', 'em_power_04': '50', 'em_power_05_txt': 'リビング（南）', 'em_power_05_txt2': '照明＆コンセント', 'em_power_05': '269', 'em_power_06_txt': 'リビング（北）', 'em_power_06_txt2': '照明＆コンセント', 'em_power_06': '0', 'em_power_07_txt': '洋室１父母部屋', 'em_power_07_txt2': '照明＆コンセント', 'em_power_07': '194', 'em_power_08_txt': '洗面', 'em_power_08_txt2': '照明＆コンセント', 'em_power_08': '23', 'em_power_09_txt': '玄関・１階廊下', 'em_power_09_txt2': '照明＆コンセント', 'em_power_09': '0', 'em_power_10_txt': '寝室（東）', 'em_power_10_txt2': '照明＆コンセント', 'em_power_10': '106', 'em_power_11_txt': '寝室・クロゼット', 'em_power_11_txt2': '照明＆コンセント', 'em_power_11': '0', 'em_power_12_txt': '書斎', 'em_power_12_txt2': '照明＆コンセント', 'em_power_12': '202', 'em_power_13_txt': 'シャワー洗面納戸', 'em_power_13_txt2': '照明＆コンセント', 'em_power_13': '196', 'em_power_14_txt': '階段・２階共用', 'em_power_14_txt2': '照明＆コンセント', 'em_power_14': '50', 'em_power_15_txt': 'キッチン（上）', 'em_power_15_txt2': 'コンセント', 'em_power_15': '0', 'em_power_16_txt': 'キッチン', 'em_power_16_txt2': '食器洗い乾燥機', 'em_power_16': '820', 'em_power_17_txt': 'キッチン（下）', 'em_power_17_txt2': 'コンセント', 'em_power_17': '0', 'em_power_18_txt': '洗面', 'em_power_18_txt2': '洗濯機', 'em_power_18': '0', 'em_power_19_txt': '浴室', 'em_power_19_txt2': '浴室乾燥機', 'em_power_19': '29', 'em_power_20_txt': '洗面', 'em_power_20_txt2': '暖房器', 'em_power_20': '0', 'em_power_21_txt': '１階トイレ', 'em_power_21_txt2': 'コンセント', 'em_power_21': '0', 'em_power_22_txt': '洋室３子供部屋', 'em_power_22_txt2': 'エアコン', 'em_power_22': '613', 'em_power_23_txt': '洋室２', 'em_power_23_txt2': 'エアコン', 'em_power_23': '0', 'em_power_24_txt': '寝室', 'em_power_24_txt2': 'エアコン', 'em_power_24': '294', 'em_power_25_txt': '書斎', 'em_power_25_txt2': 'エアコン', 'em_power_25': '0', 'em_power_26_txt': 'ダイニング', 'em_power_26_txt2': 'エアコン', 'em_power_26': '479', 'em_power_27_txt': '洋室３子供部屋', 'em_power_27_txt2': '照明＆コンセント', 'em_power_27': '0', 'em_power_28_txt': 'リビング', 'em_power_28_txt2': '非常警報設備', 'em_power_28': '0', 'em_power_29_txt': '洋室１父母部屋', 'em_power_29_txt2': 'エアコン', 'em_power_29': '302', 'em_power_30_txt': '洋室２', 'em_power_30_txt2': '照明＆コンセント', 'em_power_30': '0', 'em_power_31_txt': 'リビング', 'em_power_31_txt2': 'エアコン', 'em_power_31': '0'}
+2024-09-13 23:13:17.655 DEBUG (MainThread) [custom_components.ecomane.coordinator] Finished fetching EcoManeHEMS data in 0.249 seconds (success: True)
+2024-09-13 23:14:12.910 INFO (Recorder) [homeassistant.components.recorder.pool.RecorderPool] Pool recreating
