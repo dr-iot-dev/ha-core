@@ -54,10 +54,8 @@ class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
 # 使用量センサーのエンティティのディスクリプションのリストを作成
 ecomane_usage_sensors_descs = [
     EcoManeUsageSensorEntityDescription(
-        # name="購入電気量",
         name="electricity_purchased",
         translation_key="electricity_purchased",
-        # description="Electricity purchased",
         description="Electricity purchased 購入電気量",
         key="num_L1",
         device_class=SensorDeviceClass.ENERGY,
@@ -147,11 +145,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         self._attr_power_sensor_total = 0
         self._attr_usage_sensor_descs = ecomane_usage_sensors_descs
 
-    # async def _async_setup(self) -> None:
-    #     """Set up the coordinator."""
-    #     self.data = await self._async_update_data()
-    #     _LOGGER.debug("_async_setup data:%s", self.data)
-
     def natural_number_generator(self) -> Generator:
         """Natural number generator."""
         count = 1
@@ -172,7 +165,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         """Update usage data."""
 
         _LOGGER.debug("update_usage_data")
-        # response = None
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip_address}/{SENSOR_TODAY_CGI}"
@@ -216,7 +208,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         """Update power data."""
 
         _LOGGER.debug("update_power_data")
-        # response = None
         try:
             # デバイスからデータを取得
             url = f"http://{self._ip_address}/{SENSOR_POWER_CGI}"
@@ -252,11 +243,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             raise UpdateFailed("update_power_data failed") from err
         # finally:
 
-        # _LOGGER.debug(
-        #     "EcoMane power data updated successfully. self.data: %s self._data_dict: %s",
-        #     self.data,
-        #     self._data_dict,
-        # )
         _LOGGER.debug("EcoMane power data updated successfully")
         return self._data_dict
 
@@ -336,11 +322,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     err,
                 )
                 await asyncio.sleep(RETRY_INTERVAL)  # Retry interval
-
-    # @property
-    # def dict(self) -> dict[str, str]:
-    #     """EcoMane Dictionary."""
-    #     return self._dict
 
     @property
     def power_sensor_total(self) -> int:

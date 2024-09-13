@@ -16,8 +16,6 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-
-# from homeassistant.helpers.typing import UndefinedType
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
@@ -46,10 +44,7 @@ async def async_setup_entry(
     # Access data stored in hass.data
     coordinator: EcoManeDataCoordinator = hass.data[DOMAIN][config_entry.entry_id]
 
-    # await coordinator.update_power_data()
-    # sensor_dict = coordinator.dict
     sensor_dict = coordinator.data
-    _LOGGER.debug("sensor.py sensor_dict: %s", sensor_dict)
     power_sensor_total = coordinator.power_sensor_total
 
     ecomane_energy_sensors_descs = coordinator.usage_sensor_descs
@@ -69,17 +64,13 @@ async def async_setup_entry(
         # power = sensor_dict[prefix]
         _LOGGER.debug(
             "sensor.py sensor_num: %s, prefix: %s, place: %s, circuit: %s",
-            # "sensor.py sensor_num: %s, prefix: %s, place: %s, circuit: %s, power: %s",
             sensor_num,
             prefix,
             place,
             circuit,
             # power,
         )
-        sensors.append(
-            # EcoManePowerSensorEntity(coordinator, prefix, place, circuit, power)
-            EcoManePowerSensorEntity(coordinator, prefix, place, circuit)
-        )
+        sensors.append(EcoManePowerSensorEntity(coordinator, prefix, place, circuit))
 
     # センサーが見つからない場合はエラー
     if not sensors:
@@ -87,7 +78,6 @@ async def async_setup_entry(
 
     # エンティティを追加 (update_before_add=False でオーバービューに自動で登録されないようにする)
     async_add_entities(sensors, update_before_add=False)
-    # async_add_entities(sensors, update_before_add=True)
     _LOGGER.debug("sensor.py async_setup_entry has finished async_add_entities")
 
 
@@ -108,7 +98,6 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
     _attr_div_id: str = ""
     _attr_description: str | None = None
 
-    # _ecomane_coordinator: EcoManeDataCoordinator
     _ip_address: str | None = None
 
     def __init__(
@@ -119,7 +108,6 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
         """Pass coordinator to CoordinatorEntity."""
 
         super().__init__(coordinator=coordinator)
-        # self._ecomane_coordinator = coordinator
         self._ip_address = coordinator.ip_address
 
         sensor_id = usage_sensor_desc.key
@@ -127,7 +115,6 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
 
         # translation_key を設定
         self._attr_translation_key = usage_sensor_desc.translation_key
-        # self.translation_key = usage_sensor_desc.translation_key #必要？
 
         # entity_description を設定
         self._attr_entity_description = usage_sensor_desc
@@ -162,8 +149,8 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        if self.coordinator.data is None:
-            return ""
+        # if self.coordinator.data is None:
+        #     return ""
         value = self.coordinator.data.get(
             self._attr_div_id
         )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
@@ -191,7 +178,6 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     _attr_has_entity_name = True
     # _attr_name = None　# Noneでも値を設定するとtranslationがされない
     # _attr_id = None　# Noneでも値を設定しない
-    # _attr_translation_key: str
     _attr_unique_id: str | None = None
     _attr_attribution = "Power data provided by Panasonic ECO Mane HEMS"
     _attr_entity_description: EcoManePowerSensorEntityDescription | None = None
@@ -201,8 +187,6 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_sensor_id: str
 
-    # _power: str
-    # _ecomane_coordinator: EcoManeDataCoordinator
     _ip_address: str | None = None
 
     def __init__(
@@ -255,12 +239,11 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        if self.coordinator.data is None:
-            _LOGGER.debug(
-                "native_value: self.coordinator.data: %s", str(self.coordinator.data)
-            )
-            return ""
-
+        # if self.coordinator.data is None:
+        #     _LOGGER.debug(
+        #         "native_value: self.coordinator.data: %s", str(self.coordinator.data)
+        #     )
+        #     return ""
         value = self.coordinator.data.get(
             self._attr_sensor_id
         )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
