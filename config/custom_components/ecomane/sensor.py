@@ -61,14 +61,12 @@ async def async_setup_entry(
         prefix = f"{SENSOR_POWER_PREFIX}_{sensor_num:02d}"
         place = sensor_dict[f"{prefix}_{SELECTOR_PLACE}"]
         circuit = sensor_dict[f"{prefix}_{SELECTOR_CIRCUIT}"]
-        # power = sensor_dict[prefix]
         _LOGGER.debug(
             "sensor.py async_setup_entry sensor_num: %s, prefix: %s, place: %s, circuit: %s",
             sensor_num,
             prefix,
             place,
             circuit,
-            # power,
         )
         sensors.append(EcoManePowerSensorEntity(coordinator, prefix, place, circuit))
 
@@ -82,16 +80,14 @@ async def async_setup_entry(
 
 
 class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
-    """EcoManeUsageSensor."""
+    """EcoMane UsageS ensor."""
 
     _attr_has_entity_name = True
     # _attr_name = None # Noneでも値を設定するとtranslationがされない
-    # _attr_id = None　# Noneでも値を設定しない
     _attr_unique_id: str | None = None
     _attr_attribution = "Usage data provided by Panasonic ECO Mane HEMS"
     _attr_entity_description: EcoManeUsageSensorEntityDescription | None = None
     _attr_device_class: SensorDeviceClass | None = None
-    # _attr_state = None
     _attr_state_class: str | None = None
     _attr_native_unit_of_measurement: str | None = None
 
@@ -106,10 +102,12 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
         usage_sensor_desc: EcoManeUsageSensorEntityDescription,
     ) -> None:
         """Pass coordinator to CoordinatorEntity."""
-
         super().__init__(coordinator=coordinator)
+
+        # ip_address を設定
         self._ip_address = coordinator.ip_address
 
+        # sensor_id (_attr_div_id) を設定
         sensor_id = usage_sensor_desc.key
         self._attr_div_id = sensor_id
 
@@ -149,8 +147,6 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        # if self.coordinator.data is None:
-        #     return ""
         value = self.coordinator.data.get(
             self._attr_div_id
         )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
@@ -177,12 +173,10 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
 
     _attr_has_entity_name = True
     # _attr_name = None　# Noneでも値を設定するとtranslationがされない
-    # _attr_id = None　# Noneでも値を設定しない
     _attr_unique_id: str | None = None
     _attr_attribution = "Power data provided by Panasonic ECO Mane HEMS"
     _attr_entity_description: EcoManePowerSensorEntityDescription | None = None
     _attr_device_class = SensorDeviceClass.POWER
-    # _attr_state = None
     _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_sensor_id: str
@@ -195,29 +189,23 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         sensor_id: str,
         place: str,
         circuit: str,
-        # power: str,
     ) -> None:
         """Pass coordinator to CoordinatorEntity."""
-
         super().__init__(coordinator=coordinator)
-        # self._ecomane_coordinator = coordinator
 
-        # self._power = power
+        # ip_address を設定
         self._ip_address = coordinator.ip_address
-
-        name = f"{place} {circuit}"
-        # self._attr_name = name　# Noneでも値を設定するとtranslationがされない
 
         # sensor_id を設定
         self._attr_sensor_id = sensor_id
 
         # translation_key を設定
+        name = f"{place} {circuit}"
         self._attr_translation_key = ja_to_entity(name)
 
         # entity_description を設定
         self._attr_entity_description = description = (
             EcoManePowerSensorEntityDescription(
-                # self.entity_description = description = EcoManePowerSensorEntityDescription(
                 service_type=SENSOR_POWER_SERVICE_TYPE,
                 key=sensor_id,
             )
@@ -239,11 +227,6 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        # if self.coordinator.data is None:
-        #     _LOGGER.debug(
-        #         "native_value: self.coordinator.data: %s", str(self.coordinator.data)
-        #     )
-        #     return ""
         value = self.coordinator.data.get(
             self._attr_sensor_id
         )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す

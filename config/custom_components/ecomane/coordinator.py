@@ -154,7 +154,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> dict[str, str]:
         """Update Eco Mane Data."""
-
         _LOGGER.debug("_async_update_data: Updating EcoMane data")  # debug
         await self.update_usage_data()
         await self.update_power_data()
@@ -162,7 +161,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
     async def update_usage_data(self) -> None:
         """Update usage data."""
-
         _LOGGER.debug("update_usage_data")
         try:
             # デバイスからデータを取得
@@ -178,7 +176,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     raise UpdateFailed(
                         f"Error fetching data from {url}. Status code: {response.status}"
                     )
-                # response.encoding = ENCODING  # shift-jis
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
                 await self.parse_usage_data(text_data)
@@ -200,12 +197,10 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             if div:
                 value = div.text.strip()
                 self._data_dict[key] = value
-            # self._dict[key] = value
         return self._data_dict
 
     async def update_power_data(self) -> dict:
         """Update power data."""
-
         _LOGGER.debug("update_power_data")
         try:
             # デバイスからデータを取得
@@ -230,6 +225,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                         )
                     # テキストデータを取得する際に shift-jis エンコーディングを指定
                     text_data = await response.text(encoding="shift-jis")
+                    # text_data からデータを取得, 最大ページ total_page に達したら終了
                     total_page = await self.parse_power_data(text_data, page_num)
                     if page_num >= total_page:
                         break
@@ -247,7 +243,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
     async def parse_power_data(self, text: str, page_num: int) -> int:
         """Parse data from the content."""
-
         # BeautifulSoupを使用してHTMLを解析
         soup = BeautifulSoup(text, "html.parser")
         # 最大ページ数を取得
@@ -309,7 +304,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
     async def async_config_entry_first_refresh(self) -> None:
         """Perform the first refresh with retry logic."""
-
         while True:
             try:
                 self.data = await self._async_update_data()
