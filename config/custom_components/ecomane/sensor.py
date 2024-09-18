@@ -22,15 +22,16 @@ from .const import (
     DOMAIN,
     SELECTOR_CIRCUIT,
     SELECTOR_CIRCUIT_ENERGY,
+    SELECTOR_CIRCUIT_POWER,
     SELECTOR_PLACE,
     SENSOR_ENERGY_SERVICE_TYPE,
     SENSOR_POWER_PREFIX,
     SENSOR_POWER_SERVICE_TYPE,
 )
 from .coordinator import (
+    EcoManeCircuitEnergySensorEntityDescription,
+    EcoManeCircuitPowerSensorEntityDescription,
     EcoManeDataCoordinator,
-    EcoManeEnergySensorEntityDescription,
-    EcoManePowerSensorEntityDescription,
     EcoManeUsageSensorEntityDescription,
 )
 from .name_to_id import ja_to_entity
@@ -48,7 +49,7 @@ async def async_setup_entry(
     coordinator: EcoManeDataCoordinator = hass.data[DOMAIN][config_entry.entry_id]
 
     sensor_dict = coordinator.data
-    power_sensor_total = coordinator.power_sensor_total
+    power_sensor_total = coordinator.circuit_total
 
     ecomane_energy_sensors_descs = coordinator.usage_sensor_descs
 
@@ -71,8 +72,12 @@ async def async_setup_entry(
             place,
             circuit,
         )
-        sensors.append(EcoManePowerSensorEntity(coordinator, prefix, place, circuit))
-        sensors.append(EcoManeEnergySensorEntity(coordinator, prefix, place, circuit))
+        sensors.append(
+            EcoManeCircuitPowerSensorEntity(coordinator, prefix, place, circuit)
+        )
+        sensors.append(
+            EcoManeCircuitEnergySensorEntity(coordinator, prefix, place, circuit)
+        )
     # センサーが見つからない場合はエラー
     if not sensors:
         raise ConfigEntryNotReady("No sensors found")
@@ -171,14 +176,14 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
         )
 
 
-class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
+class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
     """EcoManePowerSensor."""
 
     _attr_has_entity_name = True
     # _attr_name = None　# Noneでも値を設定するとtranslationがされない
     _attr_unique_id: str | None = None
     _attr_attribution = "Power data provided by Panasonic ECO Mane HEMS"
-    _attr_entity_description: EcoManePowerSensorEntityDescription | None = None
+    _attr_entity_description: EcoManeCircuitPowerSensorEntityDescription | None = None
     _attr_device_class = SensorDeviceClass.POWER
     _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_native_unit_of_measurement = UnitOfPower.WATT
@@ -189,7 +194,7 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
     def __init__(
         self,
         coordinator: EcoManeDataCoordinator,
-        sensor_id: str,
+        prefix: str,
         place: str,
         circuit: str,
     ) -> None:
@@ -200,6 +205,7 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         self._ip_address = coordinator.ip_address
 
         # sensor_id を設定
+        sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_POWER}"
         self._attr_sensor_id = sensor_id
 
         # translation_key を設定
@@ -208,7 +214,7 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
 
         # entity_description を設定
         self._attr_entity_description = description = (
-            EcoManePowerSensorEntityDescription(
+            EcoManeCircuitPowerSensorEntityDescription(
                 service_type=SENSOR_POWER_SERVICE_TYPE,
                 key=sensor_id,
             )
@@ -251,14 +257,14 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
         )
 
 
-class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
-    """EcoManeEnergySensor."""
+class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
+    """EcoManeCircuitEnergySensor."""
 
     _attr_has_entity_name = True
     # _attr_name = None　# Noneでも値を設定するとtranslationがされない
     _attr_unique_id: str | None = None
     _attr_attribution = "Power data provided by Panasonic ECO Mane HEMS"
-    _attr_entity_description: EcoManeEnergySensorEntityDescription | None = None
+    _attr_entity_description: EcoManeCircuitEnergySensorEntityDescription | None = None
     _attr_device_class = SensorDeviceClass.ENERGY
     _attr_state_class = SensorStateClass.TOTAL_INCREASING
     _attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
@@ -281,7 +287,7 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
         self._ip_address = coordinator.ip_address
 
         # sensor_id を設定
-        sensor_id = prefix + f"_{SELECTOR_CIRCUIT_ENERGY}"
+        sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"
         self._attr_sensor_id = sensor_id
 
         # translation_key を設定
@@ -290,7 +296,7 @@ class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
 
         # entity_description を設定
         self._attr_entity_description = description = (
-            EcoManePowerSensorEntityDescription(
+            EcoManeCircuitPowerSensorEntityDescription(
                 service_type=SENSOR_ENERGY_SERVICE_TYPE,
                 key=sensor_id,
             )

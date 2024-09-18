@@ -23,11 +23,11 @@ from .const import (
     ENTITY_NAME,
     POLLING_INTERVAL,
     RETRY_INTERVAL,
-    SELECTOR_BUTTON,
     SELECTOR_CIRCUIT,
+    SELECTOR_CIRCUIT_BUTTON,
     SELECTOR_CIRCUIT_ENERGY,
+    SELECTOR_CIRCUIT_POWER,
     SELECTOR_PLACE,
-    SELECTOR_POWER,
     SENSOR_CIRCUIT_ENERGY_CGI,
     SENSOR_POWER_CGI,
     SENSOR_POWER_PREFIX,
@@ -40,7 +40,7 @@ _LOGGER = logging.getLogger(__name__)
 
 # 電力センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
-class EcoManePowerSensorEntityDescription(SensorEntityDescription):
+class EcoManeCircuitPowerSensorEntityDescription(SensorEntityDescription):
     """Describes EcoManePower sensor entity."""
 
     service_type: str
@@ -48,7 +48,7 @@ class EcoManePowerSensorEntityDescription(SensorEntityDescription):
 
 # 電力量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
-class EcoManeEnergySensorEntityDescription(SensorEntityDescription):
+class EcoManeCircuitEnergySensorEntityDescription(SensorEntityDescription):
     """Describes EcoManeEnergy sensor entity."""
 
     service_type: str
@@ -133,7 +133,7 @@ ecomane_usage_sensors_descs = [
 class EcoManeDataCoordinator(DataUpdateCoordinator):
     """EcoMane Data coordinator."""
 
-    _attr_power_sensor_total: int
+    _attr_circuit_total: int
     _attr_usage_sensor_descs: list[EcoManeUsageSensorEntityDescription]
     data_dict: dict[str, str]
 
@@ -150,10 +150,10 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
         self._data_dict = {"ip_address": ip_address}
         self._session = None
-        self._power_sensor_count = 0
+        self._circuit_count = 0
         self._ip_address = ip_address
 
-        self._attr_power_sensor_total = 0
+        self._attr_circuit_total = 0
         self._attr_usage_sensor_descs = ecomane_usage_sensors_descs
 
     def natural_number_generator(self) -> Generator:
@@ -217,7 +217,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             # デバイスからデータを取得
             url = f"http://{self._ip_address}/{SENSOR_POWER_CGI}"
             async with aiohttp.ClientSession() as session:
-                self._power_sensor_count = 0
+                self._circuit_count = 0
                 for (
                     page_num
                 ) in self.natural_number_generator():  # 1ページ目から順に取得
@@ -242,9 +242,9 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     )
                     if page_num >= total_page:
                         break
-                self._attr_power_sensor_total = self._power_sensor_count
+                self._attr_circuit_total = self._circuit_count
                 _LOGGER.debug(
-                    "Total number of power sensors = %s", self._attr_power_sensor_total
+                    "Total number of power sensors = %s", self._attr_circuit_total
                 )
         except Exception as err:
             _LOGGER.error("Error updating circuit power data: %s", err)
@@ -269,7 +269,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
         # ページ内の各センサーエンティティのデータを取得
         for button_num in range(1, 9):
-            sensor_num = self._power_sensor_count
+            sensor_num = self._circuit_count
             prefix = f"{SENSOR_POWER_PREFIX}_{sensor_num:02d}"
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
 
@@ -277,7 +277,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             if isinstance(div_element, Tag):
                 # 回路の(ボタンの)selNo
                 button_div = div_element.find(
-                    "div", class_=SELECTOR_BUTTON
+                    "div", class_=SELECTOR_CIRCUIT_BUTTON
                 )  # btn btn_58
                 if isinstance(button_div, Tag):
                     a_tag = button_div.find("a")
@@ -317,31 +317,36 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     )  # txt2
 
                 # 電力
-                element = div_element.find("div", class_=SELECTOR_POWER)  # num
+                element = div_element.find("div", class_=SELECTOR_CIRCUIT_POWER)  # num
                 if isinstance(element, Tag):
-                    self._data_dict[prefix] = element.get_text().split("W")[0]
+                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_POWER}"] = (
+                        element.get_text().split("W")[0]
+                    )
 
-                # 電力センサーエンティティ数をカウント
-                self._power_sensor_count += 1
-
-                # デバッグログ
-                _LOGGER.debug(
-                    "page:%s id:%s prefix:%s power:%s",
-                    page_num,
-                    div_id,
-                    prefix,
-                    self._data_dict[prefix],
-                )
+                # # デバッグログ
+                # _LOGGER.debug(
+                #     "page:%s id:%s prefix:%s power:%s",
+                #     page_num,
+                #     div_id,
+                #     prefix,
+                #     self._data_dict[prefix],
+                # )
 
                 # 回路別電力量を取得
                 await self.update_circuit_energy_data(
                     page_num, total_page, selNo, prefix
                 )
+
+                # 電力センサーエンティティ数をカウント
+                self._circuit_count += 1
+
+                # デバッグログ
                 _LOGGER.debug(
-                    "page:%s id:%s prefix:%s circuit_energy:%s",
+                    "page:%s id:%s prefix:%s circuit_power:%s circuit_energy:%s",
                     page_num,
                     div_id,
                     prefix,
+                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_POWER}"],
                     self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"],
                 )
             else:
@@ -399,11 +404,12 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             today_parts = ttx.get_text().split("今日:")
             if len(today_parts) > 1:
                 today_energy = today_parts[1].split("kWh")[0]
-                self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"] = today_energy
+                sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"
+                self._data_dict[sensor_id] = today_energy
                 _LOGGER.debug(
                     "prefix:%s circuit_energy:%s",
                     prefix,
-                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"],
+                    self._data_dict[sensor_id],
                 )
         return float(today_energy)
 
@@ -422,9 +428,9 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                 await asyncio.sleep(RETRY_INTERVAL)  # Retry interval
 
     @property
-    def power_sensor_total(self) -> int:
+    def circuit_total(self) -> int:
         """Total number of power sensors."""
-        return self._attr_power_sensor_total
+        return self._attr_circuit_total
 
     @property
     def usage_sensor_descs(self) -> list[EcoManeUsageSensorEntityDescription]:
