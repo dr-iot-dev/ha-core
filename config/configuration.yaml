@@ -28,6 +28,6 @@ logger:
   default: info
   logs:
     custom_components.ecomane: debug
-    # components.ecomane: info
+    #   components.ecomane: info
 
 demo:

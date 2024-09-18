@@ -11,7 +11,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfPower
+from homeassistant.const import UnitOfEnergy, UnitOfPower
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -21,12 +21,15 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from .const import (
     DOMAIN,
     SELECTOR_CIRCUIT,
+    SELECTOR_CIRCUIT_ENERGY,
     SELECTOR_PLACE,
+    SENSOR_ENERGY_SERVICE_TYPE,
     SENSOR_POWER_PREFIX,
     SENSOR_POWER_SERVICE_TYPE,
 )
 from .coordinator import (
     EcoManeDataCoordinator,
+    EcoManeEnergySensorEntityDescription,
     EcoManePowerSensorEntityDescription,
     EcoManeUsageSensorEntityDescription,
 )
@@ -69,7 +72,7 @@ async def async_setup_entry(
             circuit,
         )
         sensors.append(EcoManePowerSensorEntity(coordinator, prefix, place, circuit))
-
+        sensors.append(EcoManeEnergySensorEntity(coordinator, prefix, place, circuit))
     # センサーが見つからない場合はエラー
     if not sensors:
         raise ConfigEntryNotReady("No sensors found")
@@ -169,7 +172,7 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
 
 
 class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
-    """EcoManeUsageSensor."""
+    """EcoManePowerSensor."""
 
     _attr_has_entity_name = True
     # _attr_name = None　# Noneでも値を設定するとtranslationがされない
@@ -245,4 +248,86 @@ class EcoManePowerSensorEntity(CoordinatorEntity, SensorEntity):
             name="Power Consumption",
             manufacturer="Panasonic",
             translation_key="power_consumption",
+        )
+
+
+class EcoManeEnergySensorEntity(CoordinatorEntity, SensorEntity):
+    """EcoManeEnergySensor."""
+
+    _attr_has_entity_name = True
+    # _attr_name = None　# Noneでも値を設定するとtranslationがされない
+    _attr_unique_id: str | None = None
+    _attr_attribution = "Power data provided by Panasonic ECO Mane HEMS"
+    _attr_entity_description: EcoManeEnergySensorEntityDescription | None = None
+    _attr_device_class = SensorDeviceClass.ENERGY
+    _attr_state_class = SensorStateClass.TOTAL_INCREASING
+    _attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
+    _attr_sensor_id: str
+    # _attr_suggested_display_precision = 3  # 3桁表示?
+
+    _ip_address: str | None = None
+
+    def __init__(
+        self,
+        coordinator: EcoManeDataCoordinator,
+        prefix: str,
+        place: str,
+        circuit: str,
+    ) -> None:
+        """Pass coordinator to CoordinatorEntity."""
+        super().__init__(coordinator=coordinator)
+
+        # ip_address を設定
+        self._ip_address = coordinator.ip_address
+
+        # sensor_id を設定
+        sensor_id = prefix + f"_{SELECTOR_CIRCUIT_ENERGY}"
+        self._attr_sensor_id = sensor_id
+
+        # translation_key を設定
+        name = f"{place} {circuit}"
+        self._attr_translation_key = ja_to_entity(name)
+
+        # entity_description を設定
+        self._attr_entity_description = description = (
+            EcoManePowerSensorEntityDescription(
+                service_type=SENSOR_ENERGY_SERVICE_TYPE,
+                key=sensor_id,
+            )
+        )
+
+        # entity_id を設定
+        self.entity_id = (
+            f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_id}_{self._attr_translation_key}"
+        )
+
+        # _attr_unique_id を設定
+        if (
+            coordinator is not None
+            and coordinator.config_entry is not None
+            and description is not None
+        ):
+            self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.service_type}_{description.key}"
+
+    @property
+    def native_value(self) -> str:
+        """State."""
+        value = self.coordinator.data.get(
+            self._attr_sensor_id
+        )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
+        if value is None:
+            return ""
+        return str(value)
+
+    @property
+    def device_info(
+        self,
+    ) -> DeviceInfo:  # エンティティ群をデバイスに分類するための情報を提供
+        """Return the device info."""
+        ip_address = self._ip_address
+        return DeviceInfo(
+            identifiers={(DOMAIN, "energy_consumption_" + (ip_address or ""))},
+            name="Energy Consumption",
+            manufacturer="Panasonic",
+            translation_key="energy_consumption",
         )

@@ -33,6 +33,9 @@
     },
     "power_consumption": {
       "name": "消費電力"
+    },
+    "energy_consumption": {
+      "name": "今日の消費電力量"
     }
   },
   "entity": {

@@ -28,6 +28,9 @@ SENSOR_POWER_ATTR_PREFIX = "power"
 
 SENSOR_POWER_CGI = "elecCheck_6000.cgi?disp=2"
 
+SENSOR_ENERGY_SERVICE_TYPE = "energy"
+SENSOR_CIRCUIT_ENERGY_CGI = "resultGraphDiv_4242.cgi"
+
 # 本日の使用量
 SENSOR_TODAY_CGI = "ecoTopMoni.cgi"
 
@@ -36,7 +39,8 @@ SELECTOR_NAME = "name"
 SELECTOR_PLACE = "txt"
 SELECTOR_CIRCUIT = "txt2"
 SELECTOR_POWER = "num"
-
+SELECTOR_BUTTON = "btn btn_58"
+SELECTOR_CIRCUIT_ENERGY = "ttx_01"
 
 RETRY_INTERVAL = 120  # 再試行間隔: 120秒
 POLLING_INTERVAL = 60  # ECOマネへのpolling間隔: 60秒
