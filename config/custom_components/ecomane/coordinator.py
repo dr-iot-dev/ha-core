@@ -29,8 +29,8 @@ from .const import (
     SELECTOR_CIRCUIT_POWER,
     SELECTOR_PLACE,
     SENSOR_CIRCUIT_ENERGY_CGI,
-    SENSOR_POWER_CGI,
-    SENSOR_POWER_PREFIX,
+    SENSOR_CIRCUIT_POWER_CGI,
+    SENSOR_CIRCUIT_PREFIX,
     SENSOR_POWER_SELECTOR_PREFIX,
     SENSOR_TODAY_CGI,
 )
@@ -215,15 +215,13 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("update_circuit_power_data")
         try:
             # デバイスからデータを取得
-            url = f"http://{self._ip_address}/{SENSOR_POWER_CGI}"
+            url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_POWER_CGI}"
             async with aiohttp.ClientSession() as session:
                 self._circuit_count = 0
                 for (
                     page_num
                 ) in self.natural_number_generator():  # 1ページ目から順に取得
-                    url = (
-                        f"http://{self._ip_address}/{SENSOR_POWER_CGI}&page={page_num}"
-                    )
+                    url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_POWER_CGI}&page={page_num}"
                     response: aiohttp.ClientResponse = await session.get(url)
                     if response.status != 200:
                         _LOGGER.error(
@@ -270,7 +268,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         # ページ内の各センサーエンティティのデータを取得
         for button_num in range(1, 9):
             sensor_num = self._circuit_count
-            prefix = f"{SENSOR_POWER_PREFIX}_{sensor_num:02d}"
+            prefix = f"{SENSOR_CIRCUIT_PREFIX}_{sensor_num:02d}"
             div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
 
             div_element: Tag | NavigableString | None = soup.find("div", id=div_id)

@@ -24,9 +24,9 @@ from .const import (
     SELECTOR_CIRCUIT_ENERGY,
     SELECTOR_CIRCUIT_POWER,
     SELECTOR_PLACE,
-    SENSOR_ENERGY_SERVICE_TYPE,
-    SENSOR_POWER_PREFIX,
-    SENSOR_POWER_SERVICE_TYPE,
+    SENSOR_CIRCUIT_ENERGY_SERVICE_TYPE,
+    SENSOR_CIRCUIT_POWER_SERVICE_TYPE,
+    SENSOR_CIRCUIT_PREFIX,
 )
 from .coordinator import (
     EcoManeCircuitEnergySensorEntityDescription,
@@ -62,7 +62,7 @@ async def async_setup_entry(
 
     # 電力センサーのエンティティのリストを作成
     for sensor_num in range(power_sensor_total):
-        prefix = f"{SENSOR_POWER_PREFIX}_{sensor_num:02d}"
+        prefix = f"{SENSOR_CIRCUIT_PREFIX}_{sensor_num:02d}"
         place = sensor_dict[f"{prefix}_{SELECTOR_PLACE}"]
         circuit = sensor_dict[f"{prefix}_{SELECTOR_CIRCUIT}"]
         _LOGGER.debug(
@@ -215,7 +215,7 @@ class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
         # entity_description を設定
         self._attr_entity_description = description = (
             EcoManeCircuitPowerSensorEntityDescription(
-                service_type=SENSOR_POWER_SERVICE_TYPE,
+                service_type=SENSOR_CIRCUIT_POWER_SERVICE_TYPE,
                 key=sensor_id,
             )
         )
@@ -297,7 +297,7 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
         # entity_description を設定
         self._attr_entity_description = description = (
             EcoManeCircuitPowerSensorEntityDescription(
-                service_type=SENSOR_ENERGY_SERVICE_TYPE,
+                service_type=SENSOR_CIRCUIT_ENERGY_SERVICE_TYPE,
                 key=sensor_id,
             )
         )
