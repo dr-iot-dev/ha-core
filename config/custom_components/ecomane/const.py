@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-# from datetime import timedelta
 from homeassistant.const import Platform
 
 DOMAIN = "ecomane"
 DEFAULT_ENCODING = "UTF-8"  # デフォルトエンコーディング
 DEFAULT_NAME = "Panasonic Eco Mane HEMS"
-# DEFAULT_VERIFY_SSL = True
-# DEFAULT_SCAN_INTERVAL = timedelta(minutes=1)
 DEFAULT_IP_ADDRESS = "192.168.1.220"
 
 ENCODING = "shift-jis"  # ECOマネのエンコーディング

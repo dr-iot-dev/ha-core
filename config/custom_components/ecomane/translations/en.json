@@ -31,7 +31,7 @@
       "name": "Today's Usage"
     },
     "power_consumption": {
-      "name": "Power Consumption"
+      "name": "Electric Power Consumption"
     },
     "energy_consumption": {
       "name": "Today's Electric Energy Consumption"
