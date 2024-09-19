@@ -20,13 +20,13 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
     DOMAIN,
-    SELECTOR_CIRCUIT,
-    SELECTOR_CIRCUIT_ENERGY,
-    SELECTOR_CIRCUIT_POWER,
-    SELECTOR_PLACE,
+    SENSOR_CIRCUIT_ENERGY_SELECTOR,
     SENSOR_CIRCUIT_ENERGY_SERVICE_TYPE,
     SENSOR_CIRCUIT_POWER_SERVICE_TYPE,
     SENSOR_CIRCUIT_PREFIX,
+    SENSOR_CIRCUIT_SELECTOR_CIRCUIT,
+    SENSOR_CIRCUIT_SELECTOR_PLACE,
+    SENSOR_CIRCUIT_SELECTOR_POWER,
 )
 from .coordinator import (
     EcoManeCircuitEnergySensorEntityDescription,
@@ -63,8 +63,8 @@ async def async_setup_entry(
     # 電力センサーのエンティティのリストを作成
     for sensor_num in range(power_sensor_total):
         prefix = f"{SENSOR_CIRCUIT_PREFIX}_{sensor_num:02d}"
-        place = sensor_dict[f"{prefix}_{SELECTOR_PLACE}"]
-        circuit = sensor_dict[f"{prefix}_{SELECTOR_CIRCUIT}"]
+        place = sensor_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_PLACE}"]
+        circuit = sensor_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_CIRCUIT}"]
         _LOGGER.debug(
             "sensor.py async_setup_entry sensor_num: %s, prefix: %s, place: %s, circuit: %s",
             sensor_num,
@@ -115,21 +115,21 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
         # ip_address を設定
         self._ip_address = coordinator.ip_address
 
-        # sensor_id (_attr_div_id) を設定
+        # 使用量 sensor_id (_attr_div_id) を設定
         sensor_id = usage_sensor_desc.key
         self._attr_div_id = sensor_id
 
-        # translation_key を設定
-        self._attr_translation_key = usage_sensor_desc.translation_key
-
-        # entity_description を設定
+        # 使用量 entity_description を設定
         self._attr_entity_description = usage_sensor_desc
         self._attr_description = description = usage_sensor_desc.description
 
-        # entity_id を設定
+        # 使用量 translation_key を設定
+        self._attr_translation_key = usage_sensor_desc.translation_key
+
+        # 使用量 entity_id を設定
         self.entity_id = f"{SENSOR_DOMAIN}.{DOMAIN}_{usage_sensor_desc.translation_key}"
 
-        # _attr_unique_id を設定
+        # 使用量 _attr_unique_id を設定
         if (
             coordinator is not None
             and coordinator.config_entry is not None
@@ -137,12 +137,14 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
         ):
             self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{usage_sensor_desc.translation_key}"
 
+        # 使用量 device_class, state_class, native_unit_of_measurement を設定
+        self._attr_device_class = usage_sensor_desc.device_class
+        self._attr_state_class = usage_sensor_desc.state_class
         self._attr_native_unit_of_measurement = (
             usage_sensor_desc.native_unit_of_measurement
         )
-        self._attr_device_class = usage_sensor_desc.device_class
-        self._attr_state_class = usage_sensor_desc.state_class
 
+        # デバッグログ
         _LOGGER.debug(
             "usage_sensor_desc.name: %s, _attr_translation_key: %s, _attr_div_id: %s, entity_id: %s, _attr_unique_id: %s",
             usage_sensor_desc.name,
@@ -155,9 +157,7 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        value = self.coordinator.data.get(
-            self._attr_div_id
-        )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
+        value = self.coordinator.data.get(self._attr_div_id)  # 使用量
         if value is None:
             return ""
         return str(value)
@@ -168,7 +168,7 @@ class EcoManeUsageSensorEntity(CoordinatorEntity, SensorEntity):
     ) -> DeviceInfo:  # エンティティ群をデバイスに分類するための情報を提供
         """Return the device info."""
         ip_address = self._ip_address
-        return DeviceInfo(
+        return DeviceInfo(  # 使用量のデバイス情報
             identifiers={(DOMAIN, "daily_usage_" + (ip_address or ""))},
             name="Daily Usage",
             manufacturer="Panasonic",
@@ -204,15 +204,11 @@ class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
         # ip_address を設定
         self._ip_address = coordinator.ip_address
 
-        # sensor_id を設定
-        sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_POWER}"
+        # 回路別電力 sensor_id を設定
+        sensor_id = f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_POWER}"  # num
         self._attr_sensor_id = sensor_id
 
-        # translation_key を設定
-        name = f"{place} {circuit}"
-        self._attr_translation_key = ja_to_entity(name)
-
-        # entity_description を設定
+        # 回路別電力 entity_description を設定
         self._attr_entity_description = description = (
             EcoManeCircuitPowerSensorEntityDescription(
                 service_type=SENSOR_CIRCUIT_POWER_SERVICE_TYPE,
@@ -220,12 +216,16 @@ class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
             )
         )
 
-        # entity_id を設定
+        # 回路 translation_key を設定
+        name = f"{place} {circuit}"
+        self._attr_translation_key = ja_to_entity(name)
+
+        # 回路別電力量 entity_id を設定
         self.entity_id = (
             f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_id}_{self._attr_translation_key}"
         )
 
-        # _attr_unique_id を設定
+        # 回路別電力量 _attr_unique_id を設定
         if (
             coordinator is not None
             and coordinator.config_entry is not None
@@ -236,9 +236,7 @@ class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        value = self.coordinator.data.get(
-            self._attr_sensor_id
-        )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
+        value = self.coordinator.data.get(self._attr_sensor_id)  # 回路別電力
         if value is None:
             return ""
         return str(value)
@@ -249,7 +247,7 @@ class EcoManeCircuitPowerSensorEntity(CoordinatorEntity, SensorEntity):
     ) -> DeviceInfo:  # エンティティ群をデバイスに分類するための情報を提供
         """Return the device info."""
         ip_address = self._ip_address
-        return DeviceInfo(
+        return DeviceInfo(  # 回路別電力のデバイス情報
             identifiers={(DOMAIN, "power_consumption_" + (ip_address or ""))},
             name="Power Consumption",
             manufacturer="Panasonic",
@@ -269,7 +267,6 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
     _attr_state_class = SensorStateClass.TOTAL_INCREASING
     _attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
     _attr_sensor_id: str
-    # _attr_suggested_display_precision = 3  # 3桁表示?
 
     _ip_address: str | None = None
 
@@ -286,15 +283,11 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
         # ip_address を設定
         self._ip_address = coordinator.ip_address
 
-        # sensor_id を設定
-        sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"
+        # 回路別電力量 sensor_id を設定
+        sensor_id = f"{prefix}_{SENSOR_CIRCUIT_ENERGY_SELECTOR}"  # ttx_01
         self._attr_sensor_id = sensor_id
 
-        # translation_key を設定
-        name = f"{place} {circuit}"
-        self._attr_translation_key = ja_to_entity(name)
-
-        # entity_description を設定
+        # 回路別電力量 entity_description を設定
         self._attr_entity_description = description = (
             EcoManeCircuitPowerSensorEntityDescription(
                 service_type=SENSOR_CIRCUIT_ENERGY_SERVICE_TYPE,
@@ -302,12 +295,16 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
             )
         )
 
-        # entity_id を設定
+        # 回路 translation_key を設定
+        name = f"{place} {circuit}"
+        self._attr_translation_key = ja_to_entity(name)
+
+        # 回路別電力量 entity_id を設定
         self.entity_id = (
             f"{SENSOR_DOMAIN}.{DOMAIN}_{sensor_id}_{self._attr_translation_key}"
         )
 
-        # _attr_unique_id を設定
+        # 回路別電力量 _attr_unique_id を設定
         if (
             coordinator is not None
             and coordinator.config_entry is not None
@@ -318,9 +315,7 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """State."""
-        value = self.coordinator.data.get(
-            self._attr_sensor_id
-        )  #         value = self.coordinator.data.get(self._attr_div_id) # なぜか None を返す
+        value = self.coordinator.data.get(self._attr_sensor_id)  # 回路別電力量
         if value is None:
             return ""
         return str(value)
@@ -331,7 +326,7 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
     ) -> DeviceInfo:  # エンティティ群をデバイスに分類するための情報を提供
         """Return the device info."""
         ip_address = self._ip_address
-        return DeviceInfo(
+        return DeviceInfo(  # 回路別電力量のデバイス情報
             identifiers={(DOMAIN, "energy_consumption_" + (ip_address or ""))},
             name="Energy Consumption",
             manufacturer="Panasonic",

@@ -8,7 +8,13 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.core import HomeAssistant, callback
 
-from .const import DEFAULT_IP_ADDRESS, DEFAULT_NAME, DOMAIN, SELECTOR_IP, SELECTOR_NAME
+from .const import (
+    CONFIG_SELECTOR_IP,
+    CONFIG_SELECTOR_NAME,
+    DEFAULT_IP_ADDRESS,
+    DEFAULT_NAME,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -35,23 +41,23 @@ class EcoManeConfigFlow(ConfigFlow, domain=DOMAIN):
         errors = {}
         if user_input is not None:
             # ユーザ入力の検証
-            if user_input[SELECTOR_NAME] in configured_instances(self.hass):
+            if user_input[CONFIG_SELECTOR_NAME] in configured_instances(self.hass):
                 # 既に同じ名前のエントリが存在する場合はエラー
                 errors["base"] = "name_exists"
             else:
                 # エントリを作成
                 return self.async_create_entry(
-                    title=user_input[SELECTOR_NAME], data=user_input
+                    title=user_input[CONFIG_SELECTOR_NAME], data=user_input
                 )
 
         # ユーザ入力フォームのスキーマ
         data_schema = vol.Schema(
             {
                 vol.Required(
-                    SELECTOR_NAME,
+                    CONFIG_SELECTOR_NAME,
                     default=DEFAULT_NAME,
                 ): str,
-                vol.Required(SELECTOR_IP, default=DEFAULT_IP_ADDRESS): str,
+                vol.Required(CONFIG_SELECTOR_IP, default=DEFAULT_IP_ADDRESS): str,
             }
         )
 

@@ -21,17 +21,18 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 from .const import (
     ENTITY_NAME,
+    KEY_IP_ADDRESS,
     POLLING_INTERVAL,
     RETRY_INTERVAL,
-    SELECTOR_CIRCUIT,
-    SELECTOR_CIRCUIT_BUTTON,
-    SELECTOR_CIRCUIT_ENERGY,
-    SELECTOR_CIRCUIT_POWER,
-    SELECTOR_PLACE,
+    SENSOR_CIRCUIT_CGI,
     SENSOR_CIRCUIT_ENERGY_CGI,
-    SENSOR_CIRCUIT_POWER_CGI,
+    SENSOR_CIRCUIT_ENERGY_SELECTOR,
     SENSOR_CIRCUIT_PREFIX,
-    SENSOR_POWER_SELECTOR_PREFIX,
+    SENSOR_CIRCUIT_SELECTOR_BUTTON,
+    SENSOR_CIRCUIT_SELECTOR_CIRCUIT,
+    SENSOR_CIRCUIT_SELECTOR_PLACE,
+    SENSOR_CIRCUIT_SELECTOR_POWER,
+    SENSOR_CIRCUIT_SELECTOR_PREFIX,
     SENSOR_TODAY_CGI,
 )
 
@@ -133,9 +134,9 @@ ecomane_usage_sensors_descs = [
 class EcoManeDataCoordinator(DataUpdateCoordinator):
     """EcoMane Data coordinator."""
 
-    _attr_circuit_total: int
+    _attr_circuit_total: int  # 総回路数
     _attr_usage_sensor_descs: list[EcoManeUsageSensorEntityDescription]
-    data_dict: dict[str, str]
+    _data_dict: dict[str, str]
 
     def __init__(self, hass: HomeAssistant, ip_address: str) -> None:
         """Initialize my coordinator."""
@@ -148,7 +149,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
             ),  # data polling interval
         )
 
-        self._data_dict = {"ip_address": ip_address}
+        self._data_dict = {KEY_IP_ADDRESS: ip_address}
         self._session = None
         self._circuit_count = 0
         self._ip_address = ip_address
@@ -215,13 +216,13 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("update_circuit_power_data")
         try:
             # デバイスからデータを取得
-            url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_POWER_CGI}"
+            url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_CGI}"
             async with aiohttp.ClientSession() as session:
                 self._circuit_count = 0
                 for (
                     page_num
                 ) in self.natural_number_generator():  # 1ページ目から順に取得
-                    url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_POWER_CGI}&page={page_num}"
+                    url = f"http://{self._ip_address}/{SENSOR_CIRCUIT_CGI}&page={page_num}"
                     response: aiohttp.ClientResponse = await session.get(url)
                     if response.status != 200:
                         _LOGGER.error(
@@ -241,9 +242,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     if page_num >= total_page:
                         break
                 self._attr_circuit_total = self._circuit_count
-                _LOGGER.debug(
-                    "Total number of power sensors = %s", self._attr_circuit_total
-                )
+                _LOGGER.debug("Total number of circuits: %s", self._attr_circuit_total)
         except Exception as err:
             _LOGGER.error("Error updating circuit power data: %s", err)
             raise UpdateFailed("update_circuit_power_data failed") from err
@@ -269,17 +268,18 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         for button_num in range(1, 9):
             sensor_num = self._circuit_count
             prefix = f"{SENSOR_CIRCUIT_PREFIX}_{sensor_num:02d}"
-            div_id = f"{SENSOR_POWER_SELECTOR_PREFIX}_{button_num:02d}"
+            div_id = f"{SENSOR_CIRCUIT_SELECTOR_PREFIX}_{button_num:02d}"  # ojt_??
 
             div_element: Tag | NavigableString | None = soup.find("div", id=div_id)
             if isinstance(div_element, Tag):
                 # 回路の(ボタンの)selNo
                 button_div = div_element.find(
-                    "div", class_=SELECTOR_CIRCUIT_BUTTON
+                    "div",
+                    class_=SENSOR_CIRCUIT_SELECTOR_BUTTON,  # btn btn_58
                 )  # btn btn_58
                 if isinstance(button_div, Tag):
                     a_tag = button_div.find("a")
-                    # <a href="javascript:moveCircuitChange(argument)">...</a>
+                    # <a href="javascript:moveCircuitChange('selNo')">...</a>
                     if isinstance(a_tag, Tag) and "href" in a_tag.attrs:
                         href_value = a_tag["href"]
                         # JavaScriptの関数呼び出しを分解
@@ -287,65 +287,55 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                             js_parts = href_value.split("moveCircuitChange('")
                         if len(js_parts) > 1:
                             selNo = js_parts[1].split("')")[0]
-
-                self._data_dict[f"{prefix}_selNo"] = selNo
-                # _LOGGER.debug(
-                #     "page:%s id:%s prefix:%s selNo:%s",
-                #     page_num,
-                #     div_id,
-                #     prefix,
-                #     self._data_dict[f"{prefix}_selNo"],
-                # )  # ボタンのselNo
+                            self._data_dict[
+                                f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_BUTTON}"
+                            ] = selNo
 
                 # 場所
                 element: Tag | NavigableString | int | None = div_element.find(
                     "div",
-                    class_=SELECTOR_PLACE,  # txt
+                    class_=SENSOR_CIRCUIT_SELECTOR_PLACE,  # txt
                 )
                 if isinstance(element, Tag):
-                    self._data_dict[f"{prefix}_{SELECTOR_PLACE}"] = (
+                    self._data_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_PLACE}"] = (
                         element.get_text()
                     )  # txt
 
                 # 回路
-                element = div_element.find("div", class_=SELECTOR_CIRCUIT)  # txt2
+                element = div_element.find(
+                    "div", class_=SENSOR_CIRCUIT_SELECTOR_CIRCUIT
+                )  # txt2
                 if isinstance(element, Tag):
-                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT}"] = (
+                    self._data_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_CIRCUIT}"] = (
                         element.get_text()
                     )  # txt2
 
                 # 電力
-                element = div_element.find("div", class_=SELECTOR_CIRCUIT_POWER)  # num
+                element = div_element.find(
+                    "div", class_=SENSOR_CIRCUIT_SELECTOR_POWER
+                )  # num
                 if isinstance(element, Tag):
-                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_POWER}"] = (
+                    self._data_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_POWER}"] = (
                         element.get_text().split("W")[0]
                     )
 
-                # # デバッグログ
-                # _LOGGER.debug(
-                #     "page:%s id:%s prefix:%s power:%s",
-                #     page_num,
-                #     div_id,
-                #     prefix,
-                #     self._data_dict[prefix],
-                # )
-
-                # 回路別電力量を取得
+                # 電力量を取得
                 await self.update_circuit_energy_data(
                     page_num, total_page, selNo, prefix
                 )
 
-                # 電力センサーエンティティ数をカウント
+                # 回路数をカウント
                 self._circuit_count += 1
 
                 # デバッグログ
                 _LOGGER.debug(
-                    "page:%s id:%s prefix:%s circuit_power:%s circuit_energy:%s",
+                    "page:%s id:%s prefix:%s selNo:%s circuit_power:%s circuit_energy:%s",
                     page_num,
                     div_id,
                     prefix,
-                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_POWER}"],
-                    self._data_dict[f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"],
+                    selNo,
+                    self._data_dict[f"{prefix}_{SENSOR_CIRCUIT_SELECTOR_POWER}"],
+                    self._data_dict[f"{prefix}_{SENSOR_CIRCUIT_ENERGY_SELECTOR}"],
                 )
             else:
                 _LOGGER.debug("div_element not found div_id:%s", div_id)
@@ -380,6 +370,7 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
                     )
                 # テキストデータを取得する際にエンコーディングを指定
                 text_data = await response.text(encoding="shift-jis")
+
                 # 回路別電力量を取得
                 circuit_energy = await self.parse_circuit_energy_data(text_data, prefix)
                 _LOGGER.debug(
@@ -396,13 +387,13 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
 
         # BeautifulSoupを使用してHTMLを解析
         soup = BeautifulSoup(text, "html.parser")
-        # 今日の消費電力量を取得
-        ttx = soup.find("div", id=SELECTOR_CIRCUIT_ENERGY)  # ttx_01
+        # 今日の消費電力量を取得 (<div id="ttx_01" class="ttx">今日:1.02kWh　昨日:3.16kWh</div>)
+        ttx = soup.find("div", id=SENSOR_CIRCUIT_ENERGY_SELECTOR)  # ttx_01
         if isinstance(ttx, Tag):
             today_parts = ttx.get_text().split("今日:")
             if len(today_parts) > 1:
                 today_energy = today_parts[1].split("kWh")[0]
-                sensor_id = f"{prefix}_{SELECTOR_CIRCUIT_ENERGY}"
+                sensor_id = f"{prefix}_{SENSOR_CIRCUIT_ENERGY_SELECTOR}"
                 self._data_dict[sensor_id] = today_energy
                 _LOGGER.debug(
                     "prefix:%s circuit_energy:%s",
@@ -438,4 +429,4 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
     @property
     def ip_address(self) -> str:
         """IP address."""
-        return self._data_dict["ip_address"]
+        return self._data_dict[KEY_IP_ADDRESS]

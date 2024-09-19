@@ -7,7 +7,7 @@ from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 
-from .const import DOMAIN, PLATFORMS, SELECTOR_IP
+from .const import CONFIG_SELECTOR_IP, DOMAIN, PLATFORMS
 from .coordinator import EcoManeDataCoordinator
 
 _LOGGER = logging.getLogger(__name__)
@@ -16,7 +16,7 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Set up ecomane from a config entry."""
 
-    ip = config_entry.data[SELECTOR_IP]
+    ip = config_entry.data[CONFIG_SELECTOR_IP]
 
     # DataCoordinatorを作成
     coordinator = EcoManeDataCoordinator(hass, ip)
