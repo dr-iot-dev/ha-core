@@ -31,3 +31,14 @@ logger:
   # components.ecomane: info
 
 demo:
+
+influxdb:
+  api_version: 2 # InfluxDB 2.xの場合
+  ssl: false
+  host: host.docker.internal
+  port: 8086
+  max_retries: 3
+  default_measurement: state
+  organization: "ivy"
+  bucket: "homeassistant"
+  token: "JjxMlfk6Chi1ZOAXvKNMk_bwLARz4qds-uUF0fxRo1yNhufdnFqnbcA-qZikBaExb-_v_wGvcf2TlCr9K7P12A==" # InfluxDB 2.xの場合
