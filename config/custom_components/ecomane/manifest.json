@@ -8,7 +8,7 @@
   "documentation": "https://github.com/your_username/your_repo",
   "homekit": {},
   "iot_class": "cloud_polling",
-  "requirements": [],
+  "requirements": ["bs4"],
   "ssdp": [],
   "zeroconf": [],
   "loggers": ["custom_components.ecomane"]
