@@ -42,3 +42,6 @@ influxdb:
   organization: "ivy"
   bucket: "homeassistant"
   token: "JjxMlfk6Chi1ZOAXvKNMk_bwLARz4qds-uUF0fxRo1yNhufdnFqnbcA-qZikBaExb-_v_wGvcf2TlCr9K7P12A==" # InfluxDB 2.xの場合
+
+# recorder:
+#   db_url: mongodb://localhost:27017/homeassistant
