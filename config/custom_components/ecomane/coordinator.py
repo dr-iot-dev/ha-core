@@ -42,7 +42,7 @@ _LOGGER = logging.getLogger(__name__)
 # 電力センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeCircuitPowerSensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManePower sensor entity."""
+    """Describes EcoManeCircuitPower sensor entity."""
 
     service_type: str
 
@@ -50,7 +50,7 @@ class EcoManeCircuitPowerSensorEntityDescription(SensorEntityDescription):
 # 電力量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeCircuitEnergySensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManeEnergy sensor entity."""
+    """Describes EcoManeCircuitEnergy sensor entity."""
 
     service_type: str
 
@@ -58,7 +58,7 @@ class EcoManeCircuitEnergySensorEntityDescription(SensorEntityDescription):
 # 使用量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManeEnergy sensor entity."""
+    """Describes EcoManeUsage sensor entity."""
 
     description: str
 

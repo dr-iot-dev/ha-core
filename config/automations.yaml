@@ -1,1 +1,34 @@
-[]
+- id: "1729327697677"
+  alias: 新しいオートメーション
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.toggle_all
+      from: "on"
+      to: "off"
+  condition: []
+  action:
+    - service: switch.turn_off
+      metadata: {}
+      data: {}
+      target:
+        area_id: den
+  mode: single
+- id: "1729328111811"
+  alias: Toggle All Devices On
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.toggle_all
+      from: "off"
+      to: "on"
+  condition: []
+  action:
+    - service: switch.turn_on
+      metadata: {}
+      data: {}
+      target:
+        area_id: den
+  mode: single
