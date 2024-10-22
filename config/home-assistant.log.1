@@ -1,1001 +1,486 @@
-2024-10-20 10:56:46.703 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2024-10-20 10:56:46.703 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration ecomane which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2024-10-20 10:56:46.893 INFO (MainThread) [homeassistant.setup] Setup of domain system_log took 0.03 seconds
-2024-10-20 10:56:46.893 INFO (MainThread) [homeassistant.setup] Setup of domain logger took 0.03 seconds
-2024-10-20 10:56:46.894 INFO (MainThread) [homeassistant.bootstrap] Setting up frontend: {'frontend'}
-2024-10-20 10:56:46.898 INFO (MainThread) [homeassistant.setup] Setting up http
-2024-10-20 10:56:46.906 INFO (MainThread) [homeassistant.setup] Setting up device_automation
-2024-10-20 10:56:46.907 INFO (MainThread) [homeassistant.setup] Setup of domain device_automation took 0.00 seconds
-2024-10-20 10:56:46.919 WARNING (MainThread) [aiohttp_fast_zlib] zlib_ng and isal are not available, falling back to zlib, performance will be degraded.
-2024-10-20 10:56:46.926 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.03 seconds
-2024-10-20 10:56:46.928 INFO (MainThread) [homeassistant.setup] Setting up auth
-2024-10-20 10:56:46.929 INFO (MainThread) [homeassistant.setup] Setup of domain auth took 0.00 seconds
-2024-10-20 10:56:46.929 INFO (MainThread) [homeassistant.setup] Setting up config
-2024-10-20 10:56:46.931 INFO (MainThread) [homeassistant.setup] Setup of domain config took 0.00 seconds
-2024-10-20 10:56:46.932 INFO (MainThread) [homeassistant.setup] Setting up diagnostics
-2024-10-20 10:56:46.934 INFO (MainThread) [homeassistant.setup] Setup of domain diagnostics took 0.00 seconds
-2024-10-20 10:56:46.934 INFO (MainThread) [homeassistant.setup] Setting up file_upload
-2024-10-20 10:56:46.935 INFO (MainThread) [homeassistant.setup] Setup of domain file_upload took 0.00 seconds
-2024-10-20 10:56:46.936 INFO (MainThread) [homeassistant.setup] Setting up image_upload
-2024-10-20 10:56:46.938 INFO (MainThread) [homeassistant.setup] Setup of domain image_upload took 0.00 seconds
-2024-10-20 10:56:46.939 INFO (MainThread) [homeassistant.setup] Setting up repairs
-2024-10-20 10:56:46.939 INFO (MainThread) [homeassistant.setup] Setup of domain repairs took 0.00 seconds
-2024-10-20 10:56:46.940 INFO (MainThread) [homeassistant.setup] Setting up websocket_api
-2024-10-20 10:56:46.940 INFO (MainThread) [homeassistant.setup] Setup of domain websocket_api took 0.00 seconds
-2024-10-20 10:56:46.941 INFO (MainThread) [homeassistant.setup] Setting up api
-2024-10-20 10:56:46.942 INFO (MainThread) [homeassistant.setup] Setup of domain api took 0.00 seconds
-2024-10-20 10:56:46.944 INFO (MainThread) [homeassistant.setup] Setting up person
-2024-10-20 10:56:46.946 INFO (MainThread) [homeassistant.setup] Setting up search
-2024-10-20 10:56:46.947 INFO (MainThread) [homeassistant.setup] Setup of domain search took 0.00 seconds
-2024-10-20 10:56:46.949 INFO (MainThread) [homeassistant.setup] Setup of domain person took 0.00 seconds
-2024-10-20 10:56:46.950 INFO (MainThread) [homeassistant.setup] Setting up onboarding
-2024-10-20 10:56:46.951 INFO (MainThread) [homeassistant.setup] Setup of domain onboarding took 0.00 seconds
-2024-10-20 10:56:46.952 INFO (MainThread) [homeassistant.setup] Setting up lovelace
-2024-10-20 10:56:46.954 INFO (MainThread) [homeassistant.setup] Setup of domain lovelace took 0.00 seconds
-2024-10-20 10:56:46.956 INFO (MainThread) [homeassistant.setup] Setting up frontend
-2024-10-20 10:56:46.960 INFO (MainThread) [homeassistant.setup] Setup of domain frontend took 0.00 seconds
-2024-10-20 10:56:46.964 INFO (MainThread) [homeassistant.bootstrap] Setting up recorder: {'recorder'}
-2024-10-20 10:56:46.965 INFO (MainThread) [homeassistant.setup] Setting up recorder
-2024-10-20 10:56:46.968 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=11, family=2, type=1, proto=6, laddr=('0.0.0.0', 8123)>, <asyncio.TransportSocket fd=12, family=10, type=1, proto=6, laddr=('::', 8123, 0, 0)>)> is serving
-2024-10-20 10:56:46.969 INFO (MainThread) [homeassistant.components.http] Now listening on port 8123
-2024-10-20 10:56:46.969 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.01 seconds
-2024-10-20 10:56:46.992 INFO (MainThread) [homeassistant.setup] Setup of domain recorder took 0.03 seconds
-2024-10-20 10:56:46.993 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 1: {'ssdp', 'auth', 'network', 'http', 'repairs', 'dhcp', 'cloud', 'bluetooth', 'webhook', 'websocket_api', 'zeroconf', 'api', 'usb'}
-2024-10-20 10:56:46.994 INFO (MainThread) [homeassistant.setup] Setting up network
-2024-10-20 10:56:46.995 INFO (MainThread) [homeassistant.setup] Setup of domain network took 0.00 seconds
-2024-10-20 10:56:46.999 INFO (MainThread) [homeassistant.setup] Setting up webhook
-2024-10-20 10:56:46.999 INFO (MainThread) [homeassistant.setup] Setup of domain webhook took 0.00 seconds
-2024-10-20 10:56:47.037 INFO (MainThread) [homeassistant.setup] Setting up ssdp
-2024-10-20 10:56:47.047 INFO (MainThread) [homeassistant.setup] Setup of domain ssdp took 0.01 seconds
-2024-10-20 10:56:47.058 INFO (MainThread) [homeassistant.setup] Setting up dhcp
-2024-10-20 10:56:47.059 INFO (MainThread) [homeassistant.setup] Setup of domain dhcp took 0.00 seconds
-2024-10-20 10:56:47.241 INFO (MainThread) [homeassistant.setup] Setting up cloud
-2024-10-20 10:56:47.248 INFO (MainThread) [homeassistant.setup] Setting up ffmpeg
-2024-10-20 10:56:47.258 INFO (MainThread) [homeassistant.setup] Setup of domain cloud took 0.02 seconds
-2024-10-20 10:56:47.262 INFO (MainThread) [homeassistant.setup] Setting up usb
-2024-10-20 10:56:47.263 INFO (MainThread) [homeassistant.setup] Setup of domain usb took 0.00 seconds
-2024-10-20 10:56:47.269 INFO (MainThread) [asyncio] execute program 'ffmpeg': <_UnixSubprocessTransport pid=675201 running stdin=<_UnixWritePipeTransport fd=16 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=17 polling>>
-2024-10-20 10:56:47.293 INFO (MainThread) [homeassistant.setup] Setting up zeroconf
-2024-10-20 10:56:47.301 INFO (MainThread) [homeassistant.components.zeroconf] Starting Zeroconf broadcast
-2024-10-20 10:56:47.303 INFO (MainThread) [homeassistant.setup] Setup of domain zeroconf took 0.01 seconds
-2024-10-20 10:56:47.361 INFO (MainThread) [homeassistant.setup] Setting up bluetooth
-2024-10-20 10:56:47.386 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth took 0.02 seconds
-2024-10-20 10:56:47.389 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 2: {'analytics', 'group', 'map', 'persistent_notification', 'input_button', 'input_datetime', 'ecomane', 'assist_pipeline', 'lovelace', 'input_boolean', 'mobile_app', 'energy', 'scene', 'onboarding', 'config', 'automation', 'diagnostics', 'search', 'stt', 'application_credentials', 'input_number', 'sun', 'input_select', 'logbook', 'schedule', 'system_health', 'homeassistant_alerts', 'backup', 'default_config', 'hacs', 'shopping_list', 'esphome', 'file_upload', 'input_text', 'history', 'radio_browser', 'intent', 'counter', 'timer', 'device_automation', 'tag', 'wake_word', 'media_source', 'trace', 'blueprint', 'conversation', 'demo', 'hardware', 'stream', 'tts', 'my', 'script', 'ffmpeg', 'image_upload', 'google_translate', 'person', 'zone'}
-2024-10-20 10:56:47.390 INFO (MainThread) [homeassistant.setup] Setting up wake_word
-2024-10-20 10:56:47.391 INFO (MainThread) [homeassistant.setup] Setup of domain wake_word took 0.00 seconds
-2024-10-20 10:56:47.391 INFO (MainThread) [homeassistant.setup] Setting up scene
-2024-10-20 10:56:47.395 INFO (MainThread) [homeassistant.setup] Setup of domain scene took 0.00 seconds
-2024-10-20 10:56:47.397 INFO (MainThread) [homeassistant.setup] Setting up stt
-2024-10-20 10:56:47.398 INFO (MainThread) [homeassistant.setup] Setup of domain stt took 0.00 seconds
-2024-10-20 10:56:47.405 INFO (MainThread) [homeassistant.setup] Setting up group
-2024-10-20 10:56:47.409 INFO (MainThread) [homeassistant.setup] Setup of domain group took 0.00 seconds
-2024-10-20 10:56:47.413 INFO (MainThread) [homeassistant.setup] Setting up history
-2024-10-20 10:56:47.414 INFO (MainThread) [homeassistant.setup] Setup of domain history took 0.00 seconds
-2024-10-20 10:56:47.422 INFO (MainThread) [homeassistant.setup] Setting up media_source
-2024-10-20 10:56:47.425 INFO (MainThread) [homeassistant.setup] Setup of domain media_source took 0.00 seconds
-2024-10-20 10:56:47.433 INFO (MainThread) [homeassistant.setup] Setting up stream
-2024-10-20 10:56:47.485 INFO (MainThread) [homeassistant.setup] Setting up input_button
-2024-10-20 10:56:47.488 INFO (MainThread) [homeassistant.setup] Setup of domain input_button took 0.00 seconds
-2024-10-20 10:56:47.508 INFO (MainThread) [homeassistant.setup] Setting up timer
-2024-10-20 10:56:47.513 INFO (MainThread) [homeassistant.setup] Setup of domain timer took 0.01 seconds
-2024-10-20 10:56:47.515 INFO (MainThread) [homeassistant.setup] Setting up input_boolean
-2024-10-20 10:56:47.520 INFO (MainThread) [homeassistant.setup] Setting up trace
-2024-10-20 10:56:47.521 INFO (MainThread) [homeassistant.setup] Setup of domain trace took 0.00 seconds
-2024-10-20 10:56:47.525 INFO (MainThread) [homeassistant.setup] Setting up blueprint
-2024-10-20 10:56:47.525 INFO (MainThread) [homeassistant.setup] Setup of domain blueprint took 0.00 seconds
-2024-10-20 10:56:47.527 INFO (MainThread) [homeassistant.setup] Setting up zone
-2024-10-20 10:56:47.538 INFO (MainThread) [homeassistant.setup] Setup of domain zone took 0.01 seconds
-2024-10-20 10:56:47.574 INFO (MainThread) [homeassistant.setup] Setting up script
-2024-10-20 10:56:47.577 INFO (MainThread) [homeassistant.setup] Setup of domain script took 0.00 seconds
-2024-10-20 10:56:47.580 INFO (MainThread) [homeassistant.setup] Setting up input_number
-2024-10-20 10:56:47.585 INFO (MainThread) [homeassistant.setup] Setup of domain input_number took 0.00 seconds
-2024-10-20 10:56:47.588 INFO (MainThread) [homeassistant.setup] Setting up input_select
-2024-10-20 10:56:47.592 INFO (MainThread) [homeassistant.setup] Setup of domain input_select took 0.00 seconds
-2024-10-20 10:56:47.595 INFO (MainThread) [homeassistant.setup] Setting up system_health
-2024-10-20 10:56:47.598 INFO (MainThread) [homeassistant.setup] Setup of domain system_health took 0.00 seconds
-2024-10-20 10:56:47.599 WARNING (MainThread) [asyncio] Executing <Task pending name='Task-1' coro=<setup_and_run_hass() running at /workspaces/ha-core/homeassistant/runner.py:158> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.12/asyncio/tasks.py:712> cb=[_run_until_complete_cb() at /usr/local/lib/python3.12/asyncio/base_events.py:182] created at /usr/local/lib/python3.12/asyncio/tasks.py:695> took 0.212 seconds
-2024-10-20 10:56:47.607 INFO (MainThread) [homeassistant.setup] Setting up intent
-2024-10-20 10:56:47.609 INFO (MainThread) [homeassistant.setup] Setup of domain intent took 0.00 seconds
-2024-10-20 10:56:47.610 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_alerts
-2024-10-20 10:56:47.611 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_alerts took 0.00 seconds
-2024-10-20 10:56:47.611 INFO (MainThread) [homeassistant.setup] Setting up logbook
-2024-10-20 10:56:47.614 INFO (MainThread) [homeassistant.setup] Setup of domain logbook took 0.00 seconds
-2024-10-20 10:56:47.615 INFO (MainThread) [homeassistant.setup] Setting up backup
-2024-10-20 10:56:47.616 INFO (MainThread) [homeassistant.setup] Setup of domain backup took 0.00 seconds
-2024-10-20 10:56:47.616 INFO (MainThread) [homeassistant.setup] Setting up energy
-2024-10-20 10:56:47.618 INFO (MainThread) [homeassistant.setup] Setting up sensor
-2024-10-20 10:56:47.619 INFO (MainThread) [homeassistant.setup] Setup of domain sensor took 0.00 seconds
-2024-10-20 10:56:47.622 INFO (MainThread) [homeassistant.setup] Setup of domain energy took 0.01 seconds
-2024-10-20 10:56:47.623 INFO (MainThread) [homeassistant.setup] Setting up map
-2024-10-20 10:56:47.624 INFO (MainThread) [homeassistant.setup] Setup of domain map took 0.00 seconds
-2024-10-20 10:56:47.624 INFO (MainThread) [homeassistant.setup] Setting up tag
-2024-10-20 10:56:47.627 INFO (MainThread) [homeassistant.setup] Setup of domain tag took 0.00 seconds
-2024-10-20 10:56:47.628 INFO (MainThread) [homeassistant.setup] Setting up my
-2024-10-20 10:56:47.629 INFO (MainThread) [homeassistant.setup] Setup of domain my took 0.00 seconds
-2024-10-20 10:56:47.629 INFO (MainThread) [homeassistant.setup] Setting up sun
-2024-10-20 10:56:47.630 INFO (MainThread) [homeassistant.setup] Setup of domain sun took 0.00 seconds
-2024-10-20 10:56:47.638 INFO (MainThread) [homeassistant.setup] Setup of domain stream took 0.20 seconds
-2024-10-20 10:56:47.639 INFO (MainThread) [asyncio] <_UnixSubprocessTransport pid=675201 running stdin=<_UnixWritePipeTransport closed fd=16 closed> stdout=<_UnixReadPipeTransport fd=17 polling>> exited with return code 0
-2024-10-20 10:56:47.641 INFO (MainThread) [asyncio] <_UnixReadPipeTransport fd=17 polling> was closed by peer
-2024-10-20 10:56:47.645 INFO (MainThread) [homeassistant.setup] Setup of domain input_boolean took 0.13 seconds
-2024-10-20 10:56:47.647 INFO (MainThread) [homeassistant.components.scene] Setting up homeassistant.scene
-2024-10-20 10:56:47.649 INFO (MainThread) [homeassistant.setup] Setting up conversation
-2024-10-20 10:56:47.650 INFO (MainThread) [homeassistant.setup] Setup of domain conversation took 0.00 seconds
-2024-10-20 10:56:47.657 INFO (MainThread) [homeassistant.setup] Setup of domain ffmpeg took 0.41 seconds
-2024-10-20 10:56:47.659 INFO (MainThread) [homeassistant.setup] Setting up tts
-2024-10-20 10:56:47.664 INFO (MainThread) [homeassistant.components.sensor] Setting up sun.sensor
-2024-10-20 10:56:47.673 INFO (MainThread) [homeassistant.setup] Setup of domain tts took 0.01 seconds
-2024-10-20 10:56:47.678 INFO (MainThread) [homeassistant.setup] Setting up assist_pipeline
-2024-10-20 10:56:47.682 INFO (MainThread) [homeassistant.setup] Setup of domain assist_pipeline took 0.00 seconds
-2024-10-20 10:56:47.687 INFO (SyncWorker_2) [homeassistant.loader] Loaded mqtt from homeassistant.components.mqtt
-2024-10-20 10:56:47.728 INFO (MainThread) [homeassistant.setup] Setting up hacs
-2024-10-20 10:56:47.729 INFO (MainThread) [homeassistant.setup] Setup of domain hacs took 0.00 seconds
-2024-10-20 10:56:47.729 INFO (MainThread) [custom_components.hacs] 
--------------------------------------------------------------------
-HACS (Home Assistant Community Store)
-
-Version: 2.0.1
-This is a custom integration
-If you have any issues with this you need to open an issue here:
-https://github.com/hacs/integration/issues
--------------------------------------------------------------------
-
-2024-10-20 10:56:47.737 INFO (MainThread) [homeassistant.setup] Setting up shopping_list
-2024-10-20 10:56:47.738 INFO (MainThread) [homeassistant.setup] Setup of domain shopping_list took 0.00 seconds
-2024-10-20 10:56:47.741 INFO (MainThread) [homeassistant.setup] Setting up input_text
-2024-10-20 10:56:47.743 INFO (MainThread) [homeassistant.setup] Setup of domain input_text took 0.00 seconds
-2024-10-20 10:56:47.755 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore started
-2024-10-20 10:56:47.805 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore done
-2024-10-20 10:56:47.806 INFO (MainThread) [custom_components.hacs] Enable category: integration
-2024-10-20 10:56:47.806 INFO (MainThread) [custom_components.hacs] Enable category: plugin
-2024-10-20 10:56:47.806 INFO (MainThread) [custom_components.hacs] Enable category: template
-2024-10-20 10:56:47.806 INFO (MainThread) [custom_components.hacs] Enable category: theme
-2024-10-20 10:56:47.859 INFO (MainThread) [homeassistant.setup] Setting up radio_browser
-2024-10-20 10:56:47.860 INFO (MainThread) [homeassistant.setup] Setup of domain radio_browser took 0.00 seconds
-2024-10-20 10:56:47.929 INFO (MainThread) [homeassistant.setup] Setting up input_datetime
-2024-10-20 10:56:47.934 INFO (MainThread) [homeassistant.setup] Setup of domain input_datetime took 0.00 seconds
-2024-10-20 10:56:47.935 INFO (MainThread) [homeassistant.setup] Setting up counter
-2024-10-20 10:56:47.937 INFO (MainThread) [homeassistant.setup] Setup of domain counter took 0.00 seconds
-2024-10-20 10:56:48.007 INFO (MainThread) [homeassistant.setup] Setting up ecomane
-2024-10-20 10:56:48.008 INFO (MainThread) [homeassistant.setup] Setup of domain ecomane took 0.00 seconds
-2024-10-20 10:56:48.015 INFO (MainThread) [homeassistant.setup] Setting up hardware
-2024-10-20 10:56:48.029 INFO (MainThread) [homeassistant.setup] Setting up application_credentials
-2024-10-20 10:56:48.032 INFO (MainThread) [homeassistant.setup] Setup of domain application_credentials took 0.00 seconds
-2024-10-20 10:56:48.049 INFO (MainThread) [homeassistant.setup] Setting up google_translate
-2024-10-20 10:56:48.049 INFO (MainThread) [homeassistant.setup] Setup of domain google_translate took 0.00 seconds
-2024-10-20 10:56:48.054 INFO (MainThread) [homeassistant.setup] Setting up schedule
-2024-10-20 10:56:48.058 INFO (MainThread) [homeassistant.setup] Setup of domain schedule took 0.00 seconds
-2024-10-20 10:56:48.062 INFO (MainThread) [homeassistant.setup] Setting up analytics
-2024-10-20 10:56:48.064 INFO (MainThread) [homeassistant.setup] Setup of domain analytics took 0.00 seconds
-2024-10-20 10:56:48.066 INFO (MainThread) [homeassistant.setup] Setup of domain hardware took 0.05 seconds
-2024-10-20 10:56:48.067 INFO (MainThread) [homeassistant.components.sensor] Setting up energy.sensor
-2024-10-20 10:56:48.070 INFO (MainThread) [homeassistant.setup] Setting up demo
-2024-10-20 10:56:48.078 INFO (MainThread) [homeassistant.setup] Setting up camera
-2024-10-20 10:56:48.082 INFO (MainThread) [homeassistant.setup] Setup of domain camera took 0.00 seconds
-2024-10-20 10:56:48.084 INFO (MainThread) [homeassistant.setup] Setting up image_processing
-2024-10-20 10:56:48.086 INFO (MainThread) [homeassistant.setup] Setup of domain image_processing took 0.00 seconds
-2024-10-20 10:56:48.088 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
-2024-10-20 10:56:48.092 INFO (MainThread) [homeassistant.setup] Setup of domain device_tracker took 0.00 seconds
-2024-10-20 10:56:48.099 INFO (MainThread) [homeassistant.setup] Setup of domain demo took 0.03 seconds
-2024-10-20 10:56:48.111 INFO (MainThread) [homeassistant.setup] Setting up mobile_app
-2024-10-20 10:56:48.114 INFO (MainThread) [homeassistant.setup] Setting up notify
-2024-10-20 10:56:48.115 INFO (MainThread) [homeassistant.setup] Setup of domain notify took 0.00 seconds
-2024-10-20 10:56:48.116 INFO (MainThread) [homeassistant.setup] Setup of domain mobile_app took 0.00 seconds
-2024-10-20 10:56:48.118 INFO (MainThread) [homeassistant.components.notify] Setting up notify.mobile_app
-2024-10-20 10:56:48.123 INFO (MainThread) [homeassistant.setup] Setting up default_config
-2024-10-20 10:56:48.123 INFO (MainThread) [homeassistant.setup] Setup of domain default_config took 0.00 seconds
-2024-10-20 10:56:48.248 INFO (MainThread) [homeassistant.setup] Setting up esphome
-2024-10-20 10:56:48.255 INFO (MainThread) [homeassistant.setup] Setup of domain esphome took 0.01 seconds
-2024-10-20 10:56:48.271 INFO (MainThread) [homeassistant.setup] Setting up todo
-2024-10-20 10:56:48.274 INFO (MainThread) [homeassistant.setup] Setup of domain todo took 0.00 seconds
-2024-10-20 10:56:48.279 INFO (MainThread) [homeassistant.setup] Setting up switch
-2024-10-20 10:56:48.280 INFO (MainThread) [homeassistant.setup] Setup of domain switch took 0.00 seconds
-2024-10-20 10:56:48.282 INFO (MainThread) [homeassistant.setup] Setting up update
-2024-10-20 10:56:48.283 INFO (MainThread) [homeassistant.setup] Setup of domain update took 0.00 seconds
-2024-10-20 10:56:48.285 INFO (MainThread) [homeassistant.setup] Setting up automation
-2024-10-20 10:56:48.290 INFO (MainThread) [homeassistant.setup] Setup of domain automation took 0.01 seconds
-2024-10-20 10:56:48.308 INFO (MainThread) [homeassistant.setup] Setting up mailbox
-2024-10-20 10:56:48.309 INFO (MainThread) [homeassistant.setup] Setup of domain mailbox took 0.00 seconds
-2024-10-20 10:56:48.314 INFO (MainThread) [homeassistant.components.todo] Setting up shopping_list.todo
-2024-10-20 10:56:48.321 INFO (MainThread) [homeassistant.components.device_tracker] Setting up demo.device_tracker
-2024-10-20 10:56:48.330 INFO (MainThread) [homeassistant.components.switch] Setting up hacs.switch
-2024-10-20 10:56:48.337 INFO (MainThread) [homeassistant.components.update] Setting up hacs.update
-2024-10-20 10:56:48.343 INFO (MainThread) [custom_components.hacs] Stage changed: setup
-2024-10-20 10:56:48.344 INFO (MainThread) [custom_components.hacs] Stage changed: waiting
-2024-10-20 10:56:48.344 INFO (MainThread) [custom_components.hacs] Setup complete, waiting for Home Assistant before startup tasks starts
-2024-10-20 10:56:48.351 INFO (MainThread) [homeassistant.components.tts] Setting up google_translate.tts
-2024-10-20 10:56:48.358 INFO (MainThread) [homeassistant.components.image_processing] Setting up demo.image_processing
-2024-10-20 10:56:48.379 INFO (MainThread) [homeassistant.setup] Setting up air_quality
-2024-10-20 10:56:48.380 INFO (MainThread) [homeassistant.setup] Setup of domain air_quality took 0.00 seconds
-2024-10-20 10:56:48.381 INFO (MainThread) [homeassistant.components.air_quality] Setting up demo.air_quality
-2024-10-20 10:56:48.386 INFO (MainThread) [homeassistant.setup] Setting up alarm_control_panel
-2024-10-20 10:56:48.388 INFO (MainThread) [homeassistant.setup] Setup of domain alarm_control_panel took 0.00 seconds
-2024-10-20 10:56:48.390 INFO (MainThread) [homeassistant.setup] Setting up binary_sensor
-2024-10-20 10:56:48.391 INFO (MainThread) [homeassistant.setup] Setup of domain binary_sensor took 0.00 seconds
-2024-10-20 10:56:48.392 INFO (MainThread) [homeassistant.setup] Setting up button
-2024-10-20 10:56:48.393 INFO (MainThread) [homeassistant.setup] Setup of domain button took 0.00 seconds
-2024-10-20 10:56:48.395 INFO (MainThread) [homeassistant.setup] Setting up calendar
-2024-10-20 10:56:48.396 INFO (MainThread) [homeassistant.setup] Setup of domain calendar took 0.00 seconds
-2024-10-20 10:56:48.398 INFO (MainThread) [homeassistant.setup] Setting up climate
-2024-10-20 10:56:48.400 INFO (MainThread) [homeassistant.setup] Setup of domain climate took 0.00 seconds
-2024-10-20 10:56:48.402 INFO (MainThread) [homeassistant.setup] Setting up cover
-2024-10-20 10:56:48.403 INFO (MainThread) [homeassistant.setup] Setup of domain cover took 0.00 seconds
-2024-10-20 10:56:48.406 INFO (MainThread) [homeassistant.setup] Setting up date
-2024-10-20 10:56:48.407 INFO (MainThread) [homeassistant.setup] Setup of domain date took 0.00 seconds
-2024-10-20 10:56:48.408 INFO (MainThread) [homeassistant.setup] Setting up datetime
-2024-10-20 10:56:48.408 INFO (MainThread) [homeassistant.setup] Setup of domain datetime took 0.00 seconds
-2024-10-20 10:56:48.410 INFO (MainThread) [homeassistant.setup] Setting up event
-2024-10-20 10:56:48.410 INFO (MainThread) [homeassistant.setup] Setup of domain event took 0.00 seconds
-2024-10-20 10:56:48.412 INFO (MainThread) [homeassistant.setup] Setting up fan
-2024-10-20 10:56:48.413 INFO (MainThread) [homeassistant.setup] Setup of domain fan took 0.00 seconds
-2024-10-20 10:56:48.415 INFO (MainThread) [homeassistant.setup] Setting up humidifier
-2024-10-20 10:56:48.416 INFO (MainThread) [homeassistant.setup] Setup of domain humidifier took 0.00 seconds
-2024-10-20 10:56:48.419 INFO (MainThread) [homeassistant.setup] Setting up light
-2024-10-20 10:56:48.423 INFO (MainThread) [homeassistant.setup] Setup of domain light took 0.00 seconds
-2024-10-20 10:56:48.426 INFO (MainThread) [homeassistant.setup] Setting up lock
-2024-10-20 10:56:48.427 INFO (MainThread) [homeassistant.setup] Setup of domain lock took 0.00 seconds
-2024-10-20 10:56:48.428 INFO (MainThread) [homeassistant.setup] Setting up media_player
-2024-10-20 10:56:48.431 INFO (MainThread) [homeassistant.setup] Setup of domain media_player took 0.00 seconds
-2024-10-20 10:56:48.439 INFO (MainThread) [homeassistant.setup] Setting up number
-2024-10-20 10:56:48.440 INFO (MainThread) [homeassistant.setup] Setup of domain number took 0.00 seconds
-2024-10-20 10:56:48.441 INFO (MainThread) [homeassistant.setup] Setting up select
-2024-10-20 10:56:48.442 INFO (MainThread) [homeassistant.setup] Setup of domain select took 0.00 seconds
-2024-10-20 10:56:48.443 INFO (MainThread) [homeassistant.components.sensor] Setting up demo.sensor
-2024-10-20 10:56:48.448 INFO (MainThread) [homeassistant.setup] Setting up siren
-2024-10-20 10:56:48.449 INFO (MainThread) [homeassistant.setup] Setup of domain siren took 0.00 seconds
-2024-10-20 10:56:48.450 INFO (MainThread) [homeassistant.components.switch] Setting up demo.switch
-2024-10-20 10:56:48.453 INFO (MainThread) [homeassistant.setup] Setting up text
-2024-10-20 10:56:48.453 INFO (MainThread) [homeassistant.setup] Setup of domain text took 0.00 seconds
-2024-10-20 10:56:48.454 INFO (MainThread) [homeassistant.setup] Setting up time
-2024-10-20 10:56:48.455 INFO (MainThread) [homeassistant.setup] Setup of domain time took 0.00 seconds
-2024-10-20 10:56:48.456 INFO (MainThread) [homeassistant.components.update] Setting up demo.update
-2024-10-20 10:56:48.459 INFO (MainThread) [homeassistant.setup] Setting up vacuum
-2024-10-20 10:56:48.461 INFO (MainThread) [homeassistant.setup] Setup of domain vacuum took 0.00 seconds
-2024-10-20 10:56:48.463 INFO (MainThread) [homeassistant.setup] Setting up water_heater
-2024-10-20 10:56:48.464 INFO (MainThread) [homeassistant.setup] Setup of domain water_heater took 0.00 seconds
-2024-10-20 10:56:48.465 INFO (MainThread) [homeassistant.setup] Setting up weather
-2024-10-20 10:56:48.466 INFO (MainThread) [homeassistant.setup] Setup of domain weather took 0.00 seconds
-2024-10-20 10:56:48.473 INFO (MainThread) [homeassistant.components.mailbox] Setting up mailbox.demo
-2024-10-20 10:56:48.475 INFO (MainThread) [homeassistant.components.alarm_control_panel] Setting up demo.alarm_control_panel
-2024-10-20 10:56:48.484 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up demo.binary_sensor
-2024-10-20 10:56:48.486 INFO (MainThread) [homeassistant.components.button] Setting up demo.button
-2024-10-20 10:56:48.489 INFO (MainThread) [homeassistant.components.camera] Setting up demo.camera
-2024-10-20 10:56:48.491 INFO (MainThread) [homeassistant.components.calendar] Setting up demo.calendar
-2024-10-20 10:56:48.495 INFO (MainThread) [homeassistant.components.climate] Setting up demo.climate
-2024-10-20 10:56:48.498 INFO (MainThread) [homeassistant.components.cover] Setting up demo.cover
-2024-10-20 10:56:48.502 INFO (MainThread) [homeassistant.components.date] Setting up demo.date
-2024-10-20 10:56:48.504 INFO (MainThread) [homeassistant.components.datetime] Setting up demo.datetime
-2024-10-20 10:56:48.507 INFO (MainThread) [homeassistant.components.event] Setting up demo.event
-2024-10-20 10:56:48.509 INFO (MainThread) [homeassistant.components.fan] Setting up demo.fan
-2024-10-20 10:56:48.513 INFO (MainThread) [homeassistant.components.humidifier] Setting up demo.humidifier
-2024-10-20 10:56:48.516 INFO (MainThread) [homeassistant.components.light] Setting up demo.light
-2024-10-20 10:56:48.519 INFO (MainThread) [homeassistant.components.lock] Setting up demo.lock
-2024-10-20 10:56:48.522 INFO (MainThread) [homeassistant.components.media_player] Setting up demo.media_player
-2024-10-20 10:56:48.525 INFO (MainThread) [homeassistant.components.notify] Setting up demo.notify
-2024-10-20 10:56:48.528 INFO (MainThread) [homeassistant.components.number] Setting up demo.number
-2024-10-20 10:56:48.531 INFO (MainThread) [homeassistant.components.select] Setting up demo.select
-2024-10-20 10:56:48.533 INFO (MainThread) [homeassistant.components.siren] Setting up demo.siren
-2024-10-20 10:56:48.535 INFO (MainThread) [homeassistant.components.stt] Setting up demo.stt
-2024-10-20 10:56:48.537 INFO (MainThread) [homeassistant.components.text] Setting up demo.text
-2024-10-20 10:56:48.540 INFO (MainThread) [homeassistant.components.time] Setting up demo.time
-2024-10-20 10:56:48.543 INFO (MainThread) [homeassistant.components.vacuum] Setting up demo.vacuum
-2024-10-20 10:56:48.546 INFO (MainThread) [homeassistant.components.water_heater] Setting up demo.water_heater
-2024-10-20 10:56:48.548 INFO (MainThread) [homeassistant.components.weather] Setting up demo.weather
-2024-10-20 10:56:48.552 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
-2024-10-20 10:56:48.553 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
-2024-10-20 10:56:48.554 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
-2024-10-20 10:56:48.554 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
-2024-10-20 10:56:48.555 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
-2024-10-20 10:56:48.556 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
-2024-10-20 10:56:48.557 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
-2024-10-20 10:56:48.557 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
-2024-10-20 10:56:48.562 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
-2024-10-20 10:56:48.564 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
-2024-10-20 10:56:48.565 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
-2024-10-20 10:56:48.570 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
-2024-10-20 10:56:48.571 INFO (MainThread) [homeassistant.components.light] Setting up esphome.light
-2024-10-20 10:56:51.712 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for ble-m5core2v1_1-107 @ 192.168.192.107: Error connecting to [AddrInfo(family=<AddressFamily.AF_INET: 2>, type=<SocketKind.SOCK_STREAM: 1>, proto=6, sockaddr=IPv4Sockaddr(address='192.168.192.107', port=6053))]: [Errno 113] Connect call failed ('192.168.192.107', 6053) (SocketAPIError)
-2024-10-20 10:56:51.712 INFO (MainThread) [aioesphomeapi.reconnect_logic] Trying to connect to ble-m5core2v1_1-107 @ 192.168.192.107 in the background
-2024-10-20 10:56:51.712 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for ble-m5atoms3-102 @ 192.168.192.102: Error connecting to [AddrInfo(family=<AddressFamily.AF_INET: 2>, type=<SocketKind.SOCK_STREAM: 1>, proto=6, sockaddr=IPv4Sockaddr(address='192.168.192.102', port=6053))]: [Errno 113] Connect call failed ('192.168.192.102', 6053) (SocketAPIError)
-2024-10-20 10:56:51.712 INFO (MainThread) [aioesphomeapi.reconnect_logic] Trying to connect to ble-m5atoms3-102 @ 192.168.192.102 in the background
-2024-10-20 10:56:58.831 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for ble-m5cores3se-105 @ 192.168.192.105: Error connecting to [AddrInfo(family=<AddressFamily.AF_INET: 2>, type=<SocketKind.SOCK_STREAM: 1>, proto=6, sockaddr=IPv4Sockaddr(address='192.168.192.105', port=6053))]: [Errno 113] Connect call failed ('192.168.192.105', 6053) (SocketAPIError)
-2024-10-20 10:56:58.832 INFO (MainThread) [aioesphomeapi.reconnect_logic] Trying to connect to ble-m5cores3se-105 @ 192.168.192.105 in the background
-2024-10-20 10:56:58.841 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for ble-m5cores3-103 @ 192.168.192.103: Error connecting to [AddrInfo(family=<AddressFamily.AF_INET: 2>, type=<SocketKind.SOCK_STREAM: 1>, proto=6, sockaddr=IPv4Sockaddr(address='192.168.192.103', port=6053))]: [Errno 113] Connect call failed ('192.168.192.103', 6053) (SocketAPIError)
-2024-10-20 10:56:58.841 INFO (MainThread) [aioesphomeapi.reconnect_logic] Trying to connect to ble-m5cores3-103 @ 192.168.192.103 in the background
-2024-10-20 10:57:05.455 INFO (SyncWorker_1) [homeassistant.loader] Loaded ezviz from homeassistant.components.ezviz
-2024-10-20 10:57:05.456 INFO (SyncWorker_1) [homeassistant.loader] Loaded waze_travel_time from homeassistant.components.waze_travel_time
-2024-10-20 10:57:05.457 INFO (SyncWorker_1) [homeassistant.loader] Loaded todoist from homeassistant.components.todoist
-2024-10-20 10:57:05.460 INFO (SyncWorker_1) [homeassistant.loader] Loaded cpuspeed from homeassistant.components.cpuspeed
-2024-10-20 10:57:05.461 INFO (SyncWorker_1) [homeassistant.loader] Loaded samsungtv from homeassistant.components.samsungtv
-2024-10-20 10:57:05.462 WARNING (MainThread) [asyncio] Executing <Task pending name='Task-149' coro=<RequestHandler._handle_request() running at /home/vscode/.local/ha-venv/lib/python3.12/site-packages/aiohttp/web_protocol.py:456> wait_for=<Future pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.12/asyncio/base_events.py:449> cb=[Task.task_wakeup()] created at /home/vscode/.local/ha-venv/lib/python3.12/site-packages/aiohttp/web_protocol.py:531> took 0.247 seconds
-2024-10-20 10:57:05.463 INFO (SyncWorker_1) [homeassistant.loader] Loaded mutesync from homeassistant.components.mutesync
-2024-10-20 10:57:05.464 INFO (SyncWorker_1) [homeassistant.loader] Loaded ambient_network from homeassistant.components.ambient_network
-2024-10-20 10:57:05.469 INFO (SyncWorker_1) [homeassistant.loader] Loaded tibber from homeassistant.components.tibber
-2024-10-20 10:57:05.472 INFO (SyncWorker_1) [homeassistant.loader] Loaded apsystems from homeassistant.components.apsystems
-2024-10-20 10:57:05.474 INFO (SyncWorker_1) [homeassistant.loader] Loaded xiaomi_miio from homeassistant.components.xiaomi_miio
-2024-10-20 10:57:05.476 INFO (SyncWorker_1) [homeassistant.loader] Loaded qbittorrent from homeassistant.components.qbittorrent
-2024-10-20 10:57:05.477 INFO (SyncWorker_1) [homeassistant.loader] Loaded steam_online from homeassistant.components.steam_online
-2024-10-20 10:57:05.480 INFO (SyncWorker_1) [homeassistant.loader] Loaded zodiac from homeassistant.components.zodiac
-2024-10-20 10:57:05.482 INFO (SyncWorker_1) [homeassistant.loader] Loaded kraken from homeassistant.components.kraken
-2024-10-20 10:57:05.485 INFO (SyncWorker_1) [homeassistant.loader] Loaded streamlabswater from homeassistant.components.streamlabswater
-2024-10-20 10:57:05.487 INFO (SyncWorker_1) [homeassistant.loader] Loaded ecowitt from homeassistant.components.ecowitt
-2024-10-20 10:57:05.489 INFO (SyncWorker_1) [homeassistant.loader] Loaded motion_blinds from homeassistant.components.motion_blinds
-2024-10-20 10:57:05.493 INFO (SyncWorker_1) [homeassistant.loader] Loaded pyload from homeassistant.components.pyload
-2024-10-20 10:57:05.494 INFO (SyncWorker_1) [homeassistant.loader] Loaded apcupsd from homeassistant.components.apcupsd
-2024-10-20 10:57:05.495 INFO (SyncWorker_1) [homeassistant.loader] Loaded rachio from homeassistant.components.rachio
-2024-10-20 10:57:05.496 INFO (SyncWorker_1) [homeassistant.loader] Loaded blebox from homeassistant.components.blebox
-2024-10-20 10:57:05.497 INFO (SyncWorker_1) [homeassistant.loader] Loaded home_connect from homeassistant.components.home_connect
-2024-10-20 10:57:05.498 INFO (SyncWorker_1) [homeassistant.loader] Loaded energyzero from homeassistant.components.energyzero
-2024-10-20 10:57:05.498 INFO (SyncWorker_1) [homeassistant.loader] Loaded yamaha_musiccast from homeassistant.components.yamaha_musiccast
-2024-10-20 10:57:05.499 INFO (SyncWorker_1) [homeassistant.loader] Loaded sensirion_ble from homeassistant.components.sensirion_ble
-2024-10-20 10:57:05.500 INFO (SyncWorker_1) [homeassistant.loader] Loaded prosegur from homeassistant.components.prosegur
-2024-10-20 10:57:05.501 INFO (SyncWorker_1) [homeassistant.loader] Loaded brunt from homeassistant.components.brunt
-2024-10-20 10:57:05.501 INFO (SyncWorker_1) [homeassistant.loader] Loaded shelly from homeassistant.components.shelly
-2024-10-20 10:57:05.501 INFO (SyncWorker_1) [homeassistant.loader] Loaded environment_canada from homeassistant.components.environment_canada
-2024-10-20 10:57:05.502 INFO (SyncWorker_1) [homeassistant.loader] Loaded ps4 from homeassistant.components.ps4
-2024-10-20 10:57:05.502 INFO (SyncWorker_1) [homeassistant.loader] Loaded roon from homeassistant.components.roon
-2024-10-20 10:57:05.503 INFO (SyncWorker_1) [homeassistant.loader] Loaded lifx from homeassistant.components.lifx
-2024-10-20 10:57:05.503 INFO (SyncWorker_1) [homeassistant.loader] Loaded comelit from homeassistant.components.comelit
-2024-10-20 10:57:05.504 INFO (SyncWorker_1) [homeassistant.loader] Loaded nexia from homeassistant.components.nexia
-2024-10-20 10:57:05.504 INFO (SyncWorker_1) [homeassistant.loader] Loaded anthemav from homeassistant.components.anthemav
-2024-10-20 10:57:05.504 INFO (SyncWorker_1) [homeassistant.loader] Loaded surepetcare from homeassistant.components.surepetcare
-2024-10-20 10:57:05.505 INFO (SyncWorker_1) [homeassistant.loader] Loaded unifiprotect from homeassistant.components.unifiprotect
-2024-10-20 10:57:05.506 INFO (SyncWorker_1) [homeassistant.loader] Loaded ios from homeassistant.components.ios
-2024-10-20 10:57:05.506 INFO (SyncWorker_1) [homeassistant.loader] Loaded wallbox from homeassistant.components.wallbox
-2024-10-20 10:57:05.508 INFO (SyncWorker_1) [homeassistant.loader] Loaded forked_daapd from homeassistant.components.forked_daapd
-2024-10-20 10:57:05.508 INFO (SyncWorker_1) [homeassistant.loader] Loaded weatherflow from homeassistant.components.weatherflow
-2024-10-20 10:57:05.508 INFO (SyncWorker_1) [homeassistant.loader] Loaded technove from homeassistant.components.technove
-2024-10-20 10:57:05.509 INFO (SyncWorker_1) [homeassistant.loader] Loaded zeversolar from homeassistant.components.zeversolar
-2024-10-20 10:57:05.509 INFO (SyncWorker_1) [homeassistant.loader] Loaded mailgun from homeassistant.components.mailgun
-2024-10-20 10:57:05.510 INFO (SyncWorker_1) [homeassistant.loader] Loaded trend from homeassistant.components.trend
-2024-10-20 10:57:05.510 INFO (SyncWorker_1) [homeassistant.loader] Loaded bring from homeassistant.components.bring
-2024-10-20 10:57:05.511 INFO (SyncWorker_1) [homeassistant.loader] Loaded gogogate2 from homeassistant.components.gogogate2
-2024-10-20 10:57:05.512 INFO (SyncWorker_1) [homeassistant.loader] Loaded dlna_dms from homeassistant.components.dlna_dms
-2024-10-20 10:57:05.512 INFO (SyncWorker_1) [homeassistant.loader] Loaded enphase_envoy from homeassistant.components.enphase_envoy
-2024-10-20 10:57:05.513 INFO (SyncWorker_1) [homeassistant.loader] Loaded guardian from homeassistant.components.guardian
-2024-10-20 10:57:05.513 INFO (SyncWorker_1) [homeassistant.loader] Loaded gpslogger from homeassistant.components.gpslogger
-2024-10-20 10:57:05.514 INFO (SyncWorker_1) [homeassistant.loader] Loaded notion from homeassistant.components.notion
-2024-10-20 10:57:05.514 INFO (SyncWorker_1) [homeassistant.loader] Loaded waqi from homeassistant.components.waqi
-2024-10-20 10:57:05.515 INFO (SyncWorker_1) [homeassistant.loader] Loaded islamic_prayer_times from homeassistant.components.islamic_prayer_times
-2024-10-20 10:57:05.515 INFO (SyncWorker_1) [homeassistant.loader] Loaded geo_json_events from homeassistant.components.geo_json_events
-2024-10-20 10:57:05.515 INFO (SyncWorker_1) [homeassistant.loader] Loaded reolink from homeassistant.components.reolink
-2024-10-20 10:57:05.516 INFO (SyncWorker_1) [homeassistant.loader] Loaded imgw_pib from homeassistant.components.imgw_pib
-2024-10-20 10:57:05.516 INFO (SyncWorker_1) [homeassistant.loader] Loaded qnap_qsw from homeassistant.components.qnap_qsw
-2024-10-20 10:57:05.517 INFO (SyncWorker_1) [homeassistant.loader] Loaded homeworks from homeassistant.components.homeworks
-2024-10-20 10:57:05.517 INFO (SyncWorker_1) [homeassistant.loader] Loaded rainbird from homeassistant.components.rainbird
-2024-10-20 10:57:05.517 INFO (SyncWorker_1) [homeassistant.loader] Loaded plugwise from homeassistant.components.plugwise
-2024-10-20 10:57:05.518 INFO (SyncWorker_1) [homeassistant.loader] Loaded amberelectric from homeassistant.components.amberelectric
-2024-10-20 10:57:05.518 INFO (SyncWorker_1) [homeassistant.loader] Loaded hive from homeassistant.components.hive
-2024-10-20 10:57:05.519 INFO (SyncWorker_1) [homeassistant.loader] Loaded picnic from homeassistant.components.picnic
-2024-10-20 10:57:05.519 INFO (SyncWorker_1) [homeassistant.loader] Loaded nut from homeassistant.components.nut
-2024-10-20 10:57:05.520 INFO (SyncWorker_1) [homeassistant.loader] Loaded somfy_mylink from homeassistant.components.somfy_mylink
-2024-10-20 10:57:05.520 INFO (SyncWorker_1) [homeassistant.loader] Loaded idasen_desk from homeassistant.components.idasen_desk
-2024-10-20 10:57:05.521 INFO (SyncWorker_1) [homeassistant.loader] Loaded zamg from homeassistant.components.zamg
-2024-10-20 10:57:05.521 INFO (SyncWorker_1) [homeassistant.loader] Loaded fastdotcom from homeassistant.components.fastdotcom
-2024-10-20 10:57:05.522 INFO (SyncWorker_1) [homeassistant.loader] Loaded sensorpush from homeassistant.components.sensorpush
-2024-10-20 10:57:05.522 INFO (SyncWorker_1) [homeassistant.loader] Loaded openexchangerates from homeassistant.components.openexchangerates
-2024-10-20 10:57:05.523 INFO (SyncWorker_1) [homeassistant.loader] Loaded tilt_ble from homeassistant.components.tilt_ble
-2024-10-20 10:57:05.523 INFO (SyncWorker_1) [homeassistant.loader] Loaded vesync from homeassistant.components.vesync
-2024-10-20 10:57:05.523 INFO (SyncWorker_1) [homeassistant.loader] Loaded lacrosse_view from homeassistant.components.lacrosse_view
-2024-10-20 10:57:05.526 INFO (SyncWorker_1) [homeassistant.loader] Loaded minecraft_server from homeassistant.components.minecraft_server
-2024-10-20 10:57:05.526 INFO (SyncWorker_1) [homeassistant.loader] Loaded kulersky from homeassistant.components.kulersky
-2024-10-20 10:57:05.527 INFO (SyncWorker_1) [homeassistant.loader] Loaded tomorrowio from homeassistant.components.tomorrowio
-2024-10-20 10:57:05.527 INFO (SyncWorker_1) [homeassistant.loader] Loaded rdw from homeassistant.components.rdw
-2024-10-20 10:57:05.528 INFO (SyncWorker_1) [homeassistant.loader] Loaded agent_dvr from homeassistant.components.agent_dvr
-2024-10-20 10:57:05.528 INFO (SyncWorker_1) [homeassistant.loader] Loaded flux_led from homeassistant.components.flux_led
-2024-10-20 10:57:05.529 INFO (SyncWorker_1) [homeassistant.loader] Loaded vilfo from homeassistant.components.vilfo
-2024-10-20 10:57:05.530 INFO (SyncWorker_1) [homeassistant.loader] Loaded denonavr from homeassistant.components.denonavr
-2024-10-20 10:57:05.530 INFO (SyncWorker_1) [homeassistant.loader] Loaded airnow from homeassistant.components.airnow
-2024-10-20 10:57:05.531 INFO (SyncWorker_1) [homeassistant.loader] Loaded folder_watcher from homeassistant.components.folder_watcher
-2024-10-20 10:57:05.531 INFO (SyncWorker_1) [homeassistant.loader] Loaded osoenergy from homeassistant.components.osoenergy
-2024-10-20 10:57:05.532 INFO (SyncWorker_1) [homeassistant.loader] Loaded progettihwsw from homeassistant.components.progettihwsw
-2024-10-20 10:57:05.533 INFO (SyncWorker_1) [homeassistant.loader] Loaded syncthru from homeassistant.components.syncthru
-2024-10-20 10:57:05.533 INFO (SyncWorker_1) [homeassistant.loader] Loaded dialogflow from homeassistant.components.dialogflow
-2024-10-20 10:57:05.534 INFO (SyncWorker_1) [homeassistant.loader] Loaded zwave_me from homeassistant.components.zwave_me
-2024-10-20 10:57:05.535 INFO (SyncWorker_1) [homeassistant.loader] Loaded mysensors from homeassistant.components.mysensors
-2024-10-20 10:57:05.535 INFO (SyncWorker_1) [homeassistant.loader] Loaded opensky from homeassistant.components.opensky
-2024-10-20 10:57:05.536 INFO (SyncWorker_1) [homeassistant.loader] Loaded kmtronic from homeassistant.components.kmtronic
-2024-10-20 10:57:05.537 INFO (SyncWorker_1) [homeassistant.loader] Loaded vlc_telnet from homeassistant.components.vlc_telnet
-2024-10-20 10:57:05.537 INFO (SyncWorker_1) [homeassistant.loader] Loaded fritzbox_callmonitor from homeassistant.components.fritzbox_callmonitor
-2024-10-20 10:57:05.538 INFO (SyncWorker_1) [homeassistant.loader] Loaded modern_forms from homeassistant.components.modern_forms
-2024-10-20 10:57:05.539 INFO (SyncWorker_1) [homeassistant.loader] Loaded aemet from homeassistant.components.aemet
-2024-10-20 10:57:05.539 INFO (SyncWorker_1) [homeassistant.loader] Loaded elmax from homeassistant.components.elmax
-2024-10-20 10:57:05.540 INFO (SyncWorker_1) [homeassistant.loader] Loaded ukraine_alarm from homeassistant.components.ukraine_alarm
-2024-10-20 10:57:05.540 INFO (SyncWorker_1) [homeassistant.loader] Loaded lamarzocco from homeassistant.components.lamarzocco
-2024-10-20 10:57:05.541 INFO (SyncWorker_1) [homeassistant.loader] Loaded subaru from homeassistant.components.subaru
-2024-10-20 10:57:05.542 INFO (SyncWorker_1) [homeassistant.loader] Loaded tasmota from homeassistant.components.tasmota
-2024-10-20 10:57:05.544 INFO (SyncWorker_1) [homeassistant.loader] Loaded electric_kiwi from homeassistant.components.electric_kiwi
-2024-10-20 10:57:05.546 INFO (SyncWorker_1) [homeassistant.loader] Loaded powerwall from homeassistant.components.powerwall
-2024-10-20 10:57:05.548 INFO (SyncWorker_1) [homeassistant.loader] Loaded bosch_shc from homeassistant.components.bosch_shc
-2024-10-20 10:57:05.548 INFO (SyncWorker_1) [homeassistant.loader] Loaded econet from homeassistant.components.econet
-2024-10-20 10:57:05.549 INFO (SyncWorker_1) [homeassistant.loader] Loaded template from homeassistant.components.template
-2024-10-20 10:57:05.549 INFO (SyncWorker_1) [homeassistant.loader] Loaded intellifire from homeassistant.components.intellifire
-2024-10-20 10:57:05.550 INFO (SyncWorker_1) [homeassistant.loader] Loaded huawei_lte from homeassistant.components.huawei_lte
-2024-10-20 10:57:05.550 INFO (SyncWorker_1) [homeassistant.loader] Loaded honeywell from homeassistant.components.honeywell
-2024-10-20 10:57:05.551 INFO (SyncWorker_1) [homeassistant.loader] Loaded adguard from homeassistant.components.adguard
-2024-10-20 10:57:05.551 INFO (SyncWorker_1) [homeassistant.loader] Loaded ista_ecotrend from homeassistant.components.ista_ecotrend
-2024-10-20 10:57:05.552 INFO (SyncWorker_1) [homeassistant.loader] Loaded blink from homeassistant.components.blink
-2024-10-20 10:57:05.552 INFO (SyncWorker_1) [homeassistant.loader] Loaded octoprint from homeassistant.components.octoprint
-2024-10-20 10:57:05.553 INFO (SyncWorker_1) [homeassistant.loader] Loaded songpal from homeassistant.components.songpal
-2024-10-20 10:57:05.553 INFO (SyncWorker_1) [homeassistant.loader] Loaded twinkly from homeassistant.components.twinkly
-2024-10-20 10:57:05.554 INFO (SyncWorker_1) [homeassistant.loader] Loaded omnilogic from homeassistant.components.omnilogic
-2024-10-20 10:57:05.554 INFO (SyncWorker_1) [homeassistant.loader] Loaded keymitt_ble from homeassistant.components.keymitt_ble
-2024-10-20 10:57:05.555 INFO (SyncWorker_1) [homeassistant.loader] Loaded random from homeassistant.components.random
-2024-10-20 10:57:05.556 INFO (SyncWorker_1) [homeassistant.loader] Loaded nest from homeassistant.components.nest
-2024-10-20 10:57:05.556 INFO (SyncWorker_1) [homeassistant.loader] Loaded tailscale from homeassistant.components.tailscale
-2024-10-20 10:57:05.557 INFO (SyncWorker_1) [homeassistant.loader] Loaded melcloud from homeassistant.components.melcloud
-2024-10-20 10:57:05.558 INFO (SyncWorker_1) [homeassistant.loader] Loaded geonetnz_volcano from homeassistant.components.geonetnz_volcano
-2024-10-20 10:57:05.559 INFO (SyncWorker_1) [homeassistant.loader] Loaded sse from homeassistant.components.sse
-2024-10-20 10:57:05.559 INFO (SyncWorker_1) [homeassistant.loader] Loaded sleepiq from homeassistant.components.sleepiq
-2024-10-20 10:57:05.560 INFO (SyncWorker_1) [homeassistant.loader] Loaded fyta from homeassistant.components.fyta
-2024-10-20 10:57:05.560 INFO (SyncWorker_1) [homeassistant.loader] Loaded tile from homeassistant.components.tile
-2024-10-20 10:57:05.561 INFO (SyncWorker_1) [homeassistant.loader] Loaded bang_olufsen from homeassistant.components.bang_olufsen
-2024-10-20 10:57:05.562 INFO (SyncWorker_1) [homeassistant.loader] Loaded aussie_broadband from homeassistant.components.aussie_broadband
-2024-10-20 10:57:05.563 INFO (SyncWorker_1) [homeassistant.loader] Loaded adax from homeassistant.components.adax
-2024-10-20 10:57:05.563 INFO (SyncWorker_1) [homeassistant.loader] Loaded forecast_solar from homeassistant.components.forecast_solar
-2024-10-20 10:57:05.564 INFO (SyncWorker_1) [homeassistant.loader] Loaded slimproto from homeassistant.components.slimproto
-2024-10-20 10:57:05.565 INFO (SyncWorker_1) [homeassistant.loader] Loaded fjaraskupan from homeassistant.components.fjaraskupan
-2024-10-20 10:57:05.565 INFO (SyncWorker_1) [homeassistant.loader] Loaded withings from homeassistant.components.withings
-2024-10-20 10:57:05.566 INFO (SyncWorker_1) [homeassistant.loader] Loaded smhi from homeassistant.components.smhi
-2024-10-20 10:57:05.566 INFO (SyncWorker_1) [homeassistant.loader] Loaded switcher_kis from homeassistant.components.switcher_kis
-2024-10-20 10:57:05.567 INFO (SyncWorker_1) [homeassistant.loader] Loaded buienradar from homeassistant.components.buienradar
-2024-10-20 10:57:05.568 INFO (SyncWorker_1) [homeassistant.loader] Loaded heos from homeassistant.components.heos
-2024-10-20 10:57:05.569 INFO (SyncWorker_1) [homeassistant.loader] Loaded xbox from homeassistant.components.xbox
-2024-10-20 10:57:05.569 INFO (SyncWorker_1) [homeassistant.loader] Loaded xiaomi_ble from homeassistant.components.xiaomi_ble
-2024-10-20 10:57:05.569 INFO (SyncWorker_1) [homeassistant.loader] Loaded ibeacon from homeassistant.components.ibeacon
-2024-10-20 10:57:05.570 INFO (SyncWorker_1) [homeassistant.loader] Loaded ourgroceries from homeassistant.components.ourgroceries
-2024-10-20 10:57:05.570 INFO (SyncWorker_1) [homeassistant.loader] Loaded azure_devops from homeassistant.components.azure_devops
-2024-10-20 10:57:05.571 INFO (SyncWorker_1) [homeassistant.loader] Loaded smart_meter_texas from homeassistant.components.smart_meter_texas
-2024-10-20 10:57:05.572 INFO (SyncWorker_1) [homeassistant.loader] Loaded tuya from homeassistant.components.tuya
-2024-10-20 10:57:05.572 INFO (SyncWorker_1) [homeassistant.loader] Loaded sabnzbd from homeassistant.components.sabnzbd
-2024-10-20 10:57:05.573 INFO (SyncWorker_1) [homeassistant.loader] Loaded snooz from homeassistant.components.snooz
-2024-10-20 10:57:05.573 INFO (SyncWorker_1) [homeassistant.loader] Loaded venstar from homeassistant.components.venstar
-2024-10-20 10:57:05.574 INFO (SyncWorker_1) [homeassistant.loader] Loaded utility_meter from homeassistant.components.utility_meter
-2024-10-20 10:57:05.575 INFO (SyncWorker_1) [homeassistant.loader] Loaded loqed from homeassistant.components.loqed
-2024-10-20 10:57:05.575 INFO (SyncWorker_1) [homeassistant.loader] Loaded dlink from homeassistant.components.dlink
-2024-10-20 10:57:05.576 INFO (SyncWorker_1) [homeassistant.loader] Loaded private_ble_device from homeassistant.components.private_ble_device
-2024-10-20 10:57:05.576 INFO (SyncWorker_1) [homeassistant.loader] Loaded rympro from homeassistant.components.rympro
-2024-10-20 10:57:05.577 INFO (SyncWorker_1) [homeassistant.loader] Loaded rtsp_to_webrtc from homeassistant.components.rtsp_to_webrtc
-2024-10-20 10:57:05.577 INFO (SyncWorker_1) [homeassistant.loader] Loaded derivative from homeassistant.components.derivative
-2024-10-20 10:57:05.578 INFO (SyncWorker_1) [homeassistant.loader] Loaded here_travel_time from homeassistant.components.here_travel_time
-2024-10-20 10:57:05.579 INFO (SyncWorker_1) [homeassistant.loader] Loaded plaato from homeassistant.components.plaato
-2024-10-20 10:57:05.579 INFO (SyncWorker_1) [homeassistant.loader] Loaded hisense_aehw4a1 from homeassistant.components.hisense_aehw4a1
-2024-10-20 10:57:05.580 INFO (SyncWorker_1) [homeassistant.loader] Loaded livisi from homeassistant.components.livisi
-2024-10-20 10:57:05.581 INFO (SyncWorker_1) [homeassistant.loader] Loaded mastodon from homeassistant.components.mastodon
-2024-10-20 10:57:05.581 INFO (SyncWorker_1) [homeassistant.loader] Loaded drop_connect from homeassistant.components.drop_connect
-2024-10-20 10:57:05.582 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_travel_time from homeassistant.components.google_travel_time
-2024-10-20 10:57:05.582 INFO (SyncWorker_1) [homeassistant.loader] Loaded romy from homeassistant.components.romy
-2024-10-20 10:57:05.582 INFO (SyncWorker_1) [homeassistant.loader] Loaded smappee from homeassistant.components.smappee
-2024-10-20 10:57:05.583 INFO (SyncWorker_1) [homeassistant.loader] Loaded sense from homeassistant.components.sense
-2024-10-20 10:57:05.583 INFO (SyncWorker_1) [homeassistant.loader] Loaded snapcast from homeassistant.components.snapcast
-2024-10-20 10:57:05.584 INFO (SyncWorker_1) [homeassistant.loader] Loaded thermopro from homeassistant.components.thermopro
-2024-10-20 10:57:05.585 INFO (SyncWorker_1) [homeassistant.loader] Loaded rpi_power from homeassistant.components.rpi_power
-2024-10-20 10:57:05.585 INFO (SyncWorker_1) [homeassistant.loader] Loaded rainforest_eagle from homeassistant.components.rainforest_eagle
-2024-10-20 10:57:05.586 INFO (SyncWorker_1) [homeassistant.loader] Loaded sma from homeassistant.components.sma
-2024-10-20 10:57:05.587 INFO (SyncWorker_1) [homeassistant.loader] Loaded melnor from homeassistant.components.melnor
-2024-10-20 10:57:05.587 INFO (SyncWorker_1) [homeassistant.loader] Loaded husqvarna_automower from homeassistant.components.husqvarna_automower
-2024-10-20 10:57:05.588 INFO (SyncWorker_1) [homeassistant.loader] Loaded sanix from homeassistant.components.sanix
-2024-10-20 10:57:05.589 INFO (SyncWorker_1) [homeassistant.loader] Loaded webostv from homeassistant.components.webostv
-2024-10-20 10:57:05.589 INFO (SyncWorker_1) [homeassistant.loader] Loaded pvpc_hourly_pricing from homeassistant.components.pvpc_hourly_pricing
-2024-10-20 10:57:05.590 INFO (SyncWorker_1) [homeassistant.loader] Loaded ollama from homeassistant.components.ollama
-2024-10-20 10:57:05.590 INFO (SyncWorker_1) [homeassistant.loader] Loaded freebox from homeassistant.components.freebox
-2024-10-20 10:57:05.591 INFO (SyncWorker_1) [homeassistant.loader] Loaded synology_dsm from homeassistant.components.synology_dsm
-2024-10-20 10:57:05.592 INFO (SyncWorker_1) [homeassistant.loader] Loaded media_extractor from homeassistant.components.media_extractor
-2024-10-20 10:57:05.592 INFO (SyncWorker_1) [homeassistant.loader] Loaded fivem from homeassistant.components.fivem
-2024-10-20 10:57:05.593 INFO (SyncWorker_1) [homeassistant.loader] Loaded totalconnect from homeassistant.components.totalconnect
-2024-10-20 10:57:05.593 INFO (SyncWorker_1) [homeassistant.loader] Loaded twitch from homeassistant.components.twitch
-2024-10-20 10:57:05.594 INFO (SyncWorker_1) [homeassistant.loader] Loaded foscam from homeassistant.components.foscam
-2024-10-20 10:57:05.594 INFO (SyncWorker_1) [homeassistant.loader] Loaded locative from homeassistant.components.locative
-2024-10-20 10:57:05.595 INFO (SyncWorker_1) [homeassistant.loader] Loaded traccar_server from homeassistant.components.traccar_server
-2024-10-20 10:57:05.595 INFO (SyncWorker_1) [homeassistant.loader] Loaded aftership from homeassistant.components.aftership
-2024-10-20 10:57:05.595 INFO (SyncWorker_1) [homeassistant.loader] Loaded poolsense from homeassistant.components.poolsense
-2024-10-20 10:57:05.596 INFO (SyncWorker_1) [homeassistant.loader] Loaded co2signal from homeassistant.components.co2signal
-2024-10-20 10:57:05.596 INFO (SyncWorker_1) [homeassistant.loader] Loaded onewire from homeassistant.components.onewire
-2024-10-20 10:57:05.597 INFO (SyncWorker_1) [homeassistant.loader] Loaded spider from homeassistant.components.spider
-2024-10-20 10:57:05.597 INFO (SyncWorker_1) [homeassistant.loader] Loaded directv from homeassistant.components.directv
-2024-10-20 10:57:05.597 INFO (SyncWorker_1) [homeassistant.loader] Loaded switchbot_cloud from homeassistant.components.switchbot_cloud
-2024-10-20 10:57:05.598 INFO (SyncWorker_1) [homeassistant.loader] Loaded twilio from homeassistant.components.twilio
-2024-10-20 10:57:05.599 INFO (SyncWorker_1) [homeassistant.loader] Loaded traccar from homeassistant.components.traccar
-2024-10-20 10:57:05.600 INFO (SyncWorker_1) [homeassistant.loader] Loaded smartthings from homeassistant.components.smartthings
-2024-10-20 10:57:05.600 INFO (SyncWorker_1) [homeassistant.loader] Loaded hue from homeassistant.components.hue
-2024-10-20 10:57:05.601 INFO (SyncWorker_1) [homeassistant.loader] Loaded emonitor from homeassistant.components.emonitor
-2024-10-20 10:57:05.601 INFO (SyncWorker_1) [homeassistant.loader] Loaded netatmo from homeassistant.components.netatmo
-2024-10-20 10:57:05.602 INFO (SyncWorker_1) [homeassistant.loader] Loaded worldclock from homeassistant.components.worldclock
-2024-10-20 10:57:05.602 INFO (SyncWorker_1) [homeassistant.loader] Loaded iotty from homeassistant.components.iotty
-2024-10-20 10:57:05.603 INFO (SyncWorker_1) [homeassistant.loader] Loaded dsmr from homeassistant.components.dsmr
-2024-10-20 10:57:05.603 INFO (SyncWorker_1) [homeassistant.loader] Loaded netgear from homeassistant.components.netgear
-2024-10-20 10:57:05.604 INFO (SyncWorker_1) [homeassistant.loader] Loaded xiaomi_aqara from homeassistant.components.xiaomi_aqara
-2024-10-20 10:57:05.604 INFO (SyncWorker_1) [homeassistant.loader] Loaded generic from homeassistant.components.generic
-2024-10-20 10:57:05.604 INFO (SyncWorker_1) [homeassistant.loader] Loaded airtouch4 from homeassistant.components.airtouch4
-2024-10-20 10:57:05.605 INFO (SyncWorker_1) [homeassistant.loader] Loaded tessie from homeassistant.components.tessie
-2024-10-20 10:57:05.605 INFO (SyncWorker_1) [homeassistant.loader] Loaded starlink from homeassistant.components.starlink
-2024-10-20 10:57:05.606 INFO (SyncWorker_1) [homeassistant.loader] Loaded threshold from homeassistant.components.threshold
-2024-10-20 10:57:05.606 INFO (SyncWorker_1) [homeassistant.loader] Loaded tod from homeassistant.components.tod
-2024-10-20 10:57:05.607 INFO (SyncWorker_1) [homeassistant.loader] Loaded freedompro from homeassistant.components.freedompro
-2024-10-20 10:57:05.607 INFO (SyncWorker_1) [homeassistant.loader] Loaded met from homeassistant.components.met
-2024-10-20 10:57:05.608 INFO (SyncWorker_1) [homeassistant.loader] Loaded roborock from homeassistant.components.roborock
-2024-10-20 10:57:05.608 INFO (SyncWorker_1) [homeassistant.loader] Loaded netgear_lte from homeassistant.components.netgear_lte
-2024-10-20 10:57:05.609 INFO (SyncWorker_1) [homeassistant.loader] Loaded israel_rail from homeassistant.components.israel_rail
-2024-10-20 10:57:05.609 INFO (SyncWorker_1) [homeassistant.loader] Loaded lg_soundbar from homeassistant.components.lg_soundbar
-2024-10-20 10:57:05.610 INFO (SyncWorker_1) [homeassistant.loader] Loaded syncthing from homeassistant.components.syncthing
-2024-10-20 10:57:05.611 INFO (SyncWorker_1) [homeassistant.loader] Loaded androidtv_remote from homeassistant.components.androidtv_remote
-2024-10-20 10:57:05.612 INFO (SyncWorker_1) [homeassistant.loader] Loaded v2c from homeassistant.components.v2c
-2024-10-20 10:57:05.612 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_mail from homeassistant.components.google_mail
-2024-10-20 10:57:05.613 INFO (SyncWorker_1) [homeassistant.loader] Loaded konnected from homeassistant.components.konnected
-2024-10-20 10:57:05.613 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_assistant_sdk from homeassistant.components.google_assistant_sdk
-2024-10-20 10:57:05.614 INFO (SyncWorker_1) [homeassistant.loader] Loaded airly from homeassistant.components.airly
-2024-10-20 10:57:05.614 INFO (SyncWorker_1) [homeassistant.loader] Loaded abode from homeassistant.components.abode
-2024-10-20 10:57:05.615 INFO (SyncWorker_1) [homeassistant.loader] Loaded radarr from homeassistant.components.radarr
-2024-10-20 10:57:05.615 INFO (SyncWorker_1) [homeassistant.loader] Loaded sentry from homeassistant.components.sentry
-2024-10-20 10:57:05.616 INFO (SyncWorker_1) [homeassistant.loader] Loaded yale_smart_alarm from homeassistant.components.yale_smart_alarm
-2024-10-20 10:57:05.616 INFO (SyncWorker_1) [homeassistant.loader] Loaded nam from homeassistant.components.nam
-2024-10-20 10:57:05.617 INFO (SyncWorker_1) [homeassistant.loader] Loaded ecobee from homeassistant.components.ecobee
-2024-10-20 10:57:05.617 INFO (SyncWorker_1) [homeassistant.loader] Loaded growatt_server from homeassistant.components.growatt_server
-2024-10-20 10:57:05.618 INFO (SyncWorker_1) [homeassistant.loader] Loaded keenetic_ndms2 from homeassistant.components.keenetic_ndms2
-2024-10-20 10:57:05.618 INFO (SyncWorker_1) [homeassistant.loader] Loaded tesla_wall_connector from homeassistant.components.tesla_wall_connector
-2024-10-20 10:57:05.619 INFO (SyncWorker_1) [homeassistant.loader] Loaded asuswrt from homeassistant.components.asuswrt
-2024-10-20 10:57:05.619 INFO (SyncWorker_1) [homeassistant.loader] Loaded wyoming from homeassistant.components.wyoming
-2024-10-20 10:57:05.619 INFO (SyncWorker_1) [homeassistant.loader] Loaded knx from homeassistant.components.knx
-2024-10-20 10:57:05.620 INFO (SyncWorker_1) [homeassistant.loader] Loaded motioneye from homeassistant.components.motioneye
-2024-10-20 10:57:05.620 INFO (SyncWorker_1) [homeassistant.loader] Loaded axis from homeassistant.components.axis
-2024-10-20 10:57:05.621 INFO (SyncWorker_1) [homeassistant.loader] Loaded volvooncall from homeassistant.components.volvooncall
-2024-10-20 10:57:05.621 INFO (SyncWorker_1) [homeassistant.loader] Loaded iaqualink from homeassistant.components.iaqualink
-2024-10-20 10:57:05.622 INFO (SyncWorker_1) [homeassistant.loader] Loaded otbr from homeassistant.components.otbr
-2024-10-20 10:57:05.622 INFO (SyncWorker_1) [homeassistant.loader] Loaded inkbird from homeassistant.components.inkbird
-2024-10-20 10:57:05.623 INFO (SyncWorker_1) [homeassistant.loader] Loaded lupusec from homeassistant.components.lupusec
-2024-10-20 10:57:05.623 INFO (SyncWorker_1) [homeassistant.loader] Loaded wake_on_lan from homeassistant.components.wake_on_lan
-2024-10-20 10:57:05.624 INFO (SyncWorker_1) [homeassistant.loader] Loaded tautulli from homeassistant.components.tautulli
-2024-10-20 10:57:05.624 INFO (SyncWorker_1) [homeassistant.loader] Loaded uptimerobot from homeassistant.components.uptimerobot
-2024-10-20 10:57:05.625 INFO (SyncWorker_1) [homeassistant.loader] Loaded voip from homeassistant.components.voip
-2024-10-20 10:57:05.625 INFO (SyncWorker_1) [homeassistant.loader] Loaded kostal_plenticore from homeassistant.components.kostal_plenticore
-2024-10-20 10:57:05.625 INFO (SyncWorker_1) [homeassistant.loader] Loaded steamist from homeassistant.components.steamist
-2024-10-20 10:57:05.626 INFO (SyncWorker_1) [homeassistant.loader] Loaded pushbullet from homeassistant.components.pushbullet
-2024-10-20 10:57:05.626 INFO (SyncWorker_1) [homeassistant.loader] Loaded litterrobot from homeassistant.components.litterrobot
-2024-10-20 10:57:05.627 INFO (SyncWorker_1) [homeassistant.loader] Loaded acmeda from homeassistant.components.acmeda
-2024-10-20 10:57:05.627 INFO (SyncWorker_1) [homeassistant.loader] Loaded history_stats from homeassistant.components.history_stats
-2024-10-20 10:57:05.628 INFO (SyncWorker_1) [homeassistant.loader] Loaded elkm1 from homeassistant.components.elkm1
-2024-10-20 10:57:05.628 INFO (SyncWorker_1) [homeassistant.loader] Loaded moon from homeassistant.components.moon
-2024-10-20 10:57:05.628 INFO (SyncWorker_1) [homeassistant.loader] Loaded openai_conversation from homeassistant.components.openai_conversation
-2024-10-20 10:57:05.629 INFO (SyncWorker_1) [homeassistant.loader] Loaded qnap from homeassistant.components.qnap
-2024-10-20 10:57:05.629 INFO (SyncWorker_1) [homeassistant.loader] Loaded slack from homeassistant.components.slack
-2024-10-20 10:57:05.629 INFO (SyncWorker_1) [homeassistant.loader] Loaded permobil from homeassistant.components.permobil
-2024-10-20 10:57:05.630 INFO (SyncWorker_1) [homeassistant.loader] Loaded min_max from homeassistant.components.min_max
-2024-10-20 10:57:05.630 INFO (SyncWorker_1) [homeassistant.loader] Loaded eafm from homeassistant.components.eafm
-2024-10-20 10:57:05.631 INFO (SyncWorker_1) [homeassistant.loader] Loaded fireservicerota from homeassistant.components.fireservicerota
-2024-10-20 10:57:05.631 INFO (SyncWorker_1) [homeassistant.loader] Loaded fully_kiosk from homeassistant.components.fully_kiosk
-2024-10-20 10:57:05.632 INFO (SyncWorker_1) [homeassistant.loader] Loaded meater from homeassistant.components.meater
-2024-10-20 10:57:05.632 INFO (SyncWorker_1) [homeassistant.loader] Loaded rituals_perfume_genie from homeassistant.components.rituals_perfume_genie
-2024-10-20 10:57:05.633 INFO (SyncWorker_1) [homeassistant.loader] Loaded coinbase from homeassistant.components.coinbase
-2024-10-20 10:57:05.633 INFO (SyncWorker_1) [homeassistant.loader] Loaded kaleidescape from homeassistant.components.kaleidescape
-2024-10-20 10:57:05.633 INFO (SyncWorker_1) [homeassistant.loader] Loaded hlk_sw16 from homeassistant.components.hlk_sw16
-2024-10-20 10:57:05.634 INFO (SyncWorker_1) [homeassistant.loader] Loaded renson from homeassistant.components.renson
-2024-10-20 10:57:05.634 INFO (SyncWorker_1) [homeassistant.loader] Loaded nanoleaf from homeassistant.components.nanoleaf
-2024-10-20 10:57:05.635 INFO (SyncWorker_1) [homeassistant.loader] Loaded senz from homeassistant.components.senz
-2024-10-20 10:57:05.635 INFO (SyncWorker_1) [homeassistant.loader] Loaded aranet from homeassistant.components.aranet
-2024-10-20 10:57:05.636 INFO (SyncWorker_1) [homeassistant.loader] Loaded geniushub from homeassistant.components.geniushub
-2024-10-20 10:57:05.636 INFO (SyncWorker_1) [homeassistant.loader] Loaded flo from homeassistant.components.flo
-2024-10-20 10:57:05.637 INFO (SyncWorker_1) [homeassistant.loader] Loaded overkiz from homeassistant.components.overkiz
-2024-10-20 10:57:05.637 INFO (SyncWorker_1) [homeassistant.loader] Loaded hvv_departures from homeassistant.components.hvv_departures
-2024-10-20 10:57:05.638 INFO (SyncWorker_1) [homeassistant.loader] Loaded ridwell from homeassistant.components.ridwell
-2024-10-20 10:57:05.638 INFO (SyncWorker_1) [homeassistant.loader] Loaded transmission from homeassistant.components.transmission
-2024-10-20 10:57:05.639 INFO (SyncWorker_1) [homeassistant.loader] Loaded smarttub from homeassistant.components.smarttub
-2024-10-20 10:57:05.639 INFO (SyncWorker_1) [homeassistant.loader] Loaded duotecno from homeassistant.components.duotecno
-2024-10-20 10:57:05.640 INFO (SyncWorker_1) [homeassistant.loader] Loaded ialarm from homeassistant.components.ialarm
-2024-10-20 10:57:05.640 INFO (SyncWorker_1) [homeassistant.loader] Loaded uptime from homeassistant.components.uptime
-2024-10-20 10:57:05.641 INFO (SyncWorker_1) [homeassistant.loader] Loaded ifttt from homeassistant.components.ifttt
-2024-10-20 10:57:05.641 INFO (SyncWorker_1) [homeassistant.loader] Loaded bthome from homeassistant.components.bthome
-2024-10-20 10:57:05.641 INFO (SyncWorker_1) [homeassistant.loader] Loaded deconz from homeassistant.components.deconz
-2024-10-20 10:57:05.642 INFO (SyncWorker_1) [homeassistant.loader] Loaded alarmdecoder from homeassistant.components.alarmdecoder
-2024-10-20 10:57:05.642 INFO (SyncWorker_1) [homeassistant.loader] Loaded isy994 from homeassistant.components.isy994
-2024-10-20 10:57:05.643 INFO (SyncWorker_1) [homeassistant.loader] Loaded mullvad from homeassistant.components.mullvad
-2024-10-20 10:57:05.643 INFO (SyncWorker_1) [homeassistant.loader] Loaded arcam_fmj from homeassistant.components.arcam_fmj
-2024-10-20 10:57:05.644 INFO (SyncWorker_1) [homeassistant.loader] Loaded ipma from homeassistant.components.ipma
-2024-10-20 10:57:05.644 INFO (SyncWorker_1) [homeassistant.loader] Loaded linear_garage_door from homeassistant.components.linear_garage_door
-2024-10-20 10:57:05.645 INFO (SyncWorker_1) [homeassistant.loader] Loaded tplink from homeassistant.components.tplink
-2024-10-20 10:57:05.645 INFO (SyncWorker_1) [homeassistant.loader] Loaded easyenergy from homeassistant.components.easyenergy
-2024-10-20 10:57:05.646 INFO (SyncWorker_1) [homeassistant.loader] Loaded daikin from homeassistant.components.daikin
-2024-10-20 10:57:05.646 INFO (SyncWorker_1) [homeassistant.loader] Loaded flipr from homeassistant.components.flipr
-2024-10-20 10:57:05.647 INFO (SyncWorker_1) [homeassistant.loader] Loaded sharkiq from homeassistant.components.sharkiq
-2024-10-20 10:57:05.647 INFO (SyncWorker_1) [homeassistant.loader] Loaded edl21 from homeassistant.components.edl21
-2024-10-20 10:57:05.648 INFO (SyncWorker_1) [homeassistant.loader] Loaded homeassistant_sky_connect from homeassistant.components.homeassistant_sky_connect
-2024-10-20 10:57:05.648 INFO (SyncWorker_1) [homeassistant.loader] Loaded pure_energie from homeassistant.components.pure_energie
-2024-10-20 10:57:05.648 INFO (SyncWorker_1) [homeassistant.loader] Loaded linkplay from homeassistant.components.linkplay
-2024-10-20 10:57:05.649 INFO (SyncWorker_1) [homeassistant.loader] Loaded solarlog from homeassistant.components.solarlog
-2024-10-20 10:57:05.650 INFO (SyncWorker_1) [homeassistant.loader] Loaded elgato from homeassistant.components.elgato
-2024-10-20 10:57:05.650 INFO (SyncWorker_1) [homeassistant.loader] Loaded philips_js from homeassistant.components.philips_js
-2024-10-20 10:57:05.651 INFO (SyncWorker_1) [homeassistant.loader] Loaded zha from homeassistant.components.zha
-2024-10-20 10:57:05.651 INFO (SyncWorker_1) [homeassistant.loader] Loaded litejet from homeassistant.components.litejet
-2024-10-20 10:57:05.652 INFO (SyncWorker_1) [homeassistant.loader] Loaded pi_hole from homeassistant.components.pi_hole
-2024-10-20 10:57:05.652 INFO (SyncWorker_1) [homeassistant.loader] Loaded motionmount from homeassistant.components.motionmount
-2024-10-20 10:57:05.652 INFO (SyncWorker_1) [homeassistant.loader] Loaded ovo_energy from homeassistant.components.ovo_energy
-2024-10-20 10:57:05.653 INFO (SyncWorker_1) [homeassistant.loader] Loaded ruuvitag_ble from homeassistant.components.ruuvitag_ble
-2024-10-20 10:57:05.653 INFO (SyncWorker_1) [homeassistant.loader] Loaded nextcloud from homeassistant.components.nextcloud
-2024-10-20 10:57:05.654 INFO (SyncWorker_1) [homeassistant.loader] Loaded harmony from homeassistant.components.harmony
-2024-10-20 10:57:05.654 INFO (SyncWorker_1) [homeassistant.loader] Loaded pushover from homeassistant.components.pushover
-2024-10-20 10:57:05.655 INFO (SyncWorker_1) [homeassistant.loader] Loaded wilight from homeassistant.components.wilight
-2024-10-20 10:57:05.655 INFO (SyncWorker_1) [homeassistant.loader] Loaded tami4 from homeassistant.components.tami4
-2024-10-20 10:57:05.656 INFO (SyncWorker_1) [homeassistant.loader] Loaded roomba from homeassistant.components.roomba
-2024-10-20 10:57:05.656 INFO (SyncWorker_1) [homeassistant.loader] Loaded roku from homeassistant.components.roku
-2024-10-20 10:57:05.657 INFO (SyncWorker_1) [homeassistant.loader] Loaded season from homeassistant.components.season
-2024-10-20 10:57:05.657 INFO (SyncWorker_1) [homeassistant.loader] Loaded nina from homeassistant.components.nina
-2024-10-20 10:57:05.657 INFO (SyncWorker_1) [homeassistant.loader] Loaded profiler from homeassistant.components.profiler
-2024-10-20 10:57:05.658 INFO (SyncWorker_1) [homeassistant.loader] Loaded atag from homeassistant.components.atag
-2024-10-20 10:57:05.658 INFO (SyncWorker_1) [homeassistant.loader] Loaded feedreader from homeassistant.components.feedreader
-2024-10-20 10:57:05.659 INFO (SyncWorker_1) [homeassistant.loader] Loaded doorbird from homeassistant.components.doorbird
-2024-10-20 10:57:05.659 INFO (SyncWorker_1) [homeassistant.loader] Loaded flexit_bacnet from homeassistant.components.flexit_bacnet
-2024-10-20 10:57:05.660 INFO (SyncWorker_1) [homeassistant.loader] Loaded lg_netcast from homeassistant.components.lg_netcast
-2024-10-20 10:57:05.660 INFO (SyncWorker_1) [homeassistant.loader] Loaded izone from homeassistant.components.izone
-2024-10-20 10:57:05.661 INFO (SyncWorker_1) [homeassistant.loader] Loaded yeelight from homeassistant.components.yeelight
-2024-10-20 10:57:05.661 INFO (SyncWorker_1) [homeassistant.loader] Loaded switchbee from homeassistant.components.switchbee
-2024-10-20 10:57:05.662 INFO (SyncWorker_1) [homeassistant.loader] Loaded oralb from homeassistant.components.oralb
-2024-10-20 10:57:05.662 INFO (SyncWorker_1) [homeassistant.loader] Loaded systemmonitor from homeassistant.components.systemmonitor
-2024-10-20 10:57:05.662 INFO (SyncWorker_1) [homeassistant.loader] Loaded thread from homeassistant.components.thread
-2024-10-20 10:57:05.663 INFO (SyncWorker_1) [homeassistant.loader] Loaded ruckus_unleashed from homeassistant.components.ruckus_unleashed
-2024-10-20 10:57:05.663 INFO (SyncWorker_1) [homeassistant.loader] Loaded scrape from homeassistant.components.scrape
-2024-10-20 10:57:05.664 INFO (SyncWorker_1) [homeassistant.loader] Loaded wolflink from homeassistant.components.wolflink
-2024-10-20 10:57:05.664 INFO (SyncWorker_1) [homeassistant.loader] Loaded point from homeassistant.components.point
-2024-10-20 10:57:05.665 INFO (SyncWorker_1) [homeassistant.loader] Loaded radiotherm from homeassistant.components.radiotherm
-2024-10-20 10:57:05.665 INFO (SyncWorker_1) [homeassistant.loader] Loaded nws from homeassistant.components.nws
-2024-10-20 10:57:05.665 INFO (SyncWorker_1) [homeassistant.loader] Loaded tradfri from homeassistant.components.tradfri
-2024-10-20 10:57:05.666 INFO (SyncWorker_1) [homeassistant.loader] Loaded webmin from homeassistant.components.webmin
-2024-10-20 10:57:05.666 INFO (SyncWorker_1) [homeassistant.loader] Loaded nzbget from homeassistant.components.nzbget
-2024-10-20 10:57:05.667 INFO (SyncWorker_1) [homeassistant.loader] Loaded trafikverket_weatherstation from homeassistant.components.trafikverket_weatherstation
-2024-10-20 10:57:05.667 INFO (SyncWorker_1) [homeassistant.loader] Loaded deluge from homeassistant.components.deluge
-2024-10-20 10:57:05.668 INFO (SyncWorker_1) [homeassistant.loader] Loaded hko from homeassistant.components.hko
-2024-10-20 10:57:05.668 INFO (SyncWorker_1) [homeassistant.loader] Loaded trafikverket_camera from homeassistant.components.trafikverket_camera
-2024-10-20 10:57:05.668 INFO (SyncWorker_1) [homeassistant.loader] Loaded fibaro from homeassistant.components.fibaro
-2024-10-20 10:57:05.669 INFO (SyncWorker_1) [homeassistant.loader] Loaded local_calendar from homeassistant.components.local_calendar
-2024-10-20 10:57:05.669 INFO (SyncWorker_1) [homeassistant.loader] Loaded workday from homeassistant.components.workday
-2024-10-20 10:57:05.670 INFO (SyncWorker_1) [homeassistant.loader] Loaded tellduslive from homeassistant.components.tellduslive
-2024-10-20 10:57:05.670 INFO (SyncWorker_1) [homeassistant.loader] Loaded broadlink from homeassistant.components.broadlink
-2024-10-20 10:57:05.671 INFO (SyncWorker_1) [homeassistant.loader] Loaded mill from homeassistant.components.mill
-2024-10-20 10:57:05.671 INFO (SyncWorker_1) [homeassistant.loader] Loaded youtube from homeassistant.components.youtube
-2024-10-20 10:57:05.671 INFO (SyncWorker_1) [homeassistant.loader] Loaded dexcom from homeassistant.components.dexcom
-2024-10-20 10:57:05.672 INFO (SyncWorker_1) [homeassistant.loader] Loaded homewizard from homeassistant.components.homewizard
-2024-10-20 10:57:05.672 INFO (SyncWorker_1) [homeassistant.loader] Loaded suez_water from homeassistant.components.suez_water
-2024-10-20 10:57:05.673 INFO (SyncWorker_1) [homeassistant.loader] Loaded microbees from homeassistant.components.microbees
-2024-10-20 10:57:05.673 INFO (SyncWorker_1) [homeassistant.loader] Loaded aurora from homeassistant.components.aurora
-2024-10-20 10:57:05.674 INFO (SyncWorker_1) [homeassistant.loader] Loaded iss from homeassistant.components.iss
-2024-10-20 10:57:05.674 INFO (SyncWorker_1) [homeassistant.loader] Loaded yalexs_ble from homeassistant.components.yalexs_ble
-2024-10-20 10:57:05.675 INFO (SyncWorker_1) [homeassistant.loader] Loaded simplepush from homeassistant.components.simplepush
-2024-10-20 10:57:05.675 INFO (SyncWorker_1) [homeassistant.loader] Loaded homematicip_cloud from homeassistant.components.homematicip_cloud
-2024-10-20 10:57:05.676 INFO (SyncWorker_1) [homeassistant.loader] Loaded generic_thermostat from homeassistant.components.generic_thermostat
-2024-10-20 10:57:05.676 INFO (SyncWorker_1) [homeassistant.loader] Loaded statistics from homeassistant.components.statistics
-2024-10-20 10:57:05.676 INFO (SyncWorker_1) [homeassistant.loader] Loaded filesize from homeassistant.components.filesize
-2024-10-20 10:57:05.677 INFO (SyncWorker_1) [homeassistant.loader] Loaded rapt_ble from homeassistant.components.rapt_ble
-2024-10-20 10:57:05.677 INFO (SyncWorker_1) [homeassistant.loader] Loaded whirlpool from homeassistant.components.whirlpool
-2024-10-20 10:57:05.678 INFO (SyncWorker_1) [homeassistant.loader] Loaded lametric from homeassistant.components.lametric
-2024-10-20 10:57:05.678 INFO (SyncWorker_1) [homeassistant.loader] Loaded airq from homeassistant.components.airq
-2024-10-20 10:57:05.679 INFO (SyncWorker_1) [homeassistant.loader] Loaded local_ip from homeassistant.components.local_ip
-2024-10-20 10:57:05.679 INFO (SyncWorker_1) [homeassistant.loader] Loaded opengarage from homeassistant.components.opengarage
-2024-10-20 10:57:05.680 INFO (SyncWorker_1) [homeassistant.loader] Loaded zwave_js from homeassistant.components.zwave_js
-2024-10-20 10:57:05.680 INFO (SyncWorker_1) [homeassistant.loader] Loaded wiz from homeassistant.components.wiz
-2024-10-20 10:57:05.681 INFO (SyncWorker_1) [homeassistant.loader] Loaded squeezebox from homeassistant.components.squeezebox
-2024-10-20 10:57:05.681 INFO (SyncWorker_1) [homeassistant.loader] Loaded generic_hygrostat from homeassistant.components.generic_hygrostat
-2024-10-20 10:57:05.682 INFO (SyncWorker_1) [homeassistant.loader] Loaded weatherflow_cloud from homeassistant.components.weatherflow_cloud
-2024-10-20 10:57:05.682 INFO (SyncWorker_1) [homeassistant.loader] Loaded gdacs from homeassistant.components.gdacs
-2024-10-20 10:57:05.682 INFO (SyncWorker_1) [homeassistant.loader] Loaded justnimbus from homeassistant.components.justnimbus
-2024-10-20 10:57:05.683 INFO (SyncWorker_1) [homeassistant.loader] Loaded ondilo_ico from homeassistant.components.ondilo_ico
-2024-10-20 10:57:05.683 INFO (SyncWorker_1) [homeassistant.loader] Loaded purpleair from homeassistant.components.purpleair
-2024-10-20 10:57:05.684 INFO (SyncWorker_1) [homeassistant.loader] Loaded ccm15 from homeassistant.components.ccm15
-2024-10-20 10:57:05.684 INFO (SyncWorker_1) [homeassistant.loader] Loaded landisgyr_heat_meter from homeassistant.components.landisgyr_heat_meter
-2024-10-20 10:57:05.684 INFO (SyncWorker_1) [homeassistant.loader] Loaded epson from homeassistant.components.epson
-2024-10-20 10:57:05.685 INFO (SyncWorker_1) [homeassistant.loader] Loaded open_meteo from homeassistant.components.open_meteo
-2024-10-20 10:57:05.685 INFO (SyncWorker_1) [homeassistant.loader] Loaded sql from homeassistant.components.sql
-2024-10-20 10:57:05.686 INFO (SyncWorker_1) [homeassistant.loader] Loaded lastfm from homeassistant.components.lastfm
-2024-10-20 10:57:05.686 INFO (SyncWorker_1) [homeassistant.loader] Loaded devolo_home_control from homeassistant.components.devolo_home_control
-2024-10-20 10:57:05.687 INFO (SyncWorker_1) [homeassistant.loader] Loaded flick_electric from homeassistant.components.flick_electric
-2024-10-20 10:57:05.687 INFO (SyncWorker_1) [homeassistant.loader] Loaded lutron from homeassistant.components.lutron
-2024-10-20 10:57:05.688 INFO (SyncWorker_1) [homeassistant.loader] Loaded unifi from homeassistant.components.unifi
-2024-10-20 10:57:05.688 INFO (SyncWorker_1) [homeassistant.loader] Loaded hyperion from homeassistant.components.hyperion
-2024-10-20 10:57:05.688 INFO (SyncWorker_1) [homeassistant.loader] Loaded fronius from homeassistant.components.fronius
-2024-10-20 10:57:05.689 INFO (SyncWorker_1) [homeassistant.loader] Loaded epic_games_store from homeassistant.components.epic_games_store
-2024-10-20 10:57:05.689 INFO (SyncWorker_1) [homeassistant.loader] Loaded autarco from homeassistant.components.autarco
-2024-10-20 10:57:05.690 INFO (SyncWorker_1) [homeassistant.loader] Loaded coolmaster from homeassistant.components.coolmaster
-2024-10-20 10:57:05.690 INFO (SyncWorker_1) [homeassistant.loader] Loaded dormakaba_dkey from homeassistant.components.dormakaba_dkey
-2024-10-20 10:57:05.691 INFO (SyncWorker_1) [homeassistant.loader] Loaded wiffi from homeassistant.components.wiffi
-2024-10-20 10:57:05.691 INFO (SyncWorker_1) [homeassistant.loader] Loaded iotawatt from homeassistant.components.iotawatt
-2024-10-20 10:57:05.691 INFO (SyncWorker_1) [homeassistant.loader] Loaded airgradient from homeassistant.components.airgradient
-2024-10-20 10:57:05.692 INFO (SyncWorker_1) [homeassistant.loader] Loaded bsblan from homeassistant.components.bsblan
-2024-10-20 10:57:05.692 INFO (SyncWorker_1) [homeassistant.loader] Loaded arve from homeassistant.components.arve
-2024-10-20 10:57:05.693 INFO (SyncWorker_1) [homeassistant.loader] Loaded dsmr_reader from homeassistant.components.dsmr_reader
-2024-10-20 10:57:05.693 INFO (SyncWorker_1) [homeassistant.loader] Loaded faa_delays from homeassistant.components.faa_delays
-2024-10-20 10:57:05.693 INFO (SyncWorker_1) [homeassistant.loader] Loaded cloudflare from homeassistant.components.cloudflare
-2024-10-20 10:57:05.694 INFO (SyncWorker_1) [homeassistant.loader] Loaded balboa from homeassistant.components.balboa
-2024-10-20 10:57:05.694 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_tasks from homeassistant.components.google_tasks
-2024-10-20 10:57:05.695 INFO (SyncWorker_1) [homeassistant.loader] Loaded eq3btsmart from homeassistant.components.eq3btsmart
-2024-10-20 10:57:05.696 INFO (SyncWorker_1) [homeassistant.loader] Loaded plex from homeassistant.components.plex
-2024-10-20 10:57:05.696 INFO (SyncWorker_1) [homeassistant.loader] Loaded incomfort from homeassistant.components.incomfort
-2024-10-20 10:57:05.697 INFO (SyncWorker_1) [homeassistant.loader] Loaded enigma2 from homeassistant.components.enigma2
-2024-10-20 10:57:05.697 INFO (SyncWorker_1) [homeassistant.loader] Loaded ipp from homeassistant.components.ipp
-2024-10-20 10:57:05.698 INFO (SyncWorker_1) [homeassistant.loader] Loaded bmw_connected_drive from homeassistant.components.bmw_connected_drive
-2024-10-20 10:57:05.698 INFO (SyncWorker_1) [homeassistant.loader] Loaded cast from homeassistant.components.cast
-2024-10-20 10:57:05.698 INFO (SyncWorker_1) [homeassistant.loader] Loaded sonarr from homeassistant.components.sonarr
-2024-10-20 10:57:05.699 INFO (SyncWorker_1) [homeassistant.loader] Loaded volumio from homeassistant.components.volumio
-2024-10-20 10:57:05.699 INFO (SyncWorker_1) [homeassistant.loader] Loaded electrasmart from homeassistant.components.electrasmart
-2024-10-20 10:57:05.700 INFO (SyncWorker_1) [homeassistant.loader] Loaded metoffice from homeassistant.components.metoffice
-2024-10-20 10:57:05.700 INFO (SyncWorker_1) [homeassistant.loader] Loaded panasonic_viera from homeassistant.components.panasonic_viera
-2024-10-20 10:57:05.701 INFO (SyncWorker_1) [homeassistant.loader] Loaded version from homeassistant.components.version
-2024-10-20 10:57:05.701 INFO (SyncWorker_1) [homeassistant.loader] Loaded rainforest_raven from homeassistant.components.rainforest_raven
-2024-10-20 10:57:05.701 INFO (SyncWorker_1) [homeassistant.loader] Loaded weatherkit from homeassistant.components.weatherkit
-2024-10-20 10:57:05.702 INFO (SyncWorker_1) [homeassistant.loader] Loaded dunehd from homeassistant.components.dunehd
-2024-10-20 10:57:05.702 INFO (SyncWorker_1) [homeassistant.loader] Loaded epion from homeassistant.components.epion
-2024-10-20 10:57:05.703 INFO (SyncWorker_1) [homeassistant.loader] Loaded whois from homeassistant.components.whois
-2024-10-20 10:57:05.703 INFO (SyncWorker_1) [homeassistant.loader] Loaded watttime from homeassistant.components.watttime
-2024-10-20 10:57:05.703 INFO (SyncWorker_1) [homeassistant.loader] Loaded rfxtrx from homeassistant.components.rfxtrx
-2024-10-20 10:57:05.704 INFO (SyncWorker_1) [homeassistant.loader] Loaded simplefin from homeassistant.components.simplefin
-2024-10-20 10:57:05.704 INFO (SyncWorker_1) [homeassistant.loader] Loaded sensorpro from homeassistant.components.sensorpro
-2024-10-20 10:57:05.705 INFO (SyncWorker_1) [homeassistant.loader] Loaded sia from homeassistant.components.sia
-2024-10-20 10:57:05.705 INFO (SyncWorker_1) [homeassistant.loader] Loaded moat from homeassistant.components.moat
-2024-10-20 10:57:05.705 INFO (SyncWorker_1) [homeassistant.loader] Loaded aquacell from homeassistant.components.aquacell
-2024-10-20 10:57:05.706 INFO (SyncWorker_1) [homeassistant.loader] Loaded meteo_france from homeassistant.components.meteo_france
-2024-10-20 10:57:05.706 INFO (SyncWorker_1) [homeassistant.loader] Loaded hydrawise from homeassistant.components.hydrawise
-2024-10-20 10:57:05.707 INFO (SyncWorker_1) [homeassistant.loader] Loaded wemo from homeassistant.components.wemo
-2024-10-20 10:57:05.707 INFO (SyncWorker_1) [homeassistant.loader] Loaded flume from homeassistant.components.flume
-2024-10-20 10:57:05.708 INFO (SyncWorker_1) [homeassistant.loader] Loaded sms from homeassistant.components.sms
-2024-10-20 10:57:05.708 INFO (SyncWorker_1) [homeassistant.loader] Loaded downloader from homeassistant.components.downloader
-2024-10-20 10:57:05.708 INFO (SyncWorker_1) [homeassistant.loader] Loaded airzone from homeassistant.components.airzone
-2024-10-20 10:57:05.709 INFO (SyncWorker_1) [homeassistant.loader] Loaded gios from homeassistant.components.gios
-2024-10-20 10:57:05.709 INFO (SyncWorker_1) [homeassistant.loader] Loaded iqvia from homeassistant.components.iqvia
-2024-10-20 10:57:05.710 INFO (SyncWorker_1) [homeassistant.loader] Loaded medcom_ble from homeassistant.components.medcom_ble
-2024-10-20 10:57:05.710 INFO (SyncWorker_1) [homeassistant.loader] Loaded devolo_home_network from homeassistant.components.devolo_home_network
-2024-10-20 10:57:05.710 INFO (SyncWorker_1) [homeassistant.loader] Loaded srp_energy from homeassistant.components.srp_energy
-2024-10-20 10:57:05.711 INFO (SyncWorker_1) [homeassistant.loader] Loaded stookalert from homeassistant.components.stookalert
-2024-10-20 10:57:05.711 INFO (SyncWorker_1) [homeassistant.loader] Loaded blue_current from homeassistant.components.blue_current
-2024-10-20 10:57:05.712 INFO (SyncWorker_1) [homeassistant.loader] Loaded tesla_fleet from homeassistant.components.tesla_fleet
-2024-10-20 10:57:05.712 INFO (SyncWorker_1) [homeassistant.loader] Loaded devialet from homeassistant.components.devialet
-2024-10-20 10:57:05.713 INFO (SyncWorker_1) [homeassistant.loader] Loaded android_ip_webcam from homeassistant.components.android_ip_webcam
-2024-10-20 10:57:05.713 INFO (SyncWorker_1) [homeassistant.loader] Loaded eufylife_ble from homeassistant.components.eufylife_ble
-2024-10-20 10:57:05.713 INFO (SyncWorker_1) [homeassistant.loader] Loaded stookwijzer from homeassistant.components.stookwijzer
-2024-10-20 10:57:05.714 INFO (SyncWorker_1) [homeassistant.loader] Loaded tedee from homeassistant.components.tedee
-2024-10-20 10:57:05.714 INFO (SyncWorker_1) [homeassistant.loader] Loaded airtouch5 from homeassistant.components.airtouch5
-2024-10-20 10:57:05.715 INFO (SyncWorker_1) [homeassistant.loader] Loaded goalzero from homeassistant.components.goalzero
-2024-10-20 10:57:05.715 INFO (SyncWorker_1) [homeassistant.loader] Loaded jellyfin from homeassistant.components.jellyfin
-2024-10-20 10:57:05.715 INFO (SyncWorker_1) [homeassistant.loader] Loaded discovergy from homeassistant.components.discovergy
-2024-10-20 10:57:05.716 INFO (SyncWorker_1) [homeassistant.loader] Loaded laundrify from homeassistant.components.laundrify
-2024-10-20 10:57:05.716 INFO (SyncWorker_1) [homeassistant.loader] Loaded openweathermap from homeassistant.components.openweathermap
-2024-10-20 10:57:05.717 INFO (SyncWorker_1) [homeassistant.loader] Loaded nmap_tracker from homeassistant.components.nmap_tracker
-2024-10-20 10:57:05.717 INFO (SyncWorker_1) [homeassistant.loader] Loaded goodwe from homeassistant.components.goodwe
-2024-10-20 10:57:05.717 INFO (SyncWorker_1) [homeassistant.loader] Loaded improv_ble from homeassistant.components.improv_ble
-2024-10-20 10:57:05.718 INFO (SyncWorker_1) [homeassistant.loader] Loaded lyric from homeassistant.components.lyric
-2024-10-20 10:57:05.718 INFO (SyncWorker_1) [homeassistant.loader] Loaded renault from homeassistant.components.renault
-2024-10-20 10:57:05.719 INFO (SyncWorker_1) [homeassistant.loader] Loaded system_bridge from homeassistant.components.system_bridge
-2024-10-20 10:57:05.719 INFO (SyncWorker_1) [homeassistant.loader] Loaded yolink from homeassistant.components.yolink
-2024-10-20 10:57:05.719 INFO (SyncWorker_1) [homeassistant.loader] Loaded solaredge from homeassistant.components.solaredge
-2024-10-20 10:57:05.720 INFO (SyncWorker_1) [homeassistant.loader] Loaded imap from homeassistant.components.imap
-2024-10-20 10:57:05.720 INFO (SyncWorker_1) [homeassistant.loader] Loaded otp from homeassistant.components.otp
-2024-10-20 10:57:05.721 INFO (SyncWorker_1) [homeassistant.loader] Loaded local_todo from homeassistant.components.local_todo
-2024-10-20 10:57:05.721 INFO (SyncWorker_1) [homeassistant.loader] Loaded ambient_station from homeassistant.components.ambient_station
-2024-10-20 10:57:05.721 INFO (SyncWorker_1) [homeassistant.loader] Loaded color_extractor from homeassistant.components.color_extractor
-2024-10-20 10:57:05.722 INFO (SyncWorker_1) [homeassistant.loader] Loaded proximity from homeassistant.components.proximity
-2024-10-20 10:57:05.723 INFO (SyncWorker_1) [homeassistant.loader] Loaded led_ble from homeassistant.components.led_ble
-2024-10-20 10:57:05.723 INFO (SyncWorker_1) [homeassistant.loader] Loaded plum_lightpad from homeassistant.components.plum_lightpad
-2024-10-20 10:57:05.723 INFO (SyncWorker_1) [homeassistant.loader] Loaded upcloud from homeassistant.components.upcloud
-2024-10-20 10:57:05.724 INFO (SyncWorker_1) [homeassistant.loader] Loaded discord from homeassistant.components.discord
-2024-10-20 10:57:05.724 INFO (SyncWorker_1) [homeassistant.loader] Loaded evil_genius_labs from homeassistant.components.evil_genius_labs
-2024-10-20 10:57:05.725 INFO (SyncWorker_1) [homeassistant.loader] Loaded logi_circle from homeassistant.components.logi_circle
-2024-10-20 10:57:05.725 INFO (SyncWorker_1) [homeassistant.loader] Loaded neato from homeassistant.components.neato
-2024-10-20 10:57:05.726 INFO (SyncWorker_1) [homeassistant.loader] Loaded nextbus from homeassistant.components.nextbus
-2024-10-20 10:57:05.726 INFO (SyncWorker_1) [homeassistant.loader] Loaded switchbot from homeassistant.components.switchbot
-2024-10-20 10:57:05.727 INFO (SyncWorker_1) [homeassistant.loader] Loaded refoss from homeassistant.components.refoss
-2024-10-20 10:57:05.727 INFO (SyncWorker_1) [homeassistant.loader] Loaded verisure from homeassistant.components.verisure
-2024-10-20 10:57:05.728 INFO (SyncWorker_1) [homeassistant.loader] Loaded trafikverket_train from homeassistant.components.trafikverket_train
-2024-10-20 10:57:05.728 INFO (SyncWorker_1) [homeassistant.loader] Loaded tankerkoenig from homeassistant.components.tankerkoenig
-2024-10-20 10:57:05.729 INFO (SyncWorker_1) [homeassistant.loader] Loaded awair from homeassistant.components.awair
-2024-10-20 10:57:05.729 INFO (SyncWorker_1) [homeassistant.loader] Loaded dnsip from homeassistant.components.dnsip
-2024-10-20 10:57:05.730 INFO (SyncWorker_1) [homeassistant.loader] Loaded tailwind from homeassistant.components.tailwind
-2024-10-20 10:57:05.730 INFO (SyncWorker_1) [homeassistant.loader] Loaded moehlenhoff_alpha2 from homeassistant.components.moehlenhoff_alpha2
-2024-10-20 10:57:05.730 INFO (SyncWorker_1) [homeassistant.loader] Loaded yardian from homeassistant.components.yardian
-2024-10-20 10:57:05.731 INFO (SyncWorker_1) [homeassistant.loader] Loaded integration from homeassistant.components.integration
-2024-10-20 10:57:05.731 INFO (SyncWorker_1) [homeassistant.loader] Loaded nuki from homeassistant.components.nuki
-2024-10-20 10:57:05.732 INFO (SyncWorker_1) [homeassistant.loader] Loaded owntracks from homeassistant.components.owntracks
-2024-10-20 10:57:05.732 INFO (SyncWorker_1) [homeassistant.loader] Loaded velbus from homeassistant.components.velbus
-2024-10-20 10:57:05.732 INFO (SyncWorker_1) [homeassistant.loader] Loaded azure_event_hub from homeassistant.components.azure_event_hub
-2024-10-20 10:57:05.733 INFO (SyncWorker_1) [homeassistant.loader] Loaded braviatv from homeassistant.components.braviatv
-2024-10-20 10:57:05.733 INFO (SyncWorker_1) [homeassistant.loader] Loaded huisbaasje from homeassistant.components.huisbaasje
-2024-10-20 10:57:05.734 INFO (SyncWorker_1) [homeassistant.loader] Loaded huum from homeassistant.components.huum
-2024-10-20 10:57:05.734 INFO (SyncWorker_1) [homeassistant.loader] Loaded vallox from homeassistant.components.vallox
-2024-10-20 10:57:05.735 INFO (SyncWorker_1) [homeassistant.loader] Loaded onvif from homeassistant.components.onvif
-2024-10-20 10:57:05.735 INFO (SyncWorker_1) [homeassistant.loader] Loaded risco from homeassistant.components.risco
-2024-10-20 10:57:05.735 INFO (SyncWorker_1) [homeassistant.loader] Loaded mealie from homeassistant.components.mealie
-2024-10-20 10:57:05.736 INFO (SyncWorker_1) [homeassistant.loader] Loaded modem_callerid from homeassistant.components.modem_callerid
-2024-10-20 10:57:05.736 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_generative_ai_conversation from homeassistant.components.google_generative_ai_conversation
-2024-10-20 10:57:05.737 INFO (SyncWorker_1) [homeassistant.loader] Loaded monoprice from homeassistant.components.monoprice
-2024-10-20 10:57:05.737 INFO (SyncWorker_1) [homeassistant.loader] Loaded nobo_hub from homeassistant.components.nobo_hub
-2024-10-20 10:57:05.737 INFO (SyncWorker_1) [homeassistant.loader] Loaded oncue from homeassistant.components.oncue
-2024-10-20 10:57:05.738 INFO (SyncWorker_1) [homeassistant.loader] Loaded ecovacs from homeassistant.components.ecovacs
-2024-10-20 10:57:05.738 INFO (SyncWorker_1) [homeassistant.loader] Loaded sfr_box from homeassistant.components.sfr_box
-2024-10-20 10:57:05.739 INFO (SyncWorker_1) [homeassistant.loader] Loaded ecoforest from homeassistant.components.ecoforest
-2024-10-20 10:57:05.739 INFO (SyncWorker_1) [homeassistant.loader] Loaded velux from homeassistant.components.velux
-2024-10-20 10:57:05.740 INFO (SyncWorker_1) [homeassistant.loader] Loaded google_sheets from homeassistant.components.google_sheets
-2024-10-20 10:57:05.740 INFO (SyncWorker_1) [homeassistant.loader] Loaded soundtouch from homeassistant.components.soundtouch
-2024-10-20 10:57:05.740 INFO (SyncWorker_1) [homeassistant.loader] Loaded fritzbox from homeassistant.components.fritzbox
-2024-10-20 10:57:05.741 INFO (SyncWorker_1) [homeassistant.loader] Loaded brottsplatskartan from homeassistant.components.brottsplatskartan
-2024-10-20 10:57:05.741 INFO (SyncWorker_1) [homeassistant.loader] Loaded icloud from homeassistant.components.icloud
-2024-10-20 10:57:05.742 INFO (SyncWorker_1) [homeassistant.loader] Loaded mystrom from homeassistant.components.mystrom
-2024-10-20 10:57:05.742 INFO (SyncWorker_1) [homeassistant.loader] Loaded airthings from homeassistant.components.airthings
-2024-10-20 10:57:05.743 INFO (SyncWorker_1) [homeassistant.loader] Loaded gree from homeassistant.components.gree
-2024-10-20 10:57:05.743 INFO (SyncWorker_1) [homeassistant.loader] Loaded geocaching from homeassistant.components.geocaching
-2024-10-20 10:57:05.743 INFO (SyncWorker_1) [homeassistant.loader] Loaded dynalite from homeassistant.components.dynalite
-2024-10-20 10:57:05.744 INFO (SyncWorker_1) [homeassistant.loader] Loaded myuplink from homeassistant.components.myuplink
-2024-10-20 10:57:05.744 INFO (SyncWorker_1) [homeassistant.loader] Loaded ring from homeassistant.components.ring
-2024-10-20 10:57:05.745 INFO (SyncWorker_1) [homeassistant.loader] Loaded met_eireann from homeassistant.components.met_eireann
-2024-10-20 10:57:05.745 INFO (SyncWorker_1) [homeassistant.loader] Loaded aosmith from homeassistant.components.aosmith
-2024-10-20 10:57:05.745 INFO (SyncWorker_1) [homeassistant.loader] Loaded hunterdouglas_powerview from homeassistant.components.hunterdouglas_powerview
-2024-10-20 10:57:05.746 INFO (SyncWorker_1) [homeassistant.loader] Loaded mjpeg from homeassistant.components.mjpeg
-2024-10-20 10:57:05.746 INFO (SyncWorker_1) [homeassistant.loader] Loaded nibe_heatpump from homeassistant.components.nibe_heatpump
-2024-10-20 10:57:05.747 INFO (SyncWorker_1) [homeassistant.loader] Loaded solax from homeassistant.components.solax
-2024-10-20 10:57:05.747 INFO (SyncWorker_1) [homeassistant.loader] Loaded youless from homeassistant.components.youless
-2024-10-20 10:57:05.747 INFO (SyncWorker_1) [homeassistant.loader] Loaded gpsd from homeassistant.components.gpsd
-2024-10-20 10:57:05.748 INFO (SyncWorker_1) [homeassistant.loader] Loaded opentherm_gw from homeassistant.components.opentherm_gw
-2024-10-20 10:57:05.748 INFO (SyncWorker_1) [homeassistant.loader] Loaded caldav from homeassistant.components.caldav
-2024-10-20 10:57:05.749 INFO (SyncWorker_1) [homeassistant.loader] Loaded fitbit from homeassistant.components.fitbit
-2024-10-20 10:57:05.749 INFO (SyncWorker_1) [homeassistant.loader] Loaded upb from homeassistant.components.upb
-2024-10-20 10:57:05.749 INFO (SyncWorker_1) [homeassistant.loader] Loaded vicare from homeassistant.components.vicare
-2024-10-20 10:57:05.750 INFO (SyncWorker_1) [homeassistant.loader] Loaded github from homeassistant.components.github
-2024-10-20 10:57:05.750 INFO (SyncWorker_1) [homeassistant.loader] Loaded mpd from homeassistant.components.mpd
-2024-10-20 10:57:05.751 INFO (SyncWorker_1) [homeassistant.loader] Loaded qingping from homeassistant.components.qingping
-2024-10-20 10:57:05.751 INFO (SyncWorker_1) [homeassistant.loader] Loaded nextdns from homeassistant.components.nextdns
-2024-10-20 10:57:05.751 INFO (SyncWorker_1) [homeassistant.loader] Loaded juicenet from homeassistant.components.juicenet
-2024-10-20 10:57:05.752 INFO (SyncWorker_1) [homeassistant.loader] Loaded ws66i from homeassistant.components.ws66i
-2024-10-20 10:57:05.752 INFO (SyncWorker_1) [homeassistant.loader] Loaded mikrotik from homeassistant.components.mikrotik
-2024-10-20 10:57:05.753 INFO (SyncWorker_1) [homeassistant.loader] Loaded toon from homeassistant.components.toon
-2024-10-20 10:57:05.753 INFO (SyncWorker_1) [homeassistant.loader] Loaded brother from homeassistant.components.brother
-2024-10-20 10:57:05.753 INFO (SyncWorker_1) [homeassistant.loader] Loaded starline from homeassistant.components.starline
-2024-10-20 10:57:05.754 INFO (SyncWorker_1) [homeassistant.loader] Loaded airzone_cloud from homeassistant.components.airzone_cloud
-2024-10-20 10:57:05.754 INFO (SyncWorker_1) [homeassistant.loader] Loaded rova from homeassistant.components.rova
-2024-10-20 10:57:05.755 INFO (SyncWorker_1) [homeassistant.loader] Loaded androidtv from homeassistant.components.androidtv
-2024-10-20 10:57:05.755 INFO (SyncWorker_1) [homeassistant.loader] Loaded p1_monitor from homeassistant.components.p1_monitor
-2024-10-20 10:57:05.756 INFO (SyncWorker_1) [homeassistant.loader] Loaded nuheat from homeassistant.components.nuheat
-2024-10-20 10:57:05.756 INFO (SyncWorker_1) [homeassistant.loader] Loaded google from homeassistant.components.google
-2024-10-20 10:57:05.757 INFO (SyncWorker_1) [homeassistant.loader] Loaded trafikverket_ferry from homeassistant.components.trafikverket_ferry
-2024-10-20 10:57:05.757 INFO (SyncWorker_1) [homeassistant.loader] Loaded chacon_dio from homeassistant.components.chacon_dio
-2024-10-20 10:57:05.758 INFO (SyncWorker_1) [homeassistant.loader] Loaded baf from homeassistant.components.baf
-2024-10-20 10:57:05.758 INFO (SyncWorker_1) [homeassistant.loader] Loaded homekit_controller from homeassistant.components.homekit_controller
-2024-10-20 10:57:05.758 INFO (SyncWorker_1) [homeassistant.loader] Loaded seventeentrack from homeassistant.components.seventeentrack
-2024-10-20 10:57:05.759 INFO (SyncWorker_1) [homeassistant.loader] Loaded insteon from homeassistant.components.insteon
-2024-10-20 10:57:05.759 INFO (SyncWorker_1) [homeassistant.loader] Loaded sunweg from homeassistant.components.sunweg
-2024-10-20 10:57:05.760 INFO (SyncWorker_1) [homeassistant.loader] Loaded airvisual_pro from homeassistant.components.airvisual_pro
-2024-10-20 10:57:05.760 INFO (SyncWorker_1) [homeassistant.loader] Loaded advantage_air from homeassistant.components.advantage_air
-2024-10-20 10:57:05.760 INFO (SyncWorker_1) [homeassistant.loader] Loaded skybell from homeassistant.components.skybell
-2024-10-20 10:57:05.761 INFO (SyncWorker_1) [homeassistant.loader] Loaded homekit from homeassistant.components.homekit
-2024-10-20 10:57:05.761 INFO (SyncWorker_1) [homeassistant.loader] Loaded speedtestdotnet from homeassistant.components.speedtestdotnet
-2024-10-20 10:57:05.762 INFO (SyncWorker_1) [homeassistant.loader] Loaded airthings_ble from homeassistant.components.airthings_ble
-2024-10-20 10:57:05.762 INFO (SyncWorker_1) [homeassistant.loader] Loaded apple_tv from homeassistant.components.apple_tv
-2024-10-20 10:57:05.763 INFO (SyncWorker_1) [homeassistant.loader] Loaded energenie_power_sockets from homeassistant.components.energenie_power_sockets
-2024-10-20 10:57:05.763 INFO (SyncWorker_1) [homeassistant.loader] Loaded motionblinds_ble from homeassistant.components.motionblinds_ble
-2024-10-20 10:57:05.764 INFO (SyncWorker_1) [homeassistant.loader] Loaded tplink_omada from homeassistant.components.tplink_omada
-2024-10-20 10:57:05.764 INFO (SyncWorker_1) [homeassistant.loader] Loaded russound_rio from homeassistant.components.russound_rio
-2024-10-20 10:57:05.764 INFO (SyncWorker_1) [homeassistant.loader] Loaded govee_ble from homeassistant.components.govee_ble
-2024-10-20 10:57:05.765 INFO (SyncWorker_1) [homeassistant.loader] Loaded luftdaten from homeassistant.components.luftdaten
-2024-10-20 10:57:05.765 INFO (SyncWorker_1) [homeassistant.loader] Loaded swiss_public_transport from homeassistant.components.swiss_public_transport
-2024-10-20 10:57:05.766 INFO (SyncWorker_1) [homeassistant.loader] Loaded azure_data_explorer from homeassistant.components.azure_data_explorer
-2024-10-20 10:57:05.766 INFO (SyncWorker_1) [homeassistant.loader] Loaded wled from homeassistant.components.wled
-2024-10-20 10:57:05.767 INFO (SyncWorker_1) [homeassistant.loader] Loaded monzo from homeassistant.components.monzo
-2024-10-20 10:57:05.767 INFO (SyncWorker_1) [homeassistant.loader] Loaded august from homeassistant.components.august
-2024-10-20 10:57:05.767 INFO (SyncWorker_1) [homeassistant.loader] Loaded sensibo from homeassistant.components.sensibo
-2024-10-20 10:57:05.768 INFO (SyncWorker_1) [homeassistant.loader] Loaded canary from homeassistant.components.canary
-2024-10-20 10:57:05.768 INFO (SyncWorker_1) [homeassistant.loader] Loaded screenlogic from homeassistant.components.screenlogic
-2024-10-20 10:57:05.769 INFO (SyncWorker_1) [homeassistant.loader] Loaded airvisual from homeassistant.components.airvisual
-2024-10-20 10:57:05.769 INFO (SyncWorker_1) [homeassistant.loader] Loaded soma from homeassistant.components.soma
-2024-10-20 10:57:05.770 INFO (SyncWorker_1) [homeassistant.loader] Loaded efergy from homeassistant.components.efergy
-2024-10-20 10:57:05.770 INFO (SyncWorker_1) [homeassistant.loader] Loaded control4 from homeassistant.components.control4
-2024-10-20 10:57:05.770 INFO (SyncWorker_1) [homeassistant.loader] Loaded garages_amsterdam from homeassistant.components.garages_amsterdam
-2024-10-20 10:57:05.771 INFO (SyncWorker_1) [homeassistant.loader] Loaded cert_expiry from homeassistant.components.cert_expiry
-2024-10-20 10:57:05.771 INFO (SyncWorker_1) [homeassistant.loader] Loaded file from homeassistant.components.file
-2024-10-20 10:57:05.772 INFO (SyncWorker_1) [homeassistant.loader] Loaded ping from homeassistant.components.ping
-2024-10-20 10:57:05.772 INFO (SyncWorker_1) [homeassistant.loader] Loaded pvoutput from homeassistant.components.pvoutput
-2024-10-20 10:57:05.772 INFO (SyncWorker_1) [homeassistant.loader] Loaded tado from homeassistant.components.tado
-2024-10-20 10:57:05.773 INFO (SyncWorker_1) [homeassistant.loader] Loaded crownstone from homeassistant.components.crownstone
-2024-10-20 10:57:05.773 INFO (SyncWorker_1) [homeassistant.loader] Loaded thethingsnetwork from homeassistant.components.thethingsnetwork
-2024-10-20 10:57:05.774 INFO (SyncWorker_1) [homeassistant.loader] Loaded rainmachine from homeassistant.components.rainmachine
-2024-10-20 10:57:05.774 INFO (SyncWorker_1) [homeassistant.loader] Loaded govee_light_local from homeassistant.components.govee_light_local
-2024-10-20 10:57:05.775 INFO (SyncWorker_1) [homeassistant.loader] Loaded frontier_silicon from homeassistant.components.frontier_silicon
-2024-10-20 10:57:05.775 INFO (SyncWorker_1) [homeassistant.loader] Loaded twentemilieu from homeassistant.components.twentemilieu
-2024-10-20 10:57:05.775 INFO (SyncWorker_1) [homeassistant.loader] Loaded nfandroidtv from homeassistant.components.nfandroidtv
-2024-10-20 10:57:05.776 INFO (SyncWorker_1) [homeassistant.loader] Loaded zerproc from homeassistant.components.zerproc
-2024-10-20 10:57:05.776 INFO (SyncWorker_1) [homeassistant.loader] Loaded elvia from homeassistant.components.elvia
-2024-10-20 10:57:05.777 INFO (SyncWorker_1) [homeassistant.loader] Loaded teslemetry from homeassistant.components.teslemetry
-2024-10-20 10:57:05.777 INFO (SyncWorker_1) [homeassistant.loader] Loaded bond from homeassistant.components.bond
-2024-10-20 10:57:05.778 INFO (SyncWorker_1) [homeassistant.loader] Loaded kodi from homeassistant.components.kodi
-2024-10-20 10:57:05.778 INFO (SyncWorker_1) [homeassistant.loader] Loaded madvr from homeassistant.components.madvr
-2024-10-20 10:57:05.778 INFO (SyncWorker_1) [homeassistant.loader] Loaded vulcan from homeassistant.components.vulcan
-2024-10-20 10:57:05.779 INFO (SyncWorker_1) [homeassistant.loader] Loaded rabbitair from homeassistant.components.rabbitair
-2024-10-20 10:57:05.779 INFO (SyncWorker_1) [homeassistant.loader] Loaded accuweather from homeassistant.components.accuweather
-2024-10-20 10:57:05.780 INFO (SyncWorker_1) [homeassistant.loader] Loaded knocki from homeassistant.components.knocki
-2024-10-20 10:57:05.780 INFO (SyncWorker_1) [homeassistant.loader] Loaded launch_library from homeassistant.components.launch_library
-2024-10-20 10:57:05.780 INFO (SyncWorker_1) [homeassistant.loader] Loaded bluemaestro from homeassistant.components.bluemaestro
-2024-10-20 10:57:05.781 INFO (SyncWorker_1) [homeassistant.loader] Loaded dlna_dmr from homeassistant.components.dlna_dmr
-2024-10-20 10:57:05.781 INFO (SyncWorker_1) [homeassistant.loader] Loaded prusalink from homeassistant.components.prusalink
-2024-10-20 10:57:05.782 INFO (SyncWorker_1) [homeassistant.loader] Loaded obihai from homeassistant.components.obihai
-2024-10-20 10:57:05.782 INFO (SyncWorker_1) [homeassistant.loader] Loaded aprilaire from homeassistant.components.aprilaire
-2024-10-20 10:57:05.783 INFO (SyncWorker_1) [homeassistant.loader] Loaded tractive from homeassistant.components.tractive
-2024-10-20 10:57:05.783 INFO (SyncWorker_1) [homeassistant.loader] Loaded ld2410_ble from homeassistant.components.ld2410_ble
-2024-10-20 10:57:05.783 INFO (SyncWorker_1) [homeassistant.loader] Loaded vera from homeassistant.components.vera
-2024-10-20 10:57:05.784 INFO (SyncWorker_1) [homeassistant.loader] Loaded geonetnz_quakes from homeassistant.components.geonetnz_quakes
-2024-10-20 10:57:05.784 INFO (SyncWorker_1) [homeassistant.loader] Loaded jvc_projector from homeassistant.components.jvc_projector
-2024-10-20 10:57:05.785 INFO (SyncWorker_1) [homeassistant.loader] Loaded opower from homeassistant.components.opower
-2024-10-20 10:57:05.785 INFO (SyncWorker_1) [homeassistant.loader] Loaded vodafone_station from homeassistant.components.vodafone_station
-2024-10-20 10:57:05.785 INFO (SyncWorker_1) [homeassistant.loader] Loaded geofency from homeassistant.components.geofency
-2024-10-20 10:57:05.786 INFO (SyncWorker_1) [homeassistant.loader] Loaded tolo from homeassistant.components.tolo
-2024-10-20 10:57:05.786 INFO (SyncWorker_1) [homeassistant.loader] Loaded upnp from homeassistant.components.upnp
-2024-10-20 10:57:05.787 INFO (SyncWorker_1) [homeassistant.loader] Loaded anova from homeassistant.components.anova
-2024-10-20 10:57:05.787 INFO (SyncWorker_1) [homeassistant.loader] Loaded lookin from homeassistant.components.lookin
-2024-10-20 10:57:05.788 INFO (SyncWorker_1) [homeassistant.loader] Loaded leaone from homeassistant.components.leaone
-2024-10-20 10:57:05.788 INFO (SyncWorker_1) [homeassistant.loader] Loaded schlage from homeassistant.components.schlage
-2024-10-20 10:57:05.789 INFO (SyncWorker_1) [homeassistant.loader] Loaded lutron_caseta from homeassistant.components.lutron_caseta
-2024-10-20 10:57:05.789 INFO (SyncWorker_1) [homeassistant.loader] Loaded meteoclimatic from homeassistant.components.meteoclimatic
-2024-10-20 10:57:05.790 INFO (SyncWorker_1) [homeassistant.loader] Loaded sonos from homeassistant.components.sonos
-2024-10-20 10:57:05.790 INFO (SyncWorker_1) [homeassistant.loader] Loaded pegel_online from homeassistant.components.pegel_online
-2024-10-20 10:57:05.791 INFO (SyncWorker_1) [homeassistant.loader] Loaded simplisafe from homeassistant.components.simplisafe
-2024-10-20 10:57:05.791 INFO (SyncWorker_1) [homeassistant.loader] Loaded jewish_calendar from homeassistant.components.jewish_calendar
-2024-10-20 10:57:05.792 INFO (SyncWorker_1) [homeassistant.loader] Loaded emulated_roku from homeassistant.components.emulated_roku
-2024-10-20 10:57:05.792 INFO (SyncWorker_1) [homeassistant.loader] Loaded escea from homeassistant.components.escea
-2024-10-20 10:57:05.793 INFO (SyncWorker_1) [homeassistant.loader] Loaded fritz from homeassistant.components.fritz
-2024-10-20 10:57:05.793 INFO (SyncWorker_1) [homeassistant.loader] Loaded lidarr from homeassistant.components.lidarr
-2024-10-20 10:57:05.793 INFO (SyncWorker_1) [homeassistant.loader] Loaded aurora_abb_powerone from homeassistant.components.aurora_abb_powerone
-2024-10-20 10:57:05.794 INFO (SyncWorker_1) [homeassistant.loader] Loaded mopeka from homeassistant.components.mopeka
-2024-10-20 10:57:05.794 INFO (SyncWorker_1) [homeassistant.loader] Loaded rhasspy from homeassistant.components.rhasspy
-2024-10-20 10:57:05.795 INFO (SyncWorker_1) [homeassistant.loader] Loaded spotify from homeassistant.components.spotify
-2024-10-20 10:57:05.795 INFO (SyncWorker_1) [homeassistant.loader] Loaded analytics_insights from homeassistant.components.analytics_insights
-2024-10-20 10:57:05.795 INFO (SyncWorker_1) [homeassistant.loader] Loaded openhome from homeassistant.components.openhome
-2024-10-20 10:57:05.797 INFO (SyncWorker_1) [homeassistant.loader] Loaded holiday from homeassistant.components.holiday
-2024-10-20 10:57:05.797 INFO (SyncWorker_1) [homeassistant.loader] Loaded aseko_pool_live from homeassistant.components.aseko_pool_live
-2024-10-20 10:57:05.798 INFO (SyncWorker_1) [homeassistant.loader] Loaded dremel_3d_printer from homeassistant.components.dremel_3d_printer
-2024-10-20 10:57:05.798 INFO (SyncWorker_1) [homeassistant.loader] Loaded peco from homeassistant.components.peco
-2024-10-20 10:57:05.799 INFO (SyncWorker_1) [homeassistant.loader] Loaded thermobeacon from homeassistant.components.thermobeacon
-2024-10-20 10:57:05.799 INFO (SyncWorker_1) [homeassistant.loader] Loaded vizio from homeassistant.components.vizio
-2024-10-20 10:57:05.800 INFO (SyncWorker_1) [homeassistant.loader] Loaded recollect_waste from homeassistant.components.recollect_waste
-2024-10-20 10:57:05.800 INFO (SyncWorker_1) [homeassistant.loader] Loaded openuv from homeassistant.components.openuv
-2024-10-20 10:57:05.801 INFO (SyncWorker_1) [homeassistant.loader] Loaded kegtron from homeassistant.components.kegtron
-2024-10-20 10:57:05.801 INFO (SyncWorker_1) [homeassistant.loader] Loaded time_date from homeassistant.components.time_date
-2024-10-20 10:57:05.801 INFO (SyncWorker_1) [homeassistant.loader] Loaded nightscout from homeassistant.components.nightscout
-2024-10-20 10:57:05.802 INFO (SyncWorker_1) [homeassistant.loader] Loaded ruuvi_gateway from homeassistant.components.ruuvi_gateway
-2024-10-20 10:57:05.802 INFO (SyncWorker_1) [homeassistant.loader] Loaded dwd_weather_warnings from homeassistant.components.dwd_weather_warnings
-2024-10-20 10:57:05.803 INFO (SyncWorker_1) [homeassistant.loader] Loaded glances from homeassistant.components.glances
-2024-10-20 10:57:05.803 INFO (SyncWorker_1) [homeassistant.loader] Loaded gardena_bluetooth from homeassistant.components.gardena_bluetooth
-2024-10-20 10:57:05.803 INFO (SyncWorker_1) [homeassistant.loader] Loaded enocean from homeassistant.components.enocean
-2024-10-20 10:57:05.804 INFO (SyncWorker_1) [homeassistant.loader] Loaded habitica from homeassistant.components.habitica
-2024-10-20 10:57:46.853 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: {('ecomane', '01J82Z6YT468JSR64EDAE4FGWZ'): 247409.433964761}
-2024-10-20 10:58:46.937 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: {('ecomane', '01J82Z6YT468JSR64EDAE4FGWZ'): 247409.433964761}
-2024-10-20 10:59:47.027 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: {('ecomane', '01J82Z6YT468JSR64EDAE4FGWZ'): 247409.433964761}
-2024-10-20 11:00:47.118 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: {('ecomane', '01J82Z6YT468JSR64EDAE4FGWZ'): 247409.433964761}
-2024-10-20 11:01:47.209 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: {('ecomane', '01J82Z6YT468JSR64EDAE4FGWZ'): 247409.433964761}
-2024-10-20 11:01:47.391 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry Panasonic Eco Mane HEMS for ecomane
+2024-10-02 14:59:34.478 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration ecomane which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2024-10-02 14:59:34.670 INFO (MainThread) [homeassistant.setup] Setup of domain system_log took 0.04 seconds
+2024-10-02 14:59:34.670 INFO (MainThread) [homeassistant.setup] Setup of domain logger took 0.03 seconds
+2024-10-02 14:59:34.672 INFO (MainThread) [homeassistant.bootstrap] Setting up frontend: {'frontend'}
+2024-10-02 14:59:34.677 INFO (MainThread) [homeassistant.setup] Setting up http
+2024-10-02 14:59:34.687 INFO (MainThread) [homeassistant.setup] Setting up device_automation
+2024-10-02 14:59:34.688 INFO (MainThread) [homeassistant.setup] Setup of domain device_automation took 0.00 seconds
+2024-10-02 14:59:34.695 WARNING (MainThread) [aiohttp_fast_zlib] zlib_ng and isal are not available, falling back to zlib, performance will be degraded.
+2024-10-02 14:59:34.699 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.02 seconds
+2024-10-02 14:59:34.700 INFO (MainThread) [homeassistant.setup] Setting up auth
+2024-10-02 14:59:34.702 INFO (MainThread) [homeassistant.setup] Setup of domain auth took 0.00 seconds
+2024-10-02 14:59:34.702 INFO (MainThread) [homeassistant.setup] Setting up config
+2024-10-02 14:59:34.704 INFO (MainThread) [homeassistant.setup] Setup of domain config took 0.00 seconds
+2024-10-02 14:59:34.705 INFO (MainThread) [homeassistant.setup] Setting up diagnostics
+2024-10-02 14:59:34.707 INFO (MainThread) [homeassistant.setup] Setup of domain diagnostics took 0.00 seconds
+2024-10-02 14:59:34.708 INFO (MainThread) [homeassistant.setup] Setting up file_upload
+2024-10-02 14:59:34.708 INFO (MainThread) [homeassistant.setup] Setup of domain file_upload took 0.00 seconds
+2024-10-02 14:59:34.709 INFO (MainThread) [homeassistant.setup] Setting up image_upload
+2024-10-02 14:59:34.712 INFO (MainThread) [homeassistant.setup] Setup of domain image_upload took 0.00 seconds
+2024-10-02 14:59:34.712 INFO (MainThread) [homeassistant.setup] Setting up repairs
+2024-10-02 14:59:34.713 INFO (MainThread) [homeassistant.setup] Setup of domain repairs took 0.00 seconds
+2024-10-02 14:59:34.714 INFO (MainThread) [homeassistant.setup] Setting up websocket_api
+2024-10-02 14:59:34.714 INFO (MainThread) [homeassistant.setup] Setup of domain websocket_api took 0.00 seconds
+2024-10-02 14:59:34.715 INFO (MainThread) [homeassistant.setup] Setting up api
+2024-10-02 14:59:34.716 INFO (MainThread) [homeassistant.setup] Setup of domain api took 0.00 seconds
+2024-10-02 14:59:34.718 INFO (MainThread) [homeassistant.setup] Setting up person
+2024-10-02 14:59:34.720 INFO (MainThread) [homeassistant.setup] Setting up search
+2024-10-02 14:59:34.720 INFO (MainThread) [homeassistant.setup] Setup of domain search took 0.00 seconds
+2024-10-02 14:59:34.722 INFO (MainThread) [homeassistant.setup] Setup of domain person took 0.00 seconds
+2024-10-02 14:59:34.723 INFO (MainThread) [homeassistant.setup] Setting up onboarding
+2024-10-02 14:59:34.724 INFO (MainThread) [homeassistant.setup] Setup of domain onboarding took 0.00 seconds
+2024-10-02 14:59:34.725 INFO (MainThread) [homeassistant.setup] Setting up lovelace
+2024-10-02 14:59:34.727 INFO (MainThread) [homeassistant.setup] Setup of domain lovelace took 0.00 seconds
+2024-10-02 14:59:34.729 INFO (MainThread) [homeassistant.setup] Setting up frontend
+2024-10-02 14:59:34.733 INFO (MainThread) [homeassistant.setup] Setup of domain frontend took 0.00 seconds
+2024-10-02 14:59:34.737 INFO (MainThread) [homeassistant.bootstrap] Setting up recorder: {'recorder'}
+2024-10-02 14:59:34.739 INFO (MainThread) [homeassistant.setup] Setting up recorder
+2024-10-02 14:59:34.744 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=9, family=2, type=1, proto=6, laddr=('0.0.0.0', 8123)>, <asyncio.TransportSocket fd=10, family=10, type=1, proto=6, laddr=('::', 8123, 0, 0)>)> is serving
+2024-10-02 14:59:34.744 INFO (MainThread) [homeassistant.components.http] Now listening on port 8123
+2024-10-02 14:59:34.745 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.01 seconds
+2024-10-02 14:59:34.742 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
 Traceback (most recent call last):
-  File "/workspaces/ha-core/homeassistant/config_entries.py", line 594, in async_setup
-    result = await component.async_setup_entry(hass, self)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspaces/ha-core/config/custom_components/ecomane/__init__.py", line 24, in async_setup_entry
-    await coordinator.async_config_entry_first_refresh()
-  File "/workspaces/ha-core/config/custom_components/ecomane/coordinator.py", line 410, in async_config_entry_first_refresh
-    self.data = await self._async_update_data()
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspaces/ha-core/config/custom_components/ecomane/coordinator.py", line 171, in _async_update_data
-    await self.update_circuit_power_data()
-  File "/workspaces/ha-core/config/custom_components/ecomane/coordinator.py", line 227, in update_circuit_power_data
-    response: aiohttp.ClientResponse = await session.get(url)
-                                       ^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/aiohttp/client.py", line 675, in _request
-    await resp.start(conn)
-  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 994, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/aiohttp/streams.py", line 640, in read
-    await self._waiter
-asyncio.exceptions.CancelledError: Global task timeout
-2024-10-20 11:01:47.393 WARNING (MainThread) [homeassistant.bootstrap] Setup timed out for stage 2 waiting on set() - moving forward
-2024-10-20 11:01:47.394 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 300.69s
-2024-10-20 11:01:47.395 INFO (MainThread) [homeassistant.core] Starting Home Assistant
-2024-10-20 11:01:47.399 INFO (MainThread) [custom_components.hacs] Stage changed: startup
-2024-10-20 11:01:47.403 INFO (MainThread) [custom_components.hacs] Loading removed repositories
-2024-10-20 11:01:47.464 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-10-20 11:01:47.574 INFO (MainThread) [custom_components.hacs] Stage changed: running
-2024-10-20 11:01:47.615 INFO (MainThread) [homeassistant.components.automation.xin_siiotomesiyon] Initialized trigger 新しいオートメーション
-2024-10-20 11:01:47.616 INFO (MainThread) [homeassistant.components.automation.toggle_all_devices_on] Initialized trigger Toggle All Devices On
-2024-10-20 11:01:47.639 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=26, family=2, type=1, proto=6, laddr=('172.17.0.3', 40000)>,)> is serving
-2024-10-20 17:01:47.404 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-10-20 23:01:47.404 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-10-21 05:01:47.406 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-10-21 11:01:47.406 INFO (MainThread) [custom_components.hacs] Loading known repositories
-2024-10-21 13:59:31.543 INFO (Recorder) [homeassistant.components.recorder.pool.RecorderPool] Pool recreating
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:37.746 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:40.747 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:43.748 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:44.740 WARNING (MainThread) [homeassistant.setup] Setup of recorder is taking over 10 seconds.
+2024-10-02 14:59:46.749 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:49.750 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:52.751 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:55.752 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 14:59:58.752 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 15:00:01.753 ERROR (Recorder) [homeassistant.components.recorder.core] Error during connection setup: (retrying in 3 seconds)
+Traceback (most recent call last):
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 927, in _setup_recorder
+    self._setup_connection()
+  File "/workspaces/ha-core/homeassistant/components/recorder/core.py", line 1443, in _setup_connection
+    self.engine = create_engine(self.db_url, **kwargs, future=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/ha-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 75, in import_dbapi
+    return __import__("pymysql")
+           ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pymysql'
+2024-10-02 15:00:01.753 DEBUG (Recorder) [homeassistant.components.recorder.core] Shutting down recorder
+2024-10-02 15:00:01.755 ERROR (MainThread) [homeassistant.setup] Setup failed for 'recorder': Integration failed to initialize.
+2024-10-02 15:00:01.756 INFO (MainThread) [homeassistant.setup] Setup of domain recorder took 27.02 seconds
+2024-10-02 15:00:01.757 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 1: {'usb', 'websocket_api', 'dhcp', 'zeroconf', 'auth', 'ssdp', 'network', 'webhook', 'cloud', 'repairs', 'bluetooth', 'http', 'api'}
+2024-10-02 15:00:01.760 INFO (MainThread) [homeassistant.setup] Setting up network
+2024-10-02 15:00:01.763 INFO (MainThread) [homeassistant.setup] Setup of domain network took 0.00 seconds
+2024-10-02 15:00:01.765 INFO (MainThread) [homeassistant.setup] Setting up webhook
+2024-10-02 15:00:01.766 INFO (MainThread) [homeassistant.setup] Setup of domain webhook took 0.00 seconds
+2024-10-02 15:00:01.775 INFO (MainThread) [homeassistant.setup] Setting up usb
+2024-10-02 15:00:01.776 INFO (MainThread) [homeassistant.setup] Setup of domain usb took 0.00 seconds
+2024-10-02 15:00:01.893 INFO (MainThread) [homeassistant.setup] Setting up dhcp
+2024-10-02 15:00:01.895 INFO (MainThread) [homeassistant.setup] Setup of domain dhcp took 0.00 seconds
+2024-10-02 15:00:01.919 INFO (MainThread) [homeassistant.setup] Setting up zeroconf
+2024-10-02 15:00:01.928 INFO (MainThread) [homeassistant.components.zeroconf] Starting Zeroconf broadcast
+2024-10-02 15:00:01.930 INFO (MainThread) [homeassistant.setup] Setup of domain zeroconf took 0.01 seconds
+2024-10-02 15:00:01.961 INFO (MainThread) [homeassistant.setup] Setting up ssdp
+2024-10-02 15:00:01.975 INFO (MainThread) [homeassistant.setup] Setup of domain ssdp took 0.01 seconds
+2024-10-02 15:00:02.153 INFO (MainThread) [homeassistant.setup] Setting up cloud
+2024-10-02 15:00:02.159 INFO (MainThread) [homeassistant.setup] Setting up ffmpeg
+2024-10-02 15:00:02.165 INFO (MainThread) [homeassistant.setup] Setup of domain cloud took 0.01 seconds
+2024-10-02 15:00:02.169 INFO (MainThread) [asyncio] execute program 'ffmpeg': <_UnixSubprocessTransport pid=25065 running stdin=<_UnixWritePipeTransport fd=15 idle bufsize=0> stdout=<_UnixReadPipeTransport fd=16 polling>>
+2024-10-02 15:00:02.223 INFO (MainThread) [homeassistant.setup] Setting up bluetooth
+2024-10-02 15:00:02.248 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth took 0.02 seconds
+2024-10-02 15:00:02.251 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 2: {'lovelace', 'logbook', 'my', 'zone', 'scene', 'image_upload', 'assist_pipeline', 'wake_word', 'trace', 'config', 'ffmpeg', 'sun', 'homeassistant_alerts', 'script', 'tag', 'input_number', 'application_credentials', 'esphome', 'search', 'person', 'automation', 'input_select', 'mobile_app', 'blueprint', 'diagnostics', 'hardware', 'schedule', 'stream', 'input_button', 'google_translate', 'onboarding', 'file_upload', 'energy', 'intent', 'counter', 'demo', 'analytics', 'history', 'device_automation', 'group', 'tts', 'input_datetime', 'system_health', 'input_text', 'radio_browser', 'map', 'ecomane', 'sse', 'stt', 'timer', 'input_boolean', 'backup', 'conversation', 'shopping_list', 'default_config', 'media_source'}
+2024-10-02 15:00:02.252 INFO (MainThread) [homeassistant.setup] Setting up scene
+2024-10-02 15:00:02.257 INFO (MainThread) [homeassistant.setup] Setup of domain scene took 0.00 seconds
+2024-10-02 15:00:02.257 INFO (MainThread) [homeassistant.setup] Setting up wake_word
+2024-10-02 15:00:02.258 INFO (MainThread) [homeassistant.setup] Setup of domain wake_word took 0.00 seconds
+2024-10-02 15:00:02.258 INFO (MainThread) [homeassistant.setup] Setting up stt
+2024-10-02 15:00:02.259 INFO (MainThread) [homeassistant.setup] Setup of domain stt took 0.00 seconds
+2024-10-02 15:00:02.262 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'logbook'. Setup failed for dependencies: ['recorder']
+2024-10-02 15:00:02.262 ERROR (MainThread) [homeassistant.setup] Setup failed for 'logbook': Could not setup dependencies: recorder
+2024-10-02 15:00:02.263 INFO (MainThread) [homeassistant.setup] Setting up blueprint
+2024-10-02 15:00:02.264 INFO (MainThread) [homeassistant.setup] Setup of domain blueprint took 0.00 seconds
+2024-10-02 15:00:02.269 INFO (MainThread) [homeassistant.setup] Setting up zone
+2024-10-02 15:00:02.272 INFO (MainThread) [homeassistant.setup] Setup of domain zone took 0.00 seconds
+2024-10-02 15:00:02.277 INFO (MainThread) [homeassistant.setup] Setting up stream
+2024-10-02 15:00:02.305 INFO (MainThread) [homeassistant.setup] Setting up input_button
+2024-10-02 15:00:02.309 INFO (MainThread) [homeassistant.setup] Setup of domain input_button took 0.00 seconds
+2024-10-02 15:00:02.310 INFO (MainThread) [homeassistant.setup] Setting up trace
+2024-10-02 15:00:02.311 INFO (MainThread) [homeassistant.setup] Setup of domain trace took 0.00 seconds
+2024-10-02 15:00:02.320 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'history'. Setup failed for dependencies: ['recorder']
+2024-10-02 15:00:02.320 ERROR (MainThread) [homeassistant.setup] Setup failed for 'history': Could not setup dependencies: recorder
+2024-10-02 15:00:02.321 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'energy'. Setup failed for dependencies: ['history', 'recorder']
+2024-10-02 15:00:02.321 ERROR (MainThread) [homeassistant.setup] Setup failed for 'energy': Could not setup dependencies: history, recorder
+2024-10-02 15:00:02.342 INFO (MainThread) [homeassistant.setup] Setting up script
+2024-10-02 15:00:02.351 INFO (MainThread) [homeassistant.setup] Setup of domain script took 0.01 seconds
+2024-10-02 15:00:02.368 INFO (MainThread) [homeassistant.setup] Setting up input_number
+2024-10-02 15:00:02.373 INFO (MainThread) [homeassistant.setup] Setup of domain input_number took 0.01 seconds
+2024-10-02 15:00:02.393 INFO (MainThread) [homeassistant.setup] Setting up group
+2024-10-02 15:00:02.401 INFO (MainThread) [homeassistant.setup] Setup of domain group took 0.01 seconds
+2024-10-02 15:00:02.415 INFO (MainThread) [homeassistant.setup] Setting up system_health
+2024-10-02 15:00:02.418 INFO (MainThread) [homeassistant.setup] Setup of domain system_health took 0.00 seconds
+2024-10-02 15:00:02.428 INFO (MainThread) [homeassistant.setup] Setting up timer
+2024-10-02 15:00:02.432 INFO (MainThread) [homeassistant.setup] Setup of domain timer took 0.00 seconds
+2024-10-02 15:00:02.433 INFO (MainThread) [homeassistant.setup] Setting up input_boolean
+2024-10-02 15:00:02.438 INFO (MainThread) [homeassistant.setup] Setup of domain input_boolean took 0.01 seconds
+2024-10-02 15:00:02.443 INFO (MainThread) [homeassistant.setup] Setting up automation
+2024-10-02 15:00:02.447 INFO (MainThread) [homeassistant.setup] Setup of domain automation took 0.00 seconds
+2024-10-02 15:00:02.447 INFO (MainThread) [homeassistant.setup] Setting up input_select
+2024-10-02 15:00:02.450 INFO (MainThread) [homeassistant.setup] Setup of domain input_select took 0.00 seconds
+2024-10-02 15:00:02.454 INFO (MainThread) [homeassistant.setup] Setting up media_source
+2024-10-02 15:00:02.456 INFO (MainThread) [homeassistant.setup] Setup of domain media_source took 0.00 seconds
+2024-10-02 15:00:02.460 WARNING (MainThread) [asyncio] Executing <Task pending name='Task-1' coro=<setup_and_run_hass() running at /workspaces/ha-core/homeassistant/runner.py:158> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.12/asyncio/tasks.py:712> cb=[_run_until_complete_cb() at /usr/local/lib/python3.12/asyncio/base_events.py:182] created at /usr/local/lib/python3.12/asyncio/tasks.py:695> took 0.212 seconds
+2024-10-02 15:00:02.467 INFO (MainThread) [homeassistant.components.scene] Setting up homeassistant.scene
+2024-10-02 15:00:02.469 INFO (MainThread) [homeassistant.setup] Setting up intent
+2024-10-02 15:00:02.471 INFO (MainThread) [homeassistant.setup] Setup of domain intent took 0.00 seconds
+2024-10-02 15:00:02.472 INFO (MainThread) [homeassistant.setup] Setting up my
+2024-10-02 15:00:02.473 INFO (MainThread) [homeassistant.setup] Setup of domain my took 0.00 seconds
+2024-10-02 15:00:02.473 INFO (MainThread) [homeassistant.setup] Setting up hardware
+2024-10-02 15:00:02.476 INFO (MainThread) [homeassistant.setup] Setting up schedule
+2024-10-02 15:00:02.479 INFO (MainThread) [homeassistant.setup] Setup of domain schedule took 0.00 seconds
+2024-10-02 15:00:02.480 INFO (MainThread) [homeassistant.setup] Setting up google_translate
+2024-10-02 15:00:02.480 INFO (MainThread) [homeassistant.setup] Setup of domain google_translate took 0.00 seconds
+2024-10-02 15:00:02.483 INFO (MainThread) [homeassistant.setup] Setting up sun
+2024-10-02 15:00:02.484 INFO (MainThread) [homeassistant.setup] Setup of domain sun took 0.00 seconds
+2024-10-02 15:00:02.493 INFO (MainThread) [homeassistant.setup] Setting up sensor
+2024-10-02 15:00:02.495 INFO (MainThread) [homeassistant.setup] Setup of domain sensor took 0.00 seconds
+2024-10-02 15:00:02.496 INFO (MainThread) [homeassistant.components.sensor] Setting up sun.sensor
+2024-10-02 15:00:02.507 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_alerts
+2024-10-02 15:00:02.509 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_alerts took 0.00 seconds
+2024-10-02 15:00:02.510 INFO (MainThread) [homeassistant.setup] Setting up counter
+2024-10-02 15:00:02.513 INFO (MainThread) [homeassistant.setup] Setup of domain counter took 0.00 seconds
+2024-10-02 15:00:02.516 INFO (MainThread) [homeassistant.setup] Setup of domain stream took 0.24 seconds
+2024-10-02 15:00:02.518 INFO (MainThread) [homeassistant.setup] Setting up tag
+2024-10-02 15:00:02.521 INFO (MainThread) [homeassistant.setup] Setup of domain tag took 0.00 seconds
+2024-10-02 15:00:02.522 INFO (MainThread) [homeassistant.setup] Setting up analytics
+2024-10-02 15:00:02.525 INFO (MainThread) [homeassistant.setup] Setup of domain analytics took 0.00 seconds
+2024-10-02 15:00:02.526 INFO (MainThread) [homeassistant.setup] Setting up application_credentials
+2024-10-02 15:00:02.529 INFO (MainThread) [homeassistant.setup] Setup of domain application_credentials took 0.00 seconds
+2024-10-02 15:00:02.529 INFO (MainThread) [homeassistant.setup] Setting up input_datetime
+2024-10-02 15:00:02.561 INFO (MainThread) [homeassistant.setup] Setup of domain input_datetime took 0.03 seconds
+2024-10-02 15:00:02.566 INFO (MainThread) [homeassistant.setup] Setting up input_text
+2024-10-02 15:00:02.568 INFO (MainThread) [homeassistant.setup] Setup of domain input_text took 0.00 seconds
+2024-10-02 15:00:02.569 INFO (MainThread) [asyncio] <_UnixSubprocessTransport pid=25065 running stdin=<_UnixWritePipeTransport closed fd=15 closed> stdout=<_UnixReadPipeTransport fd=16 polling>> exited with return code 0
+2024-10-02 15:00:02.570 INFO (MainThread) [asyncio] <_UnixReadPipeTransport fd=16 polling> was closed by peer
+2024-10-02 15:00:02.575 INFO (MainThread) [homeassistant.setup] Setting up conversation
+2024-10-02 15:00:02.576 INFO (MainThread) [homeassistant.setup] Setup of domain conversation took 0.00 seconds
+2024-10-02 15:00:02.579 INFO (MainThread) [homeassistant.setup] Setup of domain hardware took 0.11 seconds
+2024-10-02 15:00:02.586 INFO (MainThread) [homeassistant.setup] Setup of domain ffmpeg took 0.43 seconds
+2024-10-02 15:00:02.586 INFO (MainThread) [homeassistant.setup] Setting up radio_browser
+2024-10-02 15:00:02.586 INFO (MainThread) [homeassistant.setup] Setup of domain radio_browser took 0.00 seconds
+2024-10-02 15:00:02.592 INFO (MainThread) [homeassistant.setup] Setting up map
+2024-10-02 15:00:02.595 INFO (MainThread) [homeassistant.setup] Setup of domain map took 0.00 seconds
+2024-10-02 15:00:02.597 INFO (MainThread) [homeassistant.setup] Setting up tts
+2024-10-02 15:00:02.647 INFO (MainThread) [homeassistant.setup] Setup of domain tts took 0.05 seconds
+2024-10-02 15:00:02.654 INFO (MainThread) [homeassistant.setup] Setting up assist_pipeline
+2024-10-02 15:00:02.662 INFO (MainThread) [homeassistant.setup] Setup of domain assist_pipeline took 0.01 seconds
+2024-10-02 15:00:02.668 INFO (MainThread) [homeassistant.setup] Setting up ecomane
+2024-10-02 15:00:02.668 INFO (MainThread) [homeassistant.setup] Setup of domain ecomane took 0.00 seconds
+2024-10-02 15:00:02.677 INFO (MainThread) [homeassistant.setup] Setting up sse
+2024-10-02 15:00:02.679 INFO (MainThread) [homeassistant.setup] Setup of domain sse took 0.00 seconds
+2024-10-02 15:00:02.682 INFO (SyncWorker_2) [homeassistant.loader] Loaded mqtt from homeassistant.components.mqtt
+2024-10-02 15:00:02.686 INFO (MainThread) [homeassistant.setup] Setting up backup
+2024-10-02 15:00:02.687 INFO (MainThread) [homeassistant.setup] Setup of domain backup took 0.00 seconds
+2024-10-02 15:00:02.694 INFO (MainThread) [homeassistant.setup] Setting up shopping_list
+2024-10-02 15:00:02.695 INFO (MainThread) [homeassistant.setup] Setup of domain shopping_list took 0.00 seconds
+2024-10-02 15:00:02.706 INFO (MainThread) [homeassistant.components.tts] Setting up google_translate.tts
+2024-10-02 15:00:02.712 INFO (MainThread) [homeassistant.setup] Setting up demo
+2024-10-02 15:00:02.718 INFO (MainThread) [homeassistant.setup] Setting up camera
+2024-10-02 15:00:02.723 INFO (MainThread) [homeassistant.setup] Setup of domain camera took 0.00 seconds
+2024-10-02 15:00:02.725 INFO (MainThread) [homeassistant.setup] Setting up image_processing
+2024-10-02 15:00:02.726 INFO (MainThread) [homeassistant.setup] Setup of domain image_processing took 0.00 seconds
+2024-10-02 15:00:02.728 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
+2024-10-02 15:00:02.732 INFO (MainThread) [homeassistant.setup] Setup of domain device_tracker took 0.00 seconds
+2024-10-02 15:00:02.740 INFO (MainThread) [homeassistant.setup] Setup of domain demo took 0.03 seconds
+2024-10-02 15:00:02.770 INFO (MainThread) [homeassistant.setup] Setting up mobile_app
+2024-10-02 15:00:02.775 INFO (MainThread) [homeassistant.setup] Setting up notify
+2024-10-02 15:00:02.775 INFO (MainThread) [homeassistant.setup] Setup of domain notify took 0.00 seconds
+2024-10-02 15:00:02.777 INFO (MainThread) [homeassistant.setup] Setup of domain mobile_app took 0.01 seconds
+2024-10-02 15:00:02.780 INFO (MainThread) [homeassistant.components.notify] Setting up notify.mobile_app
+2024-10-02 15:00:02.781 INFO (MainThread) [homeassistant.components.sensor] Setting up sse.sensor
+2024-10-02 15:00:02.786 INFO (MainThread) [homeassistant.components.sse] エンティティの追加完了: 01J5K35YXB1W3HMRP4VS77ZNPC
+2024-10-02 15:00:02.787 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'default_config'. Setup failed for dependencies: ['energy', 'history', 'logbook']
+2024-10-02 15:00:02.787 ERROR (MainThread) [homeassistant.setup] Setup failed for 'default_config': Could not setup dependencies: energy, history, logbook
+2024-10-02 15:00:02.996 INFO (MainThread) [homeassistant.setup] Setting up esphome
+2024-10-02 15:00:02.999 INFO (MainThread) [homeassistant.setup] Setup of domain esphome took 0.00 seconds
+2024-10-02 15:00:03.014 INFO (MainThread) [homeassistant.setup] Setting up todo
+2024-10-02 15:00:03.016 INFO (MainThread) [homeassistant.setup] Setup of domain todo took 0.00 seconds
+2024-10-02 15:00:03.018 INFO (MainThread) [homeassistant.components.todo] Setting up shopping_list.todo
+2024-10-02 15:00:03.023 INFO (MainThread) [homeassistant.setup] Setting up mailbox
+2024-10-02 15:00:03.024 INFO (MainThread) [homeassistant.setup] Setup of domain mailbox took 0.00 seconds
+2024-10-02 15:00:03.027 INFO (MainThread) [homeassistant.components.image_processing] Setting up demo.image_processing
+2024-10-02 15:00:03.035 INFO (MainThread) [homeassistant.components.device_tracker] Setting up demo.device_tracker
+2024-10-02 15:00:03.077 INFO (MainThread) [homeassistant.setup] Setting up air_quality
+2024-10-02 15:00:03.078 INFO (MainThread) [homeassistant.setup] Setup of domain air_quality took 0.00 seconds
+2024-10-02 15:00:03.079 INFO (MainThread) [homeassistant.components.air_quality] Setting up demo.air_quality
+2024-10-02 15:00:03.084 INFO (MainThread) [homeassistant.setup] Setting up alarm_control_panel
+2024-10-02 15:00:03.084 INFO (MainThread) [homeassistant.setup] Setup of domain alarm_control_panel took 0.00 seconds
+2024-10-02 15:00:03.084 INFO (MainThread) [homeassistant.components.alarm_control_panel] Setting up demo.alarm_control_panel
+2024-10-02 15:00:03.086 INFO (MainThread) [homeassistant.setup] Setting up binary_sensor
+2024-10-02 15:00:03.087 INFO (MainThread) [homeassistant.setup] Setup of domain binary_sensor took 0.00 seconds
+2024-10-02 15:00:03.087 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up demo.binary_sensor
+2024-10-02 15:00:03.089 INFO (MainThread) [homeassistant.setup] Setting up button
+2024-10-02 15:00:03.090 INFO (MainThread) [homeassistant.setup] Setup of domain button took 0.00 seconds
+2024-10-02 15:00:03.090 INFO (MainThread) [homeassistant.components.button] Setting up demo.button
+2024-10-02 15:00:03.092 INFO (MainThread) [homeassistant.components.camera] Setting up demo.camera
+2024-10-02 15:00:03.094 INFO (MainThread) [homeassistant.setup] Setting up calendar
+2024-10-02 15:00:03.095 INFO (MainThread) [homeassistant.setup] Setup of domain calendar took 0.00 seconds
+2024-10-02 15:00:03.095 INFO (MainThread) [homeassistant.components.calendar] Setting up demo.calendar
+2024-10-02 15:00:03.098 INFO (MainThread) [homeassistant.setup] Setting up climate
+2024-10-02 15:00:03.100 INFO (MainThread) [homeassistant.setup] Setup of domain climate took 0.00 seconds
+2024-10-02 15:00:03.101 INFO (MainThread) [homeassistant.components.climate] Setting up demo.climate
+2024-10-02 15:00:03.105 INFO (MainThread) [homeassistant.setup] Setting up cover
+2024-10-02 15:00:03.106 INFO (MainThread) [homeassistant.setup] Setup of domain cover took 0.00 seconds
+2024-10-02 15:00:03.108 INFO (MainThread) [homeassistant.components.cover] Setting up demo.cover
+2024-10-02 15:00:03.111 INFO (MainThread) [homeassistant.setup] Setting up date
+2024-10-02 15:00:03.111 INFO (MainThread) [homeassistant.setup] Setup of domain date took 0.00 seconds
+2024-10-02 15:00:03.112 INFO (MainThread) [homeassistant.components.date] Setting up demo.date
+2024-10-02 15:00:03.114 INFO (MainThread) [homeassistant.setup] Setting up datetime
+2024-10-02 15:00:03.115 INFO (MainThread) [homeassistant.setup] Setup of domain datetime took 0.00 seconds
+2024-10-02 15:00:03.115 INFO (MainThread) [homeassistant.components.datetime] Setting up demo.datetime
+2024-10-02 15:00:03.117 INFO (MainThread) [homeassistant.setup] Setting up event
+2024-10-02 15:00:03.117 INFO (MainThread) [homeassistant.setup] Setup of domain event took 0.00 seconds
+2024-10-02 15:00:03.117 INFO (MainThread) [homeassistant.components.event] Setting up demo.event
+2024-10-02 15:00:03.120 INFO (MainThread) [homeassistant.setup] Setting up fan
+2024-10-02 15:00:03.121 INFO (MainThread) [homeassistant.setup] Setup of domain fan took 0.00 seconds
+2024-10-02 15:00:03.121 INFO (MainThread) [homeassistant.components.fan] Setting up demo.fan
+2024-10-02 15:00:03.125 INFO (MainThread) [homeassistant.setup] Setting up humidifier
+2024-10-02 15:00:03.125 INFO (MainThread) [homeassistant.setup] Setup of domain humidifier took 0.00 seconds
+2024-10-02 15:00:03.127 INFO (MainThread) [homeassistant.components.humidifier] Setting up demo.humidifier
+2024-10-02 15:00:03.130 INFO (MainThread) [homeassistant.setup] Setting up light
+2024-10-02 15:00:03.135 INFO (MainThread) [homeassistant.setup] Setup of domain light took 0.00 seconds
+2024-10-02 15:00:03.137 INFO (MainThread) [homeassistant.components.light] Setting up demo.light
+2024-10-02 15:00:03.141 INFO (MainThread) [homeassistant.setup] Setting up lock
+2024-10-02 15:00:03.141 INFO (MainThread) [homeassistant.setup] Setup of domain lock took 0.00 seconds
+2024-10-02 15:00:03.141 INFO (MainThread) [homeassistant.components.lock] Setting up demo.lock
+2024-10-02 15:00:03.144 INFO (MainThread) [homeassistant.setup] Setting up media_player
+2024-10-02 15:00:03.146 INFO (MainThread) [homeassistant.setup] Setup of domain media_player took 0.00 seconds
+2024-10-02 15:00:03.147 INFO (MainThread) [homeassistant.components.media_player] Setting up demo.media_player
+2024-10-02 15:00:03.152 INFO (MainThread) [homeassistant.components.notify] Setting up demo.notify
+2024-10-02 15:00:03.154 INFO (MainThread) [homeassistant.setup] Setting up number
+2024-10-02 15:00:03.155 INFO (MainThread) [homeassistant.setup] Setup of domain number took 0.00 seconds
+2024-10-02 15:00:03.155 INFO (MainThread) [homeassistant.components.number] Setting up demo.number
+2024-10-02 15:00:03.158 INFO (MainThread) [homeassistant.setup] Setting up select
+2024-10-02 15:00:03.159 INFO (MainThread) [homeassistant.setup] Setup of domain select took 0.00 seconds
+2024-10-02 15:00:03.159 INFO (MainThread) [homeassistant.components.select] Setting up demo.select
+2024-10-02 15:00:03.161 INFO (MainThread) [homeassistant.components.sensor] Setting up demo.sensor
+2024-10-02 15:00:03.165 INFO (MainThread) [homeassistant.setup] Setting up siren
+2024-10-02 15:00:03.166 INFO (MainThread) [homeassistant.setup] Setup of domain siren took 0.00 seconds
+2024-10-02 15:00:03.166 INFO (MainThread) [homeassistant.components.siren] Setting up demo.siren
+2024-10-02 15:00:03.168 INFO (MainThread) [homeassistant.components.stt] Setting up demo.stt
+2024-10-02 15:00:03.170 INFO (MainThread) [homeassistant.setup] Setting up switch
+2024-10-02 15:00:03.171 INFO (MainThread) [homeassistant.setup] Setup of domain switch took 0.00 seconds
+2024-10-02 15:00:03.171 INFO (MainThread) [homeassistant.components.switch] Setting up demo.switch
+2024-10-02 15:00:03.173 INFO (MainThread) [homeassistant.setup] Setting up text
+2024-10-02 15:00:03.174 INFO (MainThread) [homeassistant.setup] Setup of domain text took 0.00 seconds
+2024-10-02 15:00:03.174 INFO (MainThread) [homeassistant.components.text] Setting up demo.text
+2024-10-02 15:00:03.177 INFO (MainThread) [homeassistant.setup] Setting up time
+2024-10-02 15:00:03.178 INFO (MainThread) [homeassistant.setup] Setup of domain time took 0.00 seconds
+2024-10-02 15:00:03.178 INFO (MainThread) [homeassistant.components.time] Setting up demo.time
+2024-10-02 15:00:03.180 INFO (MainThread) [homeassistant.setup] Setting up update
+2024-10-02 15:00:03.181 INFO (MainThread) [homeassistant.setup] Setup of domain update took 0.00 seconds
+2024-10-02 15:00:03.181 INFO (MainThread) [homeassistant.components.update] Setting up demo.update
+2024-10-02 15:00:03.184 INFO (MainThread) [homeassistant.setup] Setting up vacuum
+2024-10-02 15:00:03.185 INFO (MainThread) [homeassistant.setup] Setup of domain vacuum took 0.00 seconds
+2024-10-02 15:00:03.187 INFO (MainThread) [homeassistant.components.vacuum] Setting up demo.vacuum
+2024-10-02 15:00:03.190 INFO (MainThread) [homeassistant.setup] Setting up water_heater
+2024-10-02 15:00:03.190 INFO (MainThread) [homeassistant.setup] Setup of domain water_heater took 0.00 seconds
+2024-10-02 15:00:03.191 INFO (MainThread) [homeassistant.components.water_heater] Setting up demo.water_heater
+2024-10-02 15:00:03.193 INFO (MainThread) [homeassistant.setup] Setting up weather
+2024-10-02 15:00:03.194 INFO (MainThread) [homeassistant.setup] Setup of domain weather took 0.00 seconds
+2024-10-02 15:00:03.195 INFO (MainThread) [homeassistant.components.weather] Setting up demo.weather
+2024-10-02 15:00:03.198 WARNING (MainThread) [asyncio] Executing <Task finished name='config entry setup Demo demo 01J8Z6HK236R01W9F652KTAVFT' coro=<ConfigEntry.async_setup_locked() done, defined at /workspaces/ha-core/homeassistant/config_entries.py:726> result=None created at /workspaces/ha-core/homeassistant/util/async_.py:37> took 0.122 seconds
+2024-10-02 15:00:03.201 INFO (MainThread) [homeassistant.components.mailbox] Setting up mailbox.demo
+2024-10-02 15:00:03.203 INFO (MainThread) [homeassistant.components.light] Setting up esphome.light
+2024-10-02 15:00:03.204 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
+2024-10-02 15:00:03.205 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2024-10-02 15:00:03.206 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2024-10-02 15:00:03.217 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2024-10-02 15:00:03.218 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
+2024-10-02 15:00:03.220 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2024-10-02 15:00:03.329 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to ble-device-m5cores3 @ 192.168.192.65 in 0.101s
+2024-10-02 15:00:03.351 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with ble-device-m5cores3 @ 192.168.192.65 in 0.022s
+2024-10-02 15:00:05.678 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:00:05.682 INFO (MainThread) [homeassistant.components.sensor] Setting up ecomane.sensor
+2024-10-02 15:00:05.696 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 31.22s
+2024-10-02 15:00:05.697 INFO (MainThread) [homeassistant.core] Starting Home Assistant
+2024-10-02 15:00:05.719 INFO (MainThread) [asyncio] <Server sockets=(<asyncio.TransportSocket fd=18, family=2, type=1, proto=6, laddr=('172.17.0.2', 40000)>,)> is serving
+2024-10-02 15:00:08.138 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to ble-device-m5atoms3 @ 192.168.192.33 in 4.914s
+2024-10-02 15:00:08.166 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with ble-device-m5atoms3 @ 192.168.192.33 in 0.028s
+2024-10-02 15:01:08.021 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:01:47.352 WARNING (MainThread) [aioesphomeapi.connection] ble-device-m5atoms3 @ 192.168.192.33: Connection error occurred: ble-device-m5atoms3 @ 192.168.192.33: EOF received
+2024-10-02 15:01:47.353 INFO (MainThread) [aioesphomeapi.reconnect_logic] Processing unexpected disconnect from ESPHome API for ble-device-m5atoms3 @ 192.168.192.33
+2024-10-02 15:01:49.951 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to ble-device-m5atoms3 @ 192.168.192.33 in 2.597s
+2024-10-02 15:01:50.011 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with ble-device-m5atoms3 @ 192.168.192.33 in 0.060s
+2024-10-02 15:02:09.973 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:03:11.962 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:04:13.991 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:05:16.000 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:06:17.938 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:07:19.912 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:08:09.295 WARNING (MainThread) [aioesphomeapi.connection] ble-device-m5atoms3 @ 192.168.192.33: Connection error occurred: ble-device-m5atoms3 @ 192.168.192.33: EOF received
+2024-10-02 15:08:09.295 INFO (MainThread) [aioesphomeapi.reconnect_logic] Processing unexpected disconnect from ESPHome API for ble-device-m5atoms3 @ 192.168.192.33
+2024-10-02 15:08:16.409 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to ble-device-m5atoms3 @ 192.168.192.33 in 7.113s
+2024-10-02 15:08:16.497 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with ble-device-m5atoms3 @ 192.168.192.33 in 0.088s
+2024-10-02 15:08:21.913 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:09:15.783 WARNING (MainThread) [aioesphomeapi.connection] ble-device-m5atoms3 @ 192.168.192.33: Connection error occurred: ble-device-m5atoms3 @ 192.168.192.33: EOF received
+2024-10-02 15:09:15.784 INFO (MainThread) [aioesphomeapi.reconnect_logic] Processing unexpected disconnect from ESPHome API for ble-device-m5atoms3 @ 192.168.192.33
+2024-10-02 15:09:16.902 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to ble-device-m5atoms3 @ 192.168.192.33 in 1.117s
+2024-10-02 15:09:16.928 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with ble-device-m5atoms3 @ 192.168.192.33 in 0.026s
+2024-10-02 15:09:24.058 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:10:26.047 INFO (MainThread) [custom_components.ecomane.coordinator] EcoMane data is updated
+2024-10-02 15:11:11.795 INFO (MainThread) [aioesphomeapi.reconnect_logic] Processing expected disconnect from ESPHome API for ble-device-m5cores3 @ 192.168.192.65
+2024-10-02 15:11:17.661 INFO (MainThread) [aioesphomeapi.reconnect_logic] Processing expected disconnect from ESPHome API for ble-device-m5atoms3 @ 192.168.192.33

@@ -29,16 +29,13 @@ logger:
   # logs:
   # custom_components.ecomane: debug
   # components.ecomane: info
+  logs:
+    homeassistant.components.recorder: debug
 
 demo:
 
-logbook:
-  exclude:
-    entities:
-      - text_sensor.ble_device_m5cores3_json_text_sensor
-      - text_sensor.json_text_sensor
 # influxdb:
-#   api_version: 2  # InfluxDB 2.xの場合
+#   api_version: 2 # InfluxDB 2.xの場合
 #   ssl: false
 #   host: host.docker.internal
 #   port: 8086
@@ -46,4 +43,11 @@ logbook:
 #   default_measurement: state
 #   organization: "ivy"
 #   bucket: "homeassistant"
-#   token: "JjxMlfk6Chi1ZOAXvKNMk_bwLARz4qds-uUF0fxRo1yNhufdnFqnbcA-qZikBaExb-_v_wGvcf2TlCr9K7P12A=="  # InfluxDB 2.xの場合
+#   token: "JjxMlfk6Chi1ZOAXvKNMk_bwLARz4qds-uUF0fxRo1yNhufdnFqnbcA-qZikBaExb-_v_wGvcf2TlCr9K7P12A==" # InfluxDB 2.xの場合
+
+# recorder:
+#   db_url: mongodb://localhost:27017/homeassistant
+
+recorder:
+  db_url: mysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
+  # db_url: mysql+pymysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
