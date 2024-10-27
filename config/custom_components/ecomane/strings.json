@@ -49,7 +49,7 @@
       "gas_consumption": {
         "name": "Gas Consumption"
       },
-      "water_consumpotion": {
+      "water_consumption": {
         "name": "Water Consumption"
       },
       "co2_emissions": {
@@ -61,8 +61,8 @@
       "electricity_sales": {
         "name": "Electricity Sales"
       },
-      "solar_power": {
-        "name": "Solar Power"
+      "solar_panel": {
+        "name": "Solar Panel"
       },
       "1f_toilet_outlets": {
         "name": "1F Toilet Outlets"
@@ -126,9 +126,6 @@
       },
       "bedroom_east_lighting_and_outlets": {
         "name": "Bedroom East Lighting & Outlets"
-      },
-      "water_consumption": {
-        "name": "Water Consumption"
       },
       "washroom_lighting_and_outlets": {
         "name": "Washroom Lighting & Outlets"

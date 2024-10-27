@@ -31,8 +31,7 @@ logger:
   # components.ecomane: info
   logs:
     homeassistant.components.recorder: debug
-
-demo:
+# demo:
 
 # influxdb:
 #   api_version: 2 # InfluxDB 2.xの場合
@@ -48,6 +47,6 @@ demo:
 # recorder:
 #   db_url: mongodb://localhost:27017/homeassistant
 
-recorder:
-  db_url: mysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
-  # db_url: mysql+pymysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
+# recorder:
+#   db_url: mysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
+# db_url: mysql+pymysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4

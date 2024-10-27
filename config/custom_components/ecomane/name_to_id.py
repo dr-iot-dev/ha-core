@@ -1,12 +1,13 @@
-"""Creating a translation dictionary."""
+"""Creating a translation dictionary from Japanese to English."""
 
 # 日本語からエンティティ名への変換辞書
 ja_to_entity_translation_dict = {
     "購入電気量": "electricity_purchased",
-    "CO2削減量": "co2_reduction",
-    "CO2排出量": "co2_emissions",
-    "ガス消費量": "gas_consumption",
     "太陽光発電量": "solar_power_energy",
+    "ガス消費量": "gas_consumption",
+    "水消費量": "water_consumption",
+    "CO2排出量": "co2_emissions",
+    "CO2削減量": "co2_reduction",
     "売電量": "electricity_sales",
     " 太陽光": "solar_panel",
     "１階トイレ コンセント": "1f_toilet_outlets",
@@ -30,7 +31,6 @@ ja_to_entity_translation_dict = {
     "寝室 エアコン": "bedroom_air_conditioner",
     "寝室・クロゼット 照明＆コンセント": "bedroom_closet_lighting_and_outlets",
     "寝室（東） 照明＆コンセント": "bedroom_east_lighting_and_outlets",
-    "水消費量": "water_consumption",
     "洗面 照明＆コンセント": "washroom_lighting_and_outlets",
     "洗面 洗濯機": "washroom_washing_machine",
     "洗面 暖房器": "washroom_heater",
