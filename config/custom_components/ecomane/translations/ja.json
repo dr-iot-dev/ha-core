@@ -58,7 +58,7 @@
       "gas_consumption": {
         "name": "ガス消費量"
       },
-      "water_consumption": {
+      "water_consumpotion": {
         "name": "水消費量"
       },
       "co2_emissions": {
@@ -144,6 +144,9 @@
       },
       "bedroom_east_lighting_and_outlets": {
         "name": "寝室（東） 照明＆コンセント"
+      },
+      "water_consumption": {
+        "name": "水消費量"
       },
       "washroom_lighting_and_outlets": {
         "name": "洗面 照明＆コンセント"

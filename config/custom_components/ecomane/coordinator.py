@@ -42,7 +42,7 @@ _LOGGER = logging.getLogger(__name__)
 # 電力センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeCircuitPowerSensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManeCircuitPower sensor entity."""
+    """Describes EcoManePower sensor entity."""
 
     service_type: str
 
@@ -50,7 +50,7 @@ class EcoManeCircuitPowerSensorEntityDescription(SensorEntityDescription):
 # 電力量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeCircuitEnergySensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManeCircuitEnergy sensor entity."""
+    """Describes EcoManeEnergy sensor entity."""
 
     service_type: str
 
@@ -58,7 +58,7 @@ class EcoManeCircuitEnergySensorEntityDescription(SensorEntityDescription):
 # 使用量センサーのエンティティのディスクリプション
 @dataclass(frozen=True, kw_only=True)
 class EcoManeUsageSensorEntityDescription(SensorEntityDescription):
-    """Describes EcoManeUsage sensor entity."""
+    """Describes EcoManeEnergy sensor entity."""
 
     description: str
 
@@ -169,7 +169,6 @@ class EcoManeDataCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("_async_update_data: Updating EcoMane data")  # debug
         await self.update_usage_data()
         await self.update_circuit_power_data()
-        _LOGGER.info("EcoMane data is updated")  # info
         return self._data_dict
 
     async def update_usage_data(self) -> None:

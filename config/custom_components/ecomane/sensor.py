@@ -289,7 +289,7 @@ class EcoManeCircuitEnergySensorEntity(CoordinatorEntity, SensorEntity):
 
         # 回路別電力量 entity_description を設定
         self._attr_entity_description = description = (
-            EcoManeCircuitEnergySensorEntityDescription(
+            EcoManeCircuitPowerSensorEntityDescription(
                 service_type=SENSOR_CIRCUIT_ENERGY_SERVICE_TYPE,
                 key=sensor_id,
             )
