@@ -1,0 +1,7 @@
+# script:
+save_audio_data:
+  sequence:
+    - service: hassio.addon_stdin
+      data_template:
+        addon: core_ssh
+        input: "echo -n '{{ audio_data }}' >> /config/audio_data.raw"

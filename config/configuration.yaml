@@ -29,8 +29,8 @@ logger:
   # logs:
   # custom_components.ecomane: debug
   # components.ecomane: info
-  logs:
-    homeassistant.components.recorder: debug
+  # logs:
+  #   homeassistant.components.recorder: debug
 # demo:
 
 # influxdb:
@@ -50,3 +50,23 @@ logger:
 # recorder:
 #   db_url: mysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
 # db_url: mysql+pymysql://esphome:password@host.docker.internal/homeassistant?charset=utf8mb4
+
+python_script:
+# sensor:
+#   - platform: mqtt
+#     name: "Microphone Audio Data"
+#     state_topic: "esphome/audio_data"
+#     value_template: "{{ value }}"
+#     id: esp_microphone_audio
+# mqtt:
+#   sensor:
+#     - name: "ESPHome Encoded Audio"
+#       state_topic: "esphome/audio_data"
+#       # value_template: "{{ value }}"
+#       # id: esp_binary_data
+
+# notify:
+#   - name: save_audio_data
+#     platform: file
+#     filename: "/config/www/decoded_audio_data.txt"  # 保存先のパス
+#     timestamp: false

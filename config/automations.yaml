@@ -32,3 +32,31 @@
       target:
         area_id: den
   mode: single
+# automation:
+# - alias: "Receive Audio Data"
+#   trigger:
+#     - platform: mqtt
+#       topic: "esphome/audio_data"
+#   action:
+#     - service: notify.persistent_notification
+#       data:
+#         message: "Audio data received from ESPHome."
+#     - service: script.save_audio_data
+#       data_template:
+#         audio_data: "{{ trigger.payload }}"
+
+# # automation:
+# - alias: "Save Microphone Audio Data to File"
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.esphome_binary_data
+#   action:
+#     - service: python_script.save_audio_data
+
+# automation:
+- alias: "Save Encoded Audio Data to File"
+  trigger:
+    - platform: state
+      entity_id: sensor.esphome_encoded_audio
+  action:
+    - service: python_script.save_audio_data
